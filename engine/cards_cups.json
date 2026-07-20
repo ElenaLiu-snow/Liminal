@@ -1,0 +1,660 @@
+[
+  {
+    "id": "cups_ace",
+    "name": "Ace of Cups",
+    "system": "Waite-Smith",
+    "number": 1,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.5,
+        "notes": "overflowing, tender, open — pure emotional and spiritual receptivity"
+      },
+      "agency": {
+        "score": 0.5,
+        "direction": "active",
+        "notes": "receiving as active spiritual act; the cup is offered, not taken"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.4,
+        "future": 0.6,
+        "notes": "a new emotional beginning; the cup is full and about to be offered to the world"
+      },
+      "conflict_harmony": {
+        "score": 0.9,
+        "notes": "pure harmony — the dove descends, the water overflows, nothing is withheld"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "received from above, poured outward — a conduit for grace"
+      },
+      "core_imagery": ["hand holding cup from cloud", "dove with wafer descending", "overflowing water", "lotus blossoms on water", "five streams from cup"],
+      "core_themes": ["new emotional beginning", "love", "intuition", "spiritual opening", "compassion", "overflow", "the heart opening"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Anima (as soul vessel)",
+      "secondary_archetype": "The Divine Child (emotional)",
+      "shadow_aspect": "emotional overwhelm, inability to contain feeling, sentimentality as defense against depth",
+      "individuation_stage": "the first opening of the feeling function — the psyche becoming receptive to soul",
+      "complex_signals": ["language of the heart opening or softening", "references to feeling moved or overwhelmed", "new emotional connections", "spiritual or transcendent feeling language"]
+    },
+    "standard_meaning": {
+      "upright": "New emotional beginnings, love, intuition, spiritual opening. The heart is full and ready to give.",
+      "reversed": "Emotional repression, blocked intuition, or love offered but not received."
+    }
+  },
+  {
+    "id": "cups_02",
+    "name": "Two of Cups",
+    "system": "Waite-Smith",
+    "number": 2,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.5,
+        "notes": "warm, mutual, intimate — the quiet charge of genuine connection"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "equal exchange; both giving and receiving"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.7,
+        "future": 0.2,
+        "notes": "fully present in the moment of connection"
+      },
+      "conflict_harmony": {
+        "score": 0.9,
+        "notes": "the most mutual harmony in the suit — two forces meeting as equals"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "oriented toward the other; connection is the center"
+      },
+      "core_imagery": ["two figures exchanging cups", "caduceus (Hermes staff)", "winged lion head", "red and white robes", "house in background"],
+      "core_themes": ["partnership", "mutual attraction", "connection", "equality", "romance", "friendship", "the joining of two"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Syzygy (coniunctio of opposites)",
+      "secondary_archetype": "Anima/Animus (meeting the inner other in the outer world)",
+      "shadow_aspect": "projection of the ideal onto the partner, loss of self in union, the wound that draws us to the wrong people",
+      "individuation_stage": "the coniunctio — meeting the other as mirror; projection as path to self-knowledge",
+      "complex_signals": ["language of feeling deeply understood or seen", "idealization of the connection", "difficulty distinguishing projection from perception", "strong 'we' language replacing 'I'"]
+    },
+    "standard_meaning": {
+      "upright": "Partnership, mutual attraction, connection. Two becoming something neither could be alone.",
+      "reversed": "Broken connection, imbalance, or the painful end of a meaningful bond."
+    }
+  },
+  {
+    "id": "cups_03",
+    "name": "Three of Cups",
+    "system": "Waite-Smith",
+    "number": 3,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.7,
+        "notes": "joyful, celebratory, abundantly communal — sisterhood, friendship, feast"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "active celebration; choosing to gather and give thanks"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.7,
+        "future": 0.1,
+        "notes": "present-focused harvest and celebration"
+      },
+      "conflict_harmony": {
+        "score": 1.0,
+        "notes": "pure communal joy; the archetype of women celebrating together"
+      },
+      "relational_direction": {
+        "inward": 0.1,
+        "outward": 0.9,
+        "notes": "fully communal; joy shared is the whole point"
+      },
+      "core_imagery": ["three women dancing", "cups raised in toast", "flower garlands", "fruit and harvest on ground", "flowing robes"],
+      "core_themes": ["celebration", "friendship", "community", "abundance", "joy", "sisterhood", "gratitude", "harvest"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Great Mother (as collective feminine celebration)",
+      "secondary_archetype": "The Divine Child (group expression)",
+      "shadow_aspect": "exclusivity of the inner circle, using belonging as social power, superficial joy masking need",
+      "individuation_stage": "the feeling function expressed in community — learning that joy multiplies when shared",
+      "complex_signals": ["references to close friendships or chosen family", "language of belonging and inclusion", "gratitude without self-congratulation", "celebration framed as relational not individual"]
+    },
+    "standard_meaning": {
+      "upright": "Celebration, friendship, community joy. A time of abundance and gratitude shared with others.",
+      "reversed": "Excess, gossip, exclusion from the group, or celebration masking avoidance."
+    }
+  },
+  {
+    "id": "cups_04",
+    "name": "Four of Cups",
+    "system": "Waite-Smith",
+    "number": 4,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.3,
+        "arousal": 0.2,
+        "notes": "withdrawn, apathetic, inward — boredom or spiritual discontent"
+      },
+      "agency": {
+        "score": 0.2,
+        "direction": "passive",
+        "notes": "disengaged; the figure sits with arms crossed, not reaching"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.6,
+        "future": 0.1,
+        "notes": "stuck in the present discontent; neither nostalgic nor hopeful"
+      },
+      "conflict_harmony": {
+        "score": 0.3,
+        "notes": "inner conflict between the offered cup and the refusal to receive"
+      },
+      "relational_direction": {
+        "inward": 0.9,
+        "outward": 0.1,
+        "notes": "deeply withdrawn; the external world offers gifts that go unnoticed"
+      },
+      "core_imagery": ["figure sitting under tree", "arms and legs crossed", "three cups before them", "fourth cup offered by cloud hand", "not looking at the offered cup"],
+      "core_themes": ["apathy", "withdrawal", "contemplation", "dissatisfaction", "the missed opportunity", "introspection", "emotional boredom"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (as inertia and refusal)",
+      "secondary_archetype": "The Hermit (premature withdrawal)",
+      "shadow_aspect": "depression as avoidance of engagement, refusing grace, the ego's contempt for what is freely given",
+      "individuation_stage": "the soul in temporary withdrawal — sometimes necessary, sometimes avoidance",
+      "complex_signals": ["language of nothing feeling worth doing", "dismissal of external opportunities", "introspective without productive insight", "strong sense that what others offer is insufficient"]
+    },
+    "standard_meaning": {
+      "upright": "Apathy, withdrawal, contemplation. Something is being offered that you aren't seeing — or aren't ready to accept.",
+      "reversed": "Emerging from withdrawal, renewed motivation, or finally noticing the offered cup."
+    }
+  },
+  {
+    "id": "cups_05",
+    "name": "Five of Cups",
+    "system": "Waite-Smith",
+    "number": 5,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.1,
+        "arousal": 0.4,
+        "notes": "grief, loss, regret — the card of mourning what is spilled"
+      },
+      "agency": {
+        "score": 0.2,
+        "direction": "passive",
+        "notes": "absorbed in loss; not yet turned toward what remains"
+      },
+      "time_orientation": {
+        "past": 0.7,
+        "present": 0.3,
+        "future": 0.0,
+        "notes": "entirely fixated on what has been lost; the two standing cups behind are unseen"
+      },
+      "conflict_harmony": {
+        "score": 0.1,
+        "notes": "deep inner grief; the conflict is between loss and the refusal to look at what remains"
+      },
+      "relational_direction": {
+        "inward": 0.8,
+        "outward": 0.2,
+        "notes": "turned away from the world, absorbed in private sorrow"
+      },
+      "core_imagery": ["cloaked figure with bowed head", "three spilled cups", "two standing cups behind (unseen)", "river and bridge", "castle in distance", "black cloak"],
+      "core_themes": ["grief", "loss", "regret", "mourning", "what remains", "fixation on the spilled", "the unseen gift"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (as unprocessed grief)",
+      "secondary_archetype": "The Wounded Healer (pre-healing)",
+      "shadow_aspect": "grief as identity, refusal to turn and see the remaining cups, mourning as punishment",
+      "individuation_stage": "the necessary descent into loss before the ego can reorganize around what remains",
+      "complex_signals": ["extended focus on what was lost with no acknowledgment of what remains", "grief language that resists consolation", "identity built around loss", "repetition of the narrative of the spill"]
+    },
+    "standard_meaning": {
+      "upright": "Grief, loss, regret. Mourning what was spilled. Two cups still stand behind you — when you're ready.",
+      "reversed": "Moving on, acceptance, finding what remains after loss. The turn toward the living cups."
+    }
+  },
+  {
+    "id": "cups_06",
+    "name": "Six of Cups",
+    "system": "Waite-Smith",
+    "number": 6,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.3,
+        "notes": "nostalgic, warm, innocent — the sweetness of remembered goodness"
+      },
+      "agency": {
+        "score": 0.5,
+        "direction": "active",
+        "notes": "gentle giving; the gift of memory and goodwill"
+      },
+      "time_orientation": {
+        "past": 0.7,
+        "present": 0.3,
+        "future": 0.0,
+        "notes": "deeply rooted in the past; nostalgia is the organizing emotion"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "warmth and simplicity; the harmony of remembered innocence"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "the gift is offered outward; connection through shared memory"
+      },
+      "core_imagery": ["child offering cup of flowers to smaller child", "village street", "white flowers in cups", "old figure walking away in background", "safe enclosed space"],
+      "core_themes": ["nostalgia", "childhood", "innocence", "past happiness", "reunion", "gifts", "simple pleasures", "the past revisited"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Divine Child (memory of original wholeness)",
+      "secondary_archetype": "The Great Mother (as past safety)",
+      "shadow_aspect": "living in the past, romanticizing what was, using nostalgia to avoid the present",
+      "individuation_stage": "the temptation to regress — the sweetness of the past as resistance to maturation",
+      "complex_signals": ["frequent references to childhood or the past", "comparison of present unfavorably to past", "longing for simpler times", "gifts or generosity as emotional currency"]
+    },
+    "standard_meaning": {
+      "upright": "Nostalgia, childhood, past happiness. A gift from the past or a reunion. Innocence revisited.",
+      "reversed": "Living in the past, inability to move forward, or nostalgia blocking present engagement."
+    }
+  },
+  {
+    "id": "cups_07",
+    "name": "Seven of Cups",
+    "system": "Waite-Smith",
+    "number": 7,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 0.6,
+        "notes": "dreamy, confused, overwhelmed — too many visions, no clear path"
+      },
+      "agency": {
+        "score": 0.3,
+        "direction": "passive",
+        "notes": "paralyzed by choice or lost in fantasy; desire without direction"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.3,
+        "future": 0.6,
+        "notes": "lost in possible futures, none of them chosen"
+      },
+      "conflict_harmony": {
+        "score": 0.3,
+        "notes": "internal fragmentation — too many competing desires"
+      },
+      "relational_direction": {
+        "inward": 0.7,
+        "outward": 0.3,
+        "notes": "in an inner landscape of visions; the outer world is shadowy"
+      },
+      "core_imagery": ["silhouetted figure before seven cups in clouds", "castle", "jewels", "snake", "dragon", "laurel wreath", "shrouded figure", "all floating in clouds"],
+      "core_themes": ["fantasy", "wishful thinking", "illusion", "too many choices", "temptation", "the imagination unmoored", "confusion of desire"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Trickster (as seductive fantasy)",
+      "secondary_archetype": "Anima/Animus (as projected fantasy objects)",
+      "shadow_aspect": "using fantasy to avoid reality, desire as a substitute for action, the inflation of possibility",
+      "individuation_stage": "the encounter with projected contents — all the things the psyche wants but has not yet owned",
+      "complex_signals": ["multiple vivid future scenarios with no commitment", "language of dreams and fantasies presented as plans", "difficulty choosing between equal desires", "excitement about options that feel unreal"]
+    },
+    "standard_meaning": {
+      "upright": "Fantasy, wishful thinking, too many options. The imagination is vivid — but which cup is real?",
+      "reversed": "Clarity returning, choices being made, or illusions dissolving to reveal the true desire."
+    }
+  },
+  {
+    "id": "cups_08",
+    "name": "Eight of Cups",
+    "system": "Waite-Smith",
+    "number": 8,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.4,
+        "arousal": 0.4,
+        "notes": "quiet departure, melancholy but resolute — leaving what was loved but is no longer enough"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "active but reluctant; the walking away is chosen"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.3,
+        "future": 0.3,
+        "notes": "turning from a completed past toward an unknown future"
+      },
+      "conflict_harmony": {
+        "score": 0.4,
+        "notes": "inner conflict of departure — something must be left that was once meaningful"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "walking away (outward motion) from inner emotional investment (inward)"
+      },
+      "core_imagery": ["figure walking away at night", "eight cups stacked but one gap visible", "moon eclipse", "mountains ahead", "red cloak", "back turned on the cups"],
+      "core_themes": ["walking away", "disillusionment", "seeking deeper meaning", "leaving what no longer serves", "the call of something more", "melancholy departure"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Seeker",
+      "secondary_archetype": "The Hermit (in motion)",
+      "shadow_aspect": "chronic abandonment, inability to sustain, leaving at the first sign of depth or difficulty",
+      "individuation_stage": "the recognition that the ego's current satisfactions are insufficient — the call to deeper water",
+      "complex_signals": ["language of something feeling hollow despite outward success", "the urge to leave something that looks fine from outside", "inability to explain why departure is necessary", "walking toward unknown rather than running from known"]
+    },
+    "standard_meaning": {
+      "upright": "Departure, seeking deeper meaning, walking away from what no longer fulfills. A necessary leaving.",
+      "reversed": "Returning to what was left, avoidance of necessary departure, or drifting without direction."
+    }
+  },
+  {
+    "id": "cups_09",
+    "name": "Nine of Cups",
+    "system": "Waite-Smith",
+    "number": 9,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.5,
+        "notes": "satisfied, pleased with oneself, comfortable — the wish-fulfillment card"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "earned satisfaction; agency expressed as enjoying what was created"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.6,
+        "future": 0.0,
+        "notes": "savoring the present results of past effort"
+      },
+      "conflict_harmony": {
+        "score": 0.9,
+        "notes": "deep personal satisfaction; the self is at peace with its own achievement"
+      },
+      "relational_direction": {
+        "inward": 0.6,
+        "outward": 0.4,
+        "notes": "self-satisfied; pleasure is primarily in one's own achievement"
+      },
+      "core_imagery": ["rotund figure arms crossed with smile", "nine cups displayed on shelf behind", "blue and red clothing", "wooden bench", "self-satisfied expression"],
+      "core_themes": ["wish fulfillment", "satisfaction", "pleasure", "comfort", "gratitude", "contentment", "having what you wanted"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Self (in temporary satisfaction)",
+      "secondary_archetype": "The Ruler (of one's own inner realm)",
+      "shadow_aspect": "complacency, excess pleasure, satisfaction as avoidance of further growth",
+      "individuation_stage": "a resting point — the ego allowed to enjoy what it has, before the next call",
+      "complex_signals": ["language of having finally gotten what was wanted", "self-referential satisfaction", "contentment that feels complete rather than temporary", "absence of wanting more"]
+    },
+    "standard_meaning": {
+      "upright": "Wish fulfilled, satisfaction, contentment. You got what you wanted — enjoy it.",
+      "reversed": "Dissatisfaction despite having what you wanted, or overindulgence in pleasure."
+    }
+  },
+  {
+    "id": "cups_10",
+    "name": "Ten of Cups",
+    "system": "Waite-Smith",
+    "number": 10,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 1.0,
+        "arousal": 0.6,
+        "notes": "deeply fulfilled, whole, complete — emotional completion and family joy"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "expressing gratitude and joy; agency as celebration and presence"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.6,
+        "future": 0.2,
+        "notes": "present in the moment of completion; the future is implied in the children playing"
+      },
+      "conflict_harmony": {
+        "score": 1.0,
+        "notes": "the highest harmony in the suit — the archetype of emotional fulfillment"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "family, community, the shared joy of belonging"
+      },
+      "core_imagery": ["couple with arms raised", "rainbow of ten cups overhead", "two children playing", "green landscape", "house and river in background", "rainbow bridge"],
+      "core_themes": ["family", "emotional fulfillment", "happiness", "harmony", "belonging", "the good life", "complete love"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Self (as relational wholeness)",
+      "secondary_archetype": "The Great Mother and Father (in balance)",
+      "shadow_aspect": "idealization of the family unit, pressure to perform the happy family, sacrificing authenticity for domestic harmony",
+      "individuation_stage": "the integration of the feeling function in its fullest relational expression",
+      "complex_signals": ["language of belonging and being home", "gratitude for connection", "family or community as source of meaning", "absence of striving — just being here"]
+    },
+    "standard_meaning": {
+      "upright": "Emotional fulfillment, family happiness, harmony. The heart's deepest wish for belonging — realized.",
+      "reversed": "Broken family harmony, false happiness, or the gap between the ideal and the real."
+    }
+  },
+  {
+    "id": "cups_page",
+    "name": "Page of Cups",
+    "system": "Waite-Smith",
+    "number": 11,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.4,
+        "notes": "dreamy, sensitive, imaginative — the feeling function in its youthful form"
+      },
+      "agency": {
+        "score": 0.5,
+        "direction": "active",
+        "notes": "curious and receptive; agency through openness to unexpected messages"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.6,
+        "future": 0.3,
+        "notes": "present in wonder; slightly dreamy about possibilities"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "gentle inner harmony; surprised by the fish but not threatened"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "in conversation with the inner world (the fish) while standing in the outer"
+      },
+      "core_imagery": ["youth holding cup", "fish appearing from cup", "look of surprise and curiosity", "ocean waves on tunic", "flowered hat", "shoreline"],
+      "core_themes": ["intuitive messages", "imagination", "sensitivity", "the unexpected", "emotional openness", "creative vision", "surprise from the depths"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Divine Child (feeling type)",
+      "secondary_archetype": "Anima (in youthful, receptive form)",
+      "shadow_aspect": "emotional immaturity, living in fantasy, hypersensitivity without resilience",
+      "individuation_stage": "the first opening to the unconscious — messages arrive unbidden; learning to receive them",
+      "complex_signals": ["language of surprising inner experiences", "difficulty separating feeling from fact", "strong creative or imaginal life", "openness to the unexpected that can tip into gullibility"]
+    },
+    "standard_meaning": {
+      "upright": "Intuitive messages, imagination, emotional sensitivity. Something unexpected rises from the depths — listen.",
+      "reversed": "Emotional immaturity, creative blocks, or imagination ungrounded in reality."
+    }
+  },
+  {
+    "id": "cups_knight",
+    "name": "Knight of Cups",
+    "system": "Waite-Smith",
+    "number": 12,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.5,
+        "notes": "romantic, idealistic, poetic — the knight of the inner quest"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "moving toward the object of desire; quest as devotion"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.3,
+        "future": 0.6,
+        "notes": "oriented toward an ideal; the quest is for something not yet reached"
+      },
+      "conflict_harmony": {
+        "score": 0.6,
+        "notes": "harmonious in pursuit; the tension is only in the gap between ideal and real"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "pursuing the inner ideal in outer form"
+      },
+      "core_imagery": ["knight on slow white horse", "cup offered forward", "winged helmet and boots", "river", "fish on tunic", "mountainous landscape", "deliberate slow pace"],
+      "core_themes": ["romance", "idealism", "the quest for the ideal", "artistic pursuit", "emotional invitation", "following the heart", "the grail seeker"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hero (on the feeling quest — the Grail Knight)",
+      "secondary_archetype": "Animus (in romantic, devotional form)",
+      "shadow_aspect": "emotional manipulation, seduction without commitment, pursuing the ideal while rejecting the real",
+      "individuation_stage": "the animus encountering the anima — the inner masculine pursuing the soul",
+      "complex_signals": ["romantic or poetic language about a person or ideal", "pursuit of something felt as perfect or transcendent", "difficulty with the imperfect reality of what is loved", "slow deliberate emotional investment"]
+    },
+    "standard_meaning": {
+      "upright": "Romance, idealism, following the heart. An invitation or proposal. The quest for the beautiful.",
+      "reversed": "Moodiness, emotional manipulation, or an idealistic pursuit that won't survive contact with reality."
+    }
+  },
+  {
+    "id": "cups_queen",
+    "name": "Queen of Cups",
+    "system": "Waite-Smith",
+    "number": 13,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.3,
+        "notes": "deep, compassionate, emotionally intelligent — the still deep water"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "agency through feeling and intuition; knows without being told"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.7,
+        "future": 0.1,
+        "notes": "deeply present; her wisdom is in the moment of feeling"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "inner harmony achieved through depth; she sits at the edge of the unconscious without falling in"
+      },
+      "relational_direction": {
+        "inward": 0.6,
+        "outward": 0.4,
+        "notes": "deeply inward — her gift to others flows from a full inner life"
+      },
+      "core_imagery": ["queen on throne at water's edge", "elaborate cup with lid and angels", "sea creatures on throne", "waves and shells", "contemplative gaze", "feet near water"],
+      "core_themes": ["emotional intelligence", "compassion", "intuition", "empathy", "depth", "the unconscious mastered", "nurturing wisdom"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Anima (fully developed — the Soul Woman)",
+      "secondary_archetype": "The Wise Old Woman",
+      "shadow_aspect": "emotional manipulation through empathy, drowning in others' feelings, using sensitivity as control",
+      "individuation_stage": "the mature feeling function — neither overwhelmed by feeling nor defended against it",
+      "complex_signals": ["deep emotional vocabulary", "knowing how others feel before being told", "difficulty with emotional boundaries", "wisdom offered from a place of genuine depth rather than performance"]
+    },
+    "standard_meaning": {
+      "upright": "Emotional intelligence, compassion, intuition. Deep feeling that doesn't sweep you away.",
+      "reversed": "Emotional manipulation, over-sensitivity, or drowning in others' feelings at the expense of one's own."
+    }
+  },
+  {
+    "id": "cups_king",
+    "name": "King of Cups",
+    "system": "Waite-Smith",
+    "number": 14,
+    "suit": "cups",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.4,
+        "notes": "calm authority, emotionally stable — the mature man who has mastered his feeling life"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "agency through emotional containment and wise counsel"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.6,
+        "future": 0.1,
+        "notes": "grounded in the present with the weight of emotional experience behind him"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "sits amid turbulent water calmly — mastery not absence of feeling"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "emotionally present for others from a place of inner stability"
+      },
+      "core_imagery": ["king on throne on turbulent sea", "cup and scepter held calmly", "ship and fish in background", "calm amid chaos", "blue throne on choppy water"],
+      "core_themes": ["emotional mastery", "calm authority", "wise counsel", "compassionate leadership", "balance of feeling and reason", "the therapist archetype"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Wise Old Man (feeling type)",
+      "secondary_archetype": "The Healer",
+      "shadow_aspect": "emotional coldness disguised as mastery, using calm as control, the therapist who doesn't feel",
+      "individuation_stage": "the integration of the feeling function with the masculine — wisdom that holds without suppressing",
+      "complex_signals": ["calm language amid acknowledged difficulty", "wisdom offered without needing to be seen as wise", "distinction between feeling and being swept away", "therapeutic or witnessing presence in narrative"]
+    },
+    "standard_meaning": {
+      "upright": "Emotional mastery, calm authority, wise counsel. Feeling deeply without losing oneself.",
+      "reversed": "Emotional manipulation, moodiness beneath a calm surface, or emotional repression."
+    }
+  }
+]

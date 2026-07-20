@@ -1,0 +1,660 @@
+[
+  {
+    "id": "swords_ace",
+    "name": "Ace of Swords",
+    "system": "Waite-Smith",
+    "number": 1,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.8,
+        "notes": "sharp, clarifying, powerful — truth as a cutting force, not a gentle one"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "the sword cuts; agency through clarity and decisive thought"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.5,
+        "future": 0.5,
+        "notes": "new mental beginning; a truth just perceived or about to be"
+      },
+      "conflict_harmony": {
+        "score": 0.5,
+        "notes": "the sword cuts through conflict to a deeper clarity; neither harmony nor conflict, but truth"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "clarity directed both inward (self-knowledge) and outward (communication)"
+      },
+      "core_imagery": ["hand emerging from cloud", "sword pointing upward", "crown with laurel and palm", "mountains below", "grey sky", "yods around the sword"],
+      "core_themes": ["mental clarity", "truth", "breakthrough", "new perspective", "justice", "cutting through", "the decisive word"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Logos (the word/reason principle)",
+      "secondary_archetype": "The Animus (in its clarifying function)",
+      "shadow_aspect": "cruelty in the name of truth, the sword that destroys rather than clarifies, intellectual pride",
+      "individuation_stage": "the logos function awakening — the capacity to name what is real",
+      "complex_signals": ["language of sudden clarity or realization", "desire to cut through pretense", "the need to say what has not been said", "sharp precise vocabulary"]
+    },
+    "standard_meaning": {
+      "upright": "Mental clarity, truth, breakthrough. The sword cuts through confusion to what is real.",
+      "reversed": "Confusion, cruelty, or truth wielded without wisdom."
+    }
+  },
+  {
+    "id": "swords_02",
+    "name": "Two of Swords",
+    "system": "Waite-Smith",
+    "number": 2,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.4,
+        "arousal": 0.3,
+        "notes": "tense stalemate, deliberately held — the effort of not deciding"
+      },
+      "agency": {
+        "score": 0.4,
+        "direction": "passive",
+        "notes": "active maintenance of inaction; the refusal to choose is itself a choice"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.7,
+        "future": 0.1,
+        "notes": "suspended in the present; movement would mean the blindfold coming off"
+      },
+      "conflict_harmony": {
+        "score": 0.3,
+        "notes": "suppressed conflict; the crossed swords hold two opposing truths apart"
+      },
+      "relational_direction": {
+        "inward": 0.7,
+        "outward": 0.3,
+        "notes": "blindfolded; reality is blocked out"
+      },
+      "core_imagery": ["blindfolded figure", "two crossed swords", "crescent moon", "rocky sea behind", "bench", "still posture of enforced balance"],
+      "core_themes": ["indecision", "stalemate", "blocked perception", "avoidance", "inner conflict", "the cost of not choosing", "self-imposed blindness"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (as willful blindness)",
+      "secondary_archetype": "The Persona (holding shape under pressure)",
+      "shadow_aspect": "prolonged indecision as control, keeping both options alive to avoid commitment to either",
+      "individuation_stage": "the ego confronting the need to remove the blindfold and see",
+      "complex_signals": ["explicit avoidance of making a decision", "language of holding two things in tension indefinitely", "discomfort with either option clearly stated", "somatic tension language"]
+    },
+    "standard_meaning": {
+      "upright": "Indecision, stalemate, blocked perception. The blindfold is a choice. What would you see if you removed it?",
+      "reversed": "Information arriving, the stalemate breaking, or confusion worse now that the blindfold is off."
+    }
+  },
+  {
+    "id": "swords_03",
+    "name": "Three of Swords",
+    "system": "Waite-Smith",
+    "number": 3,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.0,
+        "arousal": 0.6,
+        "notes": "grief, heartbreak, pain — the most unambiguously sorrowful card in the deck"
+      },
+      "agency": {
+        "score": 0.1,
+        "direction": "passive",
+        "notes": "the pain arrives; there is no agency in grief itself"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.6,
+        "future": 0.1,
+        "notes": "the wound is fresh; the future is not visible through the pain"
+      },
+      "conflict_harmony": {
+        "score": 0.0,
+        "notes": "the heart is pierced; this is the card of pure wounding"
+      },
+      "relational_direction": {
+        "inward": 0.9,
+        "outward": 0.1,
+        "notes": "pain is always interior — even when caused by the outer world"
+      },
+      "core_imagery": ["heart pierced by three swords", "storm clouds", "rain", "nothing else — the image is pure symbol"],
+      "core_themes": ["heartbreak", "grief", "sorrow", "betrayal", "loss", "the cost of love", "necessary pain"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Wounded Healer (in the wound itself)",
+      "secondary_archetype": "Shadow (as the source of the wound)",
+      "shadow_aspect": "using the wound as identity, grief that has calcified into a worldview, protecting the wound from healing",
+      "individuation_stage": "the painful recognition that the heart has been pierced — integration begins only when the swords are named",
+      "complex_signals": ["language of betrayal or unexpected hurt", "clarity of where the pain is located", "difficulty speaking about the wound directly", "repeated return to the wounding event"]
+    },
+    "standard_meaning": {
+      "upright": "Heartbreak, grief, sorrow. The pain is real. Name the swords — only then can they be removed.",
+      "reversed": "Recovery, the pain beginning to ease, or grief that is being suppressed rather than processed."
+    }
+  },
+  {
+    "id": "swords_04",
+    "name": "Four of Swords",
+    "system": "Waite-Smith",
+    "number": 4,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 0.1,
+        "notes": "still, recuperating, deliberately resting — enforced peace after conflict"
+      },
+      "agency": {
+        "score": 0.3,
+        "direction": "passive",
+        "notes": "rest is the action; lying down is the work"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.5,
+        "future": 0.1,
+        "notes": "recovering from the past; the future is not yet accessible"
+      },
+      "conflict_harmony": {
+        "score": 0.6,
+        "notes": "enforced truce — not resolved, but paused; rest before re-engagement"
+      },
+      "relational_direction": {
+        "inward": 0.9,
+        "outward": 0.1,
+        "notes": "entirely inward; the knight lies in the tomb-like church setting"
+      },
+      "core_imagery": ["knight lying in stone effigy pose", "three swords on wall", "one sword beneath", "stained glass window", "church or tomb setting", "hands folded in prayer"],
+      "core_themes": ["rest", "recuperation", "withdrawal", "contemplation", "healing through stillness", "retreat", "the pause before re-engagement"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hermit (as necessary rest)",
+      "secondary_archetype": "The Self (reconstituting in stillness)",
+      "shadow_aspect": "avoidance disguised as rest, using illness or exhaustion as permanent withdrawal",
+      "individuation_stage": "the incubation period — the psyche integrating after trauma or exertion",
+      "complex_signals": ["language of needing to step back and regroup", "exhaustion that is more than physical", "resistance to the expectation of action", "deliberately imposed stillness"]
+    },
+    "standard_meaning": {
+      "upright": "Rest, recuperation, withdrawal. The mind needs to be still. This is the work now.",
+      "reversed": "Restlessness, inability to rest, or returning to action before recuperation is complete."
+    }
+  },
+  {
+    "id": "swords_05",
+    "name": "Five of Swords",
+    "system": "Waite-Smith",
+    "number": 5,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.2,
+        "arousal": 0.6,
+        "notes": "hollow victory, humiliation, conflict with a bad aftertaste"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "the winner is active, but the victory costs something — dignity or relationship"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.5,
+        "future": 0.1,
+        "notes": "the fight just ended; the damage is being assessed"
+      },
+      "conflict_harmony": {
+        "score": 0.1,
+        "notes": "the worst conflict in the suit; someone won but everyone lost something"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "focused on the defeated and the damage; the relational cost is the point"
+      },
+      "core_imagery": ["smirking figure collecting swords", "two dejected figures walking away", "rough sea", "cloudy sky", "swords on ground"],
+      "core_themes": ["defeat", "hollow victory", "conflict", "humiliation", "the cost of winning", "betrayal", "the battle that shouldn't have been fought"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (in the winner and the loser)",
+      "secondary_archetype": "The Trickster (as the one who wins wrongly)",
+      "shadow_aspect": "winning at all costs, projection of unwanted weakness onto the defeated, the ego that cannot lose gracefully",
+      "individuation_stage": "recognizing one's own capacity for cruelty — the shadow in the victor as much as the victim",
+      "complex_signals": ["narratives of conflict where justice feels unresolved", "difficulty accepting defeat or owning a hollow victory", "lingering sense of having done something wrong even in winning", "the defeated party as the emotional focus despite narrating from the victor position"]
+    },
+    "standard_meaning": {
+      "upright": "Conflict, defeat, hollow victory. Someone won — but at what cost? Not all battles should be fought.",
+      "reversed": "Reconciliation, learning from conflict, or the aftermath of a damaging victory finally being addressed."
+    }
+  },
+  {
+    "id": "swords_06",
+    "name": "Six of Swords",
+    "system": "Waite-Smith",
+    "number": 6,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 0.3,
+        "notes": "melancholy transition — moving away from turbulence toward calmer water, but not yet arrived"
+      },
+      "agency": {
+        "score": 0.5,
+        "direction": "active",
+        "notes": "passage is being made; moving away is itself an act"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.4,
+        "future": 0.3,
+        "notes": "between the difficult past and the unknown future; the middle crossing"
+      },
+      "conflict_harmony": {
+        "score": 0.5,
+        "notes": "leaving conflict behind; not harmony yet, but moving toward it"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "oriented toward a destination; the ferryman guides, the passengers carry their wounds"
+      },
+      "core_imagery": ["ferryman poling boat", "woman and child huddled", "six swords in boat", "rough water on one side, calm on other", "distant shore"],
+      "core_themes": ["transition", "passage", "moving on", "gradual improvement", "travel", "recovery in motion", "the crossing"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Ferryman (guide across thresholds)",
+      "secondary_archetype": "The Wounded Healer (in transit)",
+      "shadow_aspect": "carrying the swords rather than leaving them, taking the problem into the new context",
+      "individuation_stage": "the night sea journey — crossing toward the other shore, not yet arrived",
+      "complex_signals": ["language of leaving a difficult situation", "relief mixed with residual grief", "the new place not yet felt as home", "carrying wounds visibly into new circumstances"]
+    },
+    "standard_meaning": {
+      "upright": "Transition, passage, gradual improvement. Moving away from turbulence. The calmer shore is ahead.",
+      "reversed": "Stuck in transition, return to troubled waters, or the swords coming along despite the crossing."
+    }
+  },
+  {
+    "id": "swords_07",
+    "name": "Seven of Swords",
+    "system": "Waite-Smith",
+    "number": 7,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.4,
+        "arousal": 0.7,
+        "notes": "sneaky, strategic, morally ambiguous — the thrill of getting away with something"
+      },
+      "agency": {
+        "score": 0.8,
+        "direction": "active",
+        "notes": "high individual agency — but directed toward circumventing rather than confronting"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.7,
+        "future": 0.2,
+        "notes": "in the act; the plan is being executed now"
+      },
+      "conflict_harmony": {
+        "score": 0.3,
+        "notes": "conflict avoided through cunning; the underlying tension remains"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "operating in the world but avoiding direct engagement with it"
+      },
+      "core_imagery": ["figure tiptoeing away with five swords", "two swords left behind", "looking back over shoulder", "military camp in background", "sly expression"],
+      "core_themes": ["deception", "strategy", "cunning", "avoidance", "taking what isn't yours", "the lone operator", "getting away with it"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Trickster",
+      "secondary_archetype": "The Shadow (as strategic self-interest)",
+      "shadow_aspect": "habitual dishonesty, using intelligence to avoid vulnerability, the self-serving rationalization",
+      "individuation_stage": "the shadow's need for cunning in a world that cannot always be met directly — legitimate and otherwise",
+      "complex_signals": ["indirect language around something difficult to say directly", "language of strategy or getting around obstacles", "rationalizations for actions that weren't fully above board", "the sense of having taken something without full permission"]
+    },
+    "standard_meaning": {
+      "upright": "Deception, strategy, getting away with something. Cunning used well — or poorly.",
+      "reversed": "Caught out, confession, or cunning turned against the self."
+    }
+  },
+  {
+    "id": "swords_08",
+    "name": "Eight of Swords",
+    "system": "Waite-Smith",
+    "number": 8,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.1,
+        "arousal": 0.4,
+        "notes": "trapped, helpless, restricted — but the trap is largely mental"
+      },
+      "agency": {
+        "score": 0.1,
+        "direction": "passive",
+        "notes": "the figure believes they cannot move; the bonds are loosely tied"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.7,
+        "future": 0.1,
+        "notes": "frozen in the present; the future is not imaginable from this position"
+      },
+      "conflict_harmony": {
+        "score": 0.1,
+        "notes": "internal restriction — the conflict is between what is believed and what is real"
+      },
+      "relational_direction": {
+        "inward": 0.9,
+        "outward": 0.1,
+        "notes": "the prison is interior; the swords stand around but do not touch"
+      },
+      "core_imagery": ["blindfolded bound figure", "eight swords surrounding but not touching", "muddy ground", "castle in distance", "figure could walk away if they removed blindfold"],
+      "core_themes": ["restriction", "mental imprisonment", "victim consciousness", "limiting beliefs", "trapped by perception", "the cage with an open door"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (as self-limiting belief)",
+      "secondary_archetype": "The Persona (as the cage)",
+      "shadow_aspect": "the ego's belief in its own helplessness — the complex that says I cannot move",
+      "individuation_stage": "recognizing the cage as self-constructed — the work of ego dissolution before re-integration",
+      "complex_signals": ["repeated 'I can't' language without examination", "externalization of the source of restriction", "inability to see options that are visible to others", "paradox of describing restriction with precise detail (the blindfold sees clearly)"]
+    },
+    "standard_meaning": {
+      "upright": "Restriction, mental imprisonment, feeling trapped. The bonds are real — but not as absolute as they feel.",
+      "reversed": "Release from restriction, the blindfold removed, or recognizing that the cage door was open."
+    }
+  },
+  {
+    "id": "swords_09",
+    "name": "Nine of Swords",
+    "system": "Waite-Smith",
+    "number": 9,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.0,
+        "arousal": 0.8,
+        "notes": "anguish, anxiety, despair — the nightmare card; 3am consciousness"
+      },
+      "agency": {
+        "score": 0.1,
+        "direction": "passive",
+        "notes": "overwhelmed; sitting up in bed, unable to stop the thoughts"
+      },
+      "time_orientation": {
+        "past": 0.5,
+        "present": 0.4,
+        "future": 0.1,
+        "notes": "ruminating on what was; catastrophizing what's to come; no present peace"
+      },
+      "conflict_harmony": {
+        "score": 0.0,
+        "notes": "pure inner anguish; the swords are all in the mind"
+      },
+      "relational_direction": {
+        "inward": 1.0,
+        "outward": 0.0,
+        "notes": "entirely interior — the nightmare is private"
+      },
+      "core_imagery": ["figure sitting up in bed with head in hands", "nine swords on wall above", "quilt with astrological signs", "dark room", "no external threat visible"],
+      "core_themes": ["anxiety", "despair", "nightmares", "rumination", "guilt", "worry", "the darkest hour", "3am thoughts"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (in direct confrontation with the ego at night)",
+      "secondary_archetype": "The Trickster (as anxiety's distortions)",
+      "shadow_aspect": "anxiety as the shadow demanding integration — the content of the nightmares is information",
+      "individuation_stage": "the dark night of the soul — what the ego cannot face by day returns at night",
+      "complex_signals": ["catastrophic thinking language", "3am or sleepless-night references", "guilt and shame themes", "thoughts that return uninvited", "awareness that the fear is partly irrational but unable to stop it"]
+    },
+    "standard_meaning": {
+      "upright": "Anxiety, despair, nightmares. The swords are in your mind. What are they really about?",
+      "reversed": "The darkest hour before dawn, or anxiety that is finally being addressed rather than endured."
+    }
+  },
+  {
+    "id": "swords_10",
+    "name": "Ten of Swords",
+    "system": "Waite-Smith",
+    "number": 10,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.0,
+        "arousal": 0.5,
+        "notes": "absolute ending, defeat, the bottom — but the sky is lightening"
+      },
+      "agency": {
+        "score": 0.0,
+        "direction": "passive",
+        "notes": "the figure is down; there is no agency in this moment"
+      },
+      "time_orientation": {
+        "past": 0.6,
+        "present": 0.3,
+        "future": 0.1,
+        "notes": "the past brought the figure here; the future is implied in the rising light on the horizon"
+      },
+      "conflict_harmony": {
+        "score": 0.0,
+        "notes": "absolute defeat — but this is also the end of the conflict"
+      },
+      "relational_direction": {
+        "inward": 0.6,
+        "outward": 0.4,
+        "notes": "fallen in the outer world, but the soul's journey continues"
+      },
+      "core_imagery": ["figure face-down with ten swords in back", "calm sea", "dawn breaking on horizon", "dark sky above, golden below", "the bottom has been reached"],
+      "core_themes": ["rock bottom", "total defeat", "the end of a painful cycle", "the dawn after the darkest night", "letting it be over", "the necessary ending"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (fully landed — enantiodromia complete)",
+      "secondary_archetype": "The Self (the dawn — what comes after)",
+      "shadow_aspect": "dramatizing defeat, staying down past the point of necessity, using collapse to avoid the next step",
+      "individuation_stage": "the absolute nadir — the ego has been completely undone; this is the ground condition for rebirth",
+      "complex_signals": ["language of total defeat that surprisingly carries relief", "the sense that the worst has finally happened and somehow that is survivable", "dawn imagery or the glimmer of what comes after", "paradoxical calm in the moment of total loss"]
+    },
+    "standard_meaning": {
+      "upright": "Rock bottom, painful ending, total defeat. The worst has happened. Notice the dawn on the horizon.",
+      "reversed": "Recovery beginning, the cycle starting to turn, or resisting an inevitable ending."
+    }
+  },
+  {
+    "id": "swords_page",
+    "name": "Page of Swords",
+    "system": "Waite-Smith",
+    "number": 11,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.8,
+        "notes": "alert, watchful, quick — the restless mind of youth"
+      },
+      "agency": {
+        "score": 0.8,
+        "direction": "active",
+        "notes": "quick to act and react; youth's speed without depth"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.6,
+        "future": 0.4,
+        "notes": "alert in the present, scanning for what's coming"
+      },
+      "conflict_harmony": {
+        "score": 0.5,
+        "notes": "ready for conflict; not in it yet but expecting it"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "watchful of the external world; surveillance mode"
+      },
+      "core_imagery": ["youth on hilltop with sword raised", "looking back over shoulder", "wind in hair and clouds", "birds overhead", "poised, alert stance"],
+      "core_themes": ["curiosity", "mental agility", "vigilance", "gossip or news", "quick thinking", "the sharp tongue", "intellectual restlessness"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Trickster (youthful, verbal)",
+      "secondary_archetype": "Animus (logos in early development)",
+      "shadow_aspect": "gossip, verbal cruelty, using intelligence to harm, surveillance as control",
+      "individuation_stage": "the logos function before it has wisdom — sharp but without depth",
+      "complex_signals": ["rapid-fire thought or speech patterns", "noticing inconsistencies in others quickly", "verbal wit used as both connection and weapon", "watchfulness that can tip into paranoia"]
+    },
+    "standard_meaning": {
+      "upright": "Mental agility, vigilance, curiosity. Quick thinking and sharp perception — use them wisely.",
+      "reversed": "Gossip, deception, all talk and no action, or the sharp tongue used to wound."
+    }
+  },
+  {
+    "id": "swords_knight",
+    "name": "Knight of Swords",
+    "system": "Waite-Smith",
+    "number": 12,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 1.0,
+        "notes": "charging, unstoppable, the most aggressive court card — intellect as weapon"
+      },
+      "agency": {
+        "score": 1.0,
+        "direction": "active",
+        "notes": "maximum force; charges without hesitation, truth as battering ram"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.3,
+        "future": 0.7,
+        "notes": "entirely forward; the objective is all that exists"
+      },
+      "conflict_harmony": {
+        "score": 0.1,
+        "notes": "charging into conflict; this knight creates it as much as resolves it"
+      },
+      "relational_direction": {
+        "inward": 0.1,
+        "outward": 0.9,
+        "notes": "all outward force; no introspection at this speed"
+      },
+      "core_imagery": ["knight charging at full gallop", "sword raised overhead", "birds and clouds blown back", "rearing horse", "stormy sky", "no obstacle visible"],
+      "core_themes": ["intellectual force", "ambition", "speed", "direct confrontation", "the truth that cuts", "unstoppable momentum", "righteous charge"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hero (logos version — the crusader)",
+      "secondary_archetype": "Animus (in its aggressive, undifferentiated form)",
+      "shadow_aspect": "fanaticism, righteous cruelty, the idealist who destroys what he tries to save",
+      "individuation_stage": "the animus in full charge — powerful but one-sided; wisdom comes from what slows him down",
+      "complex_signals": ["absolute certainty language", "urgency that overrides nuance", "the feeling of being on the right side justifying the method", "speed of thought that skips over complexity"]
+    },
+    "standard_meaning": {
+      "upright": "Ambition, intellectual force, charging ahead. The truth delivered at full speed — effective and potentially destructive.",
+      "reversed": "Impulsive aggression, arguments for their own sake, or force without direction."
+    }
+  },
+  {
+    "id": "swords_queen",
+    "name": "Queen of Swords",
+    "system": "Waite-Smith",
+    "number": 13,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 0.5,
+        "notes": "clear-eyed, sharp, independent — sorrow transformed into precision"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "commands through clarity; does not need others' approval"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.6,
+        "future": 0.1,
+        "notes": "shaped by past pain, fully present in hard-won clarity"
+      },
+      "conflict_harmony": {
+        "score": 0.6,
+        "notes": "inner clarity that cuts through outer conflict; not warm but not cruel"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "faces the world directly; the raised sword is both defense and invitation to truth"
+      },
+      "core_imagery": ["queen on throne with sword raised", "cloudy sky with one bird", "butterfly on crown", "raised hand", "forward gaze", "windswept", "stone throne"],
+      "core_themes": ["clarity", "independence", "direct communication", "experience-forged wisdom", "truth without sentimentality", "boundaries", "the widow's sharpness"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Wise Old Woman (as logos-carrier)",
+      "secondary_archetype": "Anima (transformed through suffering into clarity)",
+      "shadow_aspect": "bitterness, cruelty disguised as honesty, using sharpness to keep others at distance",
+      "individuation_stage": "the logos function developed through the feeling function's suffering — wisdom that costs something",
+      "complex_signals": ["direct, unhedged language", "explicit statements of what will and won't be tolerated", "past pain acknowledged without self-pity", "the distinction between honesty and cruelty consciously held"]
+    },
+    "standard_meaning": {
+      "upright": "Clarity, independence, direct communication. Hard-won wisdom. She has seen enough to speak plainly.",
+      "reversed": "Bitterness, cruelty in the name of honesty, or the sharpness turned against the self."
+    }
+  },
+  {
+    "id": "swords_king",
+    "name": "King of Swords",
+    "system": "Waite-Smith",
+    "number": 14,
+    "suit": "swords",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.5,
+        "notes": "authoritative, impartial, intellectually commanding — the judge archetype"
+      },
+      "agency": {
+        "score": 1.0,
+        "direction": "active",
+        "notes": "authority through intellectual mastery; commands through reason"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.5,
+        "future": 0.3,
+        "notes": "grounded in principle; applies accumulated wisdom to present decisions"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "resolves conflict through clear judgment; the court is in session"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "faces the world with the full force of his intellect; judgment is outward-directed"
+      },
+      "core_imagery": ["king on stone throne", "sword held upright", "two birds on crown", "clouds with angels", "butterfly on throne", "direct forward gaze", "crown and blue robe"],
+      "core_themes": ["intellectual authority", "truth", "justice", "clear judgment", "ethics", "rational mastery", "the rule of principle"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Wise Old Man (as logos authority)",
+      "secondary_archetype": "Animus (fully developed — principle over impulse)",
+      "shadow_aspect": "cold judgment without mercy, the intellect that cannot feel, using principle to avoid compassion",
+      "individuation_stage": "logos fully integrated with experience — the capacity to render judgment that is both true and just",
+      "complex_signals": ["principled language with real stakes", "ability to see multiple sides before deciding", "intellectual authority that doesn't need to be loud", "the distinction between what is true and what is kind consciously navigated"]
+    },
+    "standard_meaning": {
+      "upright": "Intellectual authority, truth, clear judgment. The mind at its most disciplined and ethical.",
+      "reversed": "Cruelty, abuse of intellectual power, or cold rationality weaponized against the vulnerable."
+    }
+  }
+]

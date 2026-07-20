@@ -1,0 +1,1036 @@
+[
+  {
+    "id": "major_00",
+    "name": "The Fool",
+    "system": "Waite-Smith",
+    "number": 0,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.8,
+        "notes": "openness, lightness, naïve joy, excitement"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "self-initiated leap, unguarded forward movement"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.2,
+        "future": 0.7,
+        "notes": "strongly future-facing, threshold moment before everything begins"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "internal harmony; tension exists only as external risk (the cliff)"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "oriented outward toward the world, not yet reflective"
+      },
+      "core_imagery": ["cliff edge", "white sun", "small dog", "bindle", "white rose", "mountain path", "colorful tunic"],
+      "core_themes": ["beginning", "leap of faith", "innocence", "freedom", "spontaneity", "potential", "trust"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Child (Puer Aeternus)",
+      "secondary_archetype": "The Trickster",
+      "shadow_aspect": "recklessness, avoidance of consequence, eternal adolescence, refusal to commit",
+      "individuation_stage": "the initial call — ego's first step away from the known self",
+      "complex_signals": ["absence of consequence language", "repeated 'start' or 'beginning' framing", "avoidance of responsibility or weight words", "light/floating imagery dominating"]
+    },
+    "standard_meaning": {
+      "upright": "New beginnings, spontaneity, a leap into the unknown with trust and openness. The start of a journey.",
+      "reversed": "Recklessness, poor judgment, naïve risk-taking without grounding. Hesitation at the threshold."
+    }
+  },
+  {
+    "id": "major_01",
+    "name": "The Magician",
+    "system": "Waite-Smith",
+    "number": 1,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.7,
+        "notes": "confident, focused, purposeful, electric"
+      },
+      "agency": {
+        "score": 1.0,
+        "direction": "active",
+        "notes": "maximum agency — the archetype of will directed into manifestation"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.7,
+        "future": 0.2,
+        "notes": "intensely present-focused, the moment of concentrated action"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "internal integration of all four elements; harmony through mastery"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "outward expression of inner resources"
+      },
+      "core_imagery": ["wand raised to sky", "four tools (wand, cup, sword, pentacle)", "infinity symbol", "white robe", "red cloak", "garden of roses and lilies"],
+      "core_themes": ["willpower", "skill", "concentration", "manifestation", "resourcefulness", "mastery", "transformation"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Magician / Mercurius",
+      "secondary_archetype": "The Hero (ego-strengthening phase)",
+      "shadow_aspect": "manipulation, deception, using skill for control over others, trickster-as-deceiver",
+      "individuation_stage": "consolidation of ego resources — recognizing one's tools before the journey",
+      "complex_signals": ["repeated 'I can', 'I will', 'I have the ability'", "lists of capabilities or resources", "absence of doubt language", "performance or proving framing"]
+    },
+    "standard_meaning": {
+      "upright": "Willpower, skill, and the ability to manifest desires. All resources are available; the question is how to use them.",
+      "reversed": "Manipulation, untapped potential, poor planning. Skills present but misdirected or unused."
+    }
+  },
+  {
+    "id": "major_02",
+    "name": "The High Priestess",
+    "system": "Waite-Smith",
+    "number": 2,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.2,
+        "notes": "still, cool, mysterious, restrained — not warm but not cold"
+      },
+      "agency": {
+        "score": 0.3,
+        "direction": "passive",
+        "notes": "receptive rather than active; agency is inward, not outward"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.5,
+        "future": 0.3,
+        "notes": "present-dwelling, accessing timeless knowledge rather than moving through time"
+      },
+      "conflict_harmony": {
+        "score": 0.6,
+        "notes": "balanced between opposites (pillars B and J); neither conflict nor easy harmony"
+      },
+      "relational_direction": {
+        "inward": 0.9,
+        "outward": 0.1,
+        "notes": "profoundly inward — the card of interior knowing"
+      },
+      "core_imagery": ["two pillars (B and J)", "veil with pomegranates", "crescent moon at feet", "scroll (Torah)", "blue robe", "still water", "crown of Isis"],
+      "core_themes": ["intuition", "hidden knowledge", "the unconscious", "mystery", "patience", "inner voice", "duality"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Anima / The Wise Old Woman",
+      "secondary_archetype": "The Self (as inaccessible depth)",
+      "shadow_aspect": "withdrawal, withholding, secrets as control, refusal to engage the outer world",
+      "individuation_stage": "encounter with the unconscious — the pull to go inward before proceeding",
+      "complex_signals": ["language of 'knowing without knowing why'", "references to gut feeling or dreams", "avoidance of rational explanation", "silence or withholding language ('I can't explain it')"]
+    },
+    "standard_meaning": {
+      "upright": "Intuition, mystery, the subconscious mind. Something is hidden; trust what you know without knowing why.",
+      "reversed": "Secrets, repressed intuition, disconnection from inner knowing. Information is being withheld."
+    }
+  },
+  {
+    "id": "major_03",
+    "name": "The Empress",
+    "system": "Waite-Smith",
+    "number": 3,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.4,
+        "notes": "warm, lush, abundant, sensual, nurturing"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "agency through nurturing and growth rather than conquest"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.7,
+        "future": 0.2,
+        "notes": "present-oriented; growth is happening now, cyclical rather than linear"
+      },
+      "conflict_harmony": {
+        "score": 0.9,
+        "notes": "deep harmony — the archetype of natural abundance and flourishing"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "outward-giving, but from a place of inner fullness"
+      },
+      "core_imagery": ["wheat field", "forest", "waterfall", "crown of stars", "heart-shaped shield with Venus symbol", "cushioned throne", "pomegranates on robe"],
+      "core_themes": ["fertility", "abundance", "nurturing", "nature", "creativity", "sensuality", "motherhood", "growth"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Great Mother",
+      "secondary_archetype": "Anima (positive, fertile aspect)",
+      "shadow_aspect": "smothering, over-dependence, inability to let things grow independently, possessiveness",
+      "individuation_stage": "integration of the feminine principle — receiving, creating, and sustaining life",
+      "complex_signals": ["repeated caregiving or providing language", "references to growth and tending", "mother-related imagery", "difficulty with separation or endings"]
+    },
+    "standard_meaning": {
+      "upright": "Fertility, abundance, nurturing creativity. A time of growth, comfort, and connection to nature and the body.",
+      "reversed": "Creative block, dependence, smothering. Abundance withheld or nurturing turned controlling."
+    }
+  },
+  {
+    "id": "major_04",
+    "name": "The Emperor",
+    "system": "Waite-Smith",
+    "number": 4,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.5,
+        "notes": "stable, authoritative, controlled — not warm, not cold; secure"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "authority and structure; agency through control and order"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.5,
+        "future": 0.2,
+        "notes": "grounded in established order; tradition informs the present"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "harmony achieved through imposed structure, not organic growth"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "outward authority, governance, and control of the external world"
+      },
+      "core_imagery": ["stone throne", "ram heads (Aries)", "red robe over armor", "orb and scepter", "barren mountains", "river in background"],
+      "core_themes": ["authority", "structure", "stability", "control", "fatherhood", "rules", "protection", "discipline"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Father / Rex (King)",
+      "secondary_archetype": "The Senex (Old Wise Man as authority)",
+      "shadow_aspect": "tyranny, rigidity, inability to yield, domination, fear of chaos expressed as over-control",
+      "individuation_stage": "confrontation with the father complex — internalizing or rebelling against external authority",
+      "complex_signals": ["language of rules and boundaries", "references to authority figures (father, boss, institution)", "strong need for control framing", "discomfort with ambiguity or mess"]
+    },
+    "standard_meaning": {
+      "upright": "Authority, structure, stability. The establishment of order; a father figure or governing principle.",
+      "reversed": "Tyranny, rigidity, domination. Excessive control, or alternatively, failure of structure."
+    }
+  },
+  {
+    "id": "major_05",
+    "name": "The Hierophant",
+    "system": "Waite-Smith",
+    "number": 5,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.3,
+        "notes": "solemn, ceremonial, reassuring through tradition"
+      },
+      "agency": {
+        "score": 0.5,
+        "direction": "active",
+        "notes": "agency through transmission and mediation, not individual will"
+      },
+      "time_orientation": {
+        "past": 0.6,
+        "present": 0.3,
+        "future": 0.1,
+        "notes": "deeply rooted in tradition and established teaching"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "harmony through conformity to shared belief"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "oriented toward community, shared doctrine, and transmission"
+      },
+      "core_imagery": ["papal throne", "two pillars", "triple crown", "two acolytes", "crossed keys", "raised hand in blessing", "robes"],
+      "core_themes": ["tradition", "belief systems", "institutions", "conformity", "spiritual guidance", "ritual", "education"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Wise Old Man (Senex as spiritual authority)",
+      "secondary_archetype": "The Persona (collective identity)",
+      "shadow_aspect": "dogmatism, conformity as avoidance, spiritual bypassing, blind obedience",
+      "individuation_stage": "negotiation with the collective — what we inherit vs. what we claim for ourselves",
+      "complex_signals": ["frequent appeals to 'what people do' or 'how it should be'", "religious or institutional language", "discomfort with rule-breaking", "seeking external validation for belief"]
+    },
+    "standard_meaning": {
+      "upright": "Tradition, institutions, spiritual guidance. Following established paths; a teacher or mentor within a system.",
+      "reversed": "Rebellion against convention, challenging orthodoxy, or alternatively, blind conformity exposed."
+    }
+  },
+  {
+    "id": "major_06",
+    "name": "The Lovers",
+    "system": "Waite-Smith",
+    "number": 6,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.6,
+        "notes": "charged, intimate, vulnerable, meaningful — not simple happiness"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "agency through choice — this card is fundamentally about a decision"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.5,
+        "future": 0.4,
+        "notes": "the threshold of a choice; present moment with future consequence"
+      },
+      "conflict_harmony": {
+        "score": 0.5,
+        "notes": "union and tension coexist; harmony is the goal but choice is the challenge"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "relational, but the core act is internal (the choice itself)"
+      },
+      "core_imagery": ["naked man and woman", "archangel Raphael above", "Tree of Knowledge (serpent)", "Tree of Life (fire)", "mountain", "sun"],
+      "core_themes": ["love", "choice", "alignment of values", "union", "temptation", "duality", "authenticity", "commitment"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Anima/Animus (the inner partner)",
+      "secondary_archetype": "The Syzygy (divine couple)",
+      "shadow_aspect": "projection of the ideal onto a partner, love as avoidance of self, codependency",
+      "individuation_stage": "coniunctio — the union of opposites within the self; encountering the inner other",
+      "complex_signals": ["idealization language about another person", "conflating love and identity", "choice framed as impossible", "strong either/or framing"]
+    },
+    "standard_meaning": {
+      "upright": "Love, alignment of values, choices made from the heart. Union — romantic, creative, or philosophical.",
+      "reversed": "Misalignment, poor choices, or avoidance of a necessary decision. Disharmony in relationship."
+    }
+  },
+  {
+    "id": "major_07",
+    "name": "The Chariot",
+    "system": "Waite-Smith",
+    "number": 7,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.9,
+        "notes": "driven, triumphant, tense with momentum"
+      },
+      "agency": {
+        "score": 1.0,
+        "direction": "active",
+        "notes": "maximum active agency — willpower overcoming opposing forces"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.4,
+        "future": 0.5,
+        "notes": "forward motion; victory is imminent but not yet complete"
+      },
+      "conflict_harmony": {
+        "score": 0.4,
+        "notes": "tension is the engine — two sphinx pulling in different directions, held by will"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "inner discipline projected outward as controlled momentum"
+      },
+      "core_imagery": ["armored charioteer", "black and white sphinx", "star canopy", "crescent moons", "wand", "city in background", "river"],
+      "core_themes": ["victory", "willpower", "control", "determination", "overcoming obstacles", "momentum", "discipline"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hero (in active combat phase)",
+      "secondary_archetype": "The Self (as integrating function — holding opposites)",
+      "shadow_aspect": "aggression, ego inflation after victory, inability to stop or rest, win-at-all-costs mentality",
+      "individuation_stage": "the ego's assertion of mastery over conflicting inner drives",
+      "complex_signals": ["language of pushing through and not stopping", "framing obstacles as enemies to defeat", "discomfort with surrender or rest", "strong competitive framing"]
+    },
+    "standard_meaning": {
+      "upright": "Victory through willpower and discipline. Overcoming opposing forces by holding them in balance. Forward motion.",
+      "reversed": "Loss of control, aggression turned inward, or forcing an outcome past its natural point."
+    }
+  },
+  {
+    "id": "major_08",
+    "name": "Strength",
+    "system": "Waite-Smith",
+    "number": 8,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.4,
+        "notes": "calm, assured, tender but firm — strength as gentleness"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "active but soft — agency through inner mastery, not force"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.8,
+        "future": 0.1,
+        "notes": "fully in the present moment of contact with one's instinctual nature"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "integration of instinct and spirit — the lion is not suppressed but befriended"
+      },
+      "relational_direction": {
+        "inward": 0.7,
+        "outward": 0.3,
+        "notes": "relationship with the inner animal/instinct is the core action"
+      },
+      "core_imagery": ["woman closing lion's mouth gently", "infinity symbol above woman's head", "white robe", "flower garland", "yellow sky", "mountains"],
+      "core_themes": ["inner strength", "courage", "patience", "compassion", "self-mastery", "taming instinct", "resilience"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Self (as integrator of animal and spirit)",
+      "secondary_archetype": "Anima (feminine strength, not masculine force)",
+      "shadow_aspect": "repression of instinct rather than integration, martyrdom, excessive self-sacrifice",
+      "individuation_stage": "integrating the shadow's animal energy without being overwhelmed by it",
+      "complex_signals": ["language of enduring or bearing rather than resolving", "references to suppressing feelings", "patience framed as suffering", "separation of good self from bad impulses"]
+    },
+    "standard_meaning": {
+      "upright": "Inner strength, courage, and patience. The power to face challenges with compassion rather than force.",
+      "reversed": "Self-doubt, weakness, or alternatively repressed aggression resurfacing as inner cruelty."
+    }
+  },
+  {
+    "id": "major_09",
+    "name": "The Hermit",
+    "system": "Waite-Smith",
+    "number": 9,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 0.1,
+        "notes": "quiet, solitary, introspective — not unhappy, but withdrawn"
+      },
+      "agency": {
+        "score": 0.4,
+        "direction": "passive",
+        "notes": "deliberate stillness; agency directed entirely inward"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.5,
+        "future": 0.1,
+        "notes": "reflecting on the path traveled; wisdom comes from looking back"
+      },
+      "conflict_harmony": {
+        "score": 0.6,
+        "notes": "inner peace through withdrawal; potential tension with the world left behind"
+      },
+      "relational_direction": {
+        "inward": 1.0,
+        "outward": 0.0,
+        "notes": "maximum inward orientation — the archetype of solitary seeking"
+      },
+      "core_imagery": ["lone figure on mountain peak", "lantern with six-pointed star", "long grey robe", "staff", "snow", "darkness below"],
+      "core_themes": ["solitude", "introspection", "inner guidance", "wisdom", "withdrawal", "soul-searching", "the inner light"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Wise Old Man (Senex as inner guide)",
+      "secondary_archetype": "The Self (encountered in solitude)",
+      "shadow_aspect": "isolation as avoidance, superiority through withdrawal, refusing to return and share the light",
+      "individuation_stage": "the necessary withdrawal from the world to find one's own center",
+      "complex_signals": ["language of needing to be alone", "distrust of others' understanding", "wisdom framed as inaccessible to others", "difficulty re-engaging after insight"]
+    },
+    "standard_meaning": {
+      "upright": "Solitude, introspection, inner guidance. A period of withdrawal to find wisdom. The inner light that guides.",
+      "reversed": "Isolation, loneliness, or the refusal to share hard-won wisdom. Withdrawal become avoidance."
+    }
+  },
+  {
+    "id": "major_10",
+    "name": "Wheel of Fortune",
+    "system": "Waite-Smith",
+    "number": 10,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.5,
+        "notes": "neither positive nor negative — the wheel turns regardless"
+      },
+      "agency": {
+        "score": 0.2,
+        "direction": "passive",
+        "notes": "external forces dominate; human will yields to cyclical change"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.3,
+        "future": 0.4,
+        "notes": "all three times collapse into the eternal cycle; change is always imminent"
+      },
+      "conflict_harmony": {
+        "score": 0.5,
+        "notes": "neither; the wheel transcends conflict and harmony — it simply turns"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "the forces acting are larger than the individual"
+      },
+      "core_imagery": ["spinning wheel", "TARO/ROTA letters", "four creatures at corners (lion, eagle, bull, angel)", "Anubis rising", "serpent descending", "sphinx at top", "Hebrew letters"],
+      "core_themes": ["fate", "cycles", "turning point", "luck", "change", "destiny", "impermanence"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Self (as cyclical wholeness)",
+      "secondary_archetype": "Trickster (fate as unpredictable)",
+      "shadow_aspect": "fatalism, learned helplessness, using 'fate' to avoid responsibility for change",
+      "individuation_stage": "recognizing that the psyche moves in cycles — what descends will rise again",
+      "complex_signals": ["repeated references to luck or fate", "framing life as happening to them rather than through them", "cyclical language ('always ends up this way')", "magical thinking about timing"]
+    },
+    "standard_meaning": {
+      "upright": "Change, cycles, fate. A turning point. What goes down must come up — and vice versa.",
+      "reversed": "Resistance to change, bad luck, or clinging to a moment that has already passed."
+    }
+  },
+  {
+    "id": "major_11",
+    "name": "Justice",
+    "system": "Waite-Smith",
+    "number": 11,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 0.3,
+        "notes": "impartial, clear, neither warm nor cold — the temperature of truth"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "agency through discernment and honest assessment"
+      },
+      "time_orientation": {
+        "past": 0.5,
+        "present": 0.4,
+        "future": 0.1,
+        "notes": "oriented toward accounting for what has been; the past is being weighed"
+      },
+      "conflict_harmony": {
+        "score": 0.6,
+        "notes": "resolution through honest reckoning, not avoidance"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "equally applies to inner truth and outer accountability"
+      },
+      "core_imagery": ["figure seated between pillars", "scales", "sword", "crown", "purple cloak", "white shoe visible", "red curtain"],
+      "core_themes": ["fairness", "truth", "cause and effect", "accountability", "clarity", "decision", "balance"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Animus (as logos principle — discernment)",
+      "secondary_archetype": "The Self (as moral center)",
+      "shadow_aspect": "harsh self-judgment, cruelty in the name of truth, using 'fairness' to punish",
+      "individuation_stage": "taking honest account of the self — neither inflation nor self-condemnation",
+      "complex_signals": ["language of fairness and deserving", "strong moral framing", "difficulty sitting with ambiguity in judgments", "extended self-justification"]
+    },
+    "standard_meaning": {
+      "upright": "Truth, fairness, cause and effect. An honest accounting. Decisions made with clarity.",
+      "reversed": "Injustice, dishonesty, or avoidance of consequences. Self-deception in the name of fairness."
+    }
+  },
+  {
+    "id": "major_12",
+    "name": "The Hanged Man",
+    "system": "Waite-Smith",
+    "number": 12,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 0.1,
+        "notes": "suspended, paradoxically peaceful — suffering that yields insight"
+      },
+      "agency": {
+        "score": 0.1,
+        "direction": "passive",
+        "notes": "total surrender; agency is relinquished as a spiritual act"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.8,
+        "future": 0.1,
+        "notes": "time suspended; the present moment is all there is in this state"
+      },
+      "conflict_harmony": {
+        "score": 0.5,
+        "notes": "conflict dissolved through acceptance; not harmony but transcendence of opposition"
+      },
+      "relational_direction": {
+        "inward": 0.9,
+        "outward": 0.1,
+        "notes": "deeply inward — the world is seen from an entirely new angle"
+      },
+      "core_imagery": ["figure hanging upside down from tree", "halo of light around head", "calm face", "one leg bent (forming cross)", "T-shaped tau cross tree", "green leaves"],
+      "core_themes": ["suspension", "surrender", "new perspective", "sacrifice", "waiting", "letting go", "enlightenment through stillness"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Self (via kenosis — self-emptying)",
+      "secondary_archetype": "The Martyr / Wounded Healer",
+      "shadow_aspect": "martyrdom for its own sake, victimhood as identity, using sacrifice to manipulate",
+      "individuation_stage": "the necessary dissolution before rebirth — ego surrender as precondition for deeper self",
+      "complex_signals": ["language of waiting and being unable to act", "sacrifice framing", "feeling stuck but oddly calm about it", "inability to see a way forward paired with lack of distress"]
+    },
+    "standard_meaning": {
+      "upright": "Pause, surrender, new perspective. Seeing things from an inverted angle. Willing sacrifice for insight.",
+      "reversed": "Resistance to surrender, pointless sacrifice, or stagnation without the spiritual gain."
+    }
+  },
+  {
+    "id": "major_13",
+    "name": "Death",
+    "system": "Waite-Smith",
+    "number": 13,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.4,
+        "arousal": 0.6,
+        "notes": "solemn, inevitable, not malevolent — the gravity of true endings"
+      },
+      "agency": {
+        "score": 0.3,
+        "direction": "passive",
+        "notes": "the ending comes; resistance is futile — agency is in how one meets it"
+      },
+      "time_orientation": {
+        "past": 0.5,
+        "present": 0.4,
+        "future": 0.1,
+        "notes": "the old is ending; the future is not yet visible beyond the threshold"
+      },
+      "conflict_harmony": {
+        "score": 0.3,
+        "notes": "the tension of endings and the unknown; not resolved but necessary"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "death transforms both inner identity and outer circumstances equally"
+      },
+      "core_imagery": ["skeleton in black armor on white horse", "fallen king", "child offering flowers", "bishop praying", "distant rising sun", "river", "two towers", "white rose on black banner"],
+      "core_themes": ["endings", "transformation", "transition", "release", "inevitability", "rebirth", "letting go of the old self"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Shadow (as necessary dissolution)",
+      "secondary_archetype": "The Self (death as transformation toward wholeness)",
+      "shadow_aspect": "fear of change disguised as acceptance, catastrophizing ordinary endings, clinging to dead identities",
+      "individuation_stage": "death of the old persona — the ego must release an outdated self-image",
+      "complex_signals": ["avoidance of 'ending' or 'death' language when the card demands it", "catastrophizing small changes", "inability to let something be over", "excessive grief framing for manageable transitions"]
+    },
+    "standard_meaning": {
+      "upright": "Endings, transformation, and transition. Something must end for something new to begin. Release.",
+      "reversed": "Resistance to change, inability to let go, or transformation delayed past its natural time."
+    }
+  },
+  {
+    "id": "major_14",
+    "name": "Temperance",
+    "system": "Waite-Smith",
+    "number": 14,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.3,
+        "notes": "calm, balanced, patient — the quiet confidence of integration"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "active but measured — agency as moderation and blending"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.6,
+        "future": 0.2,
+        "notes": "present-focused; the work of integration happens now"
+      },
+      "conflict_harmony": {
+        "score": 0.9,
+        "notes": "the archetype of harmony — opposites blended, not suppressed"
+      },
+      "relational_direction": {
+        "inward": 0.6,
+        "outward": 0.4,
+        "notes": "primarily inner work; the angel pours between inner vessels"
+      },
+      "core_imagery": ["angel pouring water between two cups", "one foot on land, one in water", "iris flowers", "sun on forehead (triangle in square)", "mountain path in background", "white robe"],
+      "core_themes": ["balance", "moderation", "patience", "integration", "healing", "flow", "middle path", "alchemy of opposites"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Self (as transcendent function — holding opposites)",
+      "secondary_archetype": "The Healer",
+      "shadow_aspect": "avoidance of extremes as fear of passion, blandness as virtue, inability to commit",
+      "individuation_stage": "the transcendent function at work — holding tension between opposites until a third possibility emerges",
+      "complex_signals": ["strong preference for middle ground in all situations", "discomfort with intensity", "repeated seeking of balance framing", "avoidance of either/or positions"]
+    },
+    "standard_meaning": {
+      "upright": "Balance, moderation, patience. The slow work of integration. Opposites blended into something new.",
+      "reversed": "Imbalance, excess, or impatience. Forcing a resolution rather than allowing it to emerge."
+    }
+  },
+  {
+    "id": "major_15",
+    "name": "The Devil",
+    "system": "Waite-Smith",
+    "number": 15,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.2,
+        "arousal": 0.7,
+        "notes": "dark, driven, compulsive — the charge of taboo and excess"
+      },
+      "agency": {
+        "score": 0.3,
+        "direction": "passive",
+        "notes": "apparent agency is illusory — the chains are loosely worn but not removed"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.7,
+        "future": 0.1,
+        "notes": "trapped in the present pattern; the future feels foreclosed"
+      },
+      "conflict_harmony": {
+        "score": 0.1,
+        "notes": "deep inner conflict; bondage is the defining tension"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "the bondage involves another or the material world as much as the self"
+      },
+      "core_imagery": ["horned devil on black pedestal", "two chained human figures", "inverted pentagram", "torch", "bat wings", "tails of flame and grapes", "loose chains"],
+      "core_themes": ["bondage", "addiction", "materialism", "shadow", "compulsion", "entrapment", "the illusion of powerlessness"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (embodied and personified)",
+      "secondary_archetype": "Trickster (as seducer)",
+      "shadow_aspect": "the shadow itself — projection of rejected instincts, compulsive behavior, the refusal to own one's darkness",
+      "individuation_stage": "shadow confrontation — recognizing what one is chained to and why the chains feel necessary",
+      "complex_signals": ["language of being unable to stop or leave", "strong 'should' versus 'want' split", "shame about desires", "repeated return to the same destructive pattern with confusion"]
+    },
+    "standard_meaning": {
+      "upright": "Bondage, addiction, materialism, shadow. The chains are loose — what keeps you here?",
+      "reversed": "Breaking free, releasing a bond, confronting the shadow. Reclaiming projected power."
+    }
+  },
+  {
+    "id": "major_16",
+    "name": "The Tower",
+    "system": "Waite-Smith",
+    "number": 16,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.1,
+        "arousal": 1.0,
+        "notes": "sudden shock, collapse, upheaval — the most high-arousal card in the deck"
+      },
+      "agency": {
+        "score": 0.1,
+        "direction": "passive",
+        "notes": "struck from outside; the ego cannot prevent what is happening"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.8,
+        "future": 0.1,
+        "notes": "the crisis is happening now; the before and after are both obscured"
+      },
+      "conflict_harmony": {
+        "score": 0.0,
+        "notes": "maximum conflict — the defining card of catastrophic disruption"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "the collapse happens in the outer structure but the psychic impact is total"
+      },
+      "core_imagery": ["tower struck by lightning", "crown blown off", "two figures falling", "flames", "dark sky", "rocky cliff", "22 flames (Yod letters)"],
+      "core_themes": ["sudden collapse", "revelation through destruction", "ego shattering", "chaos", "awakening", "the false structure exposed"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (eruptive return of the repressed)",
+      "secondary_archetype": "The Self (as destructive-creative force)",
+      "shadow_aspect": "clinging to the tower after it has already fallen; rebuilding the false structure instead of grieving it",
+      "individuation_stage": "enantiodromia — the psyche's violent correction when a one-sided position has been held too long",
+      "complex_signals": ["systematic avoidance of collapse language", "immediate pivot to rebuilding before acknowledging the fall", "inability to say what was lost", "minimizing the magnitude of the disruption"]
+    },
+    "standard_meaning": {
+      "upright": "Sudden upheaval, collapse of a false structure. Chaos that clears the ground for what is real.",
+      "reversed": "Avoiding an inevitable collapse, or a disaster narrowly averted. The tower wobbles but stands — for now."
+    }
+  },
+  {
+    "id": "major_17",
+    "name": "The Star",
+    "system": "Waite-Smith",
+    "number": 17,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.3,
+        "notes": "serene, healing, quietly hopeful — the calm after the storm"
+      },
+      "agency": {
+        "score": 0.5,
+        "direction": "active",
+        "notes": "gentle, unhurried action — pouring out, replenishing, receiving"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.4,
+        "future": 0.5,
+        "notes": "oriented toward a hopeful future; the present moment is one of restoration"
+      },
+      "conflict_harmony": {
+        "score": 0.9,
+        "notes": "deep peace; the conflict has passed and healing is underway"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "giving outward (the waters) while receiving from above (the stars)"
+      },
+      "core_imagery": ["naked figure kneeling by water", "large central star (8 points)", "seven smaller stars", "two pitchers pouring water", "ibis in tree", "green landscape", "night sky"],
+      "core_themes": ["hope", "healing", "renewal", "serenity", "inspiration", "faith", "vulnerability", "restoration"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Anima (as healing, soul-renewing feminine)",
+      "secondary_archetype": "The Self (as guiding light)",
+      "shadow_aspect": "passive hope as avoidance of action, wishful thinking, vulnerability as performance",
+      "individuation_stage": "anima encounter as healing — the soul's capacity to restore itself after the Tower's destruction",
+      "complex_signals": ["language of waiting for things to get better on their own", "idealized future with no present action", "strong imagery of nature and renewal", "vulnerability expressed without resistance"]
+    },
+    "standard_meaning": {
+      "upright": "Hope, healing, renewal. A quiet faith in the future. Vulnerability as strength after difficulty.",
+      "reversed": "Despair, loss of faith, or hope misplaced. The healing is blocked or not yet trusted."
+    }
+  },
+  {
+    "id": "major_18",
+    "name": "The Moon",
+    "system": "Waite-Smith",
+    "number": 18,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.3,
+        "arousal": 0.6,
+        "notes": "unsettling, dreamlike, anxious — beautiful and threatening simultaneously"
+      },
+      "agency": {
+        "score": 0.2,
+        "direction": "passive",
+        "notes": "navigating by uncertain light; the path is unclear and the self is unreliable"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.6,
+        "future": 0.1,
+        "notes": "disoriented in time; the unconscious does not keep linear hours"
+      },
+      "conflict_harmony": {
+        "score": 0.2,
+        "notes": "deep inner conflict — illusion, fear, and the unreliable nature of perception"
+      },
+      "relational_direction": {
+        "inward": 0.8,
+        "outward": 0.2,
+        "notes": "the inner world dominates; outer reality is distorted"
+      },
+      "core_imagery": ["full moon with face", "waning crescent within", "dog and wolf howling", "crayfish emerging from pool", "two towers", "path between them", "drops of light (Yod)"],
+      "core_themes": ["illusion", "the unconscious", "fear", "confusion", "the shadow", "dreams", "anxiety", "navigating the unknown"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (diffuse, unlocatable)",
+      "secondary_archetype": "Anima (as lunar, shifting, unreliable)",
+      "shadow_aspect": "paranoia, projection of inner fears onto the outer world, inability to trust perception",
+      "individuation_stage": "descent into the unconscious — the night sea journey where nothing is certain",
+      "complex_signals": ["language of not trusting what they see or feel", "ambiguity and contradiction in the same sentence", "strong anxiety about deception", "inability to commit to a single reading of events"]
+    },
+    "standard_meaning": {
+      "upright": "Illusion, fear, the unconscious. Things are not as they seem. Navigate carefully; trust your deeper instincts, not surface appearances.",
+      "reversed": "Release of fear, clarity returning, or illusions dissolving. The fog begins to lift."
+    }
+  },
+  {
+    "id": "major_19",
+    "name": "The Sun",
+    "system": "Waite-Smith",
+    "number": 19,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 1.0,
+        "arousal": 0.8,
+        "notes": "radiant joy, vitality, unambiguous happiness — the most positive card in the deck"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "joyful, exuberant self-expression — agency as play and celebration"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 1.0,
+        "future": 0.0,
+        "notes": "fully, completely present — the joy is now"
+      },
+      "conflict_harmony": {
+        "score": 1.0,
+        "notes": "maximum harmony — all shadow has been metabolized into light"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "radiating outward; the inner light is expressed and shared"
+      },
+      "core_imagery": ["large sun with face", "child on white horse", "sunflowers", "red banner", "walled garden", "nakedness and joy"],
+      "core_themes": ["joy", "vitality", "success", "clarity", "childhood", "authenticity", "celebration", "the true self revealed"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Divine Child (in full expression)",
+      "secondary_archetype": "The Self (as luminous wholeness)",
+      "shadow_aspect": "denial of shadow, forced positivity, the manic defense against darkness",
+      "individuation_stage": "the illuminated ego — not inflation, but genuine self-realization after the night journey",
+      "complex_signals": ["language that is uniformly positive with no shadow", "forced joy that contradicts other signals", "authentic delight and play without defensiveness", "references to clarity after a period of confusion"]
+    },
+    "standard_meaning": {
+      "upright": "Joy, vitality, success, clarity. The true self expressed without inhibition. A time of light.",
+      "reversed": "Dimmed joy, excessive optimism, or sadness masked as happiness. The sun is there but behind clouds."
+    }
+  },
+  {
+    "id": "major_20",
+    "name": "Judgement",
+    "system": "Waite-Smith",
+    "number": 20,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.8,
+        "notes": "solemn and awakening — the gravity of a final call"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "responding to a call; agency as rising and answering"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.4,
+        "future": 0.2,
+        "notes": "reckoning with the past in the present moment; a threshold before what comes next"
+      },
+      "conflict_harmony": {
+        "score": 0.6,
+        "notes": "tension of accountability resolved through honest rising"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "the call comes from beyond but is answered from within"
+      },
+      "core_imagery": ["angel blowing trumpet", "cross banner", "figures rising from coffins", "mountains of ice", "grey sky", "arms raised in response", "whole families rising together"],
+      "core_themes": ["awakening", "reckoning", "forgiveness", "calling", "resurrection", "evaluation", "answering the summons"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Self (as final integrating call)",
+      "secondary_archetype": "The Wise Old Man (as inner voice of conscience)",
+      "shadow_aspect": "self-judgment as self-punishment, inability to forgive the self, confusing accountability with condemnation",
+      "individuation_stage": "the summons to wholeness — hearing the Self's call and choosing to rise",
+      "complex_signals": ["language of deserving punishment or not being worthy", "strong internalized critic voice", "difficulty distinguishing honest evaluation from self-attack", "longing for a verdict that will settle things"]
+    },
+    "standard_meaning": {
+      "upright": "Awakening, reckoning, a calling. Rising to answer something larger. Forgiveness and renewal through honest self-assessment.",
+      "reversed": "Self-doubt, refusal of the call, or harsh self-judgment blocking the rise."
+    }
+  },
+  {
+    "id": "major_21",
+    "name": "The World",
+    "system": "Waite-Smith",
+    "number": 21,
+    "suit": "major",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 1.0,
+        "arousal": 0.5,
+        "notes": "complete, fulfilled, whole — not ecstatic but deeply satisfied"
+      },
+      "agency": {
+        "score": 0.8,
+        "direction": "active",
+        "notes": "dancing in the center — mastery expressed as effortless movement"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.5,
+        "future": 0.2,
+        "notes": "the completion of a cycle; the present contains all that was journeyed"
+      },
+      "conflict_harmony": {
+        "score": 1.0,
+        "notes": "total integration — the opposites held in the wreath, the four creatures at peace"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "inner completeness expressed outward; the self and the world in balance"
+      },
+      "core_imagery": ["dancing figure in laurel wreath", "two wands", "four creatures at corners (lion, bull, eagle, angel)", "purple sash", "oval wreath", "starry sky or void"],
+      "core_themes": ["completion", "wholeness", "integration", "achievement", "freedom", "the end of a cycle", "dancing in the center"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Self (fully realized)",
+      "secondary_archetype": "The Mandala (wholeness as symbol)",
+      "shadow_aspect": "premature closure, declaring oneself finished before the work is done, inflation mistaken for completion",
+      "individuation_stage": "individuation achieved — not as a final state but as a full cycle consciously completed",
+      "complex_signals": ["language of genuine completion and satisfaction", "absence of striving or seeking", "awareness of the full journey traveled", "readiness to begin again from a new level"]
+    },
+    "standard_meaning": {
+      "upright": "Completion, integration, achievement. A cycle fully realized. Dancing at the center of one's own life.",
+      "reversed": "Incompletion, shortcuts taken, or a cycle not fully closed before moving on."
+    }
+  }
+]

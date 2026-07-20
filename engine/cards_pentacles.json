@@ -1,0 +1,660 @@
+[
+  {
+    "id": "pentacles_ace",
+    "name": "Ace of Pentacles",
+    "system": "Waite-Smith",
+    "number": 1,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.4,
+        "notes": "grounded, fertile, promising — the material world offering a gift"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "receiving the gift and preparing to plant it; agency as stewardship"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.4,
+        "future": 0.6,
+        "notes": "a new material beginning; the seed has been offered"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "harmonious abundance; the garden gate is open"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "the material world and the individual in positive relation"
+      },
+      "core_imagery": ["hand offering pentacle from cloud", "lush garden below", "open gate", "flowers and greenery", "mountain path beyond gate"],
+      "core_themes": ["new material beginning", "opportunity", "abundance", "manifestation", "the gift of the earth", "financial or practical new start"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Great Mother (as fertile earth)",
+      "secondary_archetype": "The Divine Child (in material form)",
+      "shadow_aspect": "materialism as compensation for inner emptiness, greed at the threshold, the gift squandered",
+      "individuation_stage": "the incarnation impulse — the psyche moving from spirit into matter",
+      "complex_signals": ["language of new practical opportunities", "concrete planning around resources", "grounded body-based language", "the earth felt as responsive and giving"]
+    },
+    "standard_meaning": {
+      "upright": "New material beginnings, opportunity, abundance. A gift from the earth — now tend it.",
+      "reversed": "Missed opportunity, poor financial planning, or material abundance that doesn't satisfy."
+    }
+  },
+  {
+    "id": "pentacles_02",
+    "name": "Two of Pentacles",
+    "system": "Waite-Smith",
+    "number": 2,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.6,
+        "notes": "balancing act, juggling — stressful but capable; chaos managed with skill"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "actively managing multiple things; skill in the juggle"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.8,
+        "future": 0.1,
+        "notes": "entirely in the present act of balancing"
+      },
+      "conflict_harmony": {
+        "score": 0.5,
+        "notes": "managed tension; harmony maintained through constant adjustment"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "externally oriented — managing the material world's competing demands"
+      },
+      "core_imagery": ["figure juggling two pentacles connected by infinity loop", "ships on choppy sea behind", "dancing or balancing stance", "jester-like hat"],
+      "core_themes": ["balance", "juggling priorities", "adaptability", "managing resources", "flexibility", "the constant adjustment of life"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Trickster (as skillful juggler)",
+      "secondary_archetype": "The Self (as balancing function)",
+      "shadow_aspect": "exhaustion from constant balancing, inability to set anything down, the performance of capability",
+      "individuation_stage": "the ego learning to hold multiple demands without collapsing",
+      "complex_signals": ["language of too many things at once", "pride in managing complexity", "underlying exhaustion not acknowledged", "the infinity loop as both competence and trap"]
+    },
+    "standard_meaning": {
+      "upright": "Balance, adaptability, managing priorities. You're keeping everything in the air — for now.",
+      "reversed": "Overwhelm, disorganization, or the juggling act becoming unsustainable."
+    }
+  },
+  {
+    "id": "pentacles_03",
+    "name": "Three of Pentacles",
+    "system": "Waite-Smith",
+    "number": 3,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.5,
+        "notes": "collaborative, skilled, purposeful — craft meeting recognition"
+      },
+      "agency": {
+        "score": 0.8,
+        "direction": "active",
+        "notes": "mastery applied; skilled work being acknowledged and built upon"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.6,
+        "future": 0.2,
+        "notes": "in the process of building something that will last"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "collaborative harmony; the architect, the monks, and the craftsman working together"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "the work is shared; skills offered to a collective project"
+      },
+      "core_imagery": ["craftsman on bench in cathedral", "two monks with plans consulting", "three pentacles above arch", "collaborative discussion", "stone cathedral setting"],
+      "core_themes": ["craftsmanship", "collaboration", "skill", "recognition of expertise", "teamwork", "building something lasting", "mastery in practice"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Craftsman / Maker",
+      "secondary_archetype": "The Self (expressed through skilled work)",
+      "shadow_aspect": "perfectionism that blocks completion, inability to collaborate, withholding skill from the community",
+      "individuation_stage": "the self finding expression through skilled contribution to something larger than itself",
+      "complex_signals": ["language of craft and making", "pride in specialized expertise", "the pleasure of work done well with others", "discomfort with either taking direction or giving it"]
+    },
+    "standard_meaning": {
+      "upright": "Craftsmanship, collaboration, skill recognized. Good work being done together on something that will last.",
+      "reversed": "Poor teamwork, lack of skill, or skilled work that goes unrecognized."
+    }
+  },
+  {
+    "id": "pentacles_04",
+    "name": "Four of Pentacles",
+    "system": "Waite-Smith",
+    "number": 4,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.4,
+        "arousal": 0.3,
+        "notes": "controlled, defensive, tight — the fear of loss disguised as security"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "actively holding on; agency expressed as refusal to let go"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.6,
+        "future": 0.1,
+        "notes": "protecting what has been accumulated; future feels threatening"
+      },
+      "conflict_harmony": {
+        "score": 0.4,
+        "notes": "inner conflict between security and the cost of maintaining it"
+      },
+      "relational_direction": {
+        "inward": 0.6,
+        "outward": 0.4,
+        "notes": "turned inward around the hoard; the city (community) is behind him, not facing it"
+      },
+      "core_imagery": ["figure clutching pentacle to chest", "pentacle on crown", "pentacles under feet", "back to the city", "hunched protective posture"],
+      "core_themes": ["possessiveness", "security", "control", "materialism", "hoarding", "the cost of clinging", "blocked generosity"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Shadow (as the miser — the withheld self)",
+      "secondary_archetype": "The Persona (as controlled surface)",
+      "shadow_aspect": "the fear-based self that cannot give or receive; identification of worth with accumulation",
+      "individuation_stage": "the confrontation with the scarcity complex — the psyche's belief that there will not be enough",
+      "complex_signals": ["language of protecting against loss", "difficulty with generosity or vulnerability", "conflating possessions or status with safety", "the back turned on community"]
+    },
+    "standard_meaning": {
+      "upright": "Security, control, possessiveness. Holding on tightly — but what is the cost of the grip?",
+      "reversed": "Releasing control, generosity returning, or financial instability forcing open hands."
+    }
+  },
+  {
+    "id": "pentacles_05",
+    "name": "Five of Pentacles",
+    "system": "Waite-Smith",
+    "number": 5,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.1,
+        "arousal": 0.5,
+        "notes": "hardship, poverty, exclusion — cold outside the warmth of others"
+      },
+      "agency": {
+        "score": 0.3,
+        "direction": "passive",
+        "notes": "struggling forward but not yet seeing the door; endurance without direction"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.7,
+        "future": 0.1,
+        "notes": "surviving the present hardship; the future is obscured by snow"
+      },
+      "conflict_harmony": {
+        "score": 0.1,
+        "notes": "outside in the cold; the church window glows but they do not enter"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "passing by a warmth they do not reach for"
+      },
+      "core_imagery": ["two figures in snow", "crippled figure on crutches", "stained glass window above", "snow and darkness", "poverty and illness", "the lit church they pass without entering"],
+      "core_themes": ["hardship", "poverty", "exclusion", "illness", "need", "the help that is available but not sought", "material and spiritual destitution"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Orphan (core wound of abandonment)",
+      "secondary_archetype": "The Wounded Healer (pre-threshold)",
+      "shadow_aspect": "pride that prevents asking for help, the belief that one is uniquely forsaken, the church window not entered",
+      "individuation_stage": "the nadir of material existence — the invitation to recognize that help is available",
+      "complex_signals": ["language of being left out or left behind", "difficulty asking for help despite need", "the pride that refuses assistance", "the church window — help nearby but unseized"]
+    },
+    "standard_meaning": {
+      "upright": "Hardship, poverty, exclusion. You are outside in the cold. The church window is lit — have you tried the door?",
+      "reversed": "Recovery from hardship, help finally accepted, or the end of a difficult material period."
+    }
+  },
+  {
+    "id": "pentacles_06",
+    "name": "Six of Pentacles",
+    "system": "Waite-Smith",
+    "number": 6,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.4,
+        "notes": "generous, measured, hierarchical — the transaction of giving and receiving"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "the giver holds the scales; agency is with those who have"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.7,
+        "future": 0.1,
+        "notes": "the exchange is happening now"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "apparent harmony; the scales are held by the giver, not a neutral party"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "entirely relational — this card is about the dynamics of giving and receiving"
+      },
+      "core_imagery": ["merchant with scales", "two supplicants kneeling", "coins given to one", "scales held in one hand", "fine red robe", "city setting"],
+      "core_themes": ["generosity", "charity", "power in giving", "receiving graciously", "financial exchange", "the dynamics of help", "balanced giving and receiving"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Ruler (as distributor)",
+      "secondary_archetype": "The Great Father (protective but controlling)",
+      "shadow_aspect": "generosity as power, charity that creates dependency, giving to control",
+      "individuation_stage": "the question of exchange — who holds the scales? What is the real cost of being given to?",
+      "complex_signals": ["language of giving or receiving with a note of power dynamics", "gratitude mixed with discomfort", "generosity that expects something in return", "the relief and humiliation of needing help"]
+    },
+    "standard_meaning": {
+      "upright": "Generosity, giving, receiving. An exchange of resources — note who holds the scales.",
+      "reversed": "Debt, strings attached to gifts, or generosity withheld."
+    }
+  },
+  {
+    "id": "pentacles_07",
+    "name": "Seven of Pentacles",
+    "system": "Waite-Smith",
+    "number": 7,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.6,
+        "arousal": 0.3,
+        "notes": "patient, evaluating, weighing — the pause before the next decision"
+      },
+      "agency": {
+        "score": 0.5,
+        "direction": "active",
+        "notes": "pausing to assess; agency through considered waiting"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.5,
+        "future": 0.1,
+        "notes": "surveying what has grown; not yet harvesting, not yet moving forward"
+      },
+      "conflict_harmony": {
+        "score": 0.6,
+        "notes": "inner deliberation; not conflict but the weight of a real decision"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "looking outward at the crop, thinking inward about what to do next"
+      },
+      "core_imagery": ["farmer leaning on hoe", "seven pentacles on vine", "surveying the harvest", "contemplative stance", "hard work visible in the plant"],
+      "core_themes": ["patience", "investment", "long-term vision", "evaluation", "the harvest not yet taken", "weighing effort against reward"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Farmer / Steward",
+      "secondary_archetype": "The Wise Old Man (evaluating)",
+      "shadow_aspect": "endless deliberation as avoidance, patience as fear of commitment, the harvest left too long",
+      "individuation_stage": "the psyche assessing what it has actually grown — honest accounting of effort and reward",
+      "complex_signals": ["language of waiting to see how something develops", "assessment of long-term investment", "the question of whether the effort is worth it", "the pause that might be wisdom or might be avoidance"]
+    },
+    "standard_meaning": {
+      "upright": "Patience, investment, long-term vision. Assess what you've grown before the next move.",
+      "reversed": "Impatience, poor investment returns, or work that hasn't yielded what was hoped."
+    }
+  },
+  {
+    "id": "pentacles_08",
+    "name": "Eight of Pentacles",
+    "system": "Waite-Smith",
+    "number": 8,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.5,
+        "notes": "focused, diligent, absorbed — the pleasure of mastery through repetition"
+      },
+      "agency": {
+        "score": 0.8,
+        "direction": "active",
+        "notes": "head down, working; agency through sustained skillful effort"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.8,
+        "future": 0.1,
+        "notes": "entirely in the work; the apprentice knows only the next pentacle to carve"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "inner harmony of deep focus; the work IS the self for now"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "absorbed in the craft; the town in the distance is irrelevant"
+      },
+      "core_imagery": ["craftsman carving pentacles", "finished pentacles displayed", "one being worked on", "tools and bench", "distant town", "absorbed in work"],
+      "core_themes": ["diligence", "mastery", "apprenticeship", "skill development", "repetition", "the satisfaction of craft", "dedication to improvement"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Craftsman (in training)",
+      "secondary_archetype": "The Self (expressed through focused work)",
+      "shadow_aspect": "perfectionism, work as avoidance of relationship or feeling, the inability to stop even when done",
+      "individuation_stage": "the ego developing competence — the long middle of any mastery process",
+      "complex_signals": ["language of being in the zone or absorbed in work", "pride in steady improvement", "the intrinsic reward of craft", "work as meditation or escape with equal plausibility"]
+    },
+    "standard_meaning": {
+      "upright": "Diligence, skill development, mastery through practice. Head down, doing the work.",
+      "reversed": "Mediocrity, shortcuts, perfectionism blocking progress, or work without meaningful direction."
+    }
+  },
+  {
+    "id": "pentacles_09",
+    "name": "Nine of Pentacles",
+    "system": "Waite-Smith",
+    "number": 9,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.4,
+        "notes": "refined, self-sufficient, quietly luxurious — earned independence"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "self-made and self-contained; agency through earned abundance"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.7,
+        "future": 0.0,
+        "notes": "savoring the fruits of long effort; no urgency toward what's next"
+      },
+      "conflict_harmony": {
+        "score": 0.9,
+        "notes": "deep personal harmony; at home in one's own abundance"
+      },
+      "relational_direction": {
+        "inward": 0.6,
+        "outward": 0.4,
+        "notes": "self-sufficient; the garden is her world and she is complete in it"
+      },
+      "core_imagery": ["elegant woman in vineyard", "falcon on gloved hand", "nine pentacles on vines", "snail at feet", "flowers on robe", "castle in background", "self-possessed ease"],
+      "core_themes": ["self-sufficiency", "abundance", "independence", "refined taste", "the fruits of discipline", "material and personal achievement", "solitary contentment"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Anima (fully self-possessed, mature)",
+      "secondary_archetype": "The Queen (of one's inner realm)",
+      "shadow_aspect": "isolation as protection, abundance as barrier to intimacy, refinement as superiority",
+      "individuation_stage": "the ego completed in itself — the question is now whether to remain in the garden or re-engage",
+      "complex_signals": ["language of having built something alone and being proud of it", "self-sufficiency as explicit value", "the pleasure of one's own company and resources", "slight wariness about sharing what was hard-won"]
+    },
+    "standard_meaning": {
+      "upright": "Self-sufficiency, abundance, independence. You built this. Enjoy it — you earned it.",
+      "reversed": "Financial dependence, facade of success, or abundance that isolates rather than fulfills."
+    }
+  },
+  {
+    "id": "pentacles_10",
+    "name": "Ten of Pentacles",
+    "system": "Waite-Smith",
+    "number": 10,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.4,
+        "notes": "complete, multigenerational, deeply rooted — the fullness of material legacy"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "present in the abundance; the work of building is done — now inhabiting"
+      },
+      "time_orientation": {
+        "past": 0.5,
+        "present": 0.4,
+        "future": 0.1,
+        "notes": "what was built over generations is now fully present; the future is implied in the grandchildren"
+      },
+      "conflict_harmony": {
+        "score": 1.0,
+        "notes": "the richest harmony in the suit — three generations in one scene"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "family, legacy, the extended network of belonging and wealth"
+      },
+      "core_imagery": ["elder seated in archway", "family scene with couple and child", "two dogs", "ten pentacles in Tree of Life pattern", "castle estate", "arch with heraldic symbols"],
+      "core_themes": ["legacy", "family wealth", "inheritance", "multigenerational roots", "the fullness of material achievement", "belonging to a lineage", "what is passed on"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Great Father (as legacy-holder)",
+      "secondary_archetype": "The Self (as collective wholeness)",
+      "shadow_aspect": "inheritance as burden, the weight of family expectations, wealth that creates obligation without freedom",
+      "individuation_stage": "the self as continuous with what came before — identity within a larger story",
+      "complex_signals": ["references to family legacy or inheritance", "pride in what has been built across time", "the tension between individual path and family expectation", "rootedness as either comfort or constraint"]
+    },
+    "standard_meaning": {
+      "upright": "Legacy, family wealth, multigenerational roots. The fullness of what has been built — for you and after you.",
+      "reversed": "Family dysfunction, squandered inheritance, or wealth without the roots that make it meaningful."
+    }
+  },
+  {
+    "id": "pentacles_page",
+    "name": "Page of Pentacles",
+    "system": "Waite-Smith",
+    "number": 11,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.4,
+        "notes": "studious, curious, grounded — the earnest student of the material world"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "learning and practicing; agency through diligent study"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.5,
+        "future": 0.4,
+        "notes": "building toward a future through present study"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "inner harmony of focused learning; the student is at peace with not knowing yet"
+      },
+      "relational_direction": {
+        "inward": 0.5,
+        "outward": 0.5,
+        "notes": "studying the pentacle (inner/outer equally engaged)"
+      },
+      "core_imagery": ["youth gazing at pentacle in hands", "green fertile landscape", "mountain in distance", "steady focused attention", "practical clothing"],
+      "core_themes": ["study", "new practical skills", "scholarship", "groundedness", "a message about money or career", "the earnest beginner", "manifestation in early stages"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Divine Child (earthy, practical)",
+      "secondary_archetype": "The Apprentice",
+      "shadow_aspect": "studiousness as avoidance of action, perfectionism before beginning, groundedness as rigidity",
+      "individuation_stage": "the embodied learning — the psyche taking the abstract into the physical world",
+      "complex_signals": ["language of learning and preparation", "practical orientation toward goals", "the desire to get things right before proceeding", "news or opportunity in practical/financial areas"]
+    },
+    "standard_meaning": {
+      "upright": "Study, new practical beginnings, a message about career or finances. Groundedness and potential.",
+      "reversed": "Procrastination, unrealistic goals, or study without application."
+    }
+  },
+  {
+    "id": "pentacles_knight",
+    "name": "Knight of Pentacles",
+    "system": "Waite-Smith",
+    "number": 12,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.3,
+        "notes": "methodical, patient, reliable — the least glamorous and most trustworthy knight"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "steady deliberate action; not fast but unstoppable"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.6,
+        "future": 0.2,
+        "notes": "present in the task; the long horizon is in view but not rushed toward"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "patient inner harmony; the horse stands still, the work will get done"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "oriented toward the task and the land; practical outward focus"
+      },
+      "core_imagery": ["knight on stationary heavy horse", "pentacle examined carefully", "plowed field behind", "oak tree", "no motion — still, patient, considering"],
+      "core_themes": ["reliability", "patience", "methodical progress", "hard work", "practicality", "stewardship", "slow but certain"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Steward / Caretaker",
+      "secondary_archetype": "The Hero (earth version — the builder)",
+      "shadow_aspect": "stubbornness, inability to adapt, work as identity, missing the larger picture through focus on the task",
+      "individuation_stage": "the animus in its embodied, patient form — the part that can hold a course across decades",
+      "complex_signals": ["language of steady reliable effort", "pride in practical competence", "frustration with those who change direction or move too fast", "the satisfaction of a task completed correctly"]
+    },
+    "standard_meaning": {
+      "upright": "Reliability, patience, methodical progress. Slow and steady. The work will get done.",
+      "reversed": "Stubbornness, boredom, or diligence that has calcified into inability to adapt."
+    }
+  },
+  {
+    "id": "pentacles_queen",
+    "name": "Queen of Pentacles",
+    "system": "Waite-Smith",
+    "number": 13,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.4,
+        "notes": "warm, nurturing, abundantly practical — the archetype of embodied care"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "tending and sustaining; agency through the practical expression of love"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.8,
+        "future": 0.1,
+        "notes": "fully present in the sensory, material now"
+      },
+      "conflict_harmony": {
+        "score": 0.9,
+        "notes": "deep earthy harmony; the rabbit at her feet, the lush garden, the child in her lap (implied)"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "her abundance flows outward naturally; she gives from a full place"
+      },
+      "core_imagery": ["queen on flower-carved throne", "pentacle cradled in lap", "lush garden", "rabbit at feet", "fruit and flowers", "warm natural setting", "contemplative care"],
+      "core_themes": ["nurturing", "practical wisdom", "abundance", "sensuality", "home and hearth", "material care", "the body honored"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Great Mother (in embodied, practical form)",
+      "secondary_archetype": "Anima (as fertile, earthed feminine)",
+      "shadow_aspect": "smothering through material provision, equating love with feeding/giving things, neglecting spiritual or emotional depth",
+      "individuation_stage": "the feeling function expressed through the body and material care — incarnated love",
+      "complex_signals": ["language of feeding, tending, and providing", "warmth expressed through practical action rather than words", "sensory pleasure language", "home and body as sacred territory"]
+    },
+    "standard_meaning": {
+      "upright": "Nurturing, practical abundance, embodied care. Warmth expressed through doing. Home and body honored.",
+      "reversed": "Neglect of practical needs, smothering, or the material provision of love without emotional presence."
+    }
+  },
+  {
+    "id": "pentacles_king",
+    "name": "King of Pentacles",
+    "system": "Waite-Smith",
+    "number": 14,
+    "suit": "pentacles",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.4,
+        "notes": "secure, prosperous, stable — the builder at the height of his achievement"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "masters the material world; agency through wealth and practical authority"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.5,
+        "future": 0.1,
+        "notes": "inhabiting what was built over a long time; the future is secure"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "settled authority; the world is ordered around him"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "commands his domain; practical outward mastery"
+      },
+      "core_imagery": ["king on throne with vines and flowers", "castle behind", "bull symbols on throne", "pentacle in hand", "armor under robes", "grapes and abundance", "bulls on robe"],
+      "core_themes": ["material mastery", "wealth", "stability", "practical authority", "the self-made person", "abundance built through effort", "security as legacy"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Great Father (as provider and builder)",
+      "secondary_archetype": "The Ruler (of the material realm)",
+      "shadow_aspect": "materialism as identity, inability to value the intangible, using wealth as a substitute for intimacy",
+      "individuation_stage": "the earth principle fully mastered — the capacity to build and sustain in the material world",
+      "complex_signals": ["language of what has been built and protected", "pride in practical achievement", "measuring worth in material terms", "stability as primary value with some inflexibility implied"]
+    },
+    "standard_meaning": {
+      "upright": "Material mastery, wealth, stability. Built through patience and discipline. Practical authority in full expression.",
+      "reversed": "Materialism, corruption, or wealth used to control rather than sustain."
+    }
+  }
+]

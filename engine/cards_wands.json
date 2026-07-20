@@ -1,0 +1,660 @@
+[
+  {
+    "id": "wands_ace",
+    "name": "Ace of Wands",
+    "system": "Waite-Smith",
+    "number": 1,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.9,
+        "notes": "electric, ignited, bursting with potential energy"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "pure initiating force — the spark before the fire"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.3,
+        "future": 0.7,
+        "notes": "entirely forward-facing; the ace is pure potential pointing toward what hasn't happened yet"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "harmonious surge of energy; no conflict yet, just drive"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "energy directed outward into the world"
+      },
+      "core_imagery": ["hand emerging from cloud", "single sprouting wand", "green leaves budding", "castle in distance", "bright sky"],
+      "core_themes": ["inspiration", "new creative energy", "passion", "initiative", "spark", "potential", "creative force"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Divine Child (as creative impulse)",
+      "secondary_archetype": "Puer Aeternus (the eternal new beginning)",
+      "shadow_aspect": "energy without direction, perpetual starting without finishing, creative inflation",
+      "individuation_stage": "the first stirring of libido toward a new creative project or direction",
+      "complex_signals": ["excitement language with no concrete plan", "multiple new ideas competing", "difficulty sustaining past the initial spark", "strong somatic energy language ('I feel it in my body')"]
+    },
+    "standard_meaning": {
+      "upright": "New creative beginnings, inspiration, raw energy. A spark that could become a fire.",
+      "reversed": "Delays, creative blocks, or energy misdirected. The spark is there but won't catch."
+    }
+  },
+  {
+    "id": "wands_02",
+    "name": "Two of Wands",
+    "system": "Waite-Smith",
+    "number": 2,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 0.6,
+        "notes": "anticipatory, surveying, quietly bold — the moment before setting out"
+      },
+      "agency": {
+        "score": 0.8,
+        "direction": "active",
+        "notes": "planning and vision; agency as strategic surveying of possibilities"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.3,
+        "future": 0.6,
+        "notes": "holding the world in one's hand, looking toward what can be claimed"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "inner assurance; the tension is productive anticipation, not conflict"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "gaze directed outward at the horizon, toward the wider world"
+      },
+      "core_imagery": ["figure holding globe", "two wands flanking", "castle parapet", "ocean and land in view", "red clothing"],
+      "core_themes": ["vision", "planning", "ambition", "bold decisions", "the world as possibility", "expansion", "ownership"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hero (surveying the field before the quest)",
+      "secondary_archetype": "The Ruler (nascent)",
+      "shadow_aspect": "paralysis by vision — seeing the full scope and being unable to start; grandiosity without action",
+      "individuation_stage": "the ego consolidating its vision before committing to a direction",
+      "complex_signals": ["elaborate future plans without present action", "strong ownership language ('I will', 'I want to build')", "fear of choosing one path from many", "excitement mixed with hesitation"]
+    },
+    "standard_meaning": {
+      "upright": "Planning, vision, bold decisions. The world is in your hands — now choose a direction.",
+      "reversed": "Lack of planning, fear of the unknown, or vision without the courage to act on it."
+    }
+  },
+  {
+    "id": "wands_03",
+    "name": "Three of Wands",
+    "system": "Waite-Smith",
+    "number": 3,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.6,
+        "notes": "confident, expectant, watching ships come in — earned anticipation"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "initiative already taken; now watching the results unfold"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.3,
+        "future": 0.5,
+        "notes": "the plan is in motion; watching the horizon for results"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "aligned and moving; the early work is done"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "entirely outward — watching ships, tracking what's coming back"
+      },
+      "core_imagery": ["figure facing away toward sea", "three planted wands", "ships on the horizon", "mountains in distance", "orange cloak"],
+      "core_themes": ["foresight", "expansion", "enterprise", "waiting for results", "progress", "trade", "the first fruits of effort"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hero (mid-quest, monitoring progress)",
+      "secondary_archetype": "The Explorer",
+      "shadow_aspect": "impatience with the waiting phase, inability to trust what has been set in motion",
+      "individuation_stage": "trusting the process after action has been taken — learning to wait without anxiety",
+      "complex_signals": ["language of waiting for external confirmation", "difficulty trusting progress that isn't visible yet", "strong need to check on outcomes", "narratives about watching and monitoring"]
+    },
+    "standard_meaning": {
+      "upright": "Expansion, foresight, enterprise. Your ships are coming in. The effort is yielding results.",
+      "reversed": "Delays in returns, obstacles to expansion, or looking backward instead of forward."
+    }
+  },
+  {
+    "id": "wands_04",
+    "name": "Four of Wands",
+    "system": "Waite-Smith",
+    "number": 4,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.7,
+        "notes": "celebratory, communal, joyful — a genuine moment of arrival"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "celebration is active participation; marking the milestone together"
+      },
+      "time_orientation": {
+        "past": 0.4,
+        "present": 0.5,
+        "future": 0.1,
+        "notes": "celebrating what has been accomplished; the journey so far is honored"
+      },
+      "conflict_harmony": {
+        "score": 1.0,
+        "notes": "the most communal harmony in the suit; a shared threshold moment"
+      },
+      "relational_direction": {
+        "inward": 0.1,
+        "outward": 0.9,
+        "notes": "entirely outward — community, celebration, shared belonging"
+      },
+      "core_imagery": ["four wands forming canopy", "flower garlands", "two figures with bouquets", "castle in background", "celebrating crowd"],
+      "core_themes": ["celebration", "homecoming", "community", "milestone", "joy", "belonging", "harmony", "a resting place"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Great Mother (as community and belonging)",
+      "secondary_archetype": "The Divine Child (as celebrant)",
+      "shadow_aspect": "avoiding solitude through constant celebration, using community to escape inner work",
+      "individuation_stage": "the temenos — a safe, bounded space where the self can rest and be recognized",
+      "complex_signals": ["strong belonging and community language", "references to home or homecoming", "relief language ('finally', 'at last')", "difficulty with solitary processing"]
+    },
+    "standard_meaning": {
+      "upright": "Celebration, homecoming, community joy. A milestone reached; a moment of communal belonging.",
+      "reversed": "Instability at home, delayed celebration, or a milestone that doesn't feel as good as expected."
+    }
+  },
+  {
+    "id": "wands_05",
+    "name": "Five of Wands",
+    "system": "Waite-Smith",
+    "number": 5,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.4,
+        "arousal": 0.8,
+        "notes": "chaotic, energetic, competitive — neither hostile nor friendly, just clashing"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "everyone is acting; the problem is lack of coordination, not lack of will"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.8,
+        "future": 0.1,
+        "notes": "entirely in the present scuffle; no long view"
+      },
+      "conflict_harmony": {
+        "score": 0.1,
+        "notes": "maximum conflict in the wands suit — dispersed, disorganized opposition"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "all energy directed outward at competitors or opponents"
+      },
+      "core_imagery": ["five youths with wands clashing", "no clear winner", "chaotic movement", "bright clothing", "open field"],
+      "core_themes": ["competition", "conflict", "scattered energy", "disagreement", "struggle", "testing", "chaos without direction"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Trickster (as chaos principle)",
+      "secondary_archetype": "The Shadow (as projected onto competitors)",
+      "shadow_aspect": "fighting for its own sake, inability to collaborate, projection of inner conflict onto external opponents",
+      "individuation_stage": "early differentiation — the psyche testing itself against others before integration",
+      "complex_signals": ["narratives of unfair competition", "multiple simultaneous conflicts", "language of being ganged up on", "difficulty identifying the actual source of opposition"]
+    },
+    "standard_meaning": {
+      "upright": "Competition, conflict, scattered energy. Many voices, no agreement. A struggle that may be productive.",
+      "reversed": "Avoiding conflict, inner turmoil, or competition that has become pointlessly destructive."
+    }
+  },
+  {
+    "id": "wands_06",
+    "name": "Six of Wands",
+    "system": "Waite-Smith",
+    "number": 6,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.9,
+        "arousal": 0.7,
+        "notes": "triumphant, recognized, publicly validated — pride well earned"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "victory achieved and publicly claimed; agency expressed through leadership"
+      },
+      "time_orientation": {
+        "past": 0.3,
+        "present": 0.6,
+        "future": 0.1,
+        "notes": "celebrating a recent victory; the effort is behind, the reward is now"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "harmony through victory; the crowd is united in recognition"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "public recognition; the self is seen and celebrated by others"
+      },
+      "core_imagery": ["rider on white horse with laurel wreath", "wand with wreath crown", "crowd with wands raised", "green landscape", "victory procession"],
+      "core_themes": ["victory", "recognition", "public success", "leadership", "acclaim", "confidence", "achievement acknowledged"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hero (returning triumphant)",
+      "secondary_archetype": "The Ruler (as recognized leader)",
+      "shadow_aspect": "ego inflation, need for external validation, performance of success rather than genuine achievement",
+      "individuation_stage": "the ego's healthy experience of recognition — needed before it can be released",
+      "complex_signals": ["strong need for acknowledgment language", "stories of being overlooked despite effort", "conflating self-worth with external praise", "authentic pride in real accomplishment"]
+    },
+    "standard_meaning": {
+      "upright": "Victory, recognition, public success. The work is seen and celebrated. Leadership acknowledged.",
+      "reversed": "Private success without recognition, arrogance, or a fall from a high position."
+    }
+  },
+  {
+    "id": "wands_07",
+    "name": "Seven of Wands",
+    "system": "Waite-Smith",
+    "number": 7,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.5,
+        "arousal": 0.8,
+        "notes": "defensive, determined, holding ground under pressure"
+      },
+      "agency": {
+        "score": 0.8,
+        "direction": "active",
+        "notes": "active defense; agency as perseverance against opposition"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.8,
+        "future": 0.1,
+        "notes": "fully in the struggle of the present moment"
+      },
+      "conflict_harmony": {
+        "score": 0.2,
+        "notes": "under siege; the figure holds the high ground but is outnumbered"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "facing outward to meet the challenge"
+      },
+      "core_imagery": ["figure on high ground with wand", "six wands rising from below", "mismatched shoes", "defensive stance", "green hill"],
+      "core_themes": ["perseverance", "defense", "holding your position", "conviction", "challenge", "standing firm", "competition from below"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hero (besieged)",
+      "secondary_archetype": "The Warrior",
+      "shadow_aspect": "persecution complex, fighting battles that are already won, inability to stand down",
+      "individuation_stage": "testing the strength of one's convictions under social or external pressure",
+      "complex_signals": ["language of being challenged or attacked from multiple sides", "strong stance on a position others oppose", "exhaustion from constant defense", "difficulty distinguishing real threats from perceived ones"]
+    },
+    "standard_meaning": {
+      "upright": "Perseverance, defense, conviction. Holding your ground against opposition. The high ground is yours — keep it.",
+      "reversed": "Giving up, overwhelm, or a defensive stance that has become untenable."
+    }
+  },
+  {
+    "id": "wands_08",
+    "name": "Eight of Wands",
+    "system": "Waite-Smith",
+    "number": 8,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 1.0,
+        "notes": "swift, unobstructed, kinetic — the highest momentum card in the deck"
+      },
+      "agency": {
+        "score": 0.8,
+        "direction": "active",
+        "notes": "things are in motion; agency expressed as directing rapid movement"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.3,
+        "future": 0.7,
+        "notes": "entirely forward — speed toward a destination"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "no obstacles; clear passage, aligned direction"
+      },
+      "relational_direction": {
+        "inward": 0.1,
+        "outward": 0.9,
+        "notes": "pure outward movement toward a goal"
+      },
+      "core_imagery": ["eight wands in flight", "no human figure", "clear sky", "green landscape below", "river", "all wands parallel and descending"],
+      "core_themes": ["swift action", "momentum", "communication", "travel", "rapid progress", "messages arriving", "alignment of forces"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Mercurius (as messenger, as speed)",
+      "secondary_archetype": "The Hero (in full sprint)",
+      "shadow_aspect": "impulsive action without reflection, moving too fast to integrate experience",
+      "individuation_stage": "the libido moving freely toward its object — energy released from blockage",
+      "complex_signals": ["language of things finally moving", "multiple simultaneous developments", "inability to slow down or reflect mid-motion", "excitement that feels almost too fast"]
+    },
+    "standard_meaning": {
+      "upright": "Swift movement, rapid progress, communication. Things are moving fast — stay aligned.",
+      "reversed": "Delays, obstacles, miscommunication, or movement that is too hasty and chaotic."
+    }
+  },
+  {
+    "id": "wands_09",
+    "name": "Nine of Wands",
+    "system": "Waite-Smith",
+    "number": 9,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.4,
+        "arousal": 0.6,
+        "notes": "weary but vigilant — battered resilience, not defeat"
+      },
+      "agency": {
+        "score": 0.6,
+        "direction": "active",
+        "notes": "still standing, still watchful; agency as endurance"
+      },
+      "time_orientation": {
+        "past": 0.5,
+        "present": 0.4,
+        "future": 0.1,
+        "notes": "marked by the battles behind; the past is written on the body"
+      },
+      "conflict_harmony": {
+        "score": 0.3,
+        "notes": "bruised but holding; the conflict has not resolved, only paused"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "watchful of the world, protective of self"
+      },
+      "core_imagery": ["bandaged figure leaning on wand", "row of eight wands behind", "wary expression", "battered stance", "open landscape"],
+      "core_themes": ["resilience", "persistence", "wariness", "last stand", "near-exhaustion", "protective vigilance", "almost there"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Wounded Healer",
+      "secondary_archetype": "The Hero (late-stage, tired)",
+      "shadow_aspect": "hypervigilance as a way of life, inability to rest even when safe, trauma response mistaken for wisdom",
+      "individuation_stage": "the ego near the end of a long ordeal — testing whether it can hold on one more time",
+      "complex_signals": ["language of being tired but unable to stop", "suspicion of good news or respite", "body-related fatigue language", "stories of past wounds informing present wariness"]
+    },
+    "standard_meaning": {
+      "upright": "Resilience, persistence, near the end of the struggle. You've come far — one more push.",
+      "reversed": "Paranoia, inability to rest, or exhaustion that has become a permanent state."
+    }
+  },
+  {
+    "id": "wands_10",
+    "name": "Ten of Wands",
+    "system": "Waite-Smith",
+    "number": 10,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.3,
+        "arousal": 0.5,
+        "notes": "burdened, heavy, strained — the weight of too much taken on"
+      },
+      "agency": {
+        "score": 0.5,
+        "direction": "active",
+        "notes": "still moving forward, but barely; agency under crushing load"
+      },
+      "time_orientation": {
+        "past": 0.2,
+        "present": 0.6,
+        "future": 0.2,
+        "notes": "head down, focused on the next step; the destination is close but the burden is heavy"
+      },
+      "conflict_harmony": {
+        "score": 0.3,
+        "notes": "the self is at war with the weight it carries"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "carrying responsibilities toward a destination (house/town visible)"
+      },
+      "core_imagery": ["figure bent under ten wands", "struggling forward", "village in background", "head hidden behind wands", "slow heavy movement"],
+      "core_themes": ["burden", "overcommitment", "responsibility", "struggle", "near completion", "carrying too much", "exhaustion"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Martyr (unconscious)",
+      "secondary_archetype": "The Great Mother (as over-giver)",
+      "shadow_aspect": "martyrdom through overwork, unconscious refusal to delegate or ask for help, identity built on being the one who carries",
+      "individuation_stage": "confronting the compulsion to carry everything — learning to put some down",
+      "complex_signals": ["language of being responsible for everything", "inability to ask for help framed as strength", "lists of obligations and responsibilities", "exhaustion paired with inability to stop"]
+    },
+    "standard_meaning": {
+      "upright": "Burden, overcommitment, carrying too much. The destination is near — but something must be set down.",
+      "reversed": "Releasing a burden, delegating, or collapsing under the weight before relief arrives."
+    }
+  },
+  {
+    "id": "wands_page",
+    "name": "Page of Wands",
+    "system": "Waite-Smith",
+    "number": 11,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.7,
+        "notes": "curious, enthusiastic, eager — the energy of a new student"
+      },
+      "agency": {
+        "score": 0.7,
+        "direction": "active",
+        "notes": "ready to act but still learning; energy precedes skill"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.4,
+        "future": 0.6,
+        "notes": "forward-looking beginner; the past has no weight yet"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "inner harmony of youth; conflict comes only from inexperience meeting the world"
+      },
+      "relational_direction": {
+        "inward": 0.3,
+        "outward": 0.7,
+        "notes": "looking outward with enthusiasm and curiosity"
+      },
+      "core_imagery": ["young figure holding wand upright", "feathered hat", "desert landscape with pyramids", "salamander decoration on tunic", "looking at the wand"],
+      "core_themes": ["enthusiasm", "new ideas", "curiosity", "potential", "messages", "beginners mind", "creative exploration"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Divine Child (as curious explorer)",
+      "secondary_archetype": "Puer Aeternus (beginning phase)",
+      "shadow_aspect": "unfocused energy, starting everything and finishing nothing, enthusiasm as avoidance of depth",
+      "individuation_stage": "the first opening to the creative fire — raw potential before discipline",
+      "complex_signals": ["multiple enthusiasms competing for attention", "language of wanting to try everything", "excitement about the idea more than the execution", "youthful energy in the voice"]
+    },
+    "standard_meaning": {
+      "upright": "Enthusiasm, new creative beginnings, a message or news. Fresh energy ready to be directed.",
+      "reversed": "Scattered energy, immaturity, or creative ideas without follow-through."
+    }
+  },
+  {
+    "id": "wands_knight",
+    "name": "Knight of Wands",
+    "system": "Waite-Smith",
+    "number": 12,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.7,
+        "arousal": 1.0,
+        "notes": "fearless, impulsive, charging — the most kinetic court card"
+      },
+      "agency": {
+        "score": 1.0,
+        "direction": "active",
+        "notes": "maximum action energy; moving before thinking"
+      },
+      "time_orientation": {
+        "past": 0.0,
+        "present": 0.2,
+        "future": 0.8,
+        "notes": "entirely forward; no reflection, only motion"
+      },
+      "conflict_harmony": {
+        "score": 0.5,
+        "notes": "conflict is irrelevant — the knight charges regardless"
+      },
+      "relational_direction": {
+        "inward": 0.1,
+        "outward": 0.9,
+        "notes": "fully outward, engaging the world at full speed"
+      },
+      "core_imagery": ["knight on rearing horse", "orange and red plumes", "desert pyramids", "salamander on armor", "wand raised", "full gallop"],
+      "core_themes": ["adventure", "impulsiveness", "passion", "courage", "action", "travel", "bold initiative", "risk-taking"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Hero (in reckless youth)",
+      "secondary_archetype": "Puer Aeternus (in active expression)",
+      "shadow_aspect": "recklessness, inability to commit, adventure as avoidance of depth, burning bridges",
+      "individuation_stage": "the animus in its uninitiated form — fire without wisdom",
+      "complex_signals": ["language of leaping before looking", "multiple impulsive decisions", "excitement framed as identity ('I'm just that kind of person')", "difficulty with slow or systematic approaches"]
+    },
+    "standard_meaning": {
+      "upright": "Action, adventure, impulsiveness, passion. Moving fast and boldly — sometimes too boldly.",
+      "reversed": "Recklessness, delays, or passion that has burned out or turned destructive."
+    }
+  },
+  {
+    "id": "wands_queen",
+    "name": "Queen of Wands",
+    "system": "Waite-Smith",
+    "number": 13,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.7,
+        "notes": "warm, confident, magnetic — fire that invites rather than threatens"
+      },
+      "agency": {
+        "score": 0.9,
+        "direction": "active",
+        "notes": "confident self-possession; agency through presence and charisma"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.7,
+        "future": 0.2,
+        "notes": "fully present; her power is in the now"
+      },
+      "conflict_harmony": {
+        "score": 0.8,
+        "notes": "harmonious authority; the black cat at her feet is her shadow, acknowledged"
+      },
+      "relational_direction": {
+        "inward": 0.4,
+        "outward": 0.6,
+        "notes": "secure in herself; generously outward from that base"
+      },
+      "core_imagery": ["queen on throne with sunflowers", "black cat at feet", "wand with leaves", "lion armrests", "sunflower in hand", "yellow backdrop"],
+      "core_themes": ["confidence", "warmth", "independence", "creativity", "magnetism", "self-assurance", "generosity of spirit"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "Anima (positive, solar, self-possessed)",
+      "secondary_archetype": "The Great Mother (nurturing through strength, not need)",
+      "shadow_aspect": "jealousy, possessiveness, using charm as control, the black cat unacknowledged",
+      "individuation_stage": "the mature anima — fire that has learned to sustain itself",
+      "complex_signals": ["strong self-referential confidence ('I know who I am')", "warm but boundaried language", "acknowledgment of shadow without being defined by it", "creative ownership"]
+    },
+    "standard_meaning": {
+      "upright": "Confidence, warmth, independence, creative energy. A vibrant, self-assured presence.",
+      "reversed": "Jealousy, demanding behavior, or confidence that tips into arrogance or manipulation."
+    }
+  },
+  {
+    "id": "wands_king",
+    "name": "King of Wands",
+    "system": "Waite-Smith",
+    "number": 14,
+    "suit": "wands",
+    "theme_space": {
+      "emotional_tone": {
+        "valence": 0.8,
+        "arousal": 0.7,
+        "notes": "commanding, visionary, decisive — fire mature into leadership"
+      },
+      "agency": {
+        "score": 1.0,
+        "direction": "active",
+        "notes": "masterful agency; the king directs with total conviction"
+      },
+      "time_orientation": {
+        "past": 0.1,
+        "present": 0.4,
+        "future": 0.5,
+        "notes": "vision-focused leader; always oriented toward what he is building"
+      },
+      "conflict_harmony": {
+        "score": 0.7,
+        "notes": "internally integrated; commands harmony around him through sheer conviction"
+      },
+      "relational_direction": {
+        "inward": 0.2,
+        "outward": 0.8,
+        "notes": "oriented outward — leading, inspiring, directing"
+      },
+      "core_imagery": ["king on throne with salamanders", "wand held firmly", "lion on throne", "orange robes", "crown", "forward gaze", "salamander biting tail"],
+      "core_themes": ["leadership", "vision", "entrepreneurship", "boldness", "inspiration", "natural authority", "creative mastery"]
+    },
+    "jungian_mapping": {
+      "primary_archetype": "The Ruler / Rex",
+      "secondary_archetype": "The Hero (completed, now leading)",
+      "shadow_aspect": "tyrannical leadership, inflexibility, burning everything down when opposed",
+      "individuation_stage": "the fire principle fully integrated — will and wisdom in alignment",
+      "complex_signals": ["strong visionary language with concrete direction", "natural assumption of leadership", "impatience with those who can't keep pace", "long-horizon thinking"]
+    },
+    "standard_meaning": {
+      "upright": "Leadership, vision, entrepreneurial energy. A bold natural leader with long-range vision.",
+      "reversed": "Impulsive leadership, arrogance, or a visionary who cannot listen or adapt."
+    }
+  }
+]
