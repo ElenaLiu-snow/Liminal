@@ -1,8 +1,167 @@
 {
-  "version": "1.0",
-  "description": "Liminal analysis engine — input/output schema for the two-layer analysis pipeline",
+  "version": "1.1",
+  "description": "Liminal analysis engine — three-part output schema. MVP: analysis layer output shown directly to user (writing layer deferred).",
 
   "input_schema": {
+    "session_id": "string — unique session identifier",
+    "timestamp": "ISO 8601 string",
+    "user_question": "string or null — explicit question if Plan A; null if Plan B",
+    "card": {
+      "$ref": "See tarot_card_schema.md for full card object structure",
+      "required_fields": ["id", "name", "suit", "theme_space", "jungian_mapping", "standard_meaning"]
+    },
+    "raw_transcript": "string — verbatim ASR output, preserving fillers, self-corrections, and pause markers e.g. [pause 2.1s]",
+    "features": {
+      "first_person_density": "float — count of I/me/my/myself / total word count",
+      "absolutist_words": "list[string]",
+      "absolutist_count": "int",
+      "filler_count": "int",
+      "fillers_found": "list[string]",
+      "self_corrections": "list[string]",
+      "self_correction_count": "int",
+      "repeated_phrases": "list[string]",
+      "pause_markers": "list[string]",
+      "significant_pauses": "list[float] — durations > 1.5s",
+      "negation_count": "int",
+      "word_count": "int",
+      "speaking_duration_seconds": "float or null"
+    }
+  },
+
+  "analysis_layer_output": {
+    "description": "MVP: shown directly to user in structured format. Writing layer polish deferred to post-P3.",
+    "version": "1.1",
+    "card_id": "string",
+    "session_id": "string",
+
+    "part_1_projection": {
+      "display_order": 1,
+      "label": "What your words reveal",
+      "description": "Projection analysis — what the user's language patterns indicate about their inner state and cognitive framework",
+
+      "deviation_signals": {
+        "description": "Dimensions where user language deviates from card theme_space (delta >= 0.3) — these are the primary signals",
+        "type": "list[object]",
+        "item_schema": {
+          "dimension": "string",
+          "card_value": "float",
+          "user_value": "float",
+          "delta": "float",
+          "direction": "string — 'user higher' | 'user lower'",
+          "interpretation": "string — direct judgment, not hedged description. What this deviation means psychologically.",
+          "evidence": "list[string] — exact quotes from transcript"
+        }
+      },
+
+      "active_archetypes": {
+        "type": "list[object]",
+        "item_schema": {
+          "archetype": "string",
+          "confidence": "string — 'high' | 'medium' | 'low'",
+          "evidence": "list[string]",
+          "plain_explanation": "string — what this archetype means in non-jargon language"
+        }
+      },
+
+      "complex_indicators": {
+        "type": "list[object]",
+        "item_schema": {
+          "signal_type": "string",
+          "description": "string",
+          "raw_evidence": "string — exact quote or feature value",
+          "strength": "string — 'strong' | 'moderate' | 'weak'"
+        }
+      },
+
+      "shadow_hints": {
+        "type": "list[string]",
+        "note": "Framed as sharp questions, not vague possibilities"
+      },
+
+      "mirrored_phrases": {
+        "type": "list[string]",
+        "description": "User's own words to quote back — minimum 3 phrases"
+      },
+
+      "core_judgment": {
+        "description": "The single most important finding — 2-3 sentences, direct, no hedging. If Plan A: must directly address user_question.",
+        "type": "string"
+      },
+
+      "weak_signal_flag": "boolean",
+      "weak_signal_reason": "string or null"
+    },
+
+    "part_2_synchronicity": {
+      "display_order": 2,
+      "label": "This card, right now",
+      "description": "Synchronicity integration — what it means that THIS card appeared at THIS moment, given the projection analysis. Not fortune-telling. The card as meaningful coincidence in dialogue with the user's current state.",
+
+      "card_meaning_now": {
+        "description": "The card's symbolic meaning stated as a psychological dynamic, not a fortune",
+        "type": "string"
+      },
+
+      "tension_with_projection": {
+        "description": "Where the card's theme and the user's projection create productive tension — what the gap between them points to",
+        "type": "string"
+      },
+
+      "synchronicity_statement": {
+        "description": "One direct statement about why this card appearing now is meaningful — integrates card + user's current state. Acknowledges the non-causal meaningful coincidence without reducing it to either pure symbolism or pure psychology.",
+        "type": "string"
+      },
+
+      "reversed_note": {
+        "description": "If card is reversed: what the reversal specifically shifts or intensifies in this reading. Null if upright.",
+        "type": "string or null"
+      }
+    },
+
+    "part_3_closing_question": {
+      "display_order": 3,
+      "label": "A question to carry",
+      "description": "One specific question derived from the most significant finding in Part 1. Not generic. Not therapeutic homework. A question that opens something rather than closes it. The reading ends here — no further dialogue.",
+
+      "question": {
+        "type": "string",
+        "constraints": [
+          "Derived from the core_judgment or most significant deviation_signal — not a template",
+          "Specific enough to be answerable in one sitting of reflection",
+          "Opens toward the user's own knowing, not toward the product",
+          "Does not prescribe action or imply what the answer should be"
+        ]
+      },
+
+      "derivation": "string — internal note explaining which finding this question comes from (not shown to user)"
+    },
+
+    "longitudinal_storage": {
+      "description": "Data stored for future trait/state analysis. MVP: store only, do not display.",
+      "fields_to_store": [
+        "session_id", "timestamp", "card_id", "user_question",
+        "raw_transcript", "features",
+        "deviation_signals (all, including delta < 0.3)",
+        "active_archetypes",
+        "analysis_confidence"
+      ],
+      "note": "Longitudinal pattern analysis (trait vs state separation) activated at P4 when sufficient sessions accumulated"
+    },
+
+    "analysis_confidence": "string — 'high' | 'medium' | 'low'"
+  },
+
+  "pipeline_notes": {
+    "mvp_output": "Analysis layer output shown directly to user (parts 1-3). Writing layer (prose rendering) deferred to post-P3.",
+    "layer_separation": "Analysis layer must complete before any output is shown. Never merge analysis and writing in one prompt.",
+    "no_fabrication": "No invented Jungian citations. Conceptual references only ('the Jungian concept of projection') unless quoting public domain works (pre-1928 English).",
+    "display_order": "Part 1 → Part 2 → Part 3. Part 2 (card meaning) shown AFTER projection analysis to prevent anchoring bias.",
+    "plan_a_b": "Plan A (user_question provided): Part 1 core_judgment must directly address the question. Plan B (user_question null): analysis from language only.",
+    "session_closes_after_part_3": "No dialogue continuation. User action after reading: save / start new reading only.",
+    "model": "Claude Sonnet 4.5"
+  }
+}
+
     "session_id": "string — unique session identifier",
     "timestamp": "ISO 8601 string",
     "card": {
