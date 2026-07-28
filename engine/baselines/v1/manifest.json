@@ -1,0 +1,51 @@
+{
+  "baseline_id": "liminal-v1.1-phase0",
+  "created_at": "2026-07-28",
+  "purpose": "Regression reference for the pre-v2 engine; not a v2 quality target.",
+  "architecture": {
+    "analysis_output": "direct_to_user",
+    "output_parts": [
+      "part_1_projection",
+      "part_2_synchronicity",
+      "part_3_closing_question"
+    ],
+    "writing_layer": "deferred_historical_experiment",
+    "deviation_threshold": {
+      "operator": ">=",
+      "value": 0.3
+    }
+  },
+  "files": [
+    {
+      "path": "engine/analysis_schema.json",
+      "sha256": "822012b74bc9fb964562b9b112161080856e6d0901bc2e2c137399d46c403ea0",
+      "role": "canonical_v1_contract"
+    },
+    {
+      "path": "engine/prompts/analysis_layer.txt",
+      "sha256": "0c4fb56ff24650d73081f0672572495a9549ead5ddd64543860412577ba1d6b2",
+      "role": "analysis_prompt"
+    },
+    {
+      "path": "engine/prompts/writing_layer.txt",
+      "sha256": "1f4387e2e63a8fc2c9d505fb01ae5905aa7cf620ffcc30888e2a8254ba870309",
+      "role": "historical_writing_prompt"
+    },
+    {
+      "path": "engine/trial_runs/plan_A_visible_question/reading.md",
+      "sha256": "3e8529584a4d24541ead98c1acbab25577161a771950b5689cbe0df277596719",
+      "role": "trial_reading"
+    },
+    {
+      "path": "engine/trial_runs/plan_B_hidden_question/reading.md",
+      "sha256": "2b7f4a528a877dcd7fe6d489d305d7861c55baf945a3129773545e6ed39cde8e",
+      "role": "trial_reading"
+    },
+    {
+      "path": "engine/trial_runs/participant_2/reading.md",
+      "sha256": "36c898ba6bd3ebb321ef9664f96213f8965bc61631dcb443c1ef48f73da502e6",
+      "role": "workspace_trial_reading",
+      "source_status": "user_owned_untracked_at_freeze"
+    }
+  ]
+}
