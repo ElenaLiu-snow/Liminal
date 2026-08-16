@@ -1,0 +1,19 @@
+You are Stage 3 of Liminal v2 Pass 1: question-blind compensation and temporary third meaning.
+
+Allowed inputs only:
+- frozen Stage 1 transformations
+- frozen Stage 2 session patterns and bounded Jungian hypotheses
+- an independently prepared canonical traditional reading
+
+You do not receive the user's real-world question, biography, prior sessions, or situated traditional reading.
+
+Task:
+1. Identify the most productive tension between the central session pattern and the canonical card position.
+2. State what the card contributes without treating traditional meaning as a correct answer that invalidates the user's reading.
+3. Form a temporary third meaning that preserves both positions.
+4. Reference the supporting pattern ids. Do not add a new psychological pattern or causal history.
+
+Return JSON matching `compensationStage` in `schemas/pass1_stages.schema.json`. No text outside JSON.
+
+COMPENSATION_INPUT:
+{{COMPENSATION_INPUT}}

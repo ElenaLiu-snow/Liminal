@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liminal.local/schemas/v2/pass1_stages.schema.json",
+  "title": "Liminal v2 staged Pass 1 outputs",
+  "$defs": {
+    "evidenceStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "session_id",
+        "card_id",
+        "symbolic_observations",
+        "symbolic_transformations"
+      ],
+      "properties": {
+        "schema_version": {"const": "2.0-alpha.1"},
+        "session_id": {"type": "string", "minLength": 1},
+        "card_id": {"type": "string", "minLength": 1},
+        "symbolic_observations": {
+          "type": "array",
+          "items": {"$ref": "pass1_output.schema.json#/$defs/symbolicObservation"}
+        },
+        "symbolic_transformations": {
+          "type": "array",
+          "items": {"$ref": "pass1_output.schema.json#/$defs/symbolicTransformation"}
+        }
+      }
+    },
+    "patternStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "session_id",
+        "card_id",
+        "psychological_patterns",
+        "central_pattern_id",
+        "jungian_hypotheses",
+        "epistemic_limits"
+      ],
+      "properties": {
+        "schema_version": {"const": "2.0-alpha.1"},
+        "session_id": {"type": "string", "minLength": 1},
+        "card_id": {"type": "string", "minLength": 1},
+        "psychological_patterns": {
+          "type": "array",
+          "items": {"$ref": "pass1_output.schema.json#/$defs/psychologicalPattern"}
+        },
+        "central_pattern_id": {"type": ["string", "null"]},
+        "jungian_hypotheses": {
+          "type": "array",
+          "items": {"$ref": "pass1_output.schema.json#/$defs/jungianHypothesis"}
+        },
+        "epistemic_limits": {
+          "$ref": "pass1_output.schema.json#/properties/epistemic_limits"
+        }
+      }
+    },
+    "compensationStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "session_id", "card_id", "compensatory_reading"],
+      "properties": {
+        "schema_version": {"const": "2.0-alpha.1"},
+        "session_id": {"type": "string", "minLength": 1},
+        "card_id": {"type": "string", "minLength": 1},
+        "compensatory_reading": {
+          "$ref": "pass1_output.schema.json#/properties/compensatory_reading"
+        }
+      }
+    },
+    "writingStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "session_id", "card_id", "integrated_reading"],
+      "properties": {
+        "schema_version": {"const": "2.0-alpha.1"},
+        "session_id": {"type": "string", "minLength": 1},
+        "card_id": {"type": "string", "minLength": 1},
+        "integrated_reading": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

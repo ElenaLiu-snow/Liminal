@@ -1,3 +1,4 @@
+import hashlib
 import json
 import re
 import unittest
@@ -126,8 +127,19 @@ class BaselineManifestContractTests(unittest.TestCase):
         entries = manifest["files"]
         self.assertEqual(len(entries), 6)
         for entry in entries:
-            self.assertTrue((PROJECT_ROOT / entry["path"]).is_file())
             self.assertRegex(entry["sha256"], r"^[0-9a-f]{64}$")
+            baseline_path = PROJECT_ROOT / entry["path"]
+
+            if not baseline_path.is_file():
+                self.assertEqual(
+                    entry.get("source_status"),
+                    "user_owned_untracked_at_freeze",
+                    msg=f"undeclared missing baseline file: {baseline_path}",
+                )
+                continue
+
+            actual_sha256 = hashlib.sha256(baseline_path.read_bytes()).hexdigest()
+            self.assertEqual(actual_sha256, entry["sha256"], msg=baseline_path)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,325 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liminal.local/schemas/v2/pass1_output.schema.json",
+  "title": "Liminal v2 Pass 1 analysis output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "session_id",
+    "card_id",
+    "orientation",
+    "question_blind",
+    "symbolic_observations",
+    "symbolic_transformations",
+    "psychological_patterns",
+    "central_pattern_id",
+    "jungian_hypotheses",
+    "canonical_traditional_reading",
+    "compensatory_reading",
+    "epistemic_limits",
+    "user_display"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0-alpha.1"
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "card_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "orientation": {
+      "enum": ["upright", "reversed"]
+    },
+    "question_blind": {
+      "const": true
+    },
+    "symbolic_observations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/symbolicObservation"
+      }
+    },
+    "symbolic_transformations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/symbolicTransformation"
+      }
+    },
+    "psychological_patterns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/psychologicalPattern"
+      }
+    },
+    "central_pattern_id": {
+      "type": ["string", "null"]
+    },
+    "jungian_hypotheses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/jungianHypothesis"
+      }
+    },
+    "canonical_traditional_reading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "card_id",
+        "orientation",
+        "stable_meaning",
+        "visual_symbols",
+        "core_themes",
+        "source_refs",
+        "source_status"
+      ],
+      "properties": {
+        "card_id": {"type": "string", "minLength": 1},
+        "orientation": {"enum": ["upright", "reversed"]},
+        "stable_meaning": {"type": "string", "minLength": 1},
+        "visual_symbols": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "core_themes": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "source_status": {
+          "enum": ["provisional_v1_dataset", "waite_verified", "human_reviewed"]
+        }
+      }
+    },
+    "compensatory_reading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tension",
+        "card_contribution",
+        "temporary_third_meaning",
+        "evidence_pattern_ids"
+      ],
+      "properties": {
+        "tension": {"type": "string", "minLength": 1},
+        "card_contribution": {"type": "string", "minLength": 1},
+        "temporary_third_meaning": {"type": "string", "minLength": 1},
+        "evidence_pattern_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    },
+    "epistemic_limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "weak_signal",
+        "weak_signal_reason",
+        "unsupported_inferences",
+        "limitations"
+      ],
+      "properties": {
+        "weak_signal": {"type": "boolean"},
+        "weak_signal_reason": {"type": ["string", "null"]},
+        "unsupported_inferences": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "stable_trait",
+              "developmental_origin",
+              "childhood_experience",
+              "trauma_source",
+              "clinical_diagnosis"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "user_display": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["integrated_reading"],
+      "properties": {
+        "integrated_reading": {"type": "string", "minLength": 1}
+      }
+    }
+  },
+  "$defs": {
+    "confidence": {
+      "enum": ["low", "medium", "high"]
+    },
+    "symbolicObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "description",
+        "user_evidence",
+        "card_evidence",
+        "confidence"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["noticed", "omitted", "added", "linguistic"]},
+        "description": {"type": "string", "minLength": 1},
+        "user_evidence": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "card_evidence": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "symbolicTransformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "observation_ids",
+        "description",
+        "user_evidence",
+        "card_evidence",
+        "confidence",
+        "alternative_explanation",
+        "disconfirming_evidence"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {
+          "enum": [
+            "convergence",
+            "omission",
+            "inversion",
+            "addition",
+            "emotional_recoding",
+            "agency_shift",
+            "identification_shift",
+            "temporal_shift"
+          ]
+        },
+        "observation_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "description": {"type": "string", "minLength": 1},
+        "user_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "card_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "alternative_explanation": {"type": "string", "minLength": 1},
+        "disconfirming_evidence": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "psychologicalPattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "scope",
+        "sequence",
+        "emotional_function",
+        "adaptive_value",
+        "current_cost",
+        "evidence_transformation_ids",
+        "user_evidence",
+        "confidence",
+        "alternative_explanation",
+        "disconfirming_evidence"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "scope": {"const": "session_pattern"},
+        "sequence": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "emotional_function": {"type": "string", "minLength": 1},
+        "adaptive_value": {"type": "string", "minLength": 1},
+        "current_cost": {"type": "string", "minLength": 1},
+        "evidence_transformation_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "user_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "alternative_explanation": {"type": "string", "minLength": 1},
+        "disconfirming_evidence": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "jungianHypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "concept",
+        "pattern_ids",
+        "interpretation",
+        "confidence",
+        "alternative_explanation"
+      ],
+      "properties": {
+        "concept": {
+          "enum": [
+            "projection",
+            "complex_autonomy",
+            "compensation",
+            "shadow",
+            "amplification",
+            "transcendent_function",
+            "archetype"
+          ]
+        },
+        "pattern_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "interpretation": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "alternative_explanation": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
