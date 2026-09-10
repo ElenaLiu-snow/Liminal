@@ -97,9 +97,9 @@ v2 将在独立的分析输出 schema 中记录下列关系，而不是立即改
 
 每条关系必须同时引用用户原话和牌面/传统象征证据，并包含置信度、替代解释与反对证据。详细实施顺序见 `BUILD_INSTRUCTIONS.md`。
 
-## v2 计划中的传统塔罗来源层（尚未修改 JSON）
+## v2 传统塔罗来源层（影子版本已实现）
 
-现有 `standard_meaning.upright/reversed` 只能支持简短牌义，不能稳定承担独立 Traditional Tarot Layer。计划在技术修正阶段为每张牌增加或关联：
+现有 `standard_meaning.upright/reversed` 只能支持简短牌义，不能稳定承担独立 Traditional Tarot Layer。`engine/v2/data/rws_knowledge.json` 已为 78 张牌建立版本化影子记录与逐牌来源链接，并预留以下审核方向：
 
 ```json
 {
@@ -125,3 +125,5 @@ v2 将在独立的分析输出 schema 中记录下列关系，而不是立即改
 - `reversal_modes` 优先表达 `blocked`、`internalized`、`excessive`、`misdirected`、`delayed`
 - canonical traditional reading 不读取用户问题或自由联想
 - situated traditional reading 只增加用户问题，不读取 Pass 1 心理结论
+
+当前影子牌库尚未激活为 Prompt 输入：Waite 原文、视觉清单、现代解释和逐张产品图仍分别标记审核状态。激活前必须更新 Prompt 锁、通过回归测试，并进行新一轮真人验收。

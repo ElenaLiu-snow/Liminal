@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liminal.local/schemas/tarot_knowledge.schema.json",
+  "title": "Liminal RWS Knowledge Base",
+  "type": "object",
+  "required": ["schema_version", "knowledge_version", "deck", "source_registry", "cards"],
+  "properties": {
+    "schema_version": {"const": "2.0-alpha.1"},
+    "knowledge_version": {"const": "rws-0.1.0"},
+    "deck": {"type": "object"},
+    "source_registry": {"type": "object"},
+    "cards": {
+      "type": "array",
+      "minItems": 78,
+      "maxItems": 78,
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "name", "system", "arcana", "suit", "rank", "number",
+          "visual_inventory", "source_links", "modern_interpretation",
+          "reversal_framework", "review"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

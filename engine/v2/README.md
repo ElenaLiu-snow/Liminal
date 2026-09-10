@@ -1,6 +1,6 @@
 # Liminal v2 testable vertical slice
 
-Status: **ready for a full Pass 1 → question reveal → Pass 2 human test**.
+Status: **accepted contract-driven alpha baseline; parallel knowledge and method foundations are in shadow mode**.
 
 This directory adds v2 contracts without modifying the frozen v1.1 schema or prompts.
 
@@ -30,8 +30,15 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
   - bounded direction with an uncertainty boundary
   - optional action/reflection translation and one takeaway question
   - a writing stage that renders one complete reading without adding analysis
+- Parallel production foundations (not yet active model inputs):
+  - a deterministic 78-card RWS knowledge index with per-card Waite source links and review states
+  - a prompt-neutral analysis-method specification with evidence gates and false-positive checks
+  - a SHA-256 lock for all seven prompts accepted during the alpha human tests
+  - automated isolation checks preventing either shadow layer from silently altering current output
 
-No model SDK is coupled to the engine yet. This is intentional: the prompts can be tested with a chosen model while the input, output, and freeze contracts stay provider-independent.
+No model SDK is coupled to the engine yet. The completed assisted human tests were used to validate the intended answer and the contract-assisted workflow; they were not end-to-end API generations. The next participant gate begins only after a provider adapter runs the locked prompts and returns schema-valid outputs.
+
+The knowledge and method layers can continue to mature before that gate. They remain `shadow_read_only` / `shadow_only_not_prompt_input`, so their review work cannot alter the already accepted prompt behavior by accident.
 
 ## Prepare a Pass 1 request
 
@@ -105,9 +112,9 @@ python -m engine.v2.cli assemble-pass2 \
   --writing /path/to/pass2-writing-output.json
 ```
 
-## Human-test gate
+## Next human-test gate
 
-The next participant test should run the complete two-pass flow with a different card and question from the exploratory samples. The participant keeps the question private until Pass 1 has been validated, frozen, and shown.
+After the model adapter is implemented, the next participant test should run the complete two-pass flow using actual model outputs from the locked prompts, with a different card and question from the exploratory samples. The participant keeps the question private until Pass 1 has been validated, frozen, and shown.
 
 Score at least:
 

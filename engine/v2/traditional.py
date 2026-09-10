@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from .contracts import ContractError, ORIENTATIONS
+from .knowledge import TarotKnowledgeBase
 
 
 ENGINE_DIR = Path(__file__).resolve().parents[1]
@@ -43,10 +44,11 @@ class CardNotFoundError(KeyError):
 
 
 class TraditionalTarotLayer:
-    """Read-only traditional layer backed by the existing 78-card v1 dataset.
+    """Read-only traditional layer with a shadow v2 knowledge index.
 
-    The current source is deliberately marked provisional. Waite text and human
-    review can replace individual records later without changing the interface.
+    Runtime output deliberately remains on the accepted provisional v1 payload.
+    The v2 knowledge records can be reviewed independently and are not allowed to
+    change model inputs until a separate activation gate is passed.
     """
 
     def __init__(self, engine_dir: Path | None = None) -> None:
@@ -56,6 +58,7 @@ class TraditionalTarotLayer:
         self._by_name = {card["name"].casefold(): card for card in self._cards}
         if len(self._cards) != 78 or len(self._by_id) != 78:
             raise ContractError("traditional layer requires 78 uniquely identified cards")
+        self.knowledge = TarotKnowledgeBase()
 
     def _load_cards(self) -> list[dict[str, Any]]:
         cards: list[dict[str, Any]] = []
@@ -69,6 +72,14 @@ class TraditionalTarotLayer:
         if card is None:
             raise CardNotFoundError(card_ref)
         return card
+
+    def knowledge_record(self, card_ref: str) -> dict[str, Any]:
+        """Return source-linked v2 data without injecting it into current prompts."""
+
+        try:
+            return self.knowledge.get_card(card_ref)
+        except KeyError as exc:
+            raise CardNotFoundError(card_ref) from exc
 
     def canonical(self, card_ref: str, orientation: str) -> dict[str, Any]:
         """Return the question- and transcript-blind canonical reading."""

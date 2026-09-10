@@ -1,0 +1,14 @@
+{
+  "lock_version": "1",
+  "baseline_commit": "df0f79e2b6cd278c1e678409b5923622bf68ef10",
+  "status": "human_accepted_alpha_baseline",
+  "files": {
+    "pass1_compensation.txt": "5ec2bcaeef0baa309bb223d0c13e1ce0d354c2047a64c3f3053b7678d3ca9a74",
+    "pass1_observations.txt": "b0f1703d21228aad495293bee2697437142d775a0212f8073cd05f4f6db1d9e7",
+    "pass1_patterns.txt": "2cad443d51297bf49392c416d72bd0c36a8f4b108acc80745bf502b1d068f5ac",
+    "pass1_writing.txt": "c56fa1ed0bc38c2e8cb925caaff93d4983e10fb31ed618c5b88427e43ae679e8",
+    "pass2_integration.txt": "a050f6ac64ce9c60e9ff64733b717def1dd2cc794094c741b3d3c376275638af",
+    "pass2_writing.txt": "7e8065370902fcf3839a6051d502b78bcc47b0d3bccfad490c8fffce53472432",
+    "traditional_situated.txt": "cad9c4bd0e2a4f68b174045886f605d61c2a7127fb47f91da0e1d133cbd8beb8"
+  }
+}

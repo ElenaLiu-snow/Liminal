@@ -1,0 +1,61 @@
+{
+  "method_version": "0.1.0",
+  "integration_status": "shadow_only_not_prompt_input",
+  "purpose": "Specify how evidence may become a bounded session-level interpretation without encoding a card, participant, or desired answer.",
+  "separation_rules": [
+    "Pass 1 remains blind to the user's question.",
+    "Card knowledge contains no user model or Jungian preset.",
+    "Observations precede transformations; transformations precede process patterns.",
+    "A writing stage may organize validated analysis but may not add analysis.",
+    "Pass 2 may activate or limit a frozen Pass 1 pattern but may not silently rewrite it."
+  ],
+  "epistemic_ladder": [
+    {"level": "observation", "claim_scope": "what was said or visibly present", "allowed_confidence": ["low", "medium", "high"]},
+    {"level": "transformation", "claim_scope": "how symbolic material was reorganized in this reading", "allowed_confidence": ["low", "medium", "high"]},
+    {"level": "session_pattern", "claim_scope": "a possible thinking or emotional sequence in this reading", "allowed_confidence": ["low", "medium", "high"]},
+    {"level": "situated_activation", "claim_scope": "how a frozen pattern may operate in the revealed question", "allowed_confidence": ["low", "medium", "high"]},
+    {"level": "jungian_hypothesis", "claim_scope": "a bounded interpretive lens, never a diagnosis", "allowed_confidence": ["low", "medium"]},
+    {"level": "unsupported_single_session", "claim_scope": "stable trait, developmental origin, trauma source, or diagnosis", "allowed_confidence": []}
+  ],
+  "transformation_taxonomy": {
+    "convergence": {"definition": "The user's framing substantially aligns with observable or canonical material.", "minimum_evidence": ["one verbatim user fragment", "one card fact"], "common_false_positive": "Treating generic positive or negative language as specific agreement."},
+    "omission": {"definition": "A salient card element is absent while adjacent elements receive attention.", "minimum_evidence": ["one named salient card fact", "evidence that adjacent material was described"], "common_false_positive": "Calling any unmentioned detail psychologically meaningful."},
+    "inversion": {"definition": "The user gives an element a functional or affective meaning opposite to a supported baseline.", "minimum_evidence": ["one verbatim user fragment", "one contrasting card fact"], "common_false_positive": "Confusing an alternative plausible reading with an opposite."},
+    "addition": {"definition": "The user supplies an event, motive, identity, or causal link not established by the image.", "minimum_evidence": ["one verbatim added claim", "the bounded visual inventory"], "common_false_positive": "Treating an ordinary descriptive synonym as invented narrative."},
+    "emotional_recoding": {"definition": "The affective tone assigned by the user differs from the visible or canonical range.", "minimum_evidence": ["one affect-bearing user fragment", "one contrasting affect cue"], "common_false_positive": "Assuming one correct emotional tone for an ambiguous image."},
+    "agency_shift": {"definition": "Agency, causality, choice, or passivity is reassigned among figures or forces.", "minimum_evidence": ["one user claim about action or control", "one card fact about action or position"], "common_false_positive": "Inferring agency from grammar alone."},
+    "identification_shift": {"definition": "Attention or identification moves toward a figure or role that changes the reading's center.", "minimum_evidence": ["repeated or explicit identification evidence", "at least two available figures or roles"], "common_false_positive": "Equating visual attention with personal identification."},
+    "temporal_shift": {"definition": "The user relocates the image into anticipation, aftermath, recurrence, or another temporal frame.", "minimum_evidence": ["one temporal user fragment", "the image's bounded temporal cues"], "common_false_positive": "Treating all future-oriented wording as a shift."}
+  },
+  "session_pattern_gate": {
+    "minimum_sequence_steps": 2,
+    "minimum_transformation_references": 1,
+    "requires": ["verbatim user evidence", "adaptive value", "possible current cost", "alternative explanation", "disconfirming evidence field"],
+    "language_rule": "Describe a process visible in this reading, not who the participant essentially is.",
+    "downgrade_to_weak_signal_when": [
+      "the reading is mostly a literal inventory",
+      "the proposed sequence depends on one ambiguous adjective",
+      "the alternative explanation is at least as plausible as the pattern"
+    ]
+  },
+  "pass2_integration_gate": {
+    "requires": [
+      "an explicit status for every frozen Pass 1 pattern",
+      "verbatim reality evidence for every new factual claim",
+      "separation of distinct decision dimensions before they are recombined into one answer",
+      "an uncertainty boundary",
+      "a practical translation only when it follows from cited evidence"
+    ],
+    "forbids": [
+      "retroactively changing Pass 1 to fit the question",
+      "using card knowledge as proof of a psychological claim",
+      "predicting an outcome with certainty",
+      "generic advice unrelated to frozen patterns or reality evidence"
+    ]
+  },
+  "change_control": {
+    "prompt_consumption": "disabled",
+    "activation_requirement": "A later change must explicitly wire this spec into rendering, update the prompt lock, and pass regression plus human evaluation.",
+    "case_generalization_checks": ["abstraction", "counterfactual transfer", "source boundary"]
+  }
+}

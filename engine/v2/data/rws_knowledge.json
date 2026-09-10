@@ -1,0 +1,5499 @@
+{
+  "schema_version": "2.0-alpha.1",
+  "knowledge_version": "rws-0.1.0",
+  "deck": {
+    "name": "Rider-Waite-Smith",
+    "card_count": 78,
+    "language": "en",
+    "integration_status": "shadow_read_only",
+    "verification_source_id": "waite_1922_commons_scan",
+    "notes": "Primary sources are linked for all cards. Migrated text remains provisional until field-level review; no Jungian preset is imported."
+  },
+  "source_registry": {
+    "waite_1911_sacred_texts": {
+      "author": "Arthur Edward Waite",
+      "title": "The Pictorial Key to the Tarot",
+      "publication_year": 1911,
+      "url": "https://sacred-texts.com/tarot/pkt/pkttp.htm",
+      "role": "primary_text_archive",
+      "usage_note": "Use as the historical RWS baseline; do not copy its wording directly into user-facing output."
+    },
+    "smith_rws_commons": {
+      "creator": "Pamela Colman Smith",
+      "title": "Rider-Waite tarot deck media category",
+      "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+      "role": "candidate_image_archive",
+      "usage_note": "Select and verify each file page separately; some modern colorizations can have different rights."
+    },
+    "waite_1922_commons_scan": {
+      "author": "Arthur Edward Waite",
+      "illustrator": "Pamela Colman Smith",
+      "title": "The Pictorial Key to the Tarot (1922 reprint scan)",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Pictorial_Key_to_the_Tarot.pdf",
+      "role": "primary_scan_for_offline_verification",
+      "sha256": "2f54bc008cab332b10d9f114ba8dda55845ce850a05e3a707089677bf3d0abb8",
+      "usage_note": "The large PDF is not committed. Use this checksum to verify a temporary local copy used during field review."
+    },
+    "liminal_v1": {
+      "title": "Liminal v1 card dataset",
+      "url": "engine/cards_*.json",
+      "role": "migration_source",
+      "usage_note": "Provisional Liminal-authored summaries awaiting review."
+    }
+  },
+  "cards": [
+    {
+      "id": "major_00",
+      "name": "The Fool",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 0,
+      "visual_inventory": {
+        "items": [
+          "cliff edge",
+          "white sun",
+          "small dog",
+          "bindle",
+          "white rose",
+          "mountain path",
+          "colorful tunic"
+        ],
+        "provenance": "engine/cards_major.json#major_00",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/zero-the-fool",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "New beginnings, spontaneity, a leap into the unknown with trust and openness. The start of a journey.",
+        "reversed": "Recklessness, poor judgment, naïve risk-taking without grounding. Hesitation at the threshold.",
+        "core_themes": [
+          "beginning",
+          "leap of faith",
+          "innocence",
+          "freedom",
+          "spontaneity",
+          "potential",
+          "trust"
+        ],
+        "provenance": "engine/cards_major.json#major_00",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_01",
+      "name": "The Magician",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 1,
+      "visual_inventory": {
+        "items": [
+          "wand raised to sky",
+          "four tools (wand, cup, sword, pentacle)",
+          "infinity symbol",
+          "white robe",
+          "red cloak",
+          "garden of roses and lilies"
+        ],
+        "provenance": "engine/cards_major.json#major_01",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/i-the-magician",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Willpower, skill, and the ability to manifest desires. All resources are available; the question is how to use them.",
+        "reversed": "Manipulation, untapped potential, poor planning. Skills present but misdirected or unused.",
+        "core_themes": [
+          "willpower",
+          "skill",
+          "concentration",
+          "manifestation",
+          "resourcefulness",
+          "mastery",
+          "transformation"
+        ],
+        "provenance": "engine/cards_major.json#major_01",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_02",
+      "name": "The High Priestess",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 2,
+      "visual_inventory": {
+        "items": [
+          "two pillars (B and J)",
+          "veil with pomegranates",
+          "crescent moon at feet",
+          "scroll (Torah)",
+          "blue robe",
+          "still water",
+          "crown of Isis"
+        ],
+        "provenance": "engine/cards_major.json#major_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ii-the-high-priestess",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Intuition, mystery, the subconscious mind. Something is hidden; trust what you know without knowing why.",
+        "reversed": "Secrets, repressed intuition, disconnection from inner knowing. Information is being withheld.",
+        "core_themes": [
+          "intuition",
+          "hidden knowledge",
+          "the unconscious",
+          "mystery",
+          "patience",
+          "inner voice",
+          "duality"
+        ],
+        "provenance": "engine/cards_major.json#major_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_03",
+      "name": "The Empress",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 3,
+      "visual_inventory": {
+        "items": [
+          "wheat field",
+          "forest",
+          "waterfall",
+          "crown of stars",
+          "heart-shaped shield with Venus symbol",
+          "cushioned throne",
+          "pomegranates on robe"
+        ],
+        "provenance": "engine/cards_major.json#major_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/iii-the-empress",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Fertility, abundance, nurturing creativity. A time of growth, comfort, and connection to nature and the body.",
+        "reversed": "Creative block, dependence, smothering. Abundance withheld or nurturing turned controlling.",
+        "core_themes": [
+          "fertility",
+          "abundance",
+          "nurturing",
+          "nature",
+          "creativity",
+          "sensuality",
+          "motherhood",
+          "growth"
+        ],
+        "provenance": "engine/cards_major.json#major_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_04",
+      "name": "The Emperor",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 4,
+      "visual_inventory": {
+        "items": [
+          "stone throne",
+          "ram heads (Aries)",
+          "red robe over armor",
+          "orb and scepter",
+          "barren mountains",
+          "river in background"
+        ],
+        "provenance": "engine/cards_major.json#major_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/iv-the-emperor",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Authority, structure, stability. The establishment of order; a father figure or governing principle.",
+        "reversed": "Tyranny, rigidity, domination. Excessive control, or alternatively, failure of structure.",
+        "core_themes": [
+          "authority",
+          "structure",
+          "stability",
+          "control",
+          "fatherhood",
+          "rules",
+          "protection",
+          "discipline"
+        ],
+        "provenance": "engine/cards_major.json#major_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_05",
+      "name": "The Hierophant",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 5,
+      "visual_inventory": {
+        "items": [
+          "papal throne",
+          "two pillars",
+          "triple crown",
+          "two acolytes",
+          "crossed keys",
+          "raised hand in blessing",
+          "robes"
+        ],
+        "provenance": "engine/cards_major.json#major_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/v-the-hierophant",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Tradition, institutions, spiritual guidance. Following established paths; a teacher or mentor within a system.",
+        "reversed": "Rebellion against convention, challenging orthodoxy, or alternatively, blind conformity exposed.",
+        "core_themes": [
+          "tradition",
+          "belief systems",
+          "institutions",
+          "conformity",
+          "spiritual guidance",
+          "ritual",
+          "education"
+        ],
+        "provenance": "engine/cards_major.json#major_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_06",
+      "name": "The Lovers",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 6,
+      "visual_inventory": {
+        "items": [
+          "naked man and woman",
+          "archangel Raphael above",
+          "Tree of Knowledge (serpent)",
+          "Tree of Life (fire)",
+          "mountain",
+          "sun"
+        ],
+        "provenance": "engine/cards_major.json#major_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/vi-the-lovers",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Love, alignment of values, choices made from the heart. Union — romantic, creative, or philosophical.",
+        "reversed": "Misalignment, poor choices, or avoidance of a necessary decision. Disharmony in relationship.",
+        "core_themes": [
+          "love",
+          "choice",
+          "alignment of values",
+          "union",
+          "temptation",
+          "duality",
+          "authenticity",
+          "commitment"
+        ],
+        "provenance": "engine/cards_major.json#major_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_07",
+      "name": "The Chariot",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 7,
+      "visual_inventory": {
+        "items": [
+          "armored charioteer",
+          "black and white sphinx",
+          "star canopy",
+          "crescent moons",
+          "wand",
+          "city in background",
+          "river"
+        ],
+        "provenance": "engine/cards_major.json#major_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/vii-the-chariot",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Victory through willpower and discipline. Overcoming opposing forces by holding them in balance. Forward motion.",
+        "reversed": "Loss of control, aggression turned inward, or forcing an outcome past its natural point.",
+        "core_themes": [
+          "victory",
+          "willpower",
+          "control",
+          "determination",
+          "overcoming obstacles",
+          "momentum",
+          "discipline"
+        ],
+        "provenance": "engine/cards_major.json#major_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_08",
+      "name": "Strength",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 8,
+      "visual_inventory": {
+        "items": [
+          "woman closing lion's mouth gently",
+          "infinity symbol above woman's head",
+          "white robe",
+          "flower garland",
+          "yellow sky",
+          "mountains"
+        ],
+        "provenance": "engine/cards_major.json#major_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/viii-strength-or-fortitude",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Inner strength, courage, and patience. The power to face challenges with compassion rather than force.",
+        "reversed": "Self-doubt, weakness, or alternatively repressed aggression resurfacing as inner cruelty.",
+        "core_themes": [
+          "inner strength",
+          "courage",
+          "patience",
+          "compassion",
+          "self-mastery",
+          "taming instinct",
+          "resilience"
+        ],
+        "provenance": "engine/cards_major.json#major_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_09",
+      "name": "The Hermit",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 9,
+      "visual_inventory": {
+        "items": [
+          "lone figure on mountain peak",
+          "lantern with six-pointed star",
+          "long grey robe",
+          "staff",
+          "snow",
+          "darkness below"
+        ],
+        "provenance": "engine/cards_major.json#major_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ix-the-hermit",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Solitude, introspection, inner guidance. A period of withdrawal to find wisdom. The inner light that guides.",
+        "reversed": "Isolation, loneliness, or the refusal to share hard-won wisdom. Withdrawal become avoidance.",
+        "core_themes": [
+          "solitude",
+          "introspection",
+          "inner guidance",
+          "wisdom",
+          "withdrawal",
+          "soul-searching",
+          "the inner light"
+        ],
+        "provenance": "engine/cards_major.json#major_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_10",
+      "name": "Wheel of Fortune",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 10,
+      "visual_inventory": {
+        "items": [
+          "spinning wheel",
+          "TARO/ROTA letters",
+          "four creatures at corners (lion, eagle, bull, angel)",
+          "Anubis rising",
+          "serpent descending",
+          "sphinx at top",
+          "Hebrew letters"
+        ],
+        "provenance": "engine/cards_major.json#major_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/x-wheel-of-fortune",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Change, cycles, fate. A turning point. What goes down must come up — and vice versa.",
+        "reversed": "Resistance to change, bad luck, or clinging to a moment that has already passed.",
+        "core_themes": [
+          "fate",
+          "cycles",
+          "turning point",
+          "luck",
+          "change",
+          "destiny",
+          "impermanence"
+        ],
+        "provenance": "engine/cards_major.json#major_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_11",
+      "name": "Justice",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 11,
+      "visual_inventory": {
+        "items": [
+          "figure seated between pillars",
+          "scales",
+          "sword",
+          "crown",
+          "purple cloak",
+          "white shoe visible",
+          "red curtain"
+        ],
+        "provenance": "engine/cards_major.json#major_11",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xi-justice",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Truth, fairness, cause and effect. An honest accounting. Decisions made with clarity.",
+        "reversed": "Injustice, dishonesty, or avoidance of consequences. Self-deception in the name of fairness.",
+        "core_themes": [
+          "fairness",
+          "truth",
+          "cause and effect",
+          "accountability",
+          "clarity",
+          "decision",
+          "balance"
+        ],
+        "provenance": "engine/cards_major.json#major_11",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_12",
+      "name": "The Hanged Man",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 12,
+      "visual_inventory": {
+        "items": [
+          "figure hanging upside down from tree",
+          "halo of light around head",
+          "calm face",
+          "one leg bent (forming cross)",
+          "T-shaped tau cross tree",
+          "green leaves"
+        ],
+        "provenance": "engine/cards_major.json#major_12",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xii-the-hanged-man",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Pause, surrender, new perspective. Seeing things from an inverted angle. Willing sacrifice for insight.",
+        "reversed": "Resistance to surrender, pointless sacrifice, or stagnation without the spiritual gain.",
+        "core_themes": [
+          "suspension",
+          "surrender",
+          "new perspective",
+          "sacrifice",
+          "waiting",
+          "letting go",
+          "enlightenment through stillness"
+        ],
+        "provenance": "engine/cards_major.json#major_12",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_13",
+      "name": "Death",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 13,
+      "visual_inventory": {
+        "items": [
+          "skeleton in black armor on white horse",
+          "fallen king",
+          "child offering flowers",
+          "bishop praying",
+          "distant rising sun",
+          "river",
+          "two towers",
+          "white rose on black banner"
+        ],
+        "provenance": "engine/cards_major.json#major_13",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xiii-death",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Endings, transformation, and transition. Something must end for something new to begin. Release.",
+        "reversed": "Resistance to change, inability to let go, or transformation delayed past its natural time.",
+        "core_themes": [
+          "endings",
+          "transformation",
+          "transition",
+          "release",
+          "inevitability",
+          "rebirth",
+          "letting go of the old self"
+        ],
+        "provenance": "engine/cards_major.json#major_13",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_14",
+      "name": "Temperance",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 14,
+      "visual_inventory": {
+        "items": [
+          "angel pouring water between two cups",
+          "one foot on land, one in water",
+          "iris flowers",
+          "sun on forehead (triangle in square)",
+          "mountain path in background",
+          "white robe"
+        ],
+        "provenance": "engine/cards_major.json#major_14",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xiv-temperance",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Balance, moderation, patience. The slow work of integration. Opposites blended into something new.",
+        "reversed": "Imbalance, excess, or impatience. Forcing a resolution rather than allowing it to emerge.",
+        "core_themes": [
+          "balance",
+          "moderation",
+          "patience",
+          "integration",
+          "healing",
+          "flow",
+          "middle path",
+          "alchemy of opposites"
+        ],
+        "provenance": "engine/cards_major.json#major_14",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_15",
+      "name": "The Devil",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 15,
+      "visual_inventory": {
+        "items": [
+          "horned devil on black pedestal",
+          "two chained human figures",
+          "inverted pentagram",
+          "torch",
+          "bat wings",
+          "tails of flame and grapes",
+          "loose chains"
+        ],
+        "provenance": "engine/cards_major.json#major_15",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xv-the-devil",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Bondage, addiction, materialism, shadow. The chains are loose — what keeps you here?",
+        "reversed": "Breaking free, releasing a bond, confronting the shadow. Reclaiming projected power.",
+        "core_themes": [
+          "bondage",
+          "addiction",
+          "materialism",
+          "shadow",
+          "compulsion",
+          "entrapment",
+          "the illusion of powerlessness"
+        ],
+        "provenance": "engine/cards_major.json#major_15",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_16",
+      "name": "The Tower",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 16,
+      "visual_inventory": {
+        "items": [
+          "tower struck by lightning",
+          "crown blown off",
+          "two figures falling",
+          "flames",
+          "dark sky",
+          "rocky cliff",
+          "22 flames (Yod letters)"
+        ],
+        "provenance": "engine/cards_major.json#major_16",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xvi-the-tower",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Sudden upheaval, collapse of a false structure. Chaos that clears the ground for what is real.",
+        "reversed": "Avoiding an inevitable collapse, or a disaster narrowly averted. The tower wobbles but stands — for now.",
+        "core_themes": [
+          "sudden collapse",
+          "revelation through destruction",
+          "ego shattering",
+          "chaos",
+          "awakening",
+          "the false structure exposed"
+        ],
+        "provenance": "engine/cards_major.json#major_16",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_17",
+      "name": "The Star",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 17,
+      "visual_inventory": {
+        "items": [
+          "naked figure kneeling by water",
+          "large central star (8 points)",
+          "seven smaller stars",
+          "two pitchers pouring water",
+          "ibis in tree",
+          "green landscape",
+          "night sky"
+        ],
+        "provenance": "engine/cards_major.json#major_17",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xvii-the-star",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Hope, healing, renewal. A quiet faith in the future. Vulnerability as strength after difficulty.",
+        "reversed": "Despair, loss of faith, or hope misplaced. The healing is blocked or not yet trusted.",
+        "core_themes": [
+          "hope",
+          "healing",
+          "renewal",
+          "serenity",
+          "inspiration",
+          "faith",
+          "vulnerability",
+          "restoration"
+        ],
+        "provenance": "engine/cards_major.json#major_17",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_18",
+      "name": "The Moon",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 18,
+      "visual_inventory": {
+        "items": [
+          "full moon with face",
+          "waning crescent within",
+          "dog and wolf howling",
+          "crayfish emerging from pool",
+          "two towers",
+          "path between them",
+          "drops of light (Yod)"
+        ],
+        "provenance": "engine/cards_major.json#major_18",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xviii-the-moon",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Illusion, fear, the unconscious. Things are not as they seem. Navigate carefully; trust your deeper instincts, not surface appearances.",
+        "reversed": "Release of fear, clarity returning, or illusions dissolving. The fog begins to lift.",
+        "core_themes": [
+          "illusion",
+          "the unconscious",
+          "fear",
+          "confusion",
+          "the shadow",
+          "dreams",
+          "anxiety",
+          "navigating the unknown"
+        ],
+        "provenance": "engine/cards_major.json#major_18",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_19",
+      "name": "The Sun",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 19,
+      "visual_inventory": {
+        "items": [
+          "large sun with face",
+          "child on white horse",
+          "sunflowers",
+          "red banner",
+          "walled garden",
+          "nakedness and joy"
+        ],
+        "provenance": "engine/cards_major.json#major_19",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xix-the-sun",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Joy, vitality, success, clarity. The true self expressed without inhibition. A time of light.",
+        "reversed": "Dimmed joy, excessive optimism, or sadness masked as happiness. The sun is there but behind clouds.",
+        "core_themes": [
+          "joy",
+          "vitality",
+          "success",
+          "clarity",
+          "childhood",
+          "authenticity",
+          "celebration",
+          "the true self revealed"
+        ],
+        "provenance": "engine/cards_major.json#major_19",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_20",
+      "name": "Judgement",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 20,
+      "visual_inventory": {
+        "items": [
+          "angel blowing trumpet",
+          "cross banner",
+          "figures rising from coffins",
+          "mountains of ice",
+          "grey sky",
+          "arms raised in response",
+          "whole families rising together"
+        ],
+        "provenance": "engine/cards_major.json#major_20",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xx-the-last-judgement",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Awakening, reckoning, a calling. Rising to answer something larger. Forgiveness and renewal through honest self-assessment.",
+        "reversed": "Self-doubt, refusal of the call, or harsh self-judgment blocking the rise.",
+        "core_themes": [
+          "awakening",
+          "reckoning",
+          "forgiveness",
+          "calling",
+          "resurrection",
+          "evaluation",
+          "answering the summons"
+        ],
+        "provenance": "engine/cards_major.json#major_20",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "major_21",
+      "name": "The World",
+      "system": "Waite-Smith",
+      "arcana": "major",
+      "suit": "major",
+      "rank": "major",
+      "number": 21,
+      "visual_inventory": {
+        "items": [
+          "dancing figure in laurel wreath",
+          "two wands",
+          "four creatures at corners (lion, bull, eagle, angel)",
+          "purple sash",
+          "oval wreath",
+          "starry sky or void"
+        ],
+        "provenance": "engine/cards_major.json#major_21",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/xxi-the-world",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/section-3-the-greater-arcana-and-their-divinatory-meanings",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Completion, integration, achievement. A cycle fully realized. Dancing at the center of one's own life.",
+        "reversed": "Incompletion, shortcuts taken, or a cycle not fully closed before moving on.",
+        "core_themes": [
+          "completion",
+          "wholeness",
+          "integration",
+          "achievement",
+          "freedom",
+          "the end of a cycle",
+          "dancing in the center"
+        ],
+        "provenance": "engine/cards_major.json#major_21",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_ace",
+      "name": "Ace of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "ace",
+      "number": 1,
+      "visual_inventory": {
+        "items": [
+          "hand emerging from cloud",
+          "single sprouting wand",
+          "green leaves budding",
+          "castle in distance",
+          "bright sky"
+        ],
+        "provenance": "engine/cards_wands.json#wands_ace",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ace-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ace-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "New creative beginnings, inspiration, raw energy. A spark that could become a fire.",
+        "reversed": "Delays, creative blocks, or energy misdirected. The spark is there but won't catch.",
+        "core_themes": [
+          "inspiration",
+          "new creative energy",
+          "passion",
+          "initiative",
+          "spark",
+          "potential",
+          "creative force"
+        ],
+        "provenance": "engine/cards_wands.json#wands_ace",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_02",
+      "name": "Two of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "two",
+      "number": 2,
+      "visual_inventory": {
+        "items": [
+          "figure holding globe",
+          "two wands flanking",
+          "castle parapet",
+          "ocean and land in view",
+          "red clothing"
+        ],
+        "provenance": "engine/cards_wands.json#wands_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/two-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/two-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Planning, vision, bold decisions. The world is in your hands — now choose a direction.",
+        "reversed": "Lack of planning, fear of the unknown, or vision without the courage to act on it.",
+        "core_themes": [
+          "vision",
+          "planning",
+          "ambition",
+          "bold decisions",
+          "the world as possibility",
+          "expansion",
+          "ownership"
+        ],
+        "provenance": "engine/cards_wands.json#wands_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_03",
+      "name": "Three of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "three",
+      "number": 3,
+      "visual_inventory": {
+        "items": [
+          "figure facing away toward sea",
+          "three planted wands",
+          "ships on the horizon",
+          "mountains in distance",
+          "orange cloak"
+        ],
+        "provenance": "engine/cards_wands.json#wands_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/three-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/three-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Expansion, foresight, enterprise. Your ships are coming in. The effort is yielding results.",
+        "reversed": "Delays in returns, obstacles to expansion, or looking backward instead of forward.",
+        "core_themes": [
+          "foresight",
+          "expansion",
+          "enterprise",
+          "waiting for results",
+          "progress",
+          "trade",
+          "the first fruits of effort"
+        ],
+        "provenance": "engine/cards_wands.json#wands_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_04",
+      "name": "Four of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "four",
+      "number": 4,
+      "visual_inventory": {
+        "items": [
+          "four wands forming canopy",
+          "flower garlands",
+          "two figures with bouquets",
+          "castle in background",
+          "celebrating crowd"
+        ],
+        "provenance": "engine/cards_wands.json#wands_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/four-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/four-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Celebration, homecoming, community joy. A milestone reached; a moment of communal belonging.",
+        "reversed": "Instability at home, delayed celebration, or a milestone that doesn't feel as good as expected.",
+        "core_themes": [
+          "celebration",
+          "homecoming",
+          "community",
+          "milestone",
+          "joy",
+          "belonging",
+          "harmony",
+          "a resting place"
+        ],
+        "provenance": "engine/cards_wands.json#wands_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_05",
+      "name": "Five of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "five",
+      "number": 5,
+      "visual_inventory": {
+        "items": [
+          "five youths with wands clashing",
+          "no clear winner",
+          "chaotic movement",
+          "bright clothing",
+          "open field"
+        ],
+        "provenance": "engine/cards_wands.json#wands_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/five-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/five-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Competition, conflict, scattered energy. Many voices, no agreement. A struggle that may be productive.",
+        "reversed": "Avoiding conflict, inner turmoil, or competition that has become pointlessly destructive.",
+        "core_themes": [
+          "competition",
+          "conflict",
+          "scattered energy",
+          "disagreement",
+          "struggle",
+          "testing",
+          "chaos without direction"
+        ],
+        "provenance": "engine/cards_wands.json#wands_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_06",
+      "name": "Six of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "six",
+      "number": 6,
+      "visual_inventory": {
+        "items": [
+          "rider on white horse with laurel wreath",
+          "wand with wreath crown",
+          "crowd with wands raised",
+          "green landscape",
+          "victory procession"
+        ],
+        "provenance": "engine/cards_wands.json#wands_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/six-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/six-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Victory, recognition, public success. The work is seen and celebrated. Leadership acknowledged.",
+        "reversed": "Private success without recognition, arrogance, or a fall from a high position.",
+        "core_themes": [
+          "victory",
+          "recognition",
+          "public success",
+          "leadership",
+          "acclaim",
+          "confidence",
+          "achievement acknowledged"
+        ],
+        "provenance": "engine/cards_wands.json#wands_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_07",
+      "name": "Seven of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "seven",
+      "number": 7,
+      "visual_inventory": {
+        "items": [
+          "figure on high ground with wand",
+          "six wands rising from below",
+          "mismatched shoes",
+          "defensive stance",
+          "green hill"
+        ],
+        "provenance": "engine/cards_wands.json#wands_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/seven-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/seven-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Perseverance, defense, conviction. Holding your ground against opposition. The high ground is yours — keep it.",
+        "reversed": "Giving up, overwhelm, or a defensive stance that has become untenable.",
+        "core_themes": [
+          "perseverance",
+          "defense",
+          "holding your position",
+          "conviction",
+          "challenge",
+          "standing firm",
+          "competition from below"
+        ],
+        "provenance": "engine/cards_wands.json#wands_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_08",
+      "name": "Eight of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "eight",
+      "number": 8,
+      "visual_inventory": {
+        "items": [
+          "eight wands in flight",
+          "no human figure",
+          "clear sky",
+          "green landscape below",
+          "river",
+          "all wands parallel and descending"
+        ],
+        "provenance": "engine/cards_wands.json#wands_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/eight-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/eight-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Swift movement, rapid progress, communication. Things are moving fast — stay aligned.",
+        "reversed": "Delays, obstacles, miscommunication, or movement that is too hasty and chaotic.",
+        "core_themes": [
+          "swift action",
+          "momentum",
+          "communication",
+          "travel",
+          "rapid progress",
+          "messages arriving",
+          "alignment of forces"
+        ],
+        "provenance": "engine/cards_wands.json#wands_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_09",
+      "name": "Nine of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "nine",
+      "number": 9,
+      "visual_inventory": {
+        "items": [
+          "bandaged figure leaning on wand",
+          "row of eight wands behind",
+          "wary expression",
+          "battered stance",
+          "open landscape"
+        ],
+        "provenance": "engine/cards_wands.json#wands_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/nine-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/nine-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Resilience, persistence, near the end of the struggle. You've come far — one more push.",
+        "reversed": "Paranoia, inability to rest, or exhaustion that has become a permanent state.",
+        "core_themes": [
+          "resilience",
+          "persistence",
+          "wariness",
+          "last stand",
+          "near-exhaustion",
+          "protective vigilance",
+          "almost there"
+        ],
+        "provenance": "engine/cards_wands.json#wands_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_10",
+      "name": "Ten of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "ten",
+      "number": 10,
+      "visual_inventory": {
+        "items": [
+          "figure bent under ten wands",
+          "struggling forward",
+          "village in background",
+          "head hidden behind wands",
+          "slow heavy movement"
+        ],
+        "provenance": "engine/cards_wands.json#wands_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ten-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ten-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Burden, overcommitment, carrying too much. The destination is near — but something must be set down.",
+        "reversed": "Releasing a burden, delegating, or collapsing under the weight before relief arrives.",
+        "core_themes": [
+          "burden",
+          "overcommitment",
+          "responsibility",
+          "struggle",
+          "near completion",
+          "carrying too much",
+          "exhaustion"
+        ],
+        "provenance": "engine/cards_wands.json#wands_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_page",
+      "name": "Page of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "page",
+      "number": 11,
+      "visual_inventory": {
+        "items": [
+          "young figure holding wand upright",
+          "feathered hat",
+          "desert landscape with pyramids",
+          "salamander decoration on tunic",
+          "looking at the wand"
+        ],
+        "provenance": "engine/cards_wands.json#wands_page",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/page-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/page-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Enthusiasm, new creative beginnings, a message or news. Fresh energy ready to be directed.",
+        "reversed": "Scattered energy, immaturity, or creative ideas without follow-through.",
+        "core_themes": [
+          "enthusiasm",
+          "new ideas",
+          "curiosity",
+          "potential",
+          "messages",
+          "beginners mind",
+          "creative exploration"
+        ],
+        "provenance": "engine/cards_wands.json#wands_page",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_knight",
+      "name": "Knight of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "knight",
+      "number": 12,
+      "visual_inventory": {
+        "items": [
+          "knight on rearing horse",
+          "orange and red plumes",
+          "desert pyramids",
+          "salamander on armor",
+          "wand raised",
+          "full gallop"
+        ],
+        "provenance": "engine/cards_wands.json#wands_knight",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/knight-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/knight-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Action, adventure, impulsiveness, passion. Moving fast and boldly — sometimes too boldly.",
+        "reversed": "Recklessness, delays, or passion that has burned out or turned destructive.",
+        "core_themes": [
+          "adventure",
+          "impulsiveness",
+          "passion",
+          "courage",
+          "action",
+          "travel",
+          "bold initiative",
+          "risk-taking"
+        ],
+        "provenance": "engine/cards_wands.json#wands_knight",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_queen",
+      "name": "Queen of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "queen",
+      "number": 13,
+      "visual_inventory": {
+        "items": [
+          "queen on throne with sunflowers",
+          "black cat at feet",
+          "wand with leaves",
+          "lion armrests",
+          "sunflower in hand",
+          "yellow backdrop"
+        ],
+        "provenance": "engine/cards_wands.json#wands_queen",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/queen-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/queen-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Confidence, warmth, independence, creative energy. A vibrant, self-assured presence.",
+        "reversed": "Jealousy, demanding behavior, or confidence that tips into arrogance or manipulation.",
+        "core_themes": [
+          "confidence",
+          "warmth",
+          "independence",
+          "creativity",
+          "magnetism",
+          "self-assurance",
+          "generosity of spirit"
+        ],
+        "provenance": "engine/cards_wands.json#wands_queen",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "wands_king",
+      "name": "King of Wands",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "wands",
+      "rank": "king",
+      "number": 14,
+      "visual_inventory": {
+        "items": [
+          "king on throne with salamanders",
+          "wand held firmly",
+          "lion on throne",
+          "orange robes",
+          "crown",
+          "forward gaze",
+          "salamander biting tail"
+        ],
+        "provenance": "engine/cards_wands.json#wands_king",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/king-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/king-of-wands",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Leadership, vision, entrepreneurial energy. A bold natural leader with long-range vision.",
+        "reversed": "Impulsive leadership, arrogance, or a visionary who cannot listen or adapt.",
+        "core_themes": [
+          "leadership",
+          "vision",
+          "entrepreneurship",
+          "boldness",
+          "inspiration",
+          "natural authority",
+          "creative mastery"
+        ],
+        "provenance": "engine/cards_wands.json#wands_king",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_ace",
+      "name": "Ace of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "ace",
+      "number": 1,
+      "visual_inventory": {
+        "items": [
+          "hand holding cup from cloud",
+          "dove with wafer descending",
+          "overflowing water",
+          "lotus blossoms on water",
+          "five streams from cup"
+        ],
+        "provenance": "engine/cards_cups.json#cups_ace",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ace-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ace-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "New emotional beginnings, love, intuition, spiritual opening. The heart is full and ready to give.",
+        "reversed": "Emotional repression, blocked intuition, or love offered but not received.",
+        "core_themes": [
+          "new emotional beginning",
+          "love",
+          "intuition",
+          "spiritual opening",
+          "compassion",
+          "overflow",
+          "the heart opening"
+        ],
+        "provenance": "engine/cards_cups.json#cups_ace",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_02",
+      "name": "Two of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "two",
+      "number": 2,
+      "visual_inventory": {
+        "items": [
+          "two figures exchanging cups",
+          "caduceus (Hermes staff)",
+          "winged lion head",
+          "red and white robes",
+          "house in background"
+        ],
+        "provenance": "engine/cards_cups.json#cups_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/two-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/two-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Partnership, mutual attraction, connection. Two becoming something neither could be alone.",
+        "reversed": "Broken connection, imbalance, or the painful end of a meaningful bond.",
+        "core_themes": [
+          "partnership",
+          "mutual attraction",
+          "connection",
+          "equality",
+          "romance",
+          "friendship",
+          "the joining of two"
+        ],
+        "provenance": "engine/cards_cups.json#cups_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_03",
+      "name": "Three of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "three",
+      "number": 3,
+      "visual_inventory": {
+        "items": [
+          "three women dancing",
+          "cups raised in toast",
+          "flower garlands",
+          "fruit and harvest on ground",
+          "flowing robes"
+        ],
+        "provenance": "engine/cards_cups.json#cups_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/three-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/three-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Celebration, friendship, community joy. A time of abundance and gratitude shared with others.",
+        "reversed": "Excess, gossip, exclusion from the group, or celebration masking avoidance.",
+        "core_themes": [
+          "celebration",
+          "friendship",
+          "community",
+          "abundance",
+          "joy",
+          "sisterhood",
+          "gratitude",
+          "harvest"
+        ],
+        "provenance": "engine/cards_cups.json#cups_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_04",
+      "name": "Four of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "four",
+      "number": 4,
+      "visual_inventory": {
+        "items": [
+          "figure sitting under tree",
+          "arms and legs crossed",
+          "three cups before them",
+          "fourth cup offered by cloud hand",
+          "not looking at the offered cup"
+        ],
+        "provenance": "engine/cards_cups.json#cups_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/four-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/four-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Apathy, withdrawal, contemplation. Something is being offered that you aren't seeing — or aren't ready to accept.",
+        "reversed": "Emerging from withdrawal, renewed motivation, or finally noticing the offered cup.",
+        "core_themes": [
+          "apathy",
+          "withdrawal",
+          "contemplation",
+          "dissatisfaction",
+          "the missed opportunity",
+          "introspection",
+          "emotional boredom"
+        ],
+        "provenance": "engine/cards_cups.json#cups_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_05",
+      "name": "Five of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "five",
+      "number": 5,
+      "visual_inventory": {
+        "items": [
+          "cloaked figure with bowed head",
+          "three spilled cups",
+          "two standing cups behind (unseen)",
+          "river and bridge",
+          "castle in distance",
+          "black cloak"
+        ],
+        "provenance": "engine/cards_cups.json#cups_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/five-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/five-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Grief, loss, regret. Mourning what was spilled. Two cups still stand behind you — when you're ready.",
+        "reversed": "Moving on, acceptance, finding what remains after loss. The turn toward the living cups.",
+        "core_themes": [
+          "grief",
+          "loss",
+          "regret",
+          "mourning",
+          "what remains",
+          "fixation on the spilled",
+          "the unseen gift"
+        ],
+        "provenance": "engine/cards_cups.json#cups_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_06",
+      "name": "Six of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "six",
+      "number": 6,
+      "visual_inventory": {
+        "items": [
+          "child offering cup of flowers to smaller child",
+          "village street",
+          "white flowers in cups",
+          "old figure walking away in background",
+          "safe enclosed space"
+        ],
+        "provenance": "engine/cards_cups.json#cups_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/six-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/six-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Nostalgia, childhood, past happiness. A gift from the past or a reunion. Innocence revisited.",
+        "reversed": "Living in the past, inability to move forward, or nostalgia blocking present engagement.",
+        "core_themes": [
+          "nostalgia",
+          "childhood",
+          "innocence",
+          "past happiness",
+          "reunion",
+          "gifts",
+          "simple pleasures",
+          "the past revisited"
+        ],
+        "provenance": "engine/cards_cups.json#cups_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_07",
+      "name": "Seven of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "seven",
+      "number": 7,
+      "visual_inventory": {
+        "items": [
+          "silhouetted figure before seven cups in clouds",
+          "castle",
+          "jewels",
+          "snake",
+          "dragon",
+          "laurel wreath",
+          "shrouded figure",
+          "all floating in clouds"
+        ],
+        "provenance": "engine/cards_cups.json#cups_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/seven-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/seven-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Fantasy, wishful thinking, too many options. The imagination is vivid — but which cup is real?",
+        "reversed": "Clarity returning, choices being made, or illusions dissolving to reveal the true desire.",
+        "core_themes": [
+          "fantasy",
+          "wishful thinking",
+          "illusion",
+          "too many choices",
+          "temptation",
+          "the imagination unmoored",
+          "confusion of desire"
+        ],
+        "provenance": "engine/cards_cups.json#cups_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_08",
+      "name": "Eight of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "eight",
+      "number": 8,
+      "visual_inventory": {
+        "items": [
+          "figure walking away at night",
+          "eight cups stacked but one gap visible",
+          "moon eclipse",
+          "mountains ahead",
+          "red cloak",
+          "back turned on the cups"
+        ],
+        "provenance": "engine/cards_cups.json#cups_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/eight-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/eight-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Departure, seeking deeper meaning, walking away from what no longer fulfills. A necessary leaving.",
+        "reversed": "Returning to what was left, avoidance of necessary departure, or drifting without direction.",
+        "core_themes": [
+          "walking away",
+          "disillusionment",
+          "seeking deeper meaning",
+          "leaving what no longer serves",
+          "the call of something more",
+          "melancholy departure"
+        ],
+        "provenance": "engine/cards_cups.json#cups_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_09",
+      "name": "Nine of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "nine",
+      "number": 9,
+      "visual_inventory": {
+        "items": [
+          "rotund figure arms crossed with smile",
+          "nine cups displayed on shelf behind",
+          "blue and red clothing",
+          "wooden bench",
+          "self-satisfied expression"
+        ],
+        "provenance": "engine/cards_cups.json#cups_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/nine-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/nine-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Wish fulfilled, satisfaction, contentment. You got what you wanted — enjoy it.",
+        "reversed": "Dissatisfaction despite having what you wanted, or overindulgence in pleasure.",
+        "core_themes": [
+          "wish fulfillment",
+          "satisfaction",
+          "pleasure",
+          "comfort",
+          "gratitude",
+          "contentment",
+          "having what you wanted"
+        ],
+        "provenance": "engine/cards_cups.json#cups_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_10",
+      "name": "Ten of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "ten",
+      "number": 10,
+      "visual_inventory": {
+        "items": [
+          "couple with arms raised",
+          "rainbow of ten cups overhead",
+          "two children playing",
+          "green landscape",
+          "house and river in background",
+          "rainbow bridge"
+        ],
+        "provenance": "engine/cards_cups.json#cups_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ten-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ten-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Emotional fulfillment, family happiness, harmony. The heart's deepest wish for belonging — realized.",
+        "reversed": "Broken family harmony, false happiness, or the gap between the ideal and the real.",
+        "core_themes": [
+          "family",
+          "emotional fulfillment",
+          "happiness",
+          "harmony",
+          "belonging",
+          "the good life",
+          "complete love"
+        ],
+        "provenance": "engine/cards_cups.json#cups_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_page",
+      "name": "Page of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "page",
+      "number": 11,
+      "visual_inventory": {
+        "items": [
+          "youth holding cup",
+          "fish appearing from cup",
+          "look of surprise and curiosity",
+          "ocean waves on tunic",
+          "flowered hat",
+          "shoreline"
+        ],
+        "provenance": "engine/cards_cups.json#cups_page",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/page-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/page-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Intuitive messages, imagination, emotional sensitivity. Something unexpected rises from the depths — listen.",
+        "reversed": "Emotional immaturity, creative blocks, or imagination ungrounded in reality.",
+        "core_themes": [
+          "intuitive messages",
+          "imagination",
+          "sensitivity",
+          "the unexpected",
+          "emotional openness",
+          "creative vision",
+          "surprise from the depths"
+        ],
+        "provenance": "engine/cards_cups.json#cups_page",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_knight",
+      "name": "Knight of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "knight",
+      "number": 12,
+      "visual_inventory": {
+        "items": [
+          "knight on slow white horse",
+          "cup offered forward",
+          "winged helmet and boots",
+          "river",
+          "fish on tunic",
+          "mountainous landscape",
+          "deliberate slow pace"
+        ],
+        "provenance": "engine/cards_cups.json#cups_knight",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/knight-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/knight-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Romance, idealism, following the heart. An invitation or proposal. The quest for the beautiful.",
+        "reversed": "Moodiness, emotional manipulation, or an idealistic pursuit that won't survive contact with reality.",
+        "core_themes": [
+          "romance",
+          "idealism",
+          "the quest for the ideal",
+          "artistic pursuit",
+          "emotional invitation",
+          "following the heart",
+          "the grail seeker"
+        ],
+        "provenance": "engine/cards_cups.json#cups_knight",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_queen",
+      "name": "Queen of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "queen",
+      "number": 13,
+      "visual_inventory": {
+        "items": [
+          "queen on throne at water's edge",
+          "elaborate cup with lid and angels",
+          "sea creatures on throne",
+          "waves and shells",
+          "contemplative gaze",
+          "feet near water"
+        ],
+        "provenance": "engine/cards_cups.json#cups_queen",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/queen-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/queen-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Emotional intelligence, compassion, intuition. Deep feeling that doesn't sweep you away.",
+        "reversed": "Emotional manipulation, over-sensitivity, or drowning in others' feelings at the expense of one's own.",
+        "core_themes": [
+          "emotional intelligence",
+          "compassion",
+          "intuition",
+          "empathy",
+          "depth",
+          "the unconscious mastered",
+          "nurturing wisdom"
+        ],
+        "provenance": "engine/cards_cups.json#cups_queen",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "cups_king",
+      "name": "King of Cups",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "cups",
+      "rank": "king",
+      "number": 14,
+      "visual_inventory": {
+        "items": [
+          "king on throne on turbulent sea",
+          "cup and scepter held calmly",
+          "ship and fish in background",
+          "calm amid chaos",
+          "blue throne on choppy water"
+        ],
+        "provenance": "engine/cards_cups.json#cups_king",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/king-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/king-of-cups",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Emotional mastery, calm authority, wise counsel. Feeling deeply without losing oneself.",
+        "reversed": "Emotional manipulation, moodiness beneath a calm surface, or emotional repression.",
+        "core_themes": [
+          "emotional mastery",
+          "calm authority",
+          "wise counsel",
+          "compassionate leadership",
+          "balance of feeling and reason",
+          "the therapist archetype"
+        ],
+        "provenance": "engine/cards_cups.json#cups_king",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_ace",
+      "name": "Ace of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "ace",
+      "number": 1,
+      "visual_inventory": {
+        "items": [
+          "hand emerging from cloud",
+          "sword pointing upward",
+          "crown with laurel and palm",
+          "mountains below",
+          "grey sky",
+          "yods around the sword"
+        ],
+        "provenance": "engine/cards_swords.json#swords_ace",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ace-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ace-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Mental clarity, truth, breakthrough. The sword cuts through confusion to what is real.",
+        "reversed": "Confusion, cruelty, or truth wielded without wisdom.",
+        "core_themes": [
+          "mental clarity",
+          "truth",
+          "breakthrough",
+          "new perspective",
+          "justice",
+          "cutting through",
+          "the decisive word"
+        ],
+        "provenance": "engine/cards_swords.json#swords_ace",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_02",
+      "name": "Two of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "two",
+      "number": 2,
+      "visual_inventory": {
+        "items": [
+          "blindfolded figure",
+          "two crossed swords",
+          "crescent moon",
+          "rocky sea behind",
+          "bench",
+          "still posture of enforced balance"
+        ],
+        "provenance": "engine/cards_swords.json#swords_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/two-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/two-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Indecision, stalemate, blocked perception. The blindfold is a choice. What would you see if you removed it?",
+        "reversed": "Information arriving, the stalemate breaking, or confusion worse now that the blindfold is off.",
+        "core_themes": [
+          "indecision",
+          "stalemate",
+          "blocked perception",
+          "avoidance",
+          "inner conflict",
+          "the cost of not choosing",
+          "self-imposed blindness"
+        ],
+        "provenance": "engine/cards_swords.json#swords_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_03",
+      "name": "Three of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "three",
+      "number": 3,
+      "visual_inventory": {
+        "items": [
+          "heart pierced by three swords",
+          "storm clouds",
+          "rain",
+          "nothing else — the image is pure symbol"
+        ],
+        "provenance": "engine/cards_swords.json#swords_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/three-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/three-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Heartbreak, grief, sorrow. The pain is real. Name the swords — only then can they be removed.",
+        "reversed": "Recovery, the pain beginning to ease, or grief that is being suppressed rather than processed.",
+        "core_themes": [
+          "heartbreak",
+          "grief",
+          "sorrow",
+          "betrayal",
+          "loss",
+          "the cost of love",
+          "necessary pain"
+        ],
+        "provenance": "engine/cards_swords.json#swords_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_04",
+      "name": "Four of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "four",
+      "number": 4,
+      "visual_inventory": {
+        "items": [
+          "knight lying in stone effigy pose",
+          "three swords on wall",
+          "one sword beneath",
+          "stained glass window",
+          "church or tomb setting",
+          "hands folded in prayer"
+        ],
+        "provenance": "engine/cards_swords.json#swords_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/four-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/four-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Rest, recuperation, withdrawal. The mind needs to be still. This is the work now.",
+        "reversed": "Restlessness, inability to rest, or returning to action before recuperation is complete.",
+        "core_themes": [
+          "rest",
+          "recuperation",
+          "withdrawal",
+          "contemplation",
+          "healing through stillness",
+          "retreat",
+          "the pause before re-engagement"
+        ],
+        "provenance": "engine/cards_swords.json#swords_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_05",
+      "name": "Five of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "five",
+      "number": 5,
+      "visual_inventory": {
+        "items": [
+          "smirking figure collecting swords",
+          "two dejected figures walking away",
+          "rough sea",
+          "cloudy sky",
+          "swords on ground"
+        ],
+        "provenance": "engine/cards_swords.json#swords_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/five-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/five-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Conflict, defeat, hollow victory. Someone won — but at what cost? Not all battles should be fought.",
+        "reversed": "Reconciliation, learning from conflict, or the aftermath of a damaging victory finally being addressed.",
+        "core_themes": [
+          "defeat",
+          "hollow victory",
+          "conflict",
+          "humiliation",
+          "the cost of winning",
+          "betrayal",
+          "the battle that shouldn't have been fought"
+        ],
+        "provenance": "engine/cards_swords.json#swords_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_06",
+      "name": "Six of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "six",
+      "number": 6,
+      "visual_inventory": {
+        "items": [
+          "ferryman poling boat",
+          "woman and child huddled",
+          "six swords in boat",
+          "rough water on one side, calm on other",
+          "distant shore"
+        ],
+        "provenance": "engine/cards_swords.json#swords_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/six-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/six-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Transition, passage, gradual improvement. Moving away from turbulence. The calmer shore is ahead.",
+        "reversed": "Stuck in transition, return to troubled waters, or the swords coming along despite the crossing.",
+        "core_themes": [
+          "transition",
+          "passage",
+          "moving on",
+          "gradual improvement",
+          "travel",
+          "recovery in motion",
+          "the crossing"
+        ],
+        "provenance": "engine/cards_swords.json#swords_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_07",
+      "name": "Seven of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "seven",
+      "number": 7,
+      "visual_inventory": {
+        "items": [
+          "figure tiptoeing away with five swords",
+          "two swords left behind",
+          "looking back over shoulder",
+          "military camp in background",
+          "sly expression"
+        ],
+        "provenance": "engine/cards_swords.json#swords_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/seven-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/seven-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Deception, strategy, getting away with something. Cunning used well — or poorly.",
+        "reversed": "Caught out, confession, or cunning turned against the self.",
+        "core_themes": [
+          "deception",
+          "strategy",
+          "cunning",
+          "avoidance",
+          "taking what isn't yours",
+          "the lone operator",
+          "getting away with it"
+        ],
+        "provenance": "engine/cards_swords.json#swords_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_08",
+      "name": "Eight of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "eight",
+      "number": 8,
+      "visual_inventory": {
+        "items": [
+          "blindfolded bound figure",
+          "eight swords surrounding but not touching",
+          "muddy ground",
+          "castle in distance",
+          "figure could walk away if they removed blindfold"
+        ],
+        "provenance": "engine/cards_swords.json#swords_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/eight-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/eight-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Restriction, mental imprisonment, feeling trapped. The bonds are real — but not as absolute as they feel.",
+        "reversed": "Release from restriction, the blindfold removed, or recognizing that the cage door was open.",
+        "core_themes": [
+          "restriction",
+          "mental imprisonment",
+          "victim consciousness",
+          "limiting beliefs",
+          "trapped by perception",
+          "the cage with an open door"
+        ],
+        "provenance": "engine/cards_swords.json#swords_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_09",
+      "name": "Nine of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "nine",
+      "number": 9,
+      "visual_inventory": {
+        "items": [
+          "figure sitting up in bed with head in hands",
+          "nine swords on wall above",
+          "quilt with astrological signs",
+          "dark room",
+          "no external threat visible"
+        ],
+        "provenance": "engine/cards_swords.json#swords_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/nine-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/nine-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Anxiety, despair, nightmares. The swords are in your mind. What are they really about?",
+        "reversed": "The darkest hour before dawn, or anxiety that is finally being addressed rather than endured.",
+        "core_themes": [
+          "anxiety",
+          "despair",
+          "nightmares",
+          "rumination",
+          "guilt",
+          "worry",
+          "the darkest hour",
+          "3am thoughts"
+        ],
+        "provenance": "engine/cards_swords.json#swords_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_10",
+      "name": "Ten of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "ten",
+      "number": 10,
+      "visual_inventory": {
+        "items": [
+          "figure face-down with ten swords in back",
+          "calm sea",
+          "dawn breaking on horizon",
+          "dark sky above, golden below",
+          "the bottom has been reached"
+        ],
+        "provenance": "engine/cards_swords.json#swords_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ten-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ten-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Rock bottom, painful ending, total defeat. The worst has happened. Notice the dawn on the horizon.",
+        "reversed": "Recovery beginning, the cycle starting to turn, or resisting an inevitable ending.",
+        "core_themes": [
+          "rock bottom",
+          "total defeat",
+          "the end of a painful cycle",
+          "the dawn after the darkest night",
+          "letting it be over",
+          "the necessary ending"
+        ],
+        "provenance": "engine/cards_swords.json#swords_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_page",
+      "name": "Page of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "page",
+      "number": 11,
+      "visual_inventory": {
+        "items": [
+          "youth on hilltop with sword raised",
+          "looking back over shoulder",
+          "wind in hair and clouds",
+          "birds overhead",
+          "poised, alert stance"
+        ],
+        "provenance": "engine/cards_swords.json#swords_page",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/page-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/page-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Mental agility, vigilance, curiosity. Quick thinking and sharp perception — use them wisely.",
+        "reversed": "Gossip, deception, all talk and no action, or the sharp tongue used to wound.",
+        "core_themes": [
+          "curiosity",
+          "mental agility",
+          "vigilance",
+          "gossip or news",
+          "quick thinking",
+          "the sharp tongue",
+          "intellectual restlessness"
+        ],
+        "provenance": "engine/cards_swords.json#swords_page",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_knight",
+      "name": "Knight of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "knight",
+      "number": 12,
+      "visual_inventory": {
+        "items": [
+          "knight charging at full gallop",
+          "sword raised overhead",
+          "birds and clouds blown back",
+          "rearing horse",
+          "stormy sky",
+          "no obstacle visible"
+        ],
+        "provenance": "engine/cards_swords.json#swords_knight",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/knight-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/knight-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Ambition, intellectual force, charging ahead. The truth delivered at full speed — effective and potentially destructive.",
+        "reversed": "Impulsive aggression, arguments for their own sake, or force without direction.",
+        "core_themes": [
+          "intellectual force",
+          "ambition",
+          "speed",
+          "direct confrontation",
+          "the truth that cuts",
+          "unstoppable momentum",
+          "righteous charge"
+        ],
+        "provenance": "engine/cards_swords.json#swords_knight",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_queen",
+      "name": "Queen of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "queen",
+      "number": 13,
+      "visual_inventory": {
+        "items": [
+          "queen on throne with sword raised",
+          "cloudy sky with one bird",
+          "butterfly on crown",
+          "raised hand",
+          "forward gaze",
+          "windswept",
+          "stone throne"
+        ],
+        "provenance": "engine/cards_swords.json#swords_queen",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/queen-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/queen-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Clarity, independence, direct communication. Hard-won wisdom. She has seen enough to speak plainly.",
+        "reversed": "Bitterness, cruelty in the name of honesty, or the sharpness turned against the self.",
+        "core_themes": [
+          "clarity",
+          "independence",
+          "direct communication",
+          "experience-forged wisdom",
+          "truth without sentimentality",
+          "boundaries",
+          "the widow's sharpness"
+        ],
+        "provenance": "engine/cards_swords.json#swords_queen",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "swords_king",
+      "name": "King of Swords",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "swords",
+      "rank": "king",
+      "number": 14,
+      "visual_inventory": {
+        "items": [
+          "king on stone throne",
+          "sword held upright",
+          "two birds on crown",
+          "clouds with angels",
+          "butterfly on throne",
+          "direct forward gaze",
+          "crown and blue robe"
+        ],
+        "provenance": "engine/cards_swords.json#swords_king",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/king-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/king-of-swords",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Intellectual authority, truth, clear judgment. The mind at its most disciplined and ethical.",
+        "reversed": "Cruelty, abuse of intellectual power, or cold rationality weaponized against the vulnerable.",
+        "core_themes": [
+          "intellectual authority",
+          "truth",
+          "justice",
+          "clear judgment",
+          "ethics",
+          "rational mastery",
+          "the rule of principle"
+        ],
+        "provenance": "engine/cards_swords.json#swords_king",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_ace",
+      "name": "Ace of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "ace",
+      "number": 1,
+      "visual_inventory": {
+        "items": [
+          "hand offering pentacle from cloud",
+          "lush garden below",
+          "open gate",
+          "flowers and greenery",
+          "mountain path beyond gate"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_ace",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ace-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ace-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "New material beginnings, opportunity, abundance. A gift from the earth — now tend it.",
+        "reversed": "Missed opportunity, poor financial planning, or material abundance that doesn't satisfy.",
+        "core_themes": [
+          "new material beginning",
+          "opportunity",
+          "abundance",
+          "manifestation",
+          "the gift of the earth",
+          "financial or practical new start"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_ace",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_02",
+      "name": "Two of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "two",
+      "number": 2,
+      "visual_inventory": {
+        "items": [
+          "figure juggling two pentacles connected by infinity loop",
+          "ships on choppy sea behind",
+          "dancing or balancing stance",
+          "jester-like hat"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/two-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/two-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Balance, adaptability, managing priorities. You're keeping everything in the air — for now.",
+        "reversed": "Overwhelm, disorganization, or the juggling act becoming unsustainable.",
+        "core_themes": [
+          "balance",
+          "juggling priorities",
+          "adaptability",
+          "managing resources",
+          "flexibility",
+          "the constant adjustment of life"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_02",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_03",
+      "name": "Three of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "three",
+      "number": 3,
+      "visual_inventory": {
+        "items": [
+          "craftsman on bench in cathedral",
+          "two monks with plans consulting",
+          "three pentacles above arch",
+          "collaborative discussion",
+          "stone cathedral setting"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/three-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/three-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Craftsmanship, collaboration, skill recognized. Good work being done together on something that will last.",
+        "reversed": "Poor teamwork, lack of skill, or skilled work that goes unrecognized.",
+        "core_themes": [
+          "craftsmanship",
+          "collaboration",
+          "skill",
+          "recognition of expertise",
+          "teamwork",
+          "building something lasting",
+          "mastery in practice"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_03",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_04",
+      "name": "Four of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "four",
+      "number": 4,
+      "visual_inventory": {
+        "items": [
+          "figure clutching pentacle to chest",
+          "pentacle on crown",
+          "pentacles under feet",
+          "back to the city",
+          "hunched protective posture"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/four-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/four-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Security, control, possessiveness. Holding on tightly — but what is the cost of the grip?",
+        "reversed": "Releasing control, generosity returning, or financial instability forcing open hands.",
+        "core_themes": [
+          "possessiveness",
+          "security",
+          "control",
+          "materialism",
+          "hoarding",
+          "the cost of clinging",
+          "blocked generosity"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_04",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_05",
+      "name": "Five of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "five",
+      "number": 5,
+      "visual_inventory": {
+        "items": [
+          "two figures in snow",
+          "crippled figure on crutches",
+          "stained glass window above",
+          "snow and darkness",
+          "poverty and illness",
+          "the lit church they pass without entering"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/five-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/five-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Hardship, poverty, exclusion. You are outside in the cold. The church window is lit — have you tried the door?",
+        "reversed": "Recovery from hardship, help finally accepted, or the end of a difficult material period.",
+        "core_themes": [
+          "hardship",
+          "poverty",
+          "exclusion",
+          "illness",
+          "need",
+          "the help that is available but not sought",
+          "material and spiritual destitution"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_05",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_06",
+      "name": "Six of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "six",
+      "number": 6,
+      "visual_inventory": {
+        "items": [
+          "merchant with scales",
+          "two supplicants kneeling",
+          "coins given to one",
+          "scales held in one hand",
+          "fine red robe",
+          "city setting"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/six-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/six-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Generosity, giving, receiving. An exchange of resources — note who holds the scales.",
+        "reversed": "Debt, strings attached to gifts, or generosity withheld.",
+        "core_themes": [
+          "generosity",
+          "charity",
+          "power in giving",
+          "receiving graciously",
+          "financial exchange",
+          "the dynamics of help",
+          "balanced giving and receiving"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_06",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_07",
+      "name": "Seven of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "seven",
+      "number": 7,
+      "visual_inventory": {
+        "items": [
+          "farmer leaning on hoe",
+          "seven pentacles on vine",
+          "surveying the harvest",
+          "contemplative stance",
+          "hard work visible in the plant"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/seven-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/seven-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Patience, investment, long-term vision. Assess what you've grown before the next move.",
+        "reversed": "Impatience, poor investment returns, or work that hasn't yielded what was hoped.",
+        "core_themes": [
+          "patience",
+          "investment",
+          "long-term vision",
+          "evaluation",
+          "the harvest not yet taken",
+          "weighing effort against reward"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_07",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_08",
+      "name": "Eight of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "eight",
+      "number": 8,
+      "visual_inventory": {
+        "items": [
+          "craftsman carving pentacles",
+          "finished pentacles displayed",
+          "one being worked on",
+          "tools and bench",
+          "distant town",
+          "absorbed in work"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/eight-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/eight-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Diligence, skill development, mastery through practice. Head down, doing the work.",
+        "reversed": "Mediocrity, shortcuts, perfectionism blocking progress, or work without meaningful direction.",
+        "core_themes": [
+          "diligence",
+          "mastery",
+          "apprenticeship",
+          "skill development",
+          "repetition",
+          "the satisfaction of craft",
+          "dedication to improvement"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_08",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_09",
+      "name": "Nine of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "nine",
+      "number": 9,
+      "visual_inventory": {
+        "items": [
+          "elegant woman in vineyard",
+          "falcon on gloved hand",
+          "nine pentacles on vines",
+          "snail at feet",
+          "flowers on robe",
+          "castle in background",
+          "self-possessed ease"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/nine-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/nine-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Self-sufficiency, abundance, independence. You built this. Enjoy it — you earned it.",
+        "reversed": "Financial dependence, facade of success, or abundance that isolates rather than fulfills.",
+        "core_themes": [
+          "self-sufficiency",
+          "abundance",
+          "independence",
+          "refined taste",
+          "the fruits of discipline",
+          "material and personal achievement",
+          "solitary contentment"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_09",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_10",
+      "name": "Ten of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "ten",
+      "number": 10,
+      "visual_inventory": {
+        "items": [
+          "elder seated in archway",
+          "family scene with couple and child",
+          "two dogs",
+          "ten pentacles in Tree of Life pattern",
+          "castle estate",
+          "arch with heraldic symbols"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ten-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/ten-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Legacy, family wealth, multigenerational roots. The fullness of what has been built — for you and after you.",
+        "reversed": "Family dysfunction, squandered inheritance, or wealth without the roots that make it meaningful.",
+        "core_themes": [
+          "legacy",
+          "family wealth",
+          "inheritance",
+          "multigenerational roots",
+          "the fullness of material achievement",
+          "belonging to a lineage",
+          "what is passed on"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_10",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_page",
+      "name": "Page of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "page",
+      "number": 11,
+      "visual_inventory": {
+        "items": [
+          "youth gazing at pentacle in hands",
+          "green fertile landscape",
+          "mountain in distance",
+          "steady focused attention",
+          "practical clothing"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_page",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/page-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/page-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Study, new practical beginnings, a message about career or finances. Groundedness and potential.",
+        "reversed": "Procrastination, unrealistic goals, or study without application.",
+        "core_themes": [
+          "study",
+          "new practical skills",
+          "scholarship",
+          "groundedness",
+          "a message about money or career",
+          "the earnest beginner",
+          "manifestation in early stages"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_page",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_knight",
+      "name": "Knight of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "knight",
+      "number": 12,
+      "visual_inventory": {
+        "items": [
+          "knight on stationary heavy horse",
+          "pentacle examined carefully",
+          "plowed field behind",
+          "oak tree",
+          "no motion — still, patient, considering"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_knight",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/knight-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/knight-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Reliability, patience, methodical progress. Slow and steady. The work will get done.",
+        "reversed": "Stubbornness, boredom, or diligence that has calcified into inability to adapt.",
+        "core_themes": [
+          "reliability",
+          "patience",
+          "methodical progress",
+          "hard work",
+          "practicality",
+          "stewardship",
+          "slow but certain"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_knight",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_queen",
+      "name": "Queen of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "queen",
+      "number": 13,
+      "visual_inventory": {
+        "items": [
+          "queen on flower-carved throne",
+          "pentacle cradled in lap",
+          "lush garden",
+          "rabbit at feet",
+          "fruit and flowers",
+          "warm natural setting",
+          "contemplative care"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_queen",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/queen-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/queen-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Nurturing, practical abundance, embodied care. Warmth expressed through doing. Home and body honored.",
+        "reversed": "Neglect of practical needs, smothering, or the material provision of love without emotional presence.",
+        "core_themes": [
+          "nurturing",
+          "practical wisdom",
+          "abundance",
+          "sensuality",
+          "home and hearth",
+          "material care",
+          "the body honored"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_queen",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    },
+    {
+      "id": "pentacles_king",
+      "name": "King of Pentacles",
+      "system": "Waite-Smith",
+      "arcana": "minor",
+      "suit": "pentacles",
+      "rank": "king",
+      "number": 14,
+      "visual_inventory": {
+        "items": [
+          "king on throne with vines and flowers",
+          "castle behind",
+          "bull symbols on throne",
+          "pentacle in hand",
+          "armor under robes",
+          "grapes and abundance",
+          "bulls on robe"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_king",
+        "review_status": "migrated_unreviewed"
+      },
+      "source_links": {
+        "waite_symbolism": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/king-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "waite_divinatory": {
+          "source_id": "waite_1911_sacred_texts",
+          "url": "https://sacred-texts.com/book/the-pictorial-key-to-the-tarot/shell/king-of-pentacles",
+          "status": "linked_not_transcribed"
+        },
+        "image_archive": {
+          "source_id": "smith_rws_commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Rider-Waite_tarot_deck",
+          "status": "candidate_collection_only"
+        }
+      },
+      "modern_interpretation": {
+        "upright": "Material mastery, wealth, stability. Built through patience and discipline. Practical authority in full expression.",
+        "reversed": "Materialism, corruption, or wealth used to control rather than sustain.",
+        "core_themes": [
+          "material mastery",
+          "wealth",
+          "stability",
+          "practical authority",
+          "the self-made person",
+          "abundance built through effort",
+          "security as legacy"
+        ],
+        "provenance": "engine/cards_pentacles.json#pentacles_king",
+        "review_status": "migrated_unreviewed"
+      },
+      "reversal_framework": {
+        "supported_modes": [
+          "blocked",
+          "internalized",
+          "excessive",
+          "misdirected",
+          "delayed"
+        ],
+        "card_specific_modes": [],
+        "review_status": "framework_only_pending"
+      },
+      "review": {
+        "waite_text": "pending",
+        "visual_inventory": "pending",
+        "modern_interpretation": "pending",
+        "image_asset": "pending"
+      }
+    }
+  ]
+}
