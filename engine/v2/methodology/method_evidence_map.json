@@ -1,0 +1,116 @@
+{
+  "map_version": "0.1.0",
+  "integration_status": "shadow_only_not_prompt_input",
+  "purpose": "Map research and theory to bounded product rules without presenting interpretive theory as empirical measurement.",
+  "claims": [
+    {
+      "id": "jungian_compensation_and_third_position_are_interpretive_lenses",
+      "claim": "Opposition, compensation, and a possible third position are coherent concepts within Jungian analytical psychology.",
+      "basis_type": "historical_theory_not_empirical_validation",
+      "source_ids": ["jung_cw8_iaap_abstracts", "iaap_transcendent_function"],
+      "evidence_status": "theoretically_supported",
+      "product_rule": "Use these concepts to organize a tentative dialogue between the user's conscious framing and contrasting symbolic material.",
+      "does_not_establish": "That the resulting interpretation is objectively true, clinically valid, or uniquely determined."
+    },
+    {
+      "id": "amplification_must_remain_anchored_to_the_original_symbol",
+      "claim": "Jungian amplification expands a symbol through contextual parallels while retaining the original image as its center.",
+      "basis_type": "professional_theoretical_guidance",
+      "source_ids": ["iaap_amplification"],
+      "evidence_status": "theoretically_supported",
+      "product_rule": "Every amplification must preserve a traceable card fact and user fragment; it may offer possibilities but not overwrite the original material.",
+      "does_not_establish": "A fixed dictionary meaning or a causal claim about the user's history."
+    },
+    {
+      "id": "felt_personal_accuracy_is_not_sufficient_validation",
+      "claim": "A participant's feeling that a personality description is accurate is not, by itself, evidence that the description is specific or valid.",
+      "basis_type": "empirical_risk_evidence",
+      "source_ids": ["forer_1949_personal_validation"],
+      "evidence_status": "empirically_supported_risk",
+      "product_rule": "Keep resonance as an experience metric, but pair it with evidence support, overreach, blind matching, and genericity checks.",
+      "does_not_establish": "That resonance is meaningless or that every resonant answer is generic."
+    },
+    {
+      "id": "human_evaluation_needs_genericity_and_blindness_checks",
+      "claim": "Evaluation should test whether an interpretation fits its source material better than plausible generic or mismatched alternatives.",
+      "basis_type": "risk_informed_engineering_inference",
+      "source_ids": ["forer_1949_personal_validation"],
+      "evidence_status": "engineering_rule_inferred_from_empirical_risk",
+      "product_rule": "Include blinded question timing, shuffled interpretation matching, and at least one mismatched-card or mismatched-transcript comparison in confirmatory evaluation.",
+      "does_not_establish": "A universal experimental protocol or a validated effect-size threshold for Liminal."
+    },
+    {
+      "id": "symbolic_interpretation_is_not_clinical_measurement",
+      "claim": "Evidence on projective techniques is contested and does not justify treating open symbolic material as an automatically valid clinical measure.",
+      "basis_type": "contested_empirical_review",
+      "source_ids": ["lilienfeld_wood_garb_2000", "hibbard_2003_projective_critique"],
+      "evidence_status": "contested_field_conservative_boundary",
+      "product_rule": "Position tarot as a reflective stimulus; never label the output a psychological test, diagnosis, risk assessment, or substitute for professional care.",
+      "does_not_establish": "That no structured projective index has evidence or that reflective symbolic use has no value."
+    },
+    {
+      "id": "single_session_inference_requires_a_conservative_scope",
+      "claim": "A single symbolic narrative does not provide sufficient evidence for stable traits, developmental origins, trauma histories, or diagnoses.",
+      "basis_type": "conservative_product_boundary_informed_by_validity_risk",
+      "source_ids": ["lilienfeld_wood_garb_2000", "obrien_2014_srqr"],
+      "evidence_status": "safety_boundary_not_directly_tested_for_tarot",
+      "product_rule": "Limit ordinary output to observations, transformations, and possible session-level processes; require longitudinal or professional evidence for stronger claims.",
+      "does_not_establish": "That session-level reflection cannot be useful."
+    },
+    {
+      "id": "qualitative_claims_need_traceability_reflexivity_context_and_limits",
+      "claim": "Qualitative interpretations are more auditable when researchers disclose context, analytic choices, reflexivity, evidence links, and limitations.",
+      "basis_type": "reporting_and_methods_guidance",
+      "source_ids": ["obrien_2014_srqr", "tong_2007_coreq", "braun_clarke_2021_reflexive_ta"],
+      "evidence_status": "methods_supported",
+      "product_rule": "Preserve verbatim evidence, alternative explanations, disconfirming evidence, method version, and an audit trail for human studies.",
+      "does_not_establish": "The truth of an interpretation merely because it is reported transparently."
+    },
+    {
+      "id": "reporting_checklists_do_not_certify_methodological_truth",
+      "claim": "A reporting checklist improves transparency but should not be used as a score that certifies the rigor or truth of findings.",
+      "basis_type": "explicit_reporting_guideline_boundary",
+      "source_ids": ["obrien_2014_srqr"],
+      "evidence_status": "directly_supported_boundary",
+      "product_rule": "Use SRQR and COREQ as documentation prompts, not as pass/fail validity scores.",
+      "does_not_establish": "That reporting quality is unimportant."
+    },
+    {
+      "id": "intercoder_agreement_supports_transparency_not_psychological_truth",
+      "claim": "Intercoder comparison can improve code clarity and transparency, but its appropriateness depends on the qualitative paradigm and agreement does not prove construct validity.",
+      "basis_type": "methodological_debate",
+      "source_ids": ["oconnor_joffe_2020_icr", "braun_clarke_2021_reflexive_ta"],
+      "evidence_status": "debated_method_with_bounded_use",
+      "product_rule": "For a fixed production codebook, double-code a subset and adjudicate disagreements; report this as reproducibility work, not proof that a psychological reading is true.",
+      "does_not_establish": "That quantified intercoder reliability is mandatory for reflexive thematic analysis."
+    },
+    {
+      "id": "human_evaluation_needs_auditable_methods_and_evidence",
+      "claim": "Human evaluation should document sampling, context, consent, data processing, analytic procedure, evidence excerpts, limitations, and deviations.",
+      "basis_type": "reporting_guideline_to_product_research_translation",
+      "source_ids": ["obrien_2014_srqr", "tong_2007_coreq"],
+      "evidence_status": "engineering_rule_derived_from_reporting_guidance",
+      "product_rule": "Version the rubric before confirmatory testing, separate exploratory from confirmatory cases, preserve anonymized evidence, and report missing data and protocol changes.",
+      "does_not_establish": "That documentation alone removes sampling bias or validates causal claims."
+    },
+    {
+      "id": "psychological_ai_outputs_require_harm_prevention_transparency_and_accountability",
+      "claim": "AI systems that may affect health-related understanding should prioritize harm prevention, transparency, accountability, and ongoing real-world evaluation.",
+      "basis_type": "intergovernmental_ethics_guidance",
+      "source_ids": ["who_2021_ai_health_ethics"],
+      "evidence_status": "professional_guidance",
+      "product_rule": "Keep non-clinical positioning, visible uncertainty, user recourse, crisis escalation boundaries, and post-deployment review in the MVP requirements.",
+      "does_not_establish": "Medical-device classification, regulatory compliance, or clinical efficacy."
+    }
+  ],
+  "activation_gate": {
+    "status": "disabled",
+    "requires": [
+      "human review of every product rule and its source boundary",
+      "explicit runtime wiring with a versioned change",
+      "updated prompt hashes if any prompt text changes",
+      "regression tests across unrelated cards, narratives, and questions",
+      "a new human evaluation round using real model outputs"
+    ]
+  }
+}

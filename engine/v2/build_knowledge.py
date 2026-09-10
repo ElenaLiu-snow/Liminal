@@ -15,6 +15,7 @@ from typing import Any
 
 ENGINE_DIR = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = Path(__file__).resolve().parent / "data" / "rws_knowledge.json"
+TRANSCRIPTION_PATH = Path(__file__).resolve().parent / "data" / "waite_transcriptions.json"
 DECK_FILES = (
     "cards_major.json",
     "cards_wands.json",
@@ -87,8 +88,15 @@ def _legacy_cards(engine_dir: Path) -> list[tuple[str, dict[str, Any]]]:
 
 
 def build_knowledge(engine_dir: Path = ENGINE_DIR) -> dict[str, Any]:
+    transcription_data = json.loads(TRANSCRIPTION_PATH.read_text(encoding="utf-8"))
+    transcriptions = {
+        record["card_id"]: record for record in transcription_data["records"]
+    }
+    if len(transcriptions) != 78:
+        raise ValueError("Waite transcription index must contain 78 unique cards")
     records = []
     for filename, card in _legacy_cards(engine_dir):
+        transcription = transcriptions[card["id"]]
         card_url = _card_page(card)
         divinatory_url = MAJOR_DIVINATORY_URL if card["suit"] == "major" else card_url
         records.append(
@@ -121,6 +129,26 @@ def build_knowledge(engine_dir: Path = ENGINE_DIR) -> dict[str, Any]:
                         "url": COMMONS_CATEGORY_URL,
                         "status": "candidate_collection_only",
                     },
+                    "machine_transcription": {
+                        "source_id": "waite_transcription_mirror",
+                        "url": transcription["source_url"],
+                        "status": "machine_transcribed_unreviewed",
+                    },
+                },
+                "waite_text": {
+                    "description": transcription["description"],
+                    "upright": transcription["upright"],
+                    "reversed": transcription["reversed"],
+                    "reversed_status": (
+                        "not_present_in_waite_source"
+                        if transcription["reversed"] is None
+                        else "machine_transcribed_unreviewed"
+                    ),
+                    "provenance": {
+                        "source_id": "waite_transcription_mirror",
+                        "url": transcription["source_url"],
+                    },
+                    "review_status": "machine_transcribed_unreviewed",
                 },
                 "modern_interpretation": {
                     "upright": card["standard_meaning"]["upright"],
@@ -189,6 +217,15 @@ def build_knowledge(engine_dir: Path = ENGINE_DIR) -> dict[str, Any]:
                 "usage_note": (
                     "The large PDF is not committed. Use this checksum to verify "
                     "a temporary local copy used during field review."
+                ),
+            },
+            "waite_transcription_mirror": {
+                "title": "The Pictorial Key to the Tarot card transcription",
+                "url": "https://rider-waite.com/symbolism/pictorial-key-1-1/",
+                "role": "machine_import_source",
+                "usage_note": (
+                    "Public-domain Waite text imported per card for review. Verify "
+                    "against the registered scan before marking any field reviewed."
                 ),
             },
             "liminal_v1": {

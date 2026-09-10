@@ -1,5 +1,5 @@
 {
-  "method_version": "0.1.0",
+  "method_version": "0.2.0",
   "integration_status": "shadow_only_not_prompt_input",
   "purpose": "Specify how evidence may become a bounded session-level interpretation without encoding a card, participant, or desired answer.",
   "separation_rules": [
@@ -51,6 +51,59 @@
       "using card knowledge as proof of a psychological claim",
       "predicting an outcome with certainty",
       "generic advice unrelated to frozen patterns or reality evidence"
+    ]
+  },
+  "research_basis": {
+    "source_registry": "source_registry.json",
+    "evidence_map": "method_evidence_map.json",
+    "interpretive_theory_claim_ids": [
+      "jungian_compensation_and_third_position_are_interpretive_lenses",
+      "amplification_must_remain_anchored_to_the_original_symbol"
+    ],
+    "validity_and_safety_claim_ids": [
+      "felt_personal_accuracy_is_not_sufficient_validation",
+      "symbolic_interpretation_is_not_clinical_measurement",
+      "single_session_inference_requires_a_conservative_scope",
+      "psychological_ai_outputs_require_harm_prevention_transparency_and_accountability"
+    ],
+    "method_claim_ids": [
+      "qualitative_claims_need_traceability_reflexivity_context_and_limits",
+      "reporting_checklists_do_not_certify_methodological_truth",
+      "intercoder_agreement_supports_transparency_not_psychological_truth",
+      "human_evaluation_needs_genericity_and_blindness_checks",
+      "human_evaluation_needs_auditable_methods_and_evidence"
+    ],
+    "boundary": "Theory organizes possible meaning; empirical and methods sources constrain claims and evaluation. Neither source class may impersonate the other."
+  },
+  "evaluation_design": {
+    "exploratory_stage": [
+      "Treat early assisted readings as prompt and contract discovery, not efficacy evidence.",
+      "Record question-blind Pass 1 ratings before the question is revealed.",
+      "Log surprising value, evidence support, forced fit, and independent standing as separate judgments."
+    ],
+    "confirmatory_stage": [
+      "Version the prompt, model, card knowledge, rubric, and exclusion rules before enrollment.",
+      "Use new participants and cases that were not used to tune the method.",
+      "Include blinded matching plus mismatched-card or mismatched-transcript controls.",
+      "Report sampling, missing responses, uncertainty, deviations, adverse reactions, and negative cases."
+    ],
+    "coding_rule": "When a fixed production codebook is being tested, double-code a subset and adjudicate disagreements. Treat agreement as code reproducibility, not psychological truth.",
+    "reporting_rule": "Use SRQR and COREQ as transparency aids, never as validity scores."
+  },
+  "product_safety_boundary": {
+    "positioning": "reflective symbolic experience; not a psychological test, diagnosis, treatment, or deterministic prediction",
+    "requires": [
+      "visible uncertainty and evidence boundaries",
+      "a non-clinical disclaimer appropriate to the user flow",
+      "a crisis-resource path before public beta",
+      "a user feedback and correction mechanism",
+      "post-deployment review for overreach and harm"
+    ],
+    "forbids": [
+      "diagnostic or trauma-origin claims from tarot material",
+      "using resonance as the only success metric",
+      "presenting Jungian theory as psychometric validation",
+      "claiming regulatory or clinical approval from general ethics guidance"
     ]
   },
   "change_control": {

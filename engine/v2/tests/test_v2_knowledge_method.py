@@ -3,7 +3,7 @@ import json
 import unittest
 from pathlib import Path
 
-from engine.v2.build_knowledge import DECK_FILES, build_knowledge
+from engine.v2.build_knowledge import DECK_FILES, TRANSCRIPTION_PATH, build_knowledge
 from engine.v2.contracts import TRANSFORMATION_TYPES
 from engine.v2.knowledge import KNOWLEDGE_PATH, TarotKnowledgeBase, validate_knowledge_base
 from engine.v2.methodology import METHOD_PATH, load_analysis_method
@@ -42,6 +42,31 @@ class TarotKnowledgeTests(unittest.TestCase):
                 self.assertIn(card["name"].split()[-1].casefold(), symbolism["url"].casefold())
                 self.assertTrue(divinatory["url"].startswith("https://"))
                 self.assertEqual(set(card["review"].values()), {"pending"})
+
+    def test_all_cards_have_machine_transcribed_waite_candidates(self):
+        transcription = json.loads(TRANSCRIPTION_PATH.read_text(encoding="utf-8"))
+        self.assertEqual(len(transcription["records"]), 78)
+        self.assertEqual(
+            {record["card_id"] for record in transcription["records"]},
+            {card["id"] for card in self.knowledge.cards},
+        )
+        missing_reversals = []
+        for card in self.knowledge.cards:
+            with self.subTest(card=card["id"]):
+                waite = card["waite_text"]
+                self.assertTrue(waite["description"].strip())
+                self.assertTrue(waite["upright"].strip())
+                self.assertEqual(waite["review_status"], "machine_transcribed_unreviewed")
+                if waite["reversed"] is None:
+                    missing_reversals.append(card["id"])
+        self.assertEqual(missing_reversals, ["cups_02"])
+
+    def test_transcription_samples_preserve_source_distinctions(self):
+        queen = self.knowledge.get_card("Queen of Cups")["waite_text"]
+        wheel = self.knowledge.get_card("Wheel of Fortune")["waite_text"]
+        self.assertIn("she sees, but she also acts", queen["description"])
+        self.assertIn("stability amidst movement", wheel["description"])
+        self.assertIn("Destiny, fortune", wheel["upright"])
 
     def test_knowledge_database_contains_no_psychological_presets(self):
         serialized = KNOWLEDGE_PATH.read_text(encoding="utf-8")
@@ -95,6 +120,12 @@ class AnalysisMethodIsolationTests(unittest.TestCase):
         self.assertEqual(unsupported["allowed_confidence"], [])
         self.assertIn("stable trait", unsupported["claim_scope"])
         self.assertIn("developmental origin", unsupported["claim_scope"])
+
+    def test_method_version_contains_research_and_safety_boundaries(self):
+        method = load_analysis_method()
+        self.assertEqual(method["method_version"], "0.2.0")
+        self.assertIn("source_registry", method["research_basis"])
+        self.assertIn("not a psychological test", method["product_safety_boundary"]["positioning"])
 
 
 if __name__ == "__main__":

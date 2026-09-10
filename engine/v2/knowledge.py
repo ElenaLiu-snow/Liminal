@@ -70,6 +70,18 @@ def validate_knowledge_base(data: Mapping[str, Any]) -> None:
                 raise ContractError(f"unknown source_id for {card.get('id')}:{role}")
             if not str(link.get("url", "")).startswith("https://"):
                 raise ContractError(f"non-HTTPS source for {card.get('id')}:{role}")
+        waite = card.get("waite_text")
+        if not isinstance(waite, Mapping):
+            raise ContractError(f"missing Waite text for {card.get('id')}")
+        for field in ("description", "upright"):
+            if not isinstance(waite.get(field), str) or not waite[field].strip():
+                raise ContractError(f"empty Waite {field} for {card.get('id')}")
+        reversed_text = waite.get("reversed")
+        if reversed_text is None:
+            if waite.get("reversed_status") != "not_present_in_waite_source":
+                raise ContractError(f"unexplained missing Waite reversal for {card.get('id')}")
+        elif not isinstance(reversed_text, str) or not reversed_text.strip():
+            raise ContractError(f"invalid Waite reversal for {card.get('id')}")
         review = card.get("review")
         if not isinstance(review, Mapping) or set(review.values()) - REVIEW_STATES:
             raise ContractError(f"invalid review state for {card.get('id')}")

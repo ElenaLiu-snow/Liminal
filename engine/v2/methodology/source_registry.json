@@ -1,0 +1,193 @@
+{
+  "registry_version": "0.1.0",
+  "last_verified": "2026-09-11",
+  "scope": "Sources used to bound Liminal's Jungian interpretive method, qualitative review process, validation risks, and AI-wellness safety. This registry is not a clinical evidence claim.",
+  "review_protocol": {
+    "preference_order": [
+      "primary work or authoritative bibliographic record",
+      "peer-reviewed review or methods paper",
+      "professional or intergovernmental guidance",
+      "author-maintained methods guidance"
+    ],
+    "required_fields": [
+      "what the source supports",
+      "what the source does not support",
+      "verification level",
+      "last checked date"
+    ],
+    "conflict_rule": "Keep credible disagreement in the registry; do not resolve a contested empirical question by deleting the minority source."
+  },
+  "sources": [
+    {
+      "id": "jung_cw8_iaap_abstracts",
+      "citation": "Jung, C. G. The Structure and Dynamics of the Psyche, Collected Works, Vol. 8; abstracts hosted by the International Association for Analytical Psychology.",
+      "url": "https://iaap.org/resources/academic-resources/collected-works-abstracts/volume-8-structure-dynamics-psyche/",
+      "source_type": "historical_theory_authoritative_bibliographic_abstract",
+      "verification": "authoritative_abstract_reviewed_2026-09-11",
+      "supports": [
+        "jungian_compensation_and_third_position_are_interpretive_lenses"
+      ],
+      "does_not_support": [
+        "empirical validation of tarot interpretation",
+        "automated personality measurement",
+        "diagnosis from one free-association sample"
+      ]
+    },
+    {
+      "id": "iaap_transcendent_function",
+      "citation": "Kiehl, E. The Transcendent Function. International Association for Analytical Psychology.",
+      "url": "https://iaap.org/jung-analytical-psychology/short-articles-on-analytical-psychology/the-transcendent-function/",
+      "source_type": "professional_theoretical_exposition",
+      "verification": "full_web_text_reviewed_2026-09-11",
+      "supports": [
+        "jungian_compensation_and_third_position_are_interpretive_lenses"
+      ],
+      "does_not_support": [
+        "a universal algorithm for resolving opposites",
+        "a psychometric score",
+        "a license to infer trauma or psychosis"
+      ]
+    },
+    {
+      "id": "iaap_amplification",
+      "citation": "Zaphiriou-Zarifi, H. Amplification. International Association for Analytical Psychology.",
+      "url": "https://iaap.org/jung-analytical-psychology/short-articles-on-analytical-psychology/amplification-2/",
+      "source_type": "professional_theoretical_exposition",
+      "verification": "full_web_text_reviewed_2026-09-11",
+      "supports": [
+        "amplification_must_remain_anchored_to_the_original_symbol"
+      ],
+      "does_not_support": [
+        "free association without source boundaries",
+        "fixed universal meanings for every image",
+        "clinical diagnosis by symbolic analogy"
+      ]
+    },
+    {
+      "id": "forer_1949_personal_validation",
+      "citation": "Forer, B. R. (1949). The fallacy of personal validation; a classroom demonstration of gullibility. Journal of Abnormal Psychology, 44(1), 118-123. doi:10.1037/h0059240.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18110193/",
+      "source_type": "peer_reviewed_empirical_study",
+      "verification": "bibliographic_record_and_full_text_reviewed_2026-09-11",
+      "supports": [
+        "felt_personal_accuracy_is_not_sufficient_validation",
+        "human_evaluation_needs_genericity_and_blindness_checks"
+      ],
+      "does_not_support": [
+        "the claim that every personally resonant interpretation is false",
+        "the effectiveness of Liminal",
+        "a clinical safety determination"
+      ]
+    },
+    {
+      "id": "lilienfeld_wood_garb_2000",
+      "citation": "Lilienfeld, S. O., Wood, J. M., & Garb, H. N. (2000). The Scientific Status of Projective Techniques. Psychological Science in the Public Interest, 1(2), 27-66. doi:10.1111/1529-1006.002.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26151980/",
+      "source_type": "peer_reviewed_critical_review",
+      "verification": "bibliographic_record_and_abstract_reviewed_2026-09-11",
+      "supports": [
+        "symbolic_interpretation_is_not_clinical_measurement",
+        "single_session_inference_requires_a_conservative_scope"
+      ],
+      "does_not_support": [
+        "a direct validation study of tarot",
+        "the claim that all projective indexes are invalid",
+        "the claim that symbolic reflection has no experiential value"
+      ]
+    },
+    {
+      "id": "hibbard_2003_projective_critique",
+      "citation": "Hibbard, S. (2003). A critique of Lilienfeld et al.'s (2000) The Scientific Status of Projective Techniques. Journal of Personality Assessment, 80(3), 260-271. doi:10.1207/S15327752JPA8003_05.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12763700/",
+      "source_type": "peer_reviewed_counterargument",
+      "verification": "bibliographic_record_and_abstract_reviewed_2026-09-11",
+      "supports": [
+        "symbolic_interpretation_is_not_clinical_measurement"
+      ],
+      "does_not_support": [
+        "automatic transfer of Rorschach or TAT findings to tarot",
+        "unbounded personality inference",
+        "removal of the conservative product boundary"
+      ]
+    },
+    {
+      "id": "obrien_2014_srqr",
+      "citation": "O'Brien, B. C., Harris, I. B., Beckman, T. J., Reed, D. A., & Cook, D. A. (2014). Standards for Reporting Qualitative Research: A Synthesis of Recommendations. Academic Medicine, 89(9), 1245-1251. doi:10.1097/ACM.0000000000000388.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24979285/",
+      "source_type": "peer_reviewed_reporting_guideline",
+      "verification": "full_text_reviewed_2026-09-11",
+      "supports": [
+        "qualitative_claims_need_traceability_reflexivity_context_and_limits",
+        "reporting_checklists_do_not_certify_methodological_truth",
+        "human_evaluation_needs_auditable_methods_and_evidence"
+      ],
+      "does_not_support": [
+        "using SRQR as a score of methodological validity",
+        "one mandatory qualitative paradigm",
+        "the truth of any particular psychological interpretation"
+      ]
+    },
+    {
+      "id": "tong_2007_coreq",
+      "citation": "Tong, A., Sainsbury, P., & Craig, J. (2007). Consolidated criteria for reporting qualitative research (COREQ): a 32-item checklist for interviews and focus groups. International Journal for Quality in Health Care, 19(6), 349-357. doi:10.1093/intqhc/mzm042.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17872937/",
+      "source_type": "peer_reviewed_reporting_guideline",
+      "verification": "bibliographic_record_and_abstract_reviewed_2026-09-11",
+      "supports": [
+        "qualitative_claims_need_traceability_reflexivity_context_and_limits",
+        "human_evaluation_needs_auditable_methods_and_evidence"
+      ],
+      "does_not_support": [
+        "application beyond interviews and focus groups without adaptation",
+        "a substitute for study design",
+        "the validity of model-generated psychological conclusions"
+      ]
+    },
+    {
+      "id": "oconnor_joffe_2020_icr",
+      "citation": "O'Connor, C., & Joffe, H. (2020). Intercoder Reliability in Qualitative Research: Debates and Practical Guidelines. International Journal of Qualitative Methods, 19, 1-13. doi:10.1177/1609406919899220.",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10091273/",
+      "source_type": "peer_reviewed_methods_article",
+      "verification": "repository_record_and_abstract_reviewed_2026-09-11",
+      "supports": [
+        "intercoder_agreement_supports_transparency_not_psychological_truth"
+      ],
+      "does_not_support": [
+        "mandatory quantified agreement for every qualitative paradigm",
+        "construct validity from coder agreement",
+        "fully automated adjudication"
+      ]
+    },
+    {
+      "id": "braun_clarke_2021_reflexive_ta",
+      "citation": "Braun, V., & Clarke, V. (2021). One size fits all? What counts as quality practice in (reflexive) thematic analysis? Qualitative Research in Psychology, 18(3), 328-352. doi:10.1080/14780887.2020.1769238.",
+      "url": "https://doi.org/10.1080/14780887.2020.1769238",
+      "source_type": "peer_reviewed_methods_article",
+      "verification": "publisher_metadata_and_abstract_reviewed_2026-09-11",
+      "supports": [
+        "intercoder_agreement_supports_transparency_not_psychological_truth",
+        "qualitative_claims_need_traceability_reflexivity_context_and_limits"
+      ],
+      "does_not_support": [
+        "mixing incompatible thematic-analysis paradigms",
+        "universal coding-reliability thresholds",
+        "treating researcher interpretation as absent"
+      ]
+    },
+    {
+      "id": "who_2021_ai_health_ethics",
+      "citation": "World Health Organization. (2021). Ethics and governance of artificial intelligence for health: WHO guidance. ISBN 978-92-4-002920-0.",
+      "url": "https://www.who.int/publications/i/item/9789240029200",
+      "source_type": "intergovernmental_ethics_guideline",
+      "verification": "official_guidance_page_and_executive_summary_reviewed_2026-09-11",
+      "supports": [
+        "psychological_ai_outputs_require_harm_prevention_transparency_and_accountability"
+      ],
+      "does_not_support": [
+        "classification of Liminal as a medical device",
+        "clinical efficacy of Liminal",
+        "replacement of jurisdiction-specific legal review"
+      ]
+    }
+  ]
+}

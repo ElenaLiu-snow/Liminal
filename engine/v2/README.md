@@ -31,14 +31,14 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
   - optional action/reflection translation and one takeaway question
   - a writing stage that renders one complete reading without adding analysis
 - Parallel production foundations (not yet active model inputs):
-  - a deterministic 78-card RWS knowledge index with per-card Waite source links and review states
-  - a prompt-neutral analysis-method specification with evidence gates and false-positive checks
+  - a deterministic 78-card RWS knowledge index with per-card Waite text candidates, source links, and review states
+  - a prompt-neutral analysis-method specification with a verified source registry, claim-to-source map, controversy boundaries, evaluation design, evidence gates, and false-positive checks
   - a SHA-256 lock for all seven prompts accepted during the alpha human tests
   - automated isolation checks preventing either shadow layer from silently altering current output
 
 No model SDK is coupled to the engine yet. The completed assisted human tests were used to validate the intended answer and the contract-assisted workflow; they were not end-to-end API generations. The next participant gate begins only after a provider adapter runs the locked prompts and returns schema-valid outputs.
 
-The knowledge and method layers can continue to mature before that gate. They remain `shadow_read_only` / `shadow_only_not_prompt_input`, so their review work cannot alter the already accepted prompt behavior by accident.
+The automated knowledge-ingestion and method-research passes are complete for this gate. Human field review of card text/images and explicit method activation remain later work. Both layers remain `shadow_read_only` / `shadow_only_not_prompt_input`, so their review work cannot alter the already accepted prompt behavior by accident.
 
 ## Prepare a Pass 1 request
 

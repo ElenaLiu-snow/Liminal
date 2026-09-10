@@ -17,7 +17,7 @@
         "type": "object",
         "required": [
           "id", "name", "system", "arcana", "suit", "rank", "number",
-          "visual_inventory", "source_links", "modern_interpretation",
+          "visual_inventory", "source_links", "waite_text", "modern_interpretation",
           "reversal_framework", "review"
         ]
       }

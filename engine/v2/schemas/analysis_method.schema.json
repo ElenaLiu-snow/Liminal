@@ -12,10 +12,13 @@
     "transformation_taxonomy",
     "session_pattern_gate",
     "pass2_integration_gate",
+    "research_basis",
+    "evaluation_design",
+    "product_safety_boundary",
     "change_control"
   ],
   "properties": {
-    "method_version": {"const": "0.1.0"},
+    "method_version": {"const": "0.2.0"},
     "integration_status": {"const": "shadow_only_not_prompt_input"},
     "purpose": {"type": "string", "minLength": 1},
     "separation_rules": {"type": "array", "minItems": 1, "items": {"type": "string"}},
@@ -30,6 +33,24 @@
     },
     "session_pattern_gate": {"type": "object"},
     "pass2_integration_gate": {"type": "object"},
+    "research_basis": {
+      "type": "object",
+      "required": [
+        "source_registry", "evidence_map", "interpretive_theory_claim_ids",
+        "validity_and_safety_claim_ids", "method_claim_ids", "boundary"
+      ],
+      "additionalProperties": false
+    },
+    "evaluation_design": {
+      "type": "object",
+      "required": ["exploratory_stage", "confirmatory_stage", "coding_rule", "reporting_rule"],
+      "additionalProperties": false
+    },
+    "product_safety_boundary": {
+      "type": "object",
+      "required": ["positioning", "requires", "forbids"],
+      "additionalProperties": false
+    },
     "change_control": {"type": "object"}
   },
   "additionalProperties": false
