@@ -1,10 +1,10 @@
 # Liminal v2 testable vertical slice
 
-Status: **ready for the next question-blind Pass 1 human test**.
+Status: **ready for a full Pass 1 → question reveal → Pass 2 human test**.
 
 This directory adds v2 contracts without modifying the frozen v1.1 schema or prompts.
 
-## Implemented through the Phase 3 test gate
+## Implemented through the Phase 4 alpha test gate
 
 - Phase 1 alpha contract:
   - observable symbolic material
@@ -21,8 +21,17 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
   - provider-neutral prompt rendering
   - structured-output validation
   - deterministic SHA-256 freeze and tamper detection
+- Phase 4 question reveal and Pass 2 workflow:
+  - explicit question-shift state
+  - immutable Pass 1 lineage through its SHA-256 digest
+  - isolated situated traditional reading
+  - explicit `integrated` / `held` / `not_relevant` mapping for every Pass 1 pattern
+  - verbatim reality evidence, including optional evidence of action already taken
+  - bounded direction with an uncertainty boundary
+  - optional action/reflection translation and one takeaway question
+  - a writing stage that renders one complete reading without adding analysis
 
-No model SDK is coupled to the engine yet. This is intentional: the prompt can be tested with a chosen model while the input, output, and freeze contracts stay provider-independent.
+No model SDK is coupled to the engine yet. This is intentional: the prompts can be tested with a chosen model while the input, output, and freeze contracts stay provider-independent.
 
 ## Prepare a Pass 1 request
 
@@ -63,9 +72,42 @@ python -m engine.v2.cli freeze-pass1 \
   --output /path/to/pass1-output.json
 ```
 
+## Prepare and run Pass 2
+
+Only after the frozen Pass 1 has been shown, collect the revealed question and its shift status:
+
+```bash
+python -m engine.v2.cli prepare-pass2 \
+  --frozen-pass1 /path/to/frozen-pass1.json \
+  --question "The user's question as revealed" \
+  --question-shift clarified \
+  --question-shift-note "Optional description of what changed"
+```
+
+Render and run the situated traditional prompt first, then the integration and writing prompts:
+
+```bash
+python -m engine.v2.cli render-situated --request /path/to/pass2-request.json
+
+python -m engine.v2.cli render-pass2-integration \
+  --request /path/to/pass2-request.json \
+  --situated /path/to/situated-output.json
+
+python -m engine.v2.cli render-pass2-writing \
+  --request /path/to/pass2-request.json \
+  --situated /path/to/situated-output.json \
+  --integration /path/to/integration-output.json
+
+python -m engine.v2.cli assemble-pass2 \
+  --request /path/to/pass2-request.json \
+  --situated /path/to/situated-output.json \
+  --integration /path/to/integration-output.json \
+  --writing /path/to/pass2-writing-output.json
+```
+
 ## Human-test gate
 
-The next participant test should use a different card and question from the exploratory sample that shaped the contract. The participant keeps the question private until Pass 1 has been validated, frozen, and shown.
+The next participant test should run the complete two-pass flow with a different card and question from the exploratory samples. The participant keeps the question private until Pass 1 has been validated, frozen, and shown.
 
 Score at least:
 
@@ -73,5 +115,8 @@ Score at least:
 - psychological-pattern recognizability
 - overreach / forced fit
 - whether Pass 1 stands on its own without the question
+- Pass 1 → Pass 2 inheritance continuity
+- Pass 2 incremental value and answer completeness
+- whether practical translation follows from evidence rather than generic advice
 
 Do not commit participant audio, raw transcript, revealed question, or identifiable feedback to a public repository. Store only consented, anonymized research artifacts outside the code repository.

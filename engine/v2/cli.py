@@ -1,4 +1,4 @@
-"""Command-line entry points for the Phase 3 testable Pass 1 workflow."""
+"""Command-line entry points for the Phase 3–4 two-pass workflow."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from .pipeline import Pass1Pipeline
+from .pass2 import Pass2Pipeline
 
 
 def _load_json(path: str) -> dict[str, Any]:
@@ -31,7 +32,7 @@ def _add_request_arguments(parser: argparse.ArgumentParser) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Liminal v2 Phase 3 tooling")
+    parser = argparse.ArgumentParser(description="Liminal v2 Phase 3–4 tooling")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     prepare = subparsers.add_parser("prepare-pass1", help="Print a question-blind Pass 1 request")
@@ -75,12 +76,51 @@ def build_parser() -> argparse.ArgumentParser:
 
     verify = subparsers.add_parser("verify-frozen", help="Verify a frozen Pass 1 JSON file")
     verify.add_argument("--input", required=True)
+
+    prepare_pass2 = subparsers.add_parser(
+        "prepare-pass2", help="Prepare question reveal and a Pass 2 request"
+    )
+    prepare_pass2.add_argument("--frozen-pass1", required=True)
+    prepare_pass2.add_argument("--question", required=True)
+    prepare_pass2.add_argument(
+        "--question-shift",
+        choices=("unchanged", "clarified", "shifted_focus", "different_question"),
+        required=True,
+    )
+    prepare_pass2.add_argument("--question-shift-note")
+
+    render_situated = subparsers.add_parser(
+        "render-situated", help="Render isolated situated traditional prompt"
+    )
+    render_situated.add_argument("--request", required=True)
+
+    render_integration = subparsers.add_parser(
+        "render-pass2-integration", help="Render Pass 2 context-integration prompt"
+    )
+    render_integration.add_argument("--request", required=True)
+    render_integration.add_argument("--situated", required=True)
+
+    render_pass2_writing = subparsers.add_parser(
+        "render-pass2-writing", help="Render final Pass 2 writing prompt"
+    )
+    render_pass2_writing.add_argument("--request", required=True)
+    render_pass2_writing.add_argument("--situated", required=True)
+    render_pass2_writing.add_argument("--integration", required=True)
+
+    assemble_pass2 = subparsers.add_parser(
+        "assemble-pass2", help="Assemble and validate a Pass 2 output"
+    )
+    assemble_pass2.add_argument("--request", required=True)
+    assemble_pass2.add_argument("--situated", required=True)
+    assemble_pass2.add_argument("--integration", required=True)
+    assemble_pass2.add_argument("--writing", required=True)
     return parser
 
 
 def main() -> int:
     args = build_parser().parse_args()
     pipeline = Pass1Pipeline()
+    pass2_pipeline = Pass2Pipeline()
 
     if args.command in {"prepare-pass1", "render-observations"}:
         request = pipeline.prepare_request(
@@ -144,8 +184,48 @@ def main() -> int:
         print(json.dumps(frozen.to_dict(), ensure_ascii=False, indent=2, sort_keys=True))
         return 0
 
-    pipeline.verify_frozen(_load_json(args.input))
-    print("Frozen Pass 1 is valid and unchanged.")
+    if args.command == "verify-frozen":
+        pipeline.verify_frozen(_load_json(args.input))
+        print("Frozen Pass 1 is valid and unchanged.")
+        return 0
+
+    if args.command == "prepare-pass2":
+        request = pass2_pipeline.prepare_request(
+            frozen_pass1=_load_json(args.frozen_pass1),
+            user_question=args.question,
+            question_shift=args.question_shift,
+            question_shift_note=args.question_shift_note,
+        )
+        print(json.dumps(request, ensure_ascii=False, indent=2, sort_keys=True))
+        return 0
+
+    request = _load_json(args.request)
+    if args.command == "render-situated":
+        print(pass2_pipeline.render_situated_prompt(request))
+        return 0
+    if args.command == "render-pass2-integration":
+        print(
+            pass2_pipeline.render_integration_prompt(
+                request, _load_json(args.situated)
+            )
+        )
+        return 0
+    if args.command == "render-pass2-writing":
+        print(
+            pass2_pipeline.render_writing_prompt(
+                request,
+                _load_json(args.situated),
+                _load_json(args.integration),
+            )
+        )
+        return 0
+    output = pass2_pipeline.assemble(
+        request,
+        _load_json(args.situated),
+        _load_json(args.integration),
+        _load_json(args.writing),
+    )
+    print(json.dumps(output, ensure_ascii=False, indent=2, sort_keys=True))
     return 0
 
 
