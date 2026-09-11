@@ -19,6 +19,14 @@ WIRE_CONTRACT_VERSION = "1"
 
 STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
     "pass1_observations": {
+        "cardinality_rules": [
+            "Each symbolic_transformations[].observation_ids array must contain at least 1 item.",
+            "Each symbolic_transformations[].user_evidence array must contain at least 1 item copied verbatim from the user transcript.",
+            "Each symbolic_transformations[].card_evidence array must contain at least 1 item."
+        ],
+        "reference_integrity": [
+            "Every symbolic_transformations[].observation_ids value must copy an exact symbolic_observations[].id value from this output. Never invent, translate, rename, or shorten an id."
+        ],
         "top_level_keys": [
             "schema_version", "session_id", "card_id",
             "symbolic_observations", "symbolic_transformations",
@@ -74,6 +82,18 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
         },
     },
     "pass1_patterns": {
+        "cardinality_rules": [
+            "Each psychological_patterns[].sequence array must contain at least 2 items.",
+            "Each psychological_patterns[].evidence_transformation_ids array must contain at least 1 item.",
+            "Each psychological_patterns[].user_evidence array must contain at least 1 item copied verbatim from the user transcript.",
+            "Each jungian_hypotheses[].pattern_ids array must contain at least 1 item.",
+            "When epistemic_limits.weak_signal is false, psychological_patterns must contain at least 1 item and central_pattern_id must not be null."
+        ],
+        "reference_integrity": [
+            "Every psychological_patterns[].evidence_transformation_ids value must copy an exact symbolic_transformations[].id value from PATTERN_INPUT.",
+            "central_pattern_id must be null only for a weak signal; otherwise it must copy an exact psychological_patterns[].id value from this output.",
+            "Every jungian_hypotheses[].pattern_ids value must copy an exact psychological_patterns[].id value from this output. Never invent, translate, rename, or shorten an id."
+        ],
         "top_level_keys": [
             "schema_version", "session_id", "card_id", "psychological_patterns",
             "central_pattern_id", "jungian_hypotheses", "epistemic_limits",
@@ -138,6 +158,10 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "epistemic_limits.unsupported_inferences_must_include": [
                 "stable_trait", "developmental_origin", "clinical_diagnosis"
             ],
+            "weak_signal_rule": (
+                "When weak_signal is true, weak_signal_reason must be a non-empty string; "
+                "when false, weak_signal_reason must be null."
+            ),
         },
         "enums": {
             "confidence": ["low", "medium", "high"],
@@ -148,6 +172,10 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
         },
     },
     "pass1_compensation": {
+        "reference_integrity": [
+            "Every compensatory_reading.evidence_pattern_ids value must copy an exact psychological_patterns[].id value from COMPENSATION_INPUT. Never invent, translate, rename, or shorten an id.",
+            "If COMPENSATION_INPUT.central_pattern_id is not null, compensatory_reading.evidence_pattern_ids must include that exact id."
+        ],
         "top_level_keys": [
             "schema_version", "session_id", "card_id", "compensatory_reading"
         ],
@@ -200,6 +228,19 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
         },
     },
     "pass2_integration": {
+        "cardinality_rules": [
+            "bounded_direction must cite at least one id across evidence_pattern_ids and reality_evidence_ids."
+        ],
+        "reference_integrity": [
+            "pattern_inheritance must contain every frozen Pass 1 psychological_patterns[].id exactly once, copied without renaming.",
+            "All evidence_pattern_ids values must copy exact frozen Pass 1 psychological_patterns[].id values.",
+            "All reality_evidence_ids values must copy exact reality_evidence[].id values from this output. Never invent, translate, rename, or shorten an id.",
+            "Each reality_evidence[].quote must occur verbatim in the source declared by reality_evidence[].source."
+        ],
+        "conditional_rules": [
+            "When practical_translation.mode is none, step_or_practice must be null; otherwise step_or_practice must be a non-empty string.",
+            "epistemic_limits.unsupported_inferences must include stable_trait, developmental_origin, and clinical_diagnosis."
+        ],
         "top_level_keys": [
             "schema_version", "session_id", "card_id", "orientation", "pass1_sha256",
             "question_shift", "central_axis", "pattern_inheritance",

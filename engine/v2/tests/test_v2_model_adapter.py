@@ -139,6 +139,8 @@ class ModelWorkflowTests(unittest.TestCase):
         self.assertEqual(run["wire_contract_version"], WIRE_CONTRACT_VERSION)
         self.assertTrue(all("RUNTIME_JSON_CONTRACT" in prompt for prompt in client.prompts))
         self.assertTrue(all("language_rule" in prompt for prompt in client.prompts))
+        self.assertIn("reference_integrity", client.prompts[2])
+        self.assertIn("cardinality_rules", client.prompts[0])
         self.pass1_pipeline.verify_frozen(run["frozen_pass1"])
 
     def test_pass2_calls_three_locked_stages_and_preserves_lineage(self):
@@ -267,10 +269,37 @@ class ModelWorkflowTests(unittest.TestCase):
         }
         with self.assertRaises(ContractError):
             validate_wire_payload(invalid_evidence, "pass1_observations")
-        client = SequenceClient([invalid_evidence])
+        client = SequenceClient([invalid_evidence, invalid_evidence])
         with self.assertRaises(ContractError):
             ModelWorkflow(client).run_pass1(request)
-        self.assertEqual(client.stages, ["pass1_observations"])
+        self.assertEqual(
+            client.stages, ["pass1_observations", "pass1_observations"]
+        )
+        self.assertIn("RUNTIME_CONTRACT_REPAIR", client.prompts[1])
+
+    def test_semantic_contract_failure_repairs_only_the_current_stage(self):
+        request = self.pass1_pipeline.prepare_request(
+            session_id="semantic-repair",
+            card_ref="The Hermit",
+            orientation="upright",
+            raw_transcript="The figure carries a light.",
+        )
+        output = make_pass1_output(request, transformation_type="temporal_shift")
+        stages = split_pass1_output(output)
+        invalid_evidence = dict(stages[0])
+        invalid_evidence["symbolic_transformations"] = [
+            dict(stages[0]["symbolic_transformations"][0], user_evidence=[])
+        ]
+        client = SequenceClient([invalid_evidence, *stages])
+        run = ModelWorkflow(client).run_pass1(request)
+        self.assertEqual(run["output"], output)
+        self.assertEqual(
+            client.stages[:2], ["pass1_observations", "pass1_observations"]
+        )
+        self.assertEqual(run["provider_receipts"][0]["contract_attempts"], 2)
+        self.assertEqual(
+            len(run["provider_receipts"][0]["discarded_contract_attempts"]), 1
+        )
 
 
 if __name__ == "__main__":
