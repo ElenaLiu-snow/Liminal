@@ -4,15 +4,39 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import sys
 from pathlib import Path
 from typing import Any
 
+from .contracts import ContractError
+from .model_workflow import ModelWorkflow
 from .pipeline import Pass1Pipeline
 from .pass2 import Pass2Pipeline
+from .providers import DEFAULT_ENV_PATH, DeepSeekClient, DeepSeekConfig, ProviderError
 
 
 def _load_json(path: str) -> dict[str, Any]:
     return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def _secure_write_json(path: str, value: dict[str, Any]) -> Path:
+    output_path = Path(path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    os.chmod(output_path, 0o600)
+    return output_path
+
+
+def _add_provider_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--env-file",
+        default=str(DEFAULT_ENV_PATH),
+        help="Local ignored environment file containing DeepSeek settings",
+    )
 
 
 def _transcript(args: argparse.Namespace) -> str:
@@ -114,6 +138,32 @@ def build_parser() -> argparse.ArgumentParser:
     assemble_pass2.add_argument("--situated", required=True)
     assemble_pass2.add_argument("--integration", required=True)
     assemble_pass2.add_argument("--writing", required=True)
+
+    smoke = subparsers.add_parser(
+        "deepseek-smoke", help="Run one minimal paid JSON connectivity request"
+    )
+    _add_provider_arguments(smoke)
+
+    run_pass1 = subparsers.add_parser(
+        "run-pass1-model", help="Run all four locked Pass 1 stages with DeepSeek"
+    )
+    _add_request_arguments(run_pass1)
+    _add_provider_arguments(run_pass1)
+    run_pass1.add_argument("--output", required=True)
+
+    run_pass2 = subparsers.add_parser(
+        "run-pass2-model", help="Run all three locked Pass 2 stages with DeepSeek"
+    )
+    run_pass2.add_argument("--pass1-run", required=True)
+    run_pass2.add_argument("--question", required=True)
+    run_pass2.add_argument(
+        "--question-shift",
+        choices=("unchanged", "clarified", "shifted_focus", "different_question"),
+        required=True,
+    )
+    run_pass2.add_argument("--question-shift-note")
+    _add_provider_arguments(run_pass2)
+    run_pass2.add_argument("--output", required=True)
     return parser
 
 
@@ -121,6 +171,77 @@ def main() -> int:
     args = build_parser().parse_args()
     pipeline = Pass1Pipeline()
     pass2_pipeline = Pass2Pipeline()
+
+    if args.command in {"deepseek-smoke", "run-pass1-model", "run-pass2-model"}:
+        try:
+            config = DeepSeekConfig.from_env(Path(args.env_file))
+            client = DeepSeekClient(config)
+            workflow = ModelWorkflow(
+                client,
+                pass1_pipeline=pipeline,
+                pass2_pipeline=pass2_pipeline,
+                on_stage=lambda stage: print(
+                    f"Running {stage}...", file=sys.stderr, flush=True
+                ),
+            )
+            if args.command == "deepseek-smoke":
+                response = client.complete_json(
+                    'Return exactly this JSON object and nothing else: {"status":"ok"}',
+                    stage="connectivity_smoke",
+                )
+                if response.payload != {"status": "ok"}:
+                    raise ProviderError("smoke response did not match the expected object")
+                print(json.dumps({"status": "ok", "receipt": response.receipt}, indent=2))
+                return 0
+            if args.command == "run-pass1-model":
+                request = pipeline.prepare_request(
+                    session_id=args.session_id,
+                    card_ref=args.card,
+                    orientation=args.orientation,
+                    raw_transcript=_transcript(args),
+                    speaking_duration_seconds=args.speaking_duration_seconds,
+                )
+                run = workflow.run_pass1(request)
+                output_path = _secure_write_json(args.output, run)
+                print(
+                    json.dumps(
+                        {
+                            "status": "ok",
+                            "output": str(output_path),
+                            "pass1_sha256": run["frozen_pass1"]["pass1_sha256"],
+                            "provider_receipts": run["provider_receipts"],
+                        },
+                        indent=2,
+                    )
+                )
+                return 0
+            pass1_run = _load_json(args.pass1_run)
+            frozen_pass1 = pass1_run.get("frozen_pass1")
+            if not isinstance(frozen_pass1, dict):
+                raise ProviderError("pass1 run file does not contain frozen_pass1")
+            request = pass2_pipeline.prepare_request(
+                frozen_pass1=frozen_pass1,
+                user_question=args.question,
+                question_shift=args.question_shift,
+                question_shift_note=args.question_shift_note,
+            )
+            run = workflow.run_pass2(request)
+            output_path = _secure_write_json(args.output, run)
+            print(
+                json.dumps(
+                    {
+                        "status": "ok",
+                        "output": str(output_path),
+                        "pass1_sha256": run["output"]["pass1_sha256"],
+                        "provider_receipts": run["provider_receipts"],
+                    },
+                    indent=2,
+                )
+            )
+            return 0
+        except (ProviderError, ContractError) as exc:
+            print(f"Model workflow error: {exc}")
+            return 2
 
     if args.command in {"prepare-pass1", "render-observations"}:
         request = pipeline.prepare_request(

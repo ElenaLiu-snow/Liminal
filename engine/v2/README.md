@@ -1,6 +1,6 @@
 # Liminal v2 testable vertical slice
 
-Status: **accepted contract-driven alpha baseline; parallel knowledge and method foundations are in shadow mode**.
+Status: **model-connected contract-driven alpha; ready for the next two-pass human test**.
 
 This directory adds v2 contracts without modifying the frozen v1.1 schema or prompts.
 
@@ -35,10 +35,55 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
   - a prompt-neutral analysis-method specification with a verified source registry, claim-to-source map, controversy boundaries, evaluation design, evidence gates, and false-positive checks
   - a SHA-256 lock for all seven prompts accepted during the alpha human tests
   - automated isolation checks preventing either shadow layer from silently altering current output
+- Live model execution:
+  - a standard-library DeepSeek adapter using the official OpenAI-compatible endpoint
+  - secure ignored `.env.local` configuration with no key in logs or receipts
+  - JSON mode, retry handling, requested-versus-served model receipts, and token usage
+  - a versioned runtime JSON contract envelope because remote API models cannot open local schema files
+  - four-stage Pass 1 and three-stage Pass 2 orchestration with per-stage validation and progress
+  - successful synthetic end-to-end smoke run against `deepseek-v4-pro`
 
-No model SDK is coupled to the engine yet. The completed assisted human tests were used to validate the intended answer and the contract-assisted workflow; they were not end-to-end API generations. The next participant gate begins only after a provider adapter runs the locked prompts and returns schema-valid outputs.
+No third-party model SDK is required; the adapter uses Python's standard HTTP library. Earlier assisted human tests validated the intended answer and contract-assisted workflow but were not end-to-end API generations. The adapter has now returned schema-valid synthetic outputs through all seven stages, so the next participant gate can use actual model output.
 
-The automated knowledge-ingestion and method-research passes are complete for this gate. Human field review of card text/images and explicit method activation remain later work. Both layers remain `shadow_read_only` / `shadow_only_not_prompt_input`, so their review work cannot alter the already accepted prompt behavior by accident.
+The automated knowledge-ingestion and method-research passes are complete for this gate. Human field review of card text/images and explicit method activation remain later work. Both layers remain `shadow_read_only` / `shadow_only_not_prompt_input`, so the live model still uses the accepted provisional traditional payload and locked analytical prompts.
+
+## DeepSeek local configuration and live workflow
+
+Copy the variable names from `.env.example` into the ignored `.env.local`; never commit or print the real key. Local participant runs should be written under the ignored `local_runs/` directory. Both the environment file and run files can contain sensitive data.
+
+The selected model is configured through `DEEPSEEK_MODEL=deepseek-v4-pro`. DeepSeek's official documentation states that requests using this name will be routed to V4.1 Flash after 2026-09-14 12:00 Beijing time until a future V4.1 Pro is available. Every call receipt therefore records both `requested_model` and `served_model`.
+
+The structured workflow defaults to `DEEPSEEK_THINKING=disabled`. A live test showed that high reasoning could exhaust the response budget with empty final JSON, while non-thinking mode completed the same four Pass 1 stages in about 30 seconds. The model can still be changed through local environment values without editing code.
+
+Minimal paid connectivity check:
+
+```bash
+python -m engine.v2.cli deepseek-smoke
+```
+
+Run a real question-blind Pass 1 and write the sensitive result with mode `600`:
+
+```bash
+python -m engine.v2.cli run-pass1-model \
+  --session-id participant-001 \
+  --card "The Hermit" \
+  --orientation upright \
+  --transcript-file /path/to/private-transcript.txt \
+  --output local_runs/participant-001-pass1.json
+```
+
+Only after Pass 1 has been shown and frozen, collect the question and run Pass 2:
+
+```bash
+python -m engine.v2.cli run-pass2-model \
+  --pass1-run local_runs/participant-001-pass1.json \
+  --question "The newly revealed question" \
+  --question-shift clarified \
+  --question-shift-note "Optional note" \
+  --output local_runs/participant-001-pass2.json
+```
+
+Receipts include hashes, token usage, attempts, finish reason, and requested/served model names. They exclude the API key and hidden model reasoning.
 
 ## Prepare a Pass 1 request
 
