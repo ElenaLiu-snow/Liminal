@@ -1,6 +1,6 @@
 # Liminal v2 testable vertical slice
 
-Status: **model-connected contract-driven alpha; ready for the next two-pass human test**.
+Status: **model-connected contract-driven alpha; Pass 2 process-bridge revision awaiting human acceptance**.
 
 This directory adds v2 contracts without modifying the frozen v1.1 schema or prompts.
 
@@ -26,24 +26,34 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
   - immutable Pass 1 lineage through its SHA-256 digest
   - isolated situated traditional reading
   - explicit `integrated` / `held` / `not_relevant` mapping for every Pass 1 pattern
+  - `integrated` requires every exact frozen process step with question evidence;
+    theme-only or under-evidenced connections remain `held`
+  - integrated mappings preserve the question-specific adaptive value and current cost
   - verbatim reality evidence, including optional evidence of action already taken
-  - bounded direction with an uncertainty boundary
+  - a three-part bridge from inherited-process limit to card counterweight to revised
+    decision criterion
+  - bounded direction with an uncertainty boundary; only integrated patterns may drive it
   - optional action/reflection translation and one takeaway question
-  - a writing stage that renders one complete reading without adding analysis
+  - a writing stage that renders one self-contained reading from a compact process recap,
+    without receiving or copying the full Pass 1 prose
 - Parallel production foundations (not yet active model inputs):
   - a deterministic 78-card RWS knowledge index with per-card Waite text candidates, source links, and review states
   - a prompt-neutral analysis-method specification with a verified source registry, claim-to-source map, controversy boundaries, evaluation design, evidence gates, and false-positive checks
-  - a SHA-256 lock for all seven prompts accepted during the alpha human tests
+  - a SHA-256 lock for all seven human-approved baseline or revision-candidate prompts
   - automated isolation checks preventing either shadow layer from silently altering current output
 - Live model execution:
   - a standard-library DeepSeek adapter using the official OpenAI-compatible endpoint
   - secure ignored `.env.local` configuration with no key in logs or receipts
   - JSON mode, retry handling, requested-versus-served model receipts, and token usage
   - a versioned runtime JSON contract envelope because remote API models cannot open local schema files
-  - four-stage Pass 1 and three-stage Pass 2 orchestration with per-stage validation and progress
+  - four-stage Pass 1 and three-stage Pass 2 orchestration with per-stage validation,
+    contract-scoped repair, and progress
   - successful synthetic end-to-end smoke run against `deepseek-v4-pro`
 
-No third-party model SDK is required; the adapter uses Python's standard HTTP library. Earlier assisted human tests validated the intended answer and contract-assisted workflow but were not end-to-end API generations. The adapter has now returned schema-valid synthetic outputs through all seven stages, so the next participant gate can use actual model output.
+No third-party model SDK is required; the adapter uses Python's standard HTTP library.
+A first live participant API run accepted Pass 1 but exposed formal rather than semantic
+inheritance in Pass 2. The revised Pass 2 candidate now requires process-step evidence and
+must be rerun against the frozen participant Pass 1 before acceptance.
 
 The automated knowledge-ingestion and method-research passes are complete for this gate. Human field review of card text/images and explicit method activation remain later work. Both layers remain `shadow_read_only` / `shadow_only_not_prompt_input`, so the live model still uses the accepted provisional traditional payload and locked analytical prompts.
 
@@ -159,7 +169,11 @@ python -m engine.v2.cli assemble-pass2 \
 
 ## Next human-test gate
 
-After the model adapter is implemented, the next participant test should run the complete two-pass flow using actual model outputs from the locked prompts, with a different card and question from the exploratory samples. The participant keeps the question private until Pass 1 has been validated, frozen, and shown.
+Rerun the revised Pass 2 against the already frozen participant Pass 1 and revealed question.
+Acceptance requires a compact rather than copied Pass 1 recap, evidence-linked recurrence of
+every frozen process step (or an honest `held` status), and practical translation
+derived from the three-part compensation bridge. After this regression check, use a different
+card and question for a complete two-pass confirmation run.
 
 Score at least:
 

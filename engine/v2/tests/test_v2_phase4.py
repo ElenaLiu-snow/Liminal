@@ -26,6 +26,9 @@ class Pass2PipelineTests(unittest.TestCase):
             transformation_type="agency_shift",
             user_evidence="The figure checks both directions before moving.",
         )
+        pass1_output["psychological_patterns"][0]["sequence"].append(
+            "anticipate the next movement"
+        )
         frozen = self.pass1_pipeline.freeze(pass1_output, pass1_request).to_dict()
         question = (
             "I submitted an application, but I worry I will withdraw before the interview."
@@ -58,10 +61,30 @@ class Pass2PipelineTests(unittest.TestCase):
                 {
                     "pattern_id": "pattern-1",
                     "status": "integrated",
+                    "match_basis": "process_recurrence",
                     "rationale": "The revealed concern repeats the frozen sequence of checking before movement.",
+                    "process_step_mappings": [
+                        {
+                            "pass1_step": "register the overall structure",
+                            "question_manifestation": "The application is recognized as movement already underway.",
+                            "reality_evidence_ids": ["reality-1"],
+                        },
+                        {
+                            "pass1_step": "reassign the structure's function",
+                            "question_manifestation": "Possible hesitation is recoded as inevitable withdrawal.",
+                            "reality_evidence_ids": ["reality-1"],
+                        },
+                        {
+                            "pass1_step": "anticipate the next movement",
+                            "question_manifestation": "The feared interview withdrawal is projected forward.",
+                            "reality_evidence_ids": ["reality-1"],
+                        },
+                    ],
+                    "adaptive_value_in_context": "Anticipating hesitation makes preparation possible.",
+                    "current_cost_in_context": "The anticipation may turn uncertainty into a foregone withdrawal.",
                 }
             ],
-            "question_activation": "Anticipated difficulty may be treated as evidence of future withdrawal.",
+            "process_recap": "The revealed question repeats a move from registering action to recoding uncertainty as likely withdrawal.",
             "reality_evidence": [
                 {
                     "id": "reality-1",
@@ -71,8 +94,11 @@ class Pass2PipelineTests(unittest.TestCase):
                     "interpretation": "The feared repetition is not the only available trajectory.",
                 }
             ],
-            "situated_compensation": "Coordinated movement does not require the absence of hesitation.",
-            "integrated_third_meaning": "Preparation can become a container for action rather than its replacement.",
+            "compensation_bridge": {
+                "inherited_process_limit": "Anticipated hesitation is collapsed into a prediction of withdrawal.",
+                "card_counterweight": "The card frames coordinated movement as compatible with unresolved tension.",
+                "revised_decision_criterion": "Judge movement by the next completed commitment, not by the absence of hesitation.",
+            },
             "bounded_direction": {
                 "answer": "Following through is plausible when success is defined as completing the next bounded step.",
                 "uncertainty_boundary": "The reading cannot predict the interview or establish a stable pattern.",
@@ -145,6 +171,42 @@ class Pass2PipelineTests(unittest.TestCase):
         with self.assertRaises(ContractError):
             self.pipeline.assemble(request, situated, integration, writing)
 
+    def test_theme_overlap_alone_cannot_be_marked_integrated(self):
+        request, situated, integration, writing = self.make_fixture()
+        item = integration["pattern_inheritance"][0]
+        item["match_basis"] = "theme_overlap_only"
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_integrated_pattern_requires_every_frozen_process_step(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["pattern_inheritance"][0]["process_step_mappings"].pop()
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_held_theme_match_cannot_drive_direction_or_contextual_cost(self):
+        request, situated, integration, writing = self.make_fixture()
+        item = integration["pattern_inheritance"][0]
+        item.update({
+            "status": "held",
+            "match_basis": "theme_overlap_only",
+            "process_step_mappings": [],
+            "adaptive_value_in_context": None,
+            "current_cost_in_context": None,
+        })
+        integration["bounded_direction"]["evidence_pattern_ids"] = []
+        integration["practical_translation"]["evidence_pattern_ids"] = []
+        output = self.pipeline.assemble(request, situated, integration, writing)
+        self.assertEqual(output["pattern_inheritance"][0]["status"], "held")
+
+    def test_process_mapping_must_copy_an_exact_frozen_sequence_step(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["pattern_inheritance"][0]["process_step_mappings"][0][
+            "pass1_step"
+        ] = "a thematic paraphrase rather than the frozen step"
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
     def test_reality_evidence_must_be_verbatim_and_cannot_be_invented(self):
         request, situated, integration, writing = self.make_fixture()
         integration["reality_evidence"][0]["quote"] = "completed the interview"
@@ -157,6 +219,26 @@ class Pass2PipelineTests(unittest.TestCase):
         with self.assertRaises(ContractError):
             self.pipeline.assemble(request, situated, integration, writing)
 
+    def test_writing_cannot_copy_a_pass1_paragraph(self):
+        request, situated, integration, writing = self.make_fixture()
+        writing["complete_reading"] = request["frozen_pass1"]["payload"][
+            "user_display"
+        ]["integrated_reading"]
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_user_facing_writing_must_match_the_question_script(self):
+        request, situated, integration, writing = self.make_fixture()
+        writing["complete_reading"] = "这段成文与英文问题使用了不同的主要文字系统。"
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_user_facing_writing_cannot_expose_backend_user_label(self):
+        request, situated, integration, writing = self.make_fixture()
+        writing["complete_reading"] = "The user repeats the frozen process in the question."
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
     def test_integration_and_writing_prompts_keep_roles_separate(self):
         request, situated, integration, _ = self.make_fixture()
         integration_prompt = self.pipeline.render_integration_prompt(request, situated)
@@ -165,7 +247,12 @@ class Pass2PipelineTests(unittest.TestCase):
         writing_prompt = self.pipeline.render_writing_prompt(request, situated, integration)
         self.assertNotIn("raw_transcript", writing_prompt)
         self.assertNotIn(request["user_question"], writing_prompt)
+        self.assertNotIn(
+            request["frozen_pass1"]["payload"]["user_display"]["integrated_reading"],
+            writing_prompt,
+        )
         self.assertIn("bounded_direction", writing_prompt)
+        self.assertNotIn("pass1_user_reading", writing_prompt)
 
     def test_phase4_prompts_do_not_contain_human_test_case_terms(self):
         prompts = "\n".join(

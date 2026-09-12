@@ -229,26 +229,39 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
     },
     "pass2_integration": {
         "cardinality_rules": [
-            "bounded_direction must cite at least one id across evidence_pattern_ids and reality_evidence_ids."
+            "bounded_direction must cite at least one id across evidence_pattern_ids and reality_evidence_ids.",
+            "Every integrated pattern must map every distinct frozen sequence step exactly once (and therefore at least two); held patterns map fewer than all frozen steps; not_relevant patterns map none.",
+            "Every process_step_mappings[].reality_evidence_ids array must contain at least one item."
         ],
         "reference_integrity": [
             "pattern_inheritance must contain every frozen Pass 1 psychological_patterns[].id exactly once, copied without renaming.",
-            "All evidence_pattern_ids values must copy exact frozen Pass 1 psychological_patterns[].id values.",
+            "Every process_step_mappings[].pass1_step must copy an exact sequence item from its own frozen psychological pattern.",
+            "All evidence_pattern_ids values must copy exact process-integrated frozen Pass 1 psychological_patterns[].id values.",
             "All reality_evidence_ids values must copy exact reality_evidence[].id values from this output. Never invent, translate, rename, or shorten an id.",
             "Each reality_evidence[].quote must occur verbatim in the source declared by reality_evidence[].source."
         ],
         "conditional_rules": [
+            "integrated requires match_basis=process_recurrence plus non-empty adaptive_value_in_context and current_cost_in_context.",
+            "held requires match_basis=theme_overlap_only or insufficient_process_evidence, fewer than two process mappings, and null contextual value/cost.",
+            "not_relevant requires match_basis=no_material_match, no process mappings, and null contextual value/cost.",
             "When practical_translation.mode is none, step_or_practice must be null; otherwise step_or_practice must be a non-empty string.",
             "epistemic_limits.unsupported_inferences must include stable_trait, developmental_origin, and clinical_diagnosis."
         ],
         "top_level_keys": [
             "schema_version", "session_id", "card_id", "orientation", "pass1_sha256",
             "question_shift", "central_axis", "pattern_inheritance",
-            "question_activation", "reality_evidence", "situated_compensation",
-            "integrated_third_meaning", "bounded_direction", "practical_translation",
+            "process_recap", "reality_evidence", "compensation_bridge",
+            "bounded_direction", "practical_translation",
             "epistemic_limits", "takeaway_question",
         ],
-        "pattern_inheritance_item_keys": ["pattern_id", "status", "rationale"],
+        "pattern_inheritance_item_keys": [
+            "pattern_id", "status", "match_basis", "rationale",
+            "process_step_mappings", "adaptive_value_in_context",
+            "current_cost_in_context",
+        ],
+        "process_step_mapping_item_keys": [
+            "pass1_step", "question_manifestation", "reality_evidence_ids"
+        ],
         "reality_evidence_item_keys": [
             "id", "source", "quote", "role", "interpretation"
         ],
@@ -261,9 +274,24 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "evidence_pattern_ids", "reality_evidence_ids",
         ],
         "epistemic_limits_keys": ["unsupported_inferences", "limitations"],
+        "compensation_bridge_keys": [
+            "inherited_process_limit", "card_counterweight",
+            "revised_decision_criterion",
+        ],
         "object_keys": {
-            "pattern_inheritance[]": ["pattern_id", "status", "rationale"],
+            "pattern_inheritance[]": [
+                "pattern_id", "status", "match_basis", "rationale",
+                "process_step_mappings", "adaptive_value_in_context",
+                "current_cost_in_context",
+            ],
+            "pattern_inheritance[].process_step_mappings[]": [
+                "pass1_step", "question_manifestation", "reality_evidence_ids"
+            ],
             "reality_evidence[]": ["id", "source", "quote", "role", "interpretation"],
+            "compensation_bridge": [
+                "inherited_process_limit", "card_counterweight",
+                "revised_decision_criterion",
+            ],
             "bounded_direction": [
                 "answer", "uncertainty_boundary", "evidence_pattern_ids",
                 "reality_evidence_ids",
@@ -285,16 +313,25 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "pattern_inheritance": "array<object>",
             "pattern_inheritance[].pattern_id": "string",
             "pattern_inheritance[].status": "string",
+            "pattern_inheritance[].match_basis": "string",
             "pattern_inheritance[].rationale": "string",
-            "question_activation": "string",
+            "pattern_inheritance[].process_step_mappings": "array<object>",
+            "pattern_inheritance[].process_step_mappings[].pass1_step": "string",
+            "pattern_inheritance[].process_step_mappings[].question_manifestation": "string",
+            "pattern_inheritance[].process_step_mappings[].reality_evidence_ids": "array<string>",
+            "pattern_inheritance[].adaptive_value_in_context": "string_or_null",
+            "pattern_inheritance[].current_cost_in_context": "string_or_null",
+            "process_recap": "string",
             "reality_evidence": "array<object>",
             "reality_evidence[].id": "string",
             "reality_evidence[].source": "string",
             "reality_evidence[].quote": "string",
             "reality_evidence[].role": "string",
             "reality_evidence[].interpretation": "string",
-            "situated_compensation": "string",
-            "integrated_third_meaning": "string",
+            "compensation_bridge": "object",
+            "compensation_bridge.inherited_process_limit": "string",
+            "compensation_bridge.card_counterweight": "string",
+            "compensation_bridge.revised_decision_criterion": "string",
             "bounded_direction": "object",
             "bounded_direction.answer": "string",
             "bounded_direction.uncertainty_boundary": "string",
@@ -318,6 +355,10 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
                 "unchanged", "clarified", "shifted_focus", "different_question"
             ],
             "status": ["integrated", "held", "not_relevant"],
+            "match_basis": [
+                "process_recurrence", "theme_overlap_only",
+                "insufficient_process_evidence", "no_material_match"
+            ],
             "source": ["user_question", "question_shift_note"],
             "role": [
                 "supporting", "disconfirming", "constraint", "action_already_taken"

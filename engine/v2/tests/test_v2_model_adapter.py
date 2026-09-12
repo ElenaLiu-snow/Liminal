@@ -183,9 +183,24 @@ class ModelWorkflowTests(unittest.TestCase):
             "pattern_inheritance": [{
                 "pattern_id": "pattern-1",
                 "status": "integrated",
+                "match_basis": "process_recurrence",
                 "rationale": "The concern repeats checking before movement.",
+                "process_step_mappings": [
+                    {
+                        "pass1_step": "register the overall structure",
+                        "question_manifestation": "The application is recognized as action underway.",
+                        "reality_evidence_ids": ["reality-1"],
+                    },
+                    {
+                        "pass1_step": "reassign the structure's function",
+                        "question_manifestation": "Uncertainty is recoded as likely withdrawal.",
+                        "reality_evidence_ids": ["reality-1"],
+                    },
+                ],
+                "adaptive_value_in_context": "Anticipation can support preparation.",
+                "current_cost_in_context": "It can make withdrawal feel predetermined.",
             }],
-            "question_activation": "Anticipated difficulty may be treated as future withdrawal.",
+            "process_recap": "The user repeats a move from recognizing action to recoding uncertainty as likely withdrawal.",
             "reality_evidence": [{
                 "id": "reality-1",
                 "source": "user_question",
@@ -193,8 +208,11 @@ class ModelWorkflowTests(unittest.TestCase):
                 "role": "action_already_taken",
                 "interpretation": "Action has already begun.",
             }],
-            "situated_compensation": "Movement does not require no hesitation.",
-            "integrated_third_meaning": "Preparation can contain action rather than replace it.",
+            "compensation_bridge": {
+                "inherited_process_limit": "Hesitation is collapsed into expected withdrawal.",
+                "card_counterweight": "Coordinated movement can include unresolved hesitation.",
+                "revised_decision_criterion": "Evaluate the next completed movement rather than emotional certainty.",
+            },
             "bounded_direction": {
                 "answer": "Following through is plausible through a bounded next step.",
                 "uncertainty_boundary": "The reading cannot predict the outcome.",

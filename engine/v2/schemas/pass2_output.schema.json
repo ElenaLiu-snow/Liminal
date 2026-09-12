@@ -15,11 +15,10 @@
     "question_shift_note",
     "central_axis",
     "pattern_inheritance",
-    "question_activation",
+    "process_recap",
     "reality_evidence",
     "situated_traditional_reading",
-    "situated_compensation",
-    "integrated_third_meaning",
+    "compensation_bridge",
     "bounded_direction",
     "practical_translation",
     "epistemic_limits",
@@ -41,7 +40,7 @@
       "type": "array",
       "items": {"$ref": "#/$defs/patternInheritance"}
     },
-    "question_activation": {"type": "string", "minLength": 1},
+    "process_recap": {"type": "string", "minLength": 1, "maxLength": 500},
     "reality_evidence": {
       "type": "array",
       "items": {"$ref": "#/$defs/realityEvidence"}
@@ -49,8 +48,7 @@
     "situated_traditional_reading": {
       "$ref": "traditional_reading.schema.json#/$defs/situatedOutput"
     },
-    "situated_compensation": {"type": "string", "minLength": 1},
-    "integrated_third_meaning": {"type": "string", "minLength": 1},
+    "compensation_bridge": {"$ref": "#/$defs/compensationBridge"},
     "bounded_direction": {"$ref": "#/$defs/boundedDirection"},
     "practical_translation": {"$ref": "#/$defs/practicalTranslation"},
     "epistemic_limits": {
@@ -91,11 +89,49 @@
     "patternInheritance": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["pattern_id", "status", "rationale"],
+      "required": [
+        "pattern_id",
+        "status",
+        "match_basis",
+        "rationale",
+        "process_step_mappings",
+        "adaptive_value_in_context",
+        "current_cost_in_context"
+      ],
       "properties": {
         "pattern_id": {"type": "string", "minLength": 1},
         "status": {"enum": ["integrated", "held", "not_relevant"]},
-        "rationale": {"type": "string", "minLength": 1}
+        "match_basis": {
+          "enum": [
+            "process_recurrence",
+            "theme_overlap_only",
+            "insufficient_process_evidence",
+            "no_material_match"
+          ]
+        },
+        "rationale": {"type": "string", "minLength": 1},
+        "process_step_mappings": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/processStepMapping"}
+        },
+        "adaptive_value_in_context": {"type": ["string", "null"]},
+        "current_cost_in_context": {"type": ["string", "null"]}
+      }
+    },
+    "processStepMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pass1_step", "question_manifestation", "reality_evidence_ids"],
+      "properties": {
+        "pass1_step": {"type": "string", "minLength": 1},
+        "question_manifestation": {"type": "string", "minLength": 1},
+        "reality_evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
       }
     },
     "realityEvidence": {
@@ -110,6 +146,20 @@
           "enum": ["supporting", "disconfirming", "constraint", "action_already_taken"]
         },
         "interpretation": {"type": "string", "minLength": 1}
+      }
+    },
+    "compensationBridge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inherited_process_limit",
+        "card_counterweight",
+        "revised_decision_criterion"
+      ],
+      "properties": {
+        "inherited_process_limit": {"type": "string", "minLength": 1},
+        "card_counterweight": {"type": "string", "minLength": 1},
+        "revised_decision_criterion": {"type": "string", "minLength": 1}
       }
     },
     "boundedDirection": {

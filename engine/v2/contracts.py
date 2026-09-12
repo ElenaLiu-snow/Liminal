@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import unicodedata
 from collections.abc import Iterable, Mapping
 from typing import Any
 
@@ -38,6 +39,12 @@ UNSUPPORTED_SINGLE_SESSION_INFERENCES = {
 }
 QUESTION_SHIFTS = {"unchanged", "clarified", "shifted_focus", "different_question"}
 INHERITANCE_STATUSES = {"integrated", "held", "not_relevant"}
+PATTERN_MATCH_BASES = {
+    "process_recurrence",
+    "theme_overlap_only",
+    "insufficient_process_evidence",
+    "no_material_match",
+}
 REALITY_EVIDENCE_SOURCES = {"user_question", "question_shift_note"}
 REALITY_EVIDENCE_ROLES = {
     "supporting",
@@ -130,17 +137,29 @@ PASS2_OUTPUT_KEYS = {
     "question_shift_note",
     "central_axis",
     "pattern_inheritance",
-    "question_activation",
+    "process_recap",
     "reality_evidence",
     "situated_traditional_reading",
-    "situated_compensation",
-    "integrated_third_meaning",
+    "compensation_bridge",
     "bounded_direction",
     "practical_translation",
     "epistemic_limits",
     "user_display",
 }
-INHERITANCE_KEYS = {"pattern_id", "status", "rationale"}
+INHERITANCE_KEYS = {
+    "pattern_id",
+    "status",
+    "match_basis",
+    "rationale",
+    "process_step_mappings",
+    "adaptive_value_in_context",
+    "current_cost_in_context",
+}
+PROCESS_STEP_MAPPING_KEYS = {
+    "pass1_step",
+    "question_manifestation",
+    "reality_evidence_ids",
+}
 REALITY_EVIDENCE_KEYS = {"id", "source", "quote", "role", "interpretation"}
 BOUNDED_DIRECTION_KEYS = {
     "answer",
@@ -155,6 +174,11 @@ PRACTICAL_TRANSLATION_KEYS = {
     "rationale",
     "evidence_pattern_ids",
     "reality_evidence_ids",
+}
+COMPENSATION_BRIDGE_KEYS = {
+    "inherited_process_limit",
+    "card_counterweight",
+    "revised_decision_criterion",
 }
 PASS2_DISPLAY_KEYS = {"complete_reading", "takeaway_question"}
 
@@ -189,6 +213,61 @@ def _require_list(value: Any, path: str) -> list[Any]:
 def _require_nonempty_string(value: Any, path: str) -> str:
     _require(isinstance(value, str) and bool(value.strip()), f"{path} must be a non-empty string")
     return value
+
+
+def _require_bounded_string(value: Any, path: str, *, max_length: int) -> str:
+    text = _require_nonempty_string(value, path)
+    _require(len(text) <= max_length, f"{path} must be at most {max_length} characters")
+    return text
+
+
+def _require_no_pass1_paragraph_copy(
+    value: str, pass1_reading: str, path: str, *, minimum_length: int = 40
+) -> None:
+    normalized_value = " ".join(value.split())
+    for paragraph in pass1_reading.split("\n\n"):
+        normalized_paragraph = " ".join(paragraph.split())
+        if len(normalized_paragraph) >= minimum_length:
+            _require(
+                normalized_paragraph not in normalized_value,
+                f"{path} must summarize rather than copy a Pass 1 paragraph",
+            )
+
+
+def _dominant_supported_script(value: str) -> str | None:
+    cjk = 0
+    latin = 0
+    for character in value:
+        codepoint = ord(character)
+        if (
+            0x3400 <= codepoint <= 0x4DBF
+            or 0x4E00 <= codepoint <= 0x9FFF
+            or 0xF900 <= codepoint <= 0xFAFF
+        ):
+            cjk += 1
+        elif character.isalpha() and "LATIN" in unicodedata.name(character, ""):
+            latin += 1
+    if cjk >= 4 and cjk > latin:
+        return "cjk"
+    if latin >= 4 and latin >= cjk:
+        return "latin"
+    return None
+
+
+def _require_matching_supported_script(value: str, source: str, path: str) -> None:
+    expected = _dominant_supported_script(source)
+    if expected is None:
+        return
+    _require(
+        _dominant_supported_script(value) == expected,
+        f"{path} must use the predominant script of the revealed question",
+    )
+
+
+def _require_direct_user_address(value: str, path: str) -> None:
+    lowered = value.casefold()
+    _require("用户" not in value, f"{path} must not expose the backend label 用户")
+    _require("the user" not in lowered, f"{path} must address the reader directly")
 
 
 def _require_string_list(value: Any, path: str, *, min_items: int = 0) -> list[str]:
@@ -418,16 +497,25 @@ def validate_pass2_output(
         data.get("question_shift_note") == question_shift_note,
         "Pass 2 question_shift_note mismatch",
     )
-    _require_nonempty_string(data.get("central_axis"), "pass2.central_axis")
-    _require_nonempty_string(data.get("question_activation"), "pass2.question_activation")
-    _require_nonempty_string(data.get("situated_compensation"), "pass2.situated_compensation")
-    _require_nonempty_string(
-        data.get("integrated_third_meaning"), "pass2.integrated_third_meaning"
+    central_axis = _require_nonempty_string(data.get("central_axis"), "pass2.central_axis")
+    _require_matching_supported_script(
+        central_axis, user_question, "pass2.central_axis"
+    )
+    process_recap = _require_bounded_string(
+        data.get("process_recap"), "pass2.process_recap", max_length=500
+    )
+    pass1_reading = pass1_payload["user_display"]["integrated_reading"]
+    _require_no_pass1_paragraph_copy(
+        process_recap, pass1_reading, "pass2.process_recap"
+    )
+    _require_matching_supported_script(
+        process_recap, user_question, "pass2.process_recap"
     )
 
-    pass1_pattern_ids = {
-        pattern["id"] for pattern in pass1_payload["psychological_patterns"]
+    pass1_patterns = {
+        pattern["id"]: pattern for pattern in pass1_payload["psychological_patterns"]
     }
+    pass1_pattern_ids = set(pass1_patterns)
     inheritance = [
         _require_mapping(item, f"pass2.pattern_inheritance[{index}]")
         for index, item in enumerate(
@@ -452,8 +540,77 @@ def validate_pass2_output(
     for index, item in enumerate(inheritance):
         path = f"pass2.pattern_inheritance[{index}]"
         _require_exact_keys(item, INHERITANCE_KEYS, path)
-        _require_enum(item.get("status"), INHERITANCE_STATUSES, f"{path}.status")
-        _require_nonempty_string(item.get("rationale"), f"{path}.rationale")
+        status = _require_enum(item.get("status"), INHERITANCE_STATUSES, f"{path}.status")
+        match_basis = _require_enum(
+            item.get("match_basis"), PATTERN_MATCH_BASES, f"{path}.match_basis"
+        )
+        rationale = _require_nonempty_string(item.get("rationale"), f"{path}.rationale")
+        _require_matching_supported_script(rationale, user_question, f"{path}.rationale")
+        mappings = [
+            _require_mapping(value, f"{path}.process_step_mappings[{mapping_index}]")
+            for mapping_index, value in enumerate(
+                _require_list(item.get("process_step_mappings"), f"{path}.process_step_mappings")
+            )
+        ]
+        for mapping_index, mapping in enumerate(mappings):
+            mapping_path = f"{path}.process_step_mappings[{mapping_index}]"
+            _require_exact_keys(mapping, PROCESS_STEP_MAPPING_KEYS, mapping_path)
+            _require_nonempty_string(mapping.get("pass1_step"), f"{mapping_path}.pass1_step")
+            manifestation = _require_nonempty_string(
+                mapping.get("question_manifestation"),
+                f"{mapping_path}.question_manifestation",
+            )
+            _require_matching_supported_script(
+                manifestation,
+                user_question,
+                f"{mapping_path}.question_manifestation",
+            )
+            _require_string_list(
+                mapping.get("reality_evidence_ids"),
+                f"{mapping_path}.reality_evidence_ids",
+                min_items=1,
+            )
+
+        adaptive = item.get("adaptive_value_in_context")
+        cost = item.get("current_cost_in_context")
+        if status == "integrated":
+            _require(
+                match_basis == "process_recurrence",
+                f"{path} integrated status requires match_basis=process_recurrence",
+            )
+            _require(
+                len(mappings) >= 2,
+                f"{path} integrated status requires at least two mapped process steps",
+            )
+            adaptive = _require_nonempty_string(
+                adaptive, f"{path}.adaptive_value_in_context"
+            )
+            cost = _require_nonempty_string(cost, f"{path}.current_cost_in_context")
+            _require_matching_supported_script(
+                adaptive, user_question, f"{path}.adaptive_value_in_context"
+            )
+            _require_matching_supported_script(
+                cost, user_question, f"{path}.current_cost_in_context"
+            )
+        elif status == "held":
+            _require(
+                match_basis in {"theme_overlap_only", "insufficient_process_evidence"},
+                f"{path} held status requires thematic or insufficient process evidence",
+            )
+            _require(
+                adaptive is None and cost is None,
+                f"{path} held status cannot infer contextual value or cost",
+            )
+        else:
+            _require(
+                match_basis == "no_material_match",
+                f"{path} not_relevant status requires match_basis=no_material_match",
+            )
+            _require(not mappings, f"{path} not_relevant status requires no process mappings")
+            _require(
+                adaptive is None and cost is None,
+                f"{path} not_relevant status requires null contextual value and cost",
+            )
 
     evidence = [
         _require_mapping(item, f"pass2.reality_evidence[{index}]")
@@ -479,7 +636,47 @@ def validate_pass2_output(
             f"{path}.quote must occur verbatim in its declared source",
         )
         _require_enum(item.get("role"), REALITY_EVIDENCE_ROLES, f"{path}.role")
-        _require_nonempty_string(item.get("interpretation"), f"{path}.interpretation")
+        interpretation = _require_nonempty_string(
+            item.get("interpretation"), f"{path}.interpretation"
+        )
+        _require_matching_supported_script(
+            interpretation, user_question, f"{path}.interpretation"
+        )
+
+    integrated_pattern_ids: set[str] = set()
+    for index, item in enumerate(inheritance):
+        path = f"pass2.pattern_inheritance[{index}]"
+        pattern_id = item["pattern_id"]
+        pattern_steps = set(pass1_patterns[pattern_id]["sequence"])
+        mapped_steps: list[str] = []
+        for mapping_index, mapping in enumerate(item["process_step_mappings"]):
+            mapping_path = f"{path}.process_step_mappings[{mapping_index}]"
+            step = mapping["pass1_step"]
+            _require(
+                step in pattern_steps,
+                f"{mapping_path}.pass1_step must copy an exact frozen pattern sequence step",
+            )
+            mapped_steps.append(step)
+            mapping_refs = set(mapping["reality_evidence_ids"])
+            _require(
+                mapping_refs <= evidence_ids,
+                f"{mapping_path} references unknown reality evidence ids",
+            )
+        _require(
+            len(mapped_steps) == len(set(mapped_steps)),
+            f"{path}.process_step_mappings must map distinct frozen steps",
+        )
+        if item["status"] == "integrated":
+            _require(
+                set(mapped_steps) == pattern_steps,
+                f"{path} integrated status must map every frozen process step",
+            )
+            integrated_pattern_ids.add(pattern_id)
+        elif item["status"] == "held":
+            _require(
+                set(mapped_steps) < pattern_steps,
+                f"{path} held status must map fewer than all frozen process steps",
+            )
 
     situated = _require_mapping(
         data.get("situated_traditional_reading"), "pass2.situated_traditional_reading"
@@ -488,6 +685,20 @@ def validate_pass2_output(
         dict(situated) == dict(situated_reading),
         "Pass 2 must preserve the independently generated situated reading",
     )
+
+    compensation = _require_mapping(
+        data.get("compensation_bridge"), "pass2.compensation_bridge"
+    )
+    _require_exact_keys(
+        compensation, COMPENSATION_BRIDGE_KEYS, "pass2.compensation_bridge"
+    )
+    for field in COMPENSATION_BRIDGE_KEYS:
+        value = _require_nonempty_string(
+            compensation.get(field), f"pass2.compensation_bridge.{field}"
+        )
+        _require_matching_supported_script(
+            value, user_question, f"pass2.compensation_bridge.{field}"
+        )
 
     def validate_traceable_section(
         value: Any,
@@ -498,7 +709,10 @@ def validate_pass2_output(
         section = _require_mapping(value, path)
         _require_exact_keys(section, expected_keys, path)
         for field in text_fields:
-            _require_nonempty_string(section.get(field), f"{path}.{field}")
+            text = _require_nonempty_string(section.get(field), f"{path}.{field}")
+            _require_matching_supported_script(
+                text, user_question, f"{path}.{field}"
+            )
         pattern_refs = set(
             _require_string_list(
                 section.get("evidence_pattern_ids"),
@@ -512,6 +726,10 @@ def validate_pass2_output(
             )
         )
         _require(pattern_refs <= pass1_pattern_ids, f"{path} references unknown pattern ids")
+        _require(
+            pattern_refs <= integrated_pattern_ids,
+            f"{path} may cite only process-integrated pattern ids",
+        )
         _require(reality_refs <= evidence_ids, f"{path} references unknown reality evidence ids")
         return section
 
@@ -537,7 +755,12 @@ def validate_pass2_output(
     if mode == "none":
         _require(step is None, "practical_translation mode=none requires step_or_practice=null")
     else:
-        _require_nonempty_string(step, "pass2.practical_translation.step_or_practice")
+        step = _require_nonempty_string(
+            step, "pass2.practical_translation.step_or_practice"
+        )
+        _require_matching_supported_script(
+            step, user_question, "pass2.practical_translation.step_or_practice"
+        )
 
     limits = _require_mapping(data.get("epistemic_limits"), "pass2.epistemic_limits")
     _require_exact_keys(limits, {"unsupported_inferences", "limitations"}, "pass2.epistemic_limits")
@@ -555,5 +778,19 @@ def validate_pass2_output(
 
     display = _require_mapping(data.get("user_display"), "pass2.user_display")
     _require_exact_keys(display, PASS2_DISPLAY_KEYS, "pass2.user_display")
-    _require_nonempty_string(display.get("complete_reading"), "pass2.user_display.complete_reading")
-    _require_nonempty_string(display.get("takeaway_question"), "pass2.user_display.takeaway_question")
+    complete_reading = _require_nonempty_string(
+        display.get("complete_reading"), "pass2.user_display.complete_reading"
+    )
+    _require_no_pass1_paragraph_copy(
+        complete_reading, pass1_reading, "pass2.user_display.complete_reading"
+    )
+    _require_matching_supported_script(
+        complete_reading, user_question, "pass2.user_display.complete_reading"
+    )
+    _require_direct_user_address(complete_reading, "pass2.user_display.complete_reading")
+    takeaway_question = _require_nonempty_string(
+        display.get("takeaway_question"), "pass2.user_display.takeaway_question"
+    )
+    _require_matching_supported_script(
+        takeaway_question, user_question, "pass2.user_display.takeaway_question"
+    )
