@@ -87,9 +87,10 @@
     },
     "causalProcessSynthesis": {
       "type": "object", "additionalProperties": false,
-      "required": ["narrative_spine", "adaptive_value_in_context", "current_cost_in_context", "evidence_pattern_ids", "reality_evidence_ids"],
+      "required": ["narrative_spine", "pass1_origin_bridge", "adaptive_value_in_context", "current_cost_in_context", "evidence_pattern_ids", "reality_evidence_ids"],
       "properties": {
         "narrative_spine": {"type": "string", "minLength": 1, "maxLength": 800},
+        "pass1_origin_bridge": {"type": ["string", "null"], "minLength": 1, "maxLength": 360},
         "adaptive_value_in_context": {"type": "string", "minLength": 1},
         "current_cost_in_context": {"type": "string", "minLength": 1},
         "evidence_pattern_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},

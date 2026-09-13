@@ -237,6 +237,7 @@ class Pass2Pipeline:
                 key: integration_stage["causal_process_synthesis"][key]
                 for key in (
                     "narrative_spine",
+                    "pass1_origin_bridge",
                     "adaptive_value_in_context",
                     "current_cost_in_context",
                 )

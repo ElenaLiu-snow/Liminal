@@ -106,7 +106,7 @@ class AnalysisMethodIsolationTests(unittest.TestCase):
 
     def test_human_approved_prompt_files_match_lock(self):
         manifest = json.loads((V2_DIR / "prompts" / "manifest.json").read_text(encoding="utf-8"))
-        self.assertEqual(manifest["status"], "human_approved_revision_candidate")
+        self.assertEqual(manifest["status"], "human_accepted_phase4_baseline")
         for filename, expected in manifest["files"].items():
             digest = hashlib.sha256((V2_DIR / "prompts" / filename).read_bytes()).hexdigest()
             self.assertEqual(digest, expected, filename)

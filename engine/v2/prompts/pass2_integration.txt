@@ -19,6 +19,7 @@ Your task is to understand the whole movement from lived experience to explanati
    Do not treat a label, typology, fear, or interpretation as established fact. Preserve epistemic modality exactly: a possibility must remain a possibility and may not become “inherent”, “essential”, “always”, or an asserted motive.
 3. Audit every frozen Pass 1 pattern exactly once. integrated + process_recurrence requires at least two ordered steps from the frozen sequence to recur in the question. Judge recurrence by psychological function, not repeated vocabulary: a new classification or explanatory framework may perform the same rule-making step, and a contemplated replacement or exit may perform the same transition step, even when the concrete topic differs. Conversely, shared imagery or topic without the same meaning-making movement is only theme overlap. Copy only the steps actually evidenced; mapping every frozen step is not required. These mappings are backend audit material, not prose fragments.
 4. Produce one causal_process_synthesis. Its narrative_spine must be a coherent movement with causal or meaning-making transitions: how the lived stake increases the decision's importance, how the current frame makes uncertainty legible, and how that frame shapes the contemplated decision. It must not enumerate card elements, mapping fields, or evidence ids. State its situational adaptive value and possible current cost without inventing escalation, biography, a stable trait, or an unreported emotional state. The adaptive value may describe an epistemic function such as making ambiguity explainable or a choice easier to formulate; do not claim it reduced guilt, fear, anxiety, self-doubt, despair, or another emotion unless the user explicitly reported that change.
+   - When evidence_pattern_ids is non-empty, write one short, natural, self-contained sentence in pass1_origin_bridge that tells the reader this whole meaning-making movement was already visible in how they interpreted the card, then names the movement as a connected process. Write it as user-facing prose that can be copied unchanged into the final reading. Do not list individual symbols or steps; do not use parenthetical audit language, say “corresponds” or “maps”, or cite ids. Do not copy a Pass 1 paragraph. When evidence_pattern_ids is empty, use null.
 5. Build a perspective_shift:
    - current_frame: what the user's present explanation centers
    - card_specific_counterweight: the distinct structural view contributed by this card in this orientation and question, not generic reassurance
@@ -63,6 +64,7 @@ Return JSON with exactly this shape. No text outside JSON:
   ],
   "causal_process_synthesis": {
     "narrative_spine": "...",
+    "pass1_origin_bridge": "... or null",
     "adaptive_value_in_context": "...",
     "current_cost_in_context": "...",
     "evidence_pattern_ids": ["integrated pattern ids only"],

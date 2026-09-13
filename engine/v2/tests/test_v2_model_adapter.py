@@ -221,6 +221,7 @@ class ModelWorkflowTests(unittest.TestCase):
             }],
             "causal_process_synthesis": {
                 "narrative_spine": "Because following through matters, present worry is used to anticipate withdrawal even though action has begun.",
+                "pass1_origin_bridge": "This movement from checking the situation to anticipating what comes next was already visible in how you interpreted the card.",
                 "adaptive_value_in_context": "Anticipation can support preparation.",
                 "current_cost_in_context": "It can make withdrawal feel predetermined.",
                 "evidence_pattern_ids": ["pattern-1"],
@@ -301,7 +302,7 @@ class ModelWorkflowTests(unittest.TestCase):
             "session_id": request["session_id"],
             "card_id": frozen["payload"]["card_id"],
             "pass1_sha256": frozen["pass1_sha256"],
-            "complete_reading": "The frozen process meets the question through bounded movement.",
+            "complete_reading": "This movement from checking the situation to anticipating what comes next was already visible in how you interpreted the card. The frozen process meets the question through bounded movement.",
             "takeaway_question": integration["takeaway"]["question"],
         }
         client = SequenceClient([situated, integration, writing])

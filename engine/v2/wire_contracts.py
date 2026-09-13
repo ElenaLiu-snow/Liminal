@@ -275,7 +275,7 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "id", "source", "quote", "role", "interpretation"
         ],
         "causal_process_synthesis_keys": [
-            "narrative_spine", "adaptive_value_in_context", "current_cost_in_context",
+            "narrative_spine", "pass1_origin_bridge", "adaptive_value_in_context", "current_cost_in_context",
             "evidence_pattern_ids", "reality_evidence_ids",
         ],
         "perspective_shift_keys": [
@@ -316,7 +316,7 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             ],
             "reality_evidence[]": ["id", "source", "quote", "role", "interpretation"],
             "causal_process_synthesis": [
-                "narrative_spine", "adaptive_value_in_context", "current_cost_in_context",
+                "narrative_spine", "pass1_origin_bridge", "adaptive_value_in_context", "current_cost_in_context",
                 "evidence_pattern_ids", "reality_evidence_ids",
             ],
             "perspective_shift": [
@@ -373,6 +373,7 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "pattern_inheritance[].process_step_mappings[].reality_evidence_ids": "array<string>",
             "causal_process_synthesis": "object",
             "causal_process_synthesis.narrative_spine": "string",
+            "causal_process_synthesis.pass1_origin_bridge": "string_or_null",
             "causal_process_synthesis.adaptive_value_in_context": "string",
             "causal_process_synthesis.current_cost_in_context": "string",
             "causal_process_synthesis.evidence_pattern_ids": "array<string>",

@@ -182,6 +182,7 @@ DECISIVE_UNKNOWN_KEYS = {
 }
 CAUSAL_SYNTHESIS_KEYS = {
     "narrative_spine",
+    "pass1_origin_bridge",
     "adaptive_value_in_context",
     "current_cost_in_context",
     "evidence_pattern_ids",
@@ -723,6 +724,36 @@ def validate_pass2_output(
     _require(synthesis["reality_evidence_ids"], "causal process synthesis must cite reality evidence")
     _require_bounded_string(synthesis["narrative_spine"], "pass2.causal_process_synthesis.narrative_spine", max_length=800)
     _require_no_pass1_paragraph_copy(synthesis["narrative_spine"], pass1_reading, "pass2.causal_process_synthesis.narrative_spine")
+    origin_bridge = synthesis.get("pass1_origin_bridge")
+    if origin_bridge is None:
+        _require(
+            not synthesis["evidence_pattern_ids"],
+            "pass2.causal_process_synthesis.pass1_origin_bridge is required when the synthesis cites an integrated Pass 1 pattern",
+        )
+    else:
+        origin_bridge = _require_bounded_string(
+            origin_bridge,
+            "pass2.causal_process_synthesis.pass1_origin_bridge",
+            max_length=360,
+        )
+        _require_matching_supported_script(
+            origin_bridge,
+            user_question,
+            "pass2.causal_process_synthesis.pass1_origin_bridge",
+        )
+        _require_no_pass1_paragraph_copy(
+            origin_bridge,
+            pass1_reading,
+            "pass2.causal_process_synthesis.pass1_origin_bridge",
+        )
+        _require_no_mapping_markers(
+            origin_bridge,
+            "pass2.causal_process_synthesis.pass1_origin_bridge",
+        )
+        _require(
+            bool(synthesis["evidence_pattern_ids"]),
+            "pass2.causal_process_synthesis.pass1_origin_bridge requires an integrated Pass 1 pattern citation",
+        )
 
     situated = _require_mapping(data.get("situated_traditional_reading"), "pass2.situated_traditional_reading")
     _require(dict(situated) == dict(situated_reading), "Pass 2 must preserve the independently generated situated reading")
@@ -825,6 +856,11 @@ def validate_pass2_output(
     _require_matching_supported_script(complete_reading, user_question, "pass2.user_display.complete_reading")
     _require_direct_user_address(complete_reading, "pass2.user_display.complete_reading")
     _require_no_mapping_markers(complete_reading, "pass2.user_display.complete_reading")
+    if origin_bridge is not None:
+        _require(
+            complete_reading.count(origin_bridge) == 1,
+            "pass2.user_display.complete_reading must preserve the Pass 1 origin bridge exactly once",
+        )
     _require(
         not complete_reading.rstrip().endswith((":", "：")),
         "pass2.user_display.complete_reading must end as a complete answer, not a takeaway lead-in",

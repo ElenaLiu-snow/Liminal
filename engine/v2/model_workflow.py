@@ -145,9 +145,18 @@ class ModelWorkflow:
         narrative_spine = (
             synthesis.get("narrative_spine") if isinstance(synthesis, Mapping) else None
         )
+        origin_bridge = (
+            synthesis.get("pass1_origin_bridge")
+            if isinstance(synthesis, Mapping)
+            else None
+        )
         if isinstance(narrative_spine, str):
+            validation_parts = [origin_bridge, narrative_spine]
+            validation_reading = " ".join(
+                part for part in validation_parts if isinstance(part, str) and part
+            )
             validation_reading = (
-                narrative_spine.replace("用户", "你")
+                validation_reading.replace("用户", "你")
                 .replace("The user", "You")
                 .replace("the user", "you")
             )

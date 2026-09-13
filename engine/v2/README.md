@@ -1,6 +1,6 @@
 # Liminal v2 testable vertical slice
 
-Status: **model-connected contract-driven alpha; Pass 2 causal-synthesis revision awaiting human acceptance**.
+Status: **model-connected contract-driven alpha; Pass 2 causal-synthesis baseline human-accepted, Phase 5 demo next**.
 
 This directory adds v2 contracts without modifying the frozen v1.1 schema or prompts.
 
@@ -33,7 +33,8 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
   - an explicit question structure preserves core experience, lived stakes, the user's
     current explanatory frame, contemplated decision, and decisive unknowns
   - one causal process synthesis carries the inherited process's contextual value and cost
-    without rendering backend step mappings as prose
+    without rendering backend step mappings as prose; one natural origin bridge makes its
+    Pass 1 provenance visible exactly once when an inherited process is actually used
   - verbatim reality evidence, including emotional salience and optional action already taken
   - a card-specific perspective shift relocates attention and revises the decision criterion
   - at least two live alternative explanations prevent premature causal closure
@@ -59,8 +60,8 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
 No third-party model SDK is required; the adapter uses Python's standard HTTP library.
 A first live participant API run accepted Pass 1 but exposed formal rather than semantic
 inheritance in Pass 2. A first correction then overconstrained exact step matching and produced
-fragmented prose. The current candidate separates backend evidence audit from causal synthesis
-and must be rerun against the frozen participant Pass 1 before acceptance.
+fragmented prose. The causal-synthesis revision now separates backend evidence audit from final
+narrative, has passed participant regression review, and is the accepted Phase 4 baseline.
 
 The automated knowledge-ingestion and method-research passes are complete for this gate. Human field review of card text/images and explicit method activation remain later work. Both layers remain `shadow_read_only` / `shadow_only_not_prompt_input`, so the live model still uses the accepted provisional traditional payload and locked analytical prompts.
 
@@ -174,13 +175,13 @@ python -m engine.v2.cli assemble-pass2 \
   --writing /path/to/pass2-writing-output.json
 ```
 
-## Next human-test gate
+## Next product gate
 
-Rerun the revised Pass 2 against the already frozen participant Pass 1 and revealed question.
-Acceptance requires a coherent causal process rather than element-by-element matching, explicit
-coverage of material lived stakes, a genuinely card-specific shift in perspective, multiple live
-explanations, and a takeaway question that does not preselect its solution. After this regression
-check, use a different card and question for a complete two-pass confirmation run.
+Build the Phase 5 display demo around the accepted two-pass flow. The UI should preserve the
+temporal experience: card stimulus, free association, independent Pass 1, question reveal, one
+continuous Pass 2 reading, and one separately displayed takeaway question. A different card and
+question should still be used for end-to-end confirmation during demo hardening, but it is no
+longer a blocker to beginning frontend work.
 
 Score at least:
 

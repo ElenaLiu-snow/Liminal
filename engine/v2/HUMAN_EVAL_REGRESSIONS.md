@@ -63,5 +63,27 @@ when the defect can be stated independently of the case content and protected by
   - keep at least two live alternative explanations and state their missing evidence
   - link optional practice and the neutral takeaway question to a named decisive unknown
   - give the writing stage only a curated narrative brief without mappings, evidence ids, or raw quotes
-- Acceptance state: implementation candidate; requires model-generated regression review before
-  becoming the accepted Pass 2 baseline.
+- Acceptance state: accepted after model-generated regression review; superseded only in the
+  narrow provenance-visibility detail recorded by HE-REG-003.
+
+## HE-REG-003 — Coherent synthesis hid its Pass 1 provenance
+
+- Date: 2026-09-14
+- Stimulus class: same frozen Pass 1 regression case used for HE-REG-002
+- Human scores: Pass 1 → Pass 2 continuity 5/5; question completeness 5/5;
+  incremental value 5/5; forced fit 0/5; practical help 5/5
+- Accepted behavior:
+  - the final reading expressed one natural causal process rather than fragmented matches
+  - material stakes remained visible without role assignment or overreach
+  - the card changed the decision criterion and the direction remained bounded
+- Remaining defect:
+  - removing all visible mapping language also removed the reader-facing signal that the causal
+    process had first been observed in the earlier card interpretation
+- Approved narrow revision:
+  - when causal synthesis cites an integrated Pass 1 process, generate one short natural origin
+    bridge about the process as a whole
+  - copy that bridge exactly once into the opening causal movement
+  - keep symbol-level steps, evidence ids, and audit mappings hidden
+  - emit no origin bridge when no integrated Pass 1 process supports the synthesis
+- Acceptance state: Phase 4 baseline accepted; this is a bounded presentation correction, not a
+  reopening of synthesis, perspective shift, alternatives, direction, or takeaway behavior.

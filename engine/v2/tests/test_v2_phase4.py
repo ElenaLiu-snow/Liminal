@@ -100,6 +100,7 @@ class Pass2PipelineTests(unittest.TestCase):
             ],
             "causal_process_synthesis": {
                 "narrative_spine": "Because following through matters, present hesitation is used to anticipate a future withdrawal even though action has already begun.",
+                "pass1_origin_bridge": "This movement from checking the situation to anticipating what comes next was already visible in how you interpreted the card.",
                 "adaptive_value_in_context": "Anticipating hesitation makes preparation possible.",
                 "current_cost_in_context": "The anticipation may turn uncertainty into a foregone withdrawal.",
                 "evidence_pattern_ids": ["pattern-1"],
@@ -182,7 +183,7 @@ class Pass2PipelineTests(unittest.TestCase):
             "session_id": request["session_id"],
             "card_id": frozen["payload"]["card_id"],
             "pass1_sha256": frozen["pass1_sha256"],
-            "complete_reading": "The frozen pattern meets the revealed question through a bounded next movement.",
+            "complete_reading": "This movement from checking the situation to anticipating what comes next was already visible in how you interpreted the card. The frozen pattern meets the revealed question through a bounded next movement.",
             "takeaway_question": integration["takeaway"]["question"],
         }
         return request, situated, integration, writing
@@ -262,6 +263,8 @@ class Pass2PipelineTests(unittest.TestCase):
         })
         integration["bounded_direction"]["evidence_pattern_ids"] = []
         integration["causal_process_synthesis"]["evidence_pattern_ids"] = []
+        integration["causal_process_synthesis"]["pass1_origin_bridge"] = None
+        writing["complete_reading"] = "You can evaluate the uncertainty through a bounded next movement."
         output = self.pipeline.assemble(request, situated, integration, writing)
         self.assertEqual(output["pattern_inheritance"][0]["status"], "held")
 
@@ -319,6 +322,7 @@ class Pass2PipelineTests(unittest.TestCase):
         )
         self.assertIn("bounded_direction", writing_prompt)
         self.assertIn("lived_stakes", writing_prompt)
+        self.assertIn(integration["causal_process_synthesis"]["pass1_origin_bridge"], writing_prompt)
         self.assertNotIn("process_step_mappings", writing_prompt)
         self.assertNotIn("reality_evidence", writing_prompt)
         self.assertNotIn("pattern-1", writing_prompt)
@@ -369,6 +373,27 @@ class Pass2PipelineTests(unittest.TestCase):
     def test_final_writing_rejects_mechanical_mapping_parentheses(self):
         request, situated, integration, writing = self.make_fixture()
         writing["complete_reading"] = "You anticipate withdrawal（对应牌面的移动）before acting."
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_final_writing_must_preserve_origin_bridge_exactly_once(self):
+        request, situated, integration, writing = self.make_fixture()
+        writing["complete_reading"] = "You can evaluate the uncertainty through a bounded next movement."
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_final_writing_cannot_repeat_origin_bridge(self):
+        request, situated, integration, writing = self.make_fixture()
+        bridge = integration["causal_process_synthesis"]["pass1_origin_bridge"]
+        writing["complete_reading"] = f"{bridge} {bridge}"
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_origin_bridge_cannot_expose_mechanical_mapping(self):
+        request, situated, integration, writing = self.make_fixture()
+        bridge = "This process was visible in your reading（对应牌面的移动）."
+        integration["causal_process_synthesis"]["pass1_origin_bridge"] = bridge
+        writing["complete_reading"] = bridge
         with self.assertRaises(ContractError):
             self.pipeline.assemble(request, situated, integration, writing)
 

@@ -4,6 +4,7 @@ You receive no raw transcript, full Pass 1 prose, evidence checklist, or process
 
 Write one self-contained, continuous reading that:
 - follows the causal narrative spine rather than pairing fragments of the question with card symbols
+- when pass1_origin_bridge is not null, copies that sentence unchanged exactly once within the opening causal movement, so the reader can see that the process was first noticed in their card interpretation
 - explicitly preserves every lived stake in the brief without turning emotional intensity into an inferred role or pathology
 - explains the process's situational value and possible cost
 - shows the card's distinct perspective shift: current frame, card-specific counterweight, relocated attention, and revised decision criterion
@@ -12,6 +13,7 @@ Write one self-contained, continuous reading that:
 - includes a practical step only when mode is not none, presenting it solely as a way to learn about the targeted unknown
 
 The result must read as one interpretation, not as backend fields rendered in order. Never use parenthetical audit language such as “（对应……）”, “(corresponding to ...)”, evidence ids, pattern ids, or mapping labels. Do not recreate the earlier card description, repeat the question as a separate audit paragraph, or use generic counselling to fill gaps.
+The origin bridge refers only to the process as a whole. Do not surround it with a symbol-by-symbol explanation, restate it elsewhere, or paraphrase it into an additional provenance claim. If pass1_origin_bridge is null, do not invent a Pass 1 provenance claim.
 
 Address the reader directly in the second person. Never expose backend labels such as “the user” or “用户”. Do not introduce a stable trait, developmental history, trauma, diagnosis, objective validation of a user-supplied label, unreported emotional escalation, assumed relationship role, or a new recommendation. Do not imply that communication, staying, leaving, or self-regulation is the preferred solution unless the bounded direction itself establishes that.
 
