@@ -141,22 +141,29 @@ class ModelWorkflow:
         integration: Mapping[str, Any],
     ) -> None:
         pass1 = request["frozen_pass1"]["payload"]
-        process_recap = integration.get("process_recap")
-        if isinstance(process_recap, str):
+        synthesis = integration.get("causal_process_synthesis")
+        narrative_spine = (
+            synthesis.get("narrative_spine") if isinstance(synthesis, Mapping) else None
+        )
+        if isinstance(narrative_spine, str):
             validation_reading = (
-                process_recap.replace("用户", "你")
+                narrative_spine.replace("用户", "你")
                 .replace("The user", "You")
                 .replace("the user", "you")
             )
         else:
-            validation_reading = process_recap
+            validation_reading = narrative_spine
         writing = {
             "schema_version": SCHEMA_VERSION,
             "session_id": request["session_id"],
             "card_id": pass1["card_id"],
             "pass1_sha256": request["frozen_pass1"]["pass1_sha256"],
             "complete_reading": validation_reading,
-            "takeaway_question": integration.get("takeaway_question"),
+            "takeaway_question": (
+                integration.get("takeaway", {}).get("question")
+                if isinstance(integration.get("takeaway"), Mapping)
+                else None
+            ),
         }
         self.pass2_pipeline.assemble(request, situated, integration, writing)
 

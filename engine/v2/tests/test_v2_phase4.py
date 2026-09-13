@@ -43,10 +43,13 @@ class Pass2PipelineTests(unittest.TestCase):
         situated = {
             "card_id": canonical["card_id"],
             "orientation": canonical["orientation"],
-            "card_role_in_question": "The card frames movement as coordinated rather than guaranteed.",
-            "practical_tension": "Preparation can support action or become indefinite delay.",
-            "bounded_direction": "Use a limited commitment to learn what action changes.",
-            "reflection_point": "What would count as one completed movement?",
+            "question_relevant_card_structure": "The card frames movement as coordination rather than certainty.",
+            "orientation_mechanism": "Upright movement remains active while opposing forces require coordination.",
+            "tension_axes": [
+                "Preparation may coordinate movement.",
+                "Preparation may delay movement.",
+            ],
+            "scope_boundary": "The card cannot establish whether withdrawal will occur.",
             "source_refs": canonical["source_refs"],
         }
         integration = {
@@ -57,6 +60,24 @@ class Pass2PipelineTests(unittest.TestCase):
             "pass1_sha256": frozen["pass1_sha256"],
             "question_shift": "clarified",
             "central_axis": "Preparation protects movement but may also postpone it.",
+            "question_structure": {
+                "core_experience": {
+                    "summary": "An application has begun while withdrawal before the interview is feared.",
+                    "reality_evidence_ids": ["reality-1", "reality-2"],
+                },
+                "lived_stakes": [{
+                    "summary": "The possibility of not following through is already worrying.",
+                    "reality_evidence_ids": ["reality-3"],
+                }],
+                "current_explanatory_frame": None,
+                "contemplated_decision": None,
+                "decisive_unknowns": [{
+                    "id": "unknown-1",
+                    "question": "Whether hesitation will actually prevent interview attendance.",
+                    "why_decisive": "That distinction separates a present feeling from a future action.",
+                    "reality_evidence_ids": ["reality-2", "reality-3"],
+                }],
+            },
             "pattern_inheritance": [
                 {
                     "pattern_id": "pattern-1",
@@ -70,21 +91,20 @@ class Pass2PipelineTests(unittest.TestCase):
                             "reality_evidence_ids": ["reality-1"],
                         },
                         {
-                            "pass1_step": "reassign the structure's function",
-                            "question_manifestation": "Possible hesitation is recoded as inevitable withdrawal.",
-                            "reality_evidence_ids": ["reality-1"],
-                        },
-                        {
                             "pass1_step": "anticipate the next movement",
                             "question_manifestation": "The feared interview withdrawal is projected forward.",
-                            "reality_evidence_ids": ["reality-1"],
+                            "reality_evidence_ids": ["reality-2"],
                         },
                     ],
-                    "adaptive_value_in_context": "Anticipating hesitation makes preparation possible.",
-                    "current_cost_in_context": "The anticipation may turn uncertainty into a foregone withdrawal.",
                 }
             ],
-            "process_recap": "The revealed question repeats a move from registering action to recoding uncertainty as likely withdrawal.",
+            "causal_process_synthesis": {
+                "narrative_spine": "Because following through matters, present hesitation is used to anticipate a future withdrawal even though action has already begun.",
+                "adaptive_value_in_context": "Anticipating hesitation makes preparation possible.",
+                "current_cost_in_context": "The anticipation may turn uncertainty into a foregone withdrawal.",
+                "evidence_pattern_ids": ["pattern-1"],
+                "reality_evidence_ids": ["reality-1", "reality-2", "reality-3"],
+            },
             "reality_evidence": [
                 {
                     "id": "reality-1",
@@ -92,13 +112,44 @@ class Pass2PipelineTests(unittest.TestCase):
                     "quote": "submitted an application",
                     "role": "action_already_taken",
                     "interpretation": "The feared repetition is not the only available trajectory.",
-                }
+                },
+                {
+                    "id": "reality-2",
+                    "source": "user_question",
+                    "quote": "withdraw before the interview",
+                    "role": "reported_experience",
+                    "interpretation": "Withdrawal is feared rather than reported as completed.",
+                },
+                {
+                    "id": "reality-3",
+                    "source": "user_question",
+                    "quote": "I worry",
+                    "role": "lived_stake",
+                    "interpretation": "The possibility already carries emotional weight.",
+                },
             ],
-            "compensation_bridge": {
-                "inherited_process_limit": "Anticipated hesitation is collapsed into a prediction of withdrawal.",
-                "card_counterweight": "The card frames coordinated movement as compatible with unresolved tension.",
+            "perspective_shift": {
+                "current_frame": "Present hesitation is being used to forecast whether movement will stop.",
+                "card_specific_counterweight": "The Chariot frames movement as coordination of tension rather than prior elimination of tension.",
+                "relocated_attention": "Attention moves from emotional certainty to whether movement can remain coordinated.",
                 "revised_decision_criterion": "Judge movement by the next completed commitment, not by the absence of hesitation.",
             },
+            "alternative_hypotheses": [
+                {
+                    "id": "alternative-1",
+                    "decisive_unknown_id": "unknown-1",
+                    "possibility": "The worry may coexist with attending the interview.",
+                    "supporting_reality_evidence_ids": ["reality-1"],
+                    "missing_evidence": "Whether prior hesitation has prevented comparable commitments.",
+                },
+                {
+                    "id": "alternative-2",
+                    "decisive_unknown_id": "unknown-1",
+                    "possibility": "The worry may signal a material risk of withdrawal.",
+                    "supporting_reality_evidence_ids": [],
+                    "missing_evidence": "What conditions usually precede actual withdrawal.",
+                },
+            ],
             "bounded_direction": {
                 "answer": "Following through is plausible when success is defined as completing the next bounded step.",
                 "uncertainty_boundary": "The reading cannot predict the interview or establish a stable pattern.",
@@ -107,11 +158,15 @@ class Pass2PipelineTests(unittest.TestCase):
             },
             "practical_translation": {
                 "mode": "action",
-                "redefined_success": "Success is attending the interview, not controlling its outcome.",
+                "information_goal": "Learn whether hesitation prevents a bounded commitment.",
                 "step_or_practice": "Prepare one question and attend the scheduled conversation.",
-                "rationale": "This converts coordinated preparation into a finite movement.",
-                "evidence_pattern_ids": ["pattern-1"],
-                "reality_evidence_ids": ["reality-1"],
+                "rationale": "The completed action would create evidence about the feared withdrawal.",
+                "decisive_unknown_id": "unknown-1",
+            },
+            "takeaway": {
+                "decisive_unknown_id": "unknown-1",
+                "alternative_hypothesis_ids": ["alternative-1", "alternative-2"],
+                "question": "What is the smallest completed movement that would create new evidence?",
             },
             "epistemic_limits": {
                 "unsupported_inferences": [
@@ -121,7 +176,6 @@ class Pass2PipelineTests(unittest.TestCase):
                 ],
                 "limitations": ["A single reading cannot establish future behavior."],
             },
-            "takeaway_question": "What is the smallest completed movement that would create new evidence?",
         }
         writing = {
             "schema_version": SCHEMA_VERSION,
@@ -129,7 +183,7 @@ class Pass2PipelineTests(unittest.TestCase):
             "card_id": frozen["payload"]["card_id"],
             "pass1_sha256": frozen["pass1_sha256"],
             "complete_reading": "The frozen pattern meets the revealed question through a bounded next movement.",
-            "takeaway_question": integration["takeaway_question"],
+            "takeaway_question": integration["takeaway"]["question"],
         }
         return request, situated, integration, writing
 
@@ -178,9 +232,23 @@ class Pass2PipelineTests(unittest.TestCase):
         with self.assertRaises(ContractError):
             self.pipeline.assemble(request, situated, integration, writing)
 
-    def test_integrated_pattern_requires_every_frozen_process_step(self):
+    def test_integrated_pattern_can_use_a_coherent_partial_sequence(self):
+        request, situated, integration, writing = self.make_fixture()
+        output = self.pipeline.assemble(request, situated, integration, writing)
+        self.assertEqual(
+            len(output["pattern_inheritance"][0]["process_step_mappings"]), 2
+        )
+
+    def test_integrated_pattern_requires_two_ordered_process_steps(self):
         request, situated, integration, writing = self.make_fixture()
         integration["pattern_inheritance"][0]["process_step_mappings"].pop()
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_integrated_pattern_mappings_must_preserve_process_order(self):
+        request, situated, integration, writing = self.make_fixture()
+        mappings = integration["pattern_inheritance"][0]["process_step_mappings"]
+        mappings.reverse()
         with self.assertRaises(ContractError):
             self.pipeline.assemble(request, situated, integration, writing)
 
@@ -191,11 +259,9 @@ class Pass2PipelineTests(unittest.TestCase):
             "status": "held",
             "match_basis": "theme_overlap_only",
             "process_step_mappings": [],
-            "adaptive_value_in_context": None,
-            "current_cost_in_context": None,
         })
         integration["bounded_direction"]["evidence_pattern_ids"] = []
-        integration["practical_translation"]["evidence_pattern_ids"] = []
+        integration["causal_process_synthesis"]["evidence_pattern_ids"] = []
         output = self.pipeline.assemble(request, situated, integration, writing)
         self.assertEqual(output["pattern_inheritance"][0]["status"], "held")
 
@@ -252,7 +318,65 @@ class Pass2PipelineTests(unittest.TestCase):
             writing_prompt,
         )
         self.assertIn("bounded_direction", writing_prompt)
+        self.assertIn("lived_stakes", writing_prompt)
+        self.assertNotIn("process_step_mappings", writing_prompt)
+        self.assertNotIn("reality_evidence", writing_prompt)
+        self.assertNotIn("pattern-1", writing_prompt)
+        self.assertNotIn("reality-1", writing_prompt)
+        self.assertNotIn("unknown-1", writing_prompt)
         self.assertNotIn("pass1_user_reading", writing_prompt)
+
+    def test_takeaway_must_target_a_decisive_unknown(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["takeaway"]["decisive_unknown_id"] = "unknown-invented"
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_takeaway_must_contrast_two_hypotheses_for_the_same_unknown(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["alternative_hypotheses"][1]["decisive_unknown_id"] = "unknown-invented"
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_lived_stake_component_must_cite_known_evidence(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["question_structure"]["lived_stakes"][0][
+            "reality_evidence_ids"
+        ] = ["reality-invented"]
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_identified_lived_stake_cannot_disappear_from_question_structure(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["question_structure"]["lived_stakes"] = []
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_competing_explanations_cannot_collapse_to_one(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["alternative_hypotheses"].pop()
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_lived_stake_alone_cannot_support_a_causal_hypothesis(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["alternative_hypotheses"][0][
+            "supporting_reality_evidence_ids"
+        ] = ["reality-3"]
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_final_writing_rejects_mechanical_mapping_parentheses(self):
+        request, situated, integration, writing = self.make_fixture()
+        writing["complete_reading"] = "You anticipate withdrawal（对应牌面的移动）before acting."
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_final_writing_cannot_end_with_takeaway_lead_in(self):
+        request, situated, integration, writing = self.make_fixture()
+        writing["complete_reading"] = "You can now evaluate the uncertainty by its evidence:"
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, integration, writing)
 
     def test_phase4_prompts_do_not_contain_human_test_case_terms(self):
         prompts = "\n".join(

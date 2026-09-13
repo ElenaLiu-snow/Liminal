@@ -1,14 +1,14 @@
 {
-  "lock_version": "2",
-  "baseline_commit": "df0f79e2b6cd278c1e678409b5923622bf68ef10",
+  "lock_version": "3",
+  "baseline_commit": "80e8dbf5f56948f15d04b4c63e09b998ae9754cb",
   "status": "human_approved_revision_candidate",
   "files": {
     "pass1_compensation.txt": "5ec2bcaeef0baa309bb223d0c13e1ce0d354c2047a64c3f3053b7678d3ca9a74",
     "pass1_observations.txt": "b0f1703d21228aad495293bee2697437142d775a0212f8073cd05f4f6db1d9e7",
     "pass1_patterns.txt": "2cad443d51297bf49392c416d72bd0c36a8f4b108acc80745bf502b1d068f5ac",
     "pass1_writing.txt": "c56fa1ed0bc38c2e8cb925caaff93d4983e10fb31ed618c5b88427e43ae679e8",
-    "pass2_integration.txt": "6c0f1832f26f743a26302b2c76d02d8df515d5bed490e22597f04c69a8532cc0",
-    "pass2_writing.txt": "c5c729e5210fb8097bfd4391cb134b3fcfa2e153cd542e76ce4e39ca5b552bbb",
-    "traditional_situated.txt": "cad9c4bd0e2a4f68b174045886f605d61c2a7127fb47f91da0e1d133cbd8beb8"
+    "pass2_integration.txt": "0daa812a482c6bf303041e388f28cf65e7c71a1b938ebd74701370641a234157",
+    "pass2_writing.txt": "c067e3192eb86849c6f0d1b2663e8c8e1aef2a3bb1fae1047d52b0d9e1f3f813",
+    "traditional_situated.txt": "0f338a622999b89923b13f77ed228eff2b11cba79fe562676162dacb7473e9fd"
   }
 }

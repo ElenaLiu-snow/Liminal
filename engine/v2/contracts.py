@@ -51,6 +51,10 @@ REALITY_EVIDENCE_ROLES = {
     "disconfirming",
     "constraint",
     "action_already_taken",
+    "reported_experience",
+    "lived_stake",
+    "current_explanatory_frame",
+    "contemplated_decision",
 }
 PRACTICAL_MODES = {"action", "reflection", "none"}
 FORBIDDEN_PASS1_KEYS = {
@@ -136,13 +140,16 @@ PASS2_OUTPUT_KEYS = {
     "question_shift",
     "question_shift_note",
     "central_axis",
+    "question_structure",
     "pattern_inheritance",
-    "process_recap",
+    "causal_process_synthesis",
     "reality_evidence",
     "situated_traditional_reading",
-    "compensation_bridge",
+    "perspective_shift",
+    "alternative_hypotheses",
     "bounded_direction",
     "practical_translation",
+    "takeaway",
     "epistemic_limits",
     "user_display",
 }
@@ -152,8 +159,6 @@ INHERITANCE_KEYS = {
     "match_basis",
     "rationale",
     "process_step_mappings",
-    "adaptive_value_in_context",
-    "current_cost_in_context",
 }
 PROCESS_STEP_MAPPING_KEYS = {
     "pass1_step",
@@ -161,6 +166,27 @@ PROCESS_STEP_MAPPING_KEYS = {
     "reality_evidence_ids",
 }
 REALITY_EVIDENCE_KEYS = {"id", "source", "quote", "role", "interpretation"}
+QUESTION_STRUCTURE_KEYS = {
+    "core_experience",
+    "lived_stakes",
+    "current_explanatory_frame",
+    "contemplated_decision",
+    "decisive_unknowns",
+}
+QUESTION_COMPONENT_KEYS = {"summary", "reality_evidence_ids"}
+DECISIVE_UNKNOWN_KEYS = {
+    "id",
+    "question",
+    "why_decisive",
+    "reality_evidence_ids",
+}
+CAUSAL_SYNTHESIS_KEYS = {
+    "narrative_spine",
+    "adaptive_value_in_context",
+    "current_cost_in_context",
+    "evidence_pattern_ids",
+    "reality_evidence_ids",
+}
 BOUNDED_DIRECTION_KEYS = {
     "answer",
     "uncertainty_boundary",
@@ -169,16 +195,28 @@ BOUNDED_DIRECTION_KEYS = {
 }
 PRACTICAL_TRANSLATION_KEYS = {
     "mode",
-    "redefined_success",
+    "information_goal",
     "step_or_practice",
     "rationale",
-    "evidence_pattern_ids",
-    "reality_evidence_ids",
+    "decisive_unknown_id",
 }
-COMPENSATION_BRIDGE_KEYS = {
-    "inherited_process_limit",
-    "card_counterweight",
+PERSPECTIVE_SHIFT_KEYS = {
+    "current_frame",
+    "card_specific_counterweight",
+    "relocated_attention",
     "revised_decision_criterion",
+}
+ALTERNATIVE_HYPOTHESIS_KEYS = {
+    "id",
+    "decisive_unknown_id",
+    "possibility",
+    "supporting_reality_evidence_ids",
+    "missing_evidence",
+}
+TAKEAWAY_KEYS = {
+    "decisive_unknown_id",
+    "alternative_hypothesis_ids",
+    "question",
 }
 PASS2_DISPLAY_KEYS = {"complete_reading", "takeaway_question"}
 
@@ -268,6 +306,15 @@ def _require_direct_user_address(value: str, path: str) -> None:
     lowered = value.casefold()
     _require("用户" not in value, f"{path} must not expose the backend label 用户")
     _require("the user" not in lowered, f"{path} must address the reader directly")
+
+
+def _require_no_mapping_markers(value: str, path: str) -> None:
+    lowered = value.casefold()
+    markers = ("（对应", "(对应", "（映射", "(corresponding", "(maps to")
+    _require(
+        not any(marker in lowered for marker in markers),
+        f"{path} must not expose mechanical evidence-mapping markers",
+    )
 
 
 def _require_string_list(value: Any, path: str, *, min_items: int = 0) -> list[str]:
@@ -480,7 +527,7 @@ def validate_pass2_output(
     question_shift_note: str | None,
     situated_reading: Mapping[str, Any],
 ) -> None:
-    """Validate Pass 2 lineage, inheritance, evidence, and display contracts."""
+    """Validate Pass 2 lineage, evidence, synthesis, and final-rendering contracts."""
 
     validate_pass1_output(pass1_payload)
     data = _require_mapping(payload, "pass2")
@@ -493,124 +540,15 @@ def validate_pass2_output(
     _require(data.get("user_question") == user_question, "Pass 2 user_question mismatch")
     _require_enum(data.get("question_shift"), QUESTION_SHIFTS, "pass2.question_shift")
     _require(data.get("question_shift") == question_shift, "Pass 2 question_shift mismatch")
-    _require(
-        data.get("question_shift_note") == question_shift_note,
-        "Pass 2 question_shift_note mismatch",
-    )
-    central_axis = _require_nonempty_string(data.get("central_axis"), "pass2.central_axis")
-    _require_matching_supported_script(
-        central_axis, user_question, "pass2.central_axis"
-    )
-    process_recap = _require_bounded_string(
-        data.get("process_recap"), "pass2.process_recap", max_length=500
-    )
-    pass1_reading = pass1_payload["user_display"]["integrated_reading"]
-    _require_no_pass1_paragraph_copy(
-        process_recap, pass1_reading, "pass2.process_recap"
-    )
-    _require_matching_supported_script(
-        process_recap, user_question, "pass2.process_recap"
-    )
+    _require(data.get("question_shift_note") == question_shift_note, "Pass 2 question_shift_note mismatch")
 
+    central_axis = _require_nonempty_string(data.get("central_axis"), "pass2.central_axis")
+    _require_matching_supported_script(central_axis, user_question, "pass2.central_axis")
+    pass1_reading = pass1_payload["user_display"]["integrated_reading"]
     pass1_patterns = {
         pattern["id"]: pattern for pattern in pass1_payload["psychological_patterns"]
     }
     pass1_pattern_ids = set(pass1_patterns)
-    inheritance = [
-        _require_mapping(item, f"pass2.pattern_inheritance[{index}]")
-        for index, item in enumerate(
-            _require_list(data.get("pattern_inheritance"), "pass2.pattern_inheritance")
-        )
-    ]
-    inheritance_id_list = [
-        _require_nonempty_string(
-            item.get("pattern_id"), f"pass2.pattern_inheritance[{index}].pattern_id"
-        )
-        for index, item in enumerate(inheritance)
-    ]
-    _require(
-        len(inheritance_id_list) == len(set(inheritance_id_list)),
-        "pass2.pattern_inheritance pattern_ids must be unique",
-    )
-    inheritance_ids = set(inheritance_id_list)
-    _require(
-        inheritance_ids == pass1_pattern_ids,
-        "Pass 2 must explicitly map every frozen Pass 1 pattern",
-    )
-    for index, item in enumerate(inheritance):
-        path = f"pass2.pattern_inheritance[{index}]"
-        _require_exact_keys(item, INHERITANCE_KEYS, path)
-        status = _require_enum(item.get("status"), INHERITANCE_STATUSES, f"{path}.status")
-        match_basis = _require_enum(
-            item.get("match_basis"), PATTERN_MATCH_BASES, f"{path}.match_basis"
-        )
-        rationale = _require_nonempty_string(item.get("rationale"), f"{path}.rationale")
-        _require_matching_supported_script(rationale, user_question, f"{path}.rationale")
-        mappings = [
-            _require_mapping(value, f"{path}.process_step_mappings[{mapping_index}]")
-            for mapping_index, value in enumerate(
-                _require_list(item.get("process_step_mappings"), f"{path}.process_step_mappings")
-            )
-        ]
-        for mapping_index, mapping in enumerate(mappings):
-            mapping_path = f"{path}.process_step_mappings[{mapping_index}]"
-            _require_exact_keys(mapping, PROCESS_STEP_MAPPING_KEYS, mapping_path)
-            _require_nonempty_string(mapping.get("pass1_step"), f"{mapping_path}.pass1_step")
-            manifestation = _require_nonempty_string(
-                mapping.get("question_manifestation"),
-                f"{mapping_path}.question_manifestation",
-            )
-            _require_matching_supported_script(
-                manifestation,
-                user_question,
-                f"{mapping_path}.question_manifestation",
-            )
-            _require_string_list(
-                mapping.get("reality_evidence_ids"),
-                f"{mapping_path}.reality_evidence_ids",
-                min_items=1,
-            )
-
-        adaptive = item.get("adaptive_value_in_context")
-        cost = item.get("current_cost_in_context")
-        if status == "integrated":
-            _require(
-                match_basis == "process_recurrence",
-                f"{path} integrated status requires match_basis=process_recurrence",
-            )
-            _require(
-                len(mappings) >= 2,
-                f"{path} integrated status requires at least two mapped process steps",
-            )
-            adaptive = _require_nonempty_string(
-                adaptive, f"{path}.adaptive_value_in_context"
-            )
-            cost = _require_nonempty_string(cost, f"{path}.current_cost_in_context")
-            _require_matching_supported_script(
-                adaptive, user_question, f"{path}.adaptive_value_in_context"
-            )
-            _require_matching_supported_script(
-                cost, user_question, f"{path}.current_cost_in_context"
-            )
-        elif status == "held":
-            _require(
-                match_basis in {"theme_overlap_only", "insufficient_process_evidence"},
-                f"{path} held status requires thematic or insufficient process evidence",
-            )
-            _require(
-                adaptive is None and cost is None,
-                f"{path} held status cannot infer contextual value or cost",
-            )
-        else:
-            _require(
-                match_basis == "no_material_match",
-                f"{path} not_relevant status requires match_basis=no_material_match",
-            )
-            _require(not mappings, f"{path} not_relevant status requires no process mappings")
-            _require(
-                adaptive is None and cost is None,
-                f"{path} not_relevant status requires null contextual value and cost",
-            )
 
     evidence = [
         _require_mapping(item, f"pass2.reality_evidence[{index}]")
@@ -619,86 +557,145 @@ def validate_pass2_output(
         )
     ]
     evidence_ids = _unique_ids(evidence, "pass2.reality_evidence")
-    evidence_sources = {
-        "user_question": user_question,
-        "question_shift_note": question_shift_note,
-    }
+    evidence_sources = {"user_question": user_question, "question_shift_note": question_shift_note}
+    evidence_roles: dict[str, str] = {}
     for index, item in enumerate(evidence):
         path = f"pass2.reality_evidence[{index}]"
         _require_exact_keys(item, REALITY_EVIDENCE_KEYS, path)
-        source = _require_enum(
-            item.get("source"), REALITY_EVIDENCE_SOURCES, f"{path}.source"
-        )
+        source = _require_enum(item.get("source"), REALITY_EVIDENCE_SOURCES, f"{path}.source")
         quote = _require_nonempty_string(item.get("quote"), f"{path}.quote")
         source_text = evidence_sources[source]
         _require(
             isinstance(source_text, str) and quote in source_text,
             f"{path}.quote must occur verbatim in its declared source",
         )
-        _require_enum(item.get("role"), REALITY_EVIDENCE_ROLES, f"{path}.role")
-        interpretation = _require_nonempty_string(
-            item.get("interpretation"), f"{path}.interpretation"
+        role = _require_enum(item.get("role"), REALITY_EVIDENCE_ROLES, f"{path}.role")
+        evidence_roles[item["id"]] = role
+        interpretation = _require_nonempty_string(item.get("interpretation"), f"{path}.interpretation")
+        _require_matching_supported_script(interpretation, user_question, f"{path}.interpretation")
+
+    def validate_question_component(
+        value: Any,
+        path: str,
+    ) -> Mapping[str, Any]:
+        component = _require_mapping(value, path)
+        _require_exact_keys(component, QUESTION_COMPONENT_KEYS, path)
+        summary = _require_nonempty_string(component.get("summary"), f"{path}.summary")
+        _require_matching_supported_script(summary, user_question, f"{path}.summary")
+        refs = set(_require_string_list(component.get("reality_evidence_ids"), f"{path}.reality_evidence_ids", min_items=1))
+        _require(refs <= evidence_ids, f"{path} references unknown reality evidence ids")
+        return component
+
+    question_structure = _require_mapping(data.get("question_structure"), "pass2.question_structure")
+    _require_exact_keys(question_structure, QUESTION_STRUCTURE_KEYS, "pass2.question_structure")
+    validate_question_component(question_structure.get("core_experience"), "pass2.question_structure.core_experience")
+    lived_stakes = _require_list(question_structure.get("lived_stakes"), "pass2.question_structure.lived_stakes")
+    lived_stake_refs: set[str] = set()
+    for index, stake in enumerate(lived_stakes):
+        component = validate_question_component(
+            stake,
+            f"pass2.question_structure.lived_stakes[{index}]",
         )
-        _require_matching_supported_script(
-            interpretation, user_question, f"{path}.interpretation"
+        lived_stake_refs.update(component["reality_evidence_ids"])
+    identified_stake_ids = {
+        evidence_id for evidence_id, role in evidence_roles.items() if role == "lived_stake"
+    }
+    if lived_stakes:
+        _require(
+            identified_stake_ids,
+            "non-empty lived_stakes requires at least one lived_stake evidence item",
         )
+    _require(
+        identified_stake_ids <= lived_stake_refs,
+        "every identified lived-stake evidence item must remain in question_structure.lived_stakes",
+    )
+    for field, evidence_role in (
+        ("current_explanatory_frame", "current_explanatory_frame"),
+        ("contemplated_decision", "contemplated_decision"),
+    ):
+        value = question_structure.get(field)
+        if value is not None:
+            component = validate_question_component(value, f"pass2.question_structure.{field}")
+            _require(
+                any(
+                    evidence_roles[ref] == evidence_role
+                    for ref in component["reality_evidence_ids"]
+                ),
+                f"pass2.question_structure.{field} must cite {evidence_role} evidence",
+            )
+
+    decisive_unknowns = [
+        _require_mapping(item, f"pass2.question_structure.decisive_unknowns[{index}]")
+        for index, item in enumerate(
+            _require_list(
+                question_structure.get("decisive_unknowns"),
+                "pass2.question_structure.decisive_unknowns",
+            )
+        )
+    ]
+    _require(decisive_unknowns, "pass2.question_structure.decisive_unknowns must not be empty")
+    unknown_ids = _unique_ids(decisive_unknowns, "pass2.question_structure.decisive_unknowns")
+    for index, unknown in enumerate(decisive_unknowns):
+        path = f"pass2.question_structure.decisive_unknowns[{index}]"
+        _require_exact_keys(unknown, DECISIVE_UNKNOWN_KEYS, path)
+        for field in ("question", "why_decisive"):
+            text = _require_nonempty_string(unknown.get(field), f"{path}.{field}")
+            _require_matching_supported_script(text, user_question, f"{path}.{field}")
+        refs = set(_require_string_list(unknown.get("reality_evidence_ids"), f"{path}.reality_evidence_ids", min_items=1))
+        _require(refs <= evidence_ids, f"{path} references unknown reality evidence ids")
+
+    inheritance = [
+        _require_mapping(item, f"pass2.pattern_inheritance[{index}]")
+        for index, item in enumerate(
+            _require_list(data.get("pattern_inheritance"), "pass2.pattern_inheritance")
+        )
+    ]
+    inheritance_id_list = [
+        _require_nonempty_string(item.get("pattern_id"), f"pass2.pattern_inheritance[{index}].pattern_id")
+        for index, item in enumerate(inheritance)
+    ]
+    _require(len(inheritance_id_list) == len(set(inheritance_id_list)), "pass2.pattern_inheritance pattern_ids must be unique")
+    _require(set(inheritance_id_list) == pass1_pattern_ids, "Pass 2 must explicitly map every frozen Pass 1 pattern")
 
     integrated_pattern_ids: set[str] = set()
     for index, item in enumerate(inheritance):
         path = f"pass2.pattern_inheritance[{index}]"
-        pattern_id = item["pattern_id"]
-        pattern_steps = set(pass1_patterns[pattern_id]["sequence"])
+        _require_exact_keys(item, INHERITANCE_KEYS, path)
+        status = _require_enum(item.get("status"), INHERITANCE_STATUSES, f"{path}.status")
+        match_basis = _require_enum(item.get("match_basis"), PATTERN_MATCH_BASES, f"{path}.match_basis")
+        rationale = _require_nonempty_string(item.get("rationale"), f"{path}.rationale")
+        _require_matching_supported_script(rationale, user_question, f"{path}.rationale")
+        mappings = [
+            _require_mapping(value, f"{path}.process_step_mappings[{mapping_index}]")
+            for mapping_index, value in enumerate(
+                _require_list(item.get("process_step_mappings"), f"{path}.process_step_mappings")
+            )
+        ]
+        frozen_steps = pass1_patterns[item["pattern_id"]]["sequence"]
         mapped_steps: list[str] = []
-        for mapping_index, mapping in enumerate(item["process_step_mappings"]):
+        for mapping_index, mapping in enumerate(mappings):
             mapping_path = f"{path}.process_step_mappings[{mapping_index}]"
-            step = mapping["pass1_step"]
-            _require(
-                step in pattern_steps,
-                f"{mapping_path}.pass1_step must copy an exact frozen pattern sequence step",
-            )
+            _require_exact_keys(mapping, PROCESS_STEP_MAPPING_KEYS, mapping_path)
+            step = _require_nonempty_string(mapping.get("pass1_step"), f"{mapping_path}.pass1_step")
+            _require(step in frozen_steps, f"{mapping_path}.pass1_step must copy an exact frozen pattern sequence step")
             mapped_steps.append(step)
-            mapping_refs = set(mapping["reality_evidence_ids"])
-            _require(
-                mapping_refs <= evidence_ids,
-                f"{mapping_path} references unknown reality evidence ids",
-            )
-        _require(
-            len(mapped_steps) == len(set(mapped_steps)),
-            f"{path}.process_step_mappings must map distinct frozen steps",
-        )
-        if item["status"] == "integrated":
-            _require(
-                set(mapped_steps) == pattern_steps,
-                f"{path} integrated status must map every frozen process step",
-            )
-            integrated_pattern_ids.add(pattern_id)
-        elif item["status"] == "held":
-            _require(
-                set(mapped_steps) < pattern_steps,
-                f"{path} held status must map fewer than all frozen process steps",
-            )
-
-    situated = _require_mapping(
-        data.get("situated_traditional_reading"), "pass2.situated_traditional_reading"
-    )
-    _require(
-        dict(situated) == dict(situated_reading),
-        "Pass 2 must preserve the independently generated situated reading",
-    )
-
-    compensation = _require_mapping(
-        data.get("compensation_bridge"), "pass2.compensation_bridge"
-    )
-    _require_exact_keys(
-        compensation, COMPENSATION_BRIDGE_KEYS, "pass2.compensation_bridge"
-    )
-    for field in COMPENSATION_BRIDGE_KEYS:
-        value = _require_nonempty_string(
-            compensation.get(field), f"pass2.compensation_bridge.{field}"
-        )
-        _require_matching_supported_script(
-            value, user_question, f"pass2.compensation_bridge.{field}"
-        )
+            manifestation = _require_nonempty_string(mapping.get("question_manifestation"), f"{mapping_path}.question_manifestation")
+            _require_matching_supported_script(manifestation, user_question, f"{mapping_path}.question_manifestation")
+            mapping_refs = set(_require_string_list(mapping.get("reality_evidence_ids"), f"{mapping_path}.reality_evidence_ids", min_items=1))
+            _require(mapping_refs <= evidence_ids, f"{mapping_path} references unknown reality evidence ids")
+        _require(len(mapped_steps) == len(set(mapped_steps)), f"{path}.process_step_mappings must map distinct frozen steps")
+        positions = [frozen_steps.index(step) for step in mapped_steps]
+        _require(positions == sorted(positions), f"{path}.process_step_mappings must preserve frozen process order")
+        if status == "integrated":
+            _require(match_basis == "process_recurrence", f"{path} integrated status requires match_basis=process_recurrence")
+            _require(len(mappings) >= 2, f"{path} integrated status requires at least two ordered process steps")
+            integrated_pattern_ids.add(item["pattern_id"])
+        elif status == "held":
+            _require(match_basis in {"theme_overlap_only", "insufficient_process_evidence"}, f"{path} held status requires thematic or insufficient process evidence")
+            _require(len(mappings) < 2, f"{path} held status cannot claim a recurring process sequence")
+        else:
+            _require(match_basis == "no_material_match", f"{path} not_relevant status requires match_basis=no_material_match")
+            _require(not mappings, f"{path} not_relevant status requires no process mappings")
 
     def validate_traceable_section(
         value: Any,
@@ -710,28 +707,65 @@ def validate_pass2_output(
         _require_exact_keys(section, expected_keys, path)
         for field in text_fields:
             text = _require_nonempty_string(section.get(field), f"{path}.{field}")
-            _require_matching_supported_script(
-                text, user_question, f"{path}.{field}"
-            )
-        pattern_refs = set(
-            _require_string_list(
-                section.get("evidence_pattern_ids"),
-                f"{path}.evidence_pattern_ids",
-            )
-        )
-        reality_refs = set(
-            _require_string_list(
-                section.get("reality_evidence_ids"),
-                f"{path}.reality_evidence_ids",
-            )
-        )
-        _require(pattern_refs <= pass1_pattern_ids, f"{path} references unknown pattern ids")
-        _require(
-            pattern_refs <= integrated_pattern_ids,
-            f"{path} may cite only process-integrated pattern ids",
-        )
+            _require_matching_supported_script(text, user_question, f"{path}.{field}")
+        pattern_refs = set(_require_string_list(section.get("evidence_pattern_ids"), f"{path}.evidence_pattern_ids"))
+        reality_refs = set(_require_string_list(section.get("reality_evidence_ids"), f"{path}.reality_evidence_ids"))
+        _require(pattern_refs <= integrated_pattern_ids, f"{path} may cite only process-integrated pattern ids")
         _require(reality_refs <= evidence_ids, f"{path} references unknown reality evidence ids")
         return section
+
+    synthesis = validate_traceable_section(
+        data.get("causal_process_synthesis"),
+        CAUSAL_SYNTHESIS_KEYS,
+        "pass2.causal_process_synthesis",
+        ("narrative_spine", "adaptive_value_in_context", "current_cost_in_context"),
+    )
+    _require(synthesis["reality_evidence_ids"], "causal process synthesis must cite reality evidence")
+    _require_bounded_string(synthesis["narrative_spine"], "pass2.causal_process_synthesis.narrative_spine", max_length=800)
+    _require_no_pass1_paragraph_copy(synthesis["narrative_spine"], pass1_reading, "pass2.causal_process_synthesis.narrative_spine")
+
+    situated = _require_mapping(data.get("situated_traditional_reading"), "pass2.situated_traditional_reading")
+    _require(dict(situated) == dict(situated_reading), "Pass 2 must preserve the independently generated situated reading")
+
+    perspective = _require_mapping(data.get("perspective_shift"), "pass2.perspective_shift")
+    _require_exact_keys(perspective, PERSPECTIVE_SHIFT_KEYS, "pass2.perspective_shift")
+    for field in PERSPECTIVE_SHIFT_KEYS:
+        text = _require_nonempty_string(perspective.get(field), f"pass2.perspective_shift.{field}")
+        _require_matching_supported_script(text, user_question, f"pass2.perspective_shift.{field}")
+
+    alternatives = [
+        _require_mapping(item, f"pass2.alternative_hypotheses[{index}]")
+        for index, item in enumerate(
+            _require_list(data.get("alternative_hypotheses"), "pass2.alternative_hypotheses")
+        )
+    ]
+    _require(len(alternatives) >= 2, "pass2.alternative_hypotheses must preserve at least two live explanations")
+    alternative_ids = _unique_ids(alternatives, "pass2.alternative_hypotheses")
+    alternative_unknowns: dict[str, str] = {}
+    alternative_possibilities: list[str] = []
+    for index, alternative in enumerate(alternatives):
+        path = f"pass2.alternative_hypotheses[{index}]"
+        _require_exact_keys(alternative, ALTERNATIVE_HYPOTHESIS_KEYS, path)
+        alternative_unknown = _require_nonempty_string(
+            alternative.get("decisive_unknown_id"), f"{path}.decisive_unknown_id"
+        )
+        _require(alternative_unknown in unknown_ids, f"{path} must target a decisive unknown")
+        alternative_unknowns[alternative["id"]] = alternative_unknown
+        for field in ("possibility", "missing_evidence"):
+            text = _require_nonempty_string(alternative.get(field), f"{path}.{field}")
+            _require_matching_supported_script(text, user_question, f"{path}.{field}")
+            if field == "possibility":
+                alternative_possibilities.append(" ".join(text.casefold().split()))
+        refs = set(_require_string_list(alternative.get("supporting_reality_evidence_ids"), f"{path}.supporting_reality_evidence_ids"))
+        _require(refs <= evidence_ids, f"{path} references unknown reality evidence ids")
+        _require(
+            all(evidence_roles[ref] in {"supporting", "action_already_taken"} for ref in refs),
+            f"{path} may use only direct supporting or action evidence; stakes and frames cannot prove a hypothesis",
+        )
+    _require(
+        len(alternative_possibilities) == len(set(alternative_possibilities)),
+        "alternative hypotheses must contain distinct possibilities",
+    )
 
     direction = validate_traceable_section(
         data.get("bounded_direction"),
@@ -739,58 +773,62 @@ def validate_pass2_output(
         "pass2.bounded_direction",
         ("answer", "uncertainty_boundary"),
     )
-    _require(
-        direction["evidence_pattern_ids"] or direction["reality_evidence_ids"],
-        "bounded direction must cite Pass 1 or reality evidence",
-    )
+    _require(direction["evidence_pattern_ids"] or direction["reality_evidence_ids"], "bounded direction must cite Pass 1 or reality evidence")
 
-    practical = validate_traceable_section(
-        data.get("practical_translation"),
-        PRACTICAL_TRANSLATION_KEYS,
-        "pass2.practical_translation",
-        ("redefined_success", "rationale"),
-    )
+    practical = _require_mapping(data.get("practical_translation"), "pass2.practical_translation")
+    _require_exact_keys(practical, PRACTICAL_TRANSLATION_KEYS, "pass2.practical_translation")
     mode = _require_enum(practical.get("mode"), PRACTICAL_MODES, "pass2.practical_translation.mode")
+    for field in ("information_goal", "rationale"):
+        text = _require_nonempty_string(practical.get(field), f"pass2.practical_translation.{field}")
+        _require_matching_supported_script(text, user_question, f"pass2.practical_translation.{field}")
+    target_unknown = _require_nonempty_string(practical.get("decisive_unknown_id"), "pass2.practical_translation.decisive_unknown_id")
+    _require(target_unknown in unknown_ids, "practical translation must target a decisive unknown")
     step = practical.get("step_or_practice")
     if mode == "none":
         _require(step is None, "practical_translation mode=none requires step_or_practice=null")
     else:
-        step = _require_nonempty_string(
-            step, "pass2.practical_translation.step_or_practice"
-        )
-        _require_matching_supported_script(
-            step, user_question, "pass2.practical_translation.step_or_practice"
-        )
+        step = _require_nonempty_string(step, "pass2.practical_translation.step_or_practice")
+        _require_matching_supported_script(step, user_question, "pass2.practical_translation.step_or_practice")
 
-    limits = _require_mapping(data.get("epistemic_limits"), "pass2.epistemic_limits")
-    _require_exact_keys(limits, {"unsupported_inferences", "limitations"}, "pass2.epistemic_limits")
-    unsupported = set(
+    takeaway = _require_mapping(data.get("takeaway"), "pass2.takeaway")
+    _require_exact_keys(takeaway, TAKEAWAY_KEYS, "pass2.takeaway")
+    takeaway_unknown = _require_nonempty_string(takeaway.get("decisive_unknown_id"), "pass2.takeaway.decisive_unknown_id")
+    _require(takeaway_unknown in unknown_ids, "takeaway must target a decisive unknown")
+    takeaway_alternatives = set(
         _require_string_list(
-            limits.get("unsupported_inferences"),
-            "pass2.epistemic_limits.unsupported_inferences",
+            takeaway.get("alternative_hypothesis_ids"),
+            "pass2.takeaway.alternative_hypothesis_ids",
+            min_items=2,
         )
     )
     _require(
-        {"stable_trait", "developmental_origin", "clinical_diagnosis"} <= unsupported,
-        "Pass 2 must preserve single-session epistemic limits",
+        takeaway_alternatives <= alternative_ids,
+        "takeaway references unknown alternative hypotheses",
     )
+    _require(
+        all(alternative_unknowns[item] == takeaway_unknown for item in takeaway_alternatives),
+        "takeaway alternatives must address its decisive unknown",
+    )
+    takeaway_question = _require_nonempty_string(takeaway.get("question"), "pass2.takeaway.question")
+    _require_matching_supported_script(takeaway_question, user_question, "pass2.takeaway.question")
+
+    limits = _require_mapping(data.get("epistemic_limits"), "pass2.epistemic_limits")
+    _require_exact_keys(limits, {"unsupported_inferences", "limitations"}, "pass2.epistemic_limits")
+    unsupported = set(_require_string_list(limits.get("unsupported_inferences"), "pass2.epistemic_limits.unsupported_inferences"))
+    _require({"stable_trait", "developmental_origin", "clinical_diagnosis"} <= unsupported, "Pass 2 must preserve single-session epistemic limits")
     _require_string_list(limits.get("limitations"), "pass2.epistemic_limits.limitations")
 
     display = _require_mapping(data.get("user_display"), "pass2.user_display")
     _require_exact_keys(display, PASS2_DISPLAY_KEYS, "pass2.user_display")
-    complete_reading = _require_nonempty_string(
-        display.get("complete_reading"), "pass2.user_display.complete_reading"
-    )
-    _require_no_pass1_paragraph_copy(
-        complete_reading, pass1_reading, "pass2.user_display.complete_reading"
-    )
-    _require_matching_supported_script(
-        complete_reading, user_question, "pass2.user_display.complete_reading"
-    )
+    complete_reading = _require_nonempty_string(display.get("complete_reading"), "pass2.user_display.complete_reading")
+    _require_no_pass1_paragraph_copy(complete_reading, pass1_reading, "pass2.user_display.complete_reading")
+    _require_matching_supported_script(complete_reading, user_question, "pass2.user_display.complete_reading")
     _require_direct_user_address(complete_reading, "pass2.user_display.complete_reading")
-    takeaway_question = _require_nonempty_string(
-        display.get("takeaway_question"), "pass2.user_display.takeaway_question"
+    _require_no_mapping_markers(complete_reading, "pass2.user_display.complete_reading")
+    _require(
+        not complete_reading.rstrip().endswith((":", "：")),
+        "pass2.user_display.complete_reading must end as a complete answer, not a takeaway lead-in",
     )
-    _require_matching_supported_script(
-        takeaway_question, user_question, "pass2.user_display.takeaway_question"
-    )
+    display_takeaway = _require_nonempty_string(display.get("takeaway_question"), "pass2.user_display.takeaway_question")
+    _require(display_takeaway == takeaway_question, "user display must preserve the decisive-unknown takeaway question")
+    _require_matching_supported_script(display_takeaway, user_question, "pass2.user_display.takeaway_question")

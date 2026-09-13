@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .contracts import ContractError, ORIENTATIONS
+from .contracts import ContractError, ORIENTATIONS, _require_matching_supported_script
 from .knowledge import TarotKnowledgeBase
 
 
@@ -31,10 +31,10 @@ FORBIDDEN_SITUATED_KEYS = {
 SITUATED_OUTPUT_KEYS = {
     "card_id",
     "orientation",
-    "card_role_in_question",
-    "practical_tension",
-    "bounded_direction",
-    "reflection_point",
+    "question_relevant_card_structure",
+    "orientation_mechanism",
+    "tension_axes",
+    "scope_boundary",
     "source_refs",
 }
 
@@ -164,14 +164,40 @@ class TraditionalTarotLayer:
         if output.get("orientation") != canonical["orientation"]:
             raise ContractError("situated output orientation mismatch")
         for field in (
-            "card_role_in_question",
-            "practical_tension",
-            "bounded_direction",
-            "reflection_point",
+            "question_relevant_card_structure",
+            "orientation_mechanism",
+            "scope_boundary",
         ):
             value = output.get(field)
             if not isinstance(value, str) or not value.strip():
                 raise ContractError(f"situated output {field} must be a non-empty string")
+            _require_matching_supported_script(
+                value, request["user_question"], f"situated output {field}"
+            )
+            lowered = f" {value.casefold()} "
+            if "你" in value or " you " in lowered or " your " in lowered:
+                raise ContractError(
+                    f"situated output {field} must describe card structure without direct user attribution"
+                )
+        tension_axes = output.get("tension_axes")
+        if (
+            not isinstance(tension_axes, list)
+            or len(tension_axes) < 2
+            or not all(isinstance(item, str) and item.strip() for item in tension_axes)
+        ):
+            raise ContractError("situated output tension_axes must contain at least two strings")
+        normalized_axes = {" ".join(item.casefold().split()) for item in tension_axes}
+        if len(normalized_axes) != len(tension_axes):
+            raise ContractError("situated output tension_axes must be distinct")
+        for index, axis in enumerate(tension_axes):
+            _require_matching_supported_script(
+                axis, request["user_question"], f"situated output tension_axes[{index}]"
+            )
+            lowered = f" {axis.casefold()} "
+            if "你" in axis or " you " in lowered or " your " in lowered:
+                raise ContractError(
+                    f"situated output tension_axes[{index}] must not attribute a state to the user"
+                )
         source_refs = output.get("source_refs")
         if not isinstance(source_refs, list) or not source_refs:
             raise ContractError("situated output source_refs must be a non-empty list")

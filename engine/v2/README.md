@@ -1,6 +1,6 @@
 # Liminal v2 testable vertical slice
 
-Status: **model-connected contract-driven alpha; Pass 2 process-bridge revision awaiting human acceptance**.
+Status: **model-connected contract-driven alpha; Pass 2 causal-synthesis revision awaiting human acceptance**.
 
 This directory adds v2 contracts without modifying the frozen v1.1 schema or prompts.
 
@@ -14,6 +14,8 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
 - Phase 2 testable traditional layer:
   - canonical input is limited to card and orientation
   - situated input is limited to canonical reading and the revealed question
+  - situated output supplies only card structure, orientation mechanism, open tension axes,
+    and a scope boundary; it cannot pre-answer the question or recommend an intervention
   - all 78 current records are available, but remain marked `provisional_v1_dataset` until Waite-source and human review are complete
 - Phase 3 Pass 1 workflow:
   - question-blind request preparation
@@ -26,16 +28,20 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
   - immutable Pass 1 lineage through its SHA-256 digest
   - isolated situated traditional reading
   - explicit `integrated` / `held` / `not_relevant` mapping for every Pass 1 pattern
-  - `integrated` requires every exact frozen process step with question evidence;
-    theme-only or under-evidenced connections remain `held`
-  - integrated mappings preserve the question-specific adaptive value and current cost
-  - verbatim reality evidence, including optional evidence of action already taken
-  - a three-part bridge from inherited-process limit to card counterweight to revised
-    decision criterion
+  - `integrated` requires at least two evidenced steps in their frozen order; it no longer
+    forces every step to match, while theme-only or under-evidenced connections remain `held`
+  - an explicit question structure preserves core experience, lived stakes, the user's
+    current explanatory frame, contemplated decision, and decisive unknowns
+  - one causal process synthesis carries the inherited process's contextual value and cost
+    without rendering backend step mappings as prose
+  - verbatim reality evidence, including emotional salience and optional action already taken
+  - a card-specific perspective shift relocates attention and revises the decision criterion
+  - at least two live alternative explanations prevent premature causal closure
   - bounded direction with an uncertainty boundary; only integrated patterns may drive it
-  - optional action/reflection translation and one takeaway question
-  - a writing stage that renders one self-contained reading from a compact process recap,
-    without receiving or copying the full Pass 1 prose
+  - optional action/reflection used only to learn about a named decisive unknown
+  - a takeaway question linked to that unknown without presupposing a solution
+  - a writing stage that renders one self-contained reading from a curated narrative brief;
+    it receives neither full Pass 1 prose, raw evidence checklists, nor process-step mappings
 - Parallel production foundations (not yet active model inputs):
   - a deterministic 78-card RWS knowledge index with per-card Waite text candidates, source links, and review states
   - a prompt-neutral analysis-method specification with a verified source registry, claim-to-source map, controversy boundaries, evaluation design, evidence gates, and false-positive checks
@@ -52,8 +58,9 @@ This directory adds v2 contracts without modifying the frozen v1.1 schema or pro
 
 No third-party model SDK is required; the adapter uses Python's standard HTTP library.
 A first live participant API run accepted Pass 1 but exposed formal rather than semantic
-inheritance in Pass 2. The revised Pass 2 candidate now requires process-step evidence and
-must be rerun against the frozen participant Pass 1 before acceptance.
+inheritance in Pass 2. A first correction then overconstrained exact step matching and produced
+fragmented prose. The current candidate separates backend evidence audit from causal synthesis
+and must be rerun against the frozen participant Pass 1 before acceptance.
 
 The automated knowledge-ingestion and method-research passes are complete for this gate. Human field review of card text/images and explicit method activation remain later work. Both layers remain `shadow_read_only` / `shadow_only_not_prompt_input`, so the live model still uses the accepted provisional traditional payload and locked analytical prompts.
 
@@ -170,10 +177,10 @@ python -m engine.v2.cli assemble-pass2 \
 ## Next human-test gate
 
 Rerun the revised Pass 2 against the already frozen participant Pass 1 and revealed question.
-Acceptance requires a compact rather than copied Pass 1 recap, evidence-linked recurrence of
-every frozen process step (or an honest `held` status), and practical translation
-derived from the three-part compensation bridge. After this regression check, use a different
-card and question for a complete two-pass confirmation run.
+Acceptance requires a coherent causal process rather than element-by-element matching, explicit
+coverage of material lived stakes, a genuinely card-specific shift in perspective, multiple live
+explanations, and a takeaway question that does not preselect its solution. After this regression
+check, use a different card and question for a complete two-pass confirmation run.
 
 Score at least:
 
@@ -184,5 +191,8 @@ Score at least:
 - Pass 1 → Pass 2 inheritance continuity
 - Pass 2 incremental value and answer completeness
 - whether practical translation follows from evidence rather than generic advice
+- whether emotionally important stakes remain present without being overinterpreted
+- whether the perspective shift changes the decision criterion rather than merely adding advice
+- whether the takeaway question remains neutral about the method and outcome
 
 Do not commit participant audio, raw transcript, revealed question, or identifiable feedback to a public repository. Store only consented, anonymized research artifacts outside the code repository.

@@ -166,10 +166,13 @@ class ModelWorkflowTests(unittest.TestCase):
         situated = {
             "card_id": canonical["card_id"],
             "orientation": canonical["orientation"],
-            "card_role_in_question": "The card frames movement as coordinated rather than guaranteed.",
-            "practical_tension": "Preparation can support action or become delay.",
-            "bounded_direction": "Use a limited commitment to learn what action changes.",
-            "reflection_point": "What would count as one completed movement?",
+            "question_relevant_card_structure": "The card frames movement as coordination rather than certainty.",
+            "orientation_mechanism": "Upright movement remains active while opposing forces require coordination.",
+            "tension_axes": [
+                "Preparation may coordinate movement.",
+                "Preparation may delay movement.",
+            ],
+            "scope_boundary": "The card cannot establish whether withdrawal will occur.",
             "source_refs": canonical["source_refs"],
         }
         integration = {
@@ -180,6 +183,24 @@ class ModelWorkflowTests(unittest.TestCase):
             "pass1_sha256": frozen["pass1_sha256"],
             "question_shift": "clarified",
             "central_axis": "Preparation protects movement but may postpone it.",
+            "question_structure": {
+                "core_experience": {
+                    "summary": "An application is underway while withdrawal is feared.",
+                    "reality_evidence_ids": ["reality-1", "reality-2"],
+                },
+                "lived_stakes": [{
+                    "summary": "Following through already carries worry.",
+                    "reality_evidence_ids": ["reality-3"],
+                }],
+                "current_explanatory_frame": None,
+                "contemplated_decision": None,
+                "decisive_unknowns": [{
+                    "id": "unknown-1",
+                    "question": "Whether hesitation will prevent attendance.",
+                    "why_decisive": "It separates present worry from future behavior.",
+                    "reality_evidence_ids": ["reality-2", "reality-3"],
+                }],
+            },
             "pattern_inheritance": [{
                 "pattern_id": "pattern-1",
                 "status": "integrated",
@@ -194,25 +215,62 @@ class ModelWorkflowTests(unittest.TestCase):
                     {
                         "pass1_step": "reassign the structure's function",
                         "question_manifestation": "Uncertainty is recoded as likely withdrawal.",
-                        "reality_evidence_ids": ["reality-1"],
+                        "reality_evidence_ids": ["reality-2"],
                     },
                 ],
+            }],
+            "causal_process_synthesis": {
+                "narrative_spine": "Because following through matters, present worry is used to anticipate withdrawal even though action has begun.",
                 "adaptive_value_in_context": "Anticipation can support preparation.",
                 "current_cost_in_context": "It can make withdrawal feel predetermined.",
-            }],
-            "process_recap": "The user repeats a move from recognizing action to recoding uncertainty as likely withdrawal.",
-            "reality_evidence": [{
-                "id": "reality-1",
-                "source": "user_question",
-                "quote": "I applied",
-                "role": "action_already_taken",
-                "interpretation": "Action has already begun.",
-            }],
-            "compensation_bridge": {
-                "inherited_process_limit": "Hesitation is collapsed into expected withdrawal.",
-                "card_counterweight": "Coordinated movement can include unresolved hesitation.",
+                "evidence_pattern_ids": ["pattern-1"],
+                "reality_evidence_ids": ["reality-1", "reality-2", "reality-3"],
+            },
+            "reality_evidence": [
+                {
+                    "id": "reality-1",
+                    "source": "user_question",
+                    "quote": "I applied",
+                    "role": "action_already_taken",
+                    "interpretation": "Action has already begun.",
+                },
+                {
+                    "id": "reality-2",
+                    "source": "user_question",
+                    "quote": "withdraw before the interview",
+                    "role": "reported_experience",
+                    "interpretation": "Withdrawal is feared rather than completed.",
+                },
+                {
+                    "id": "reality-3",
+                    "source": "user_question",
+                    "quote": "I worry",
+                    "role": "lived_stake",
+                    "interpretation": "The possibility carries emotional weight.",
+                },
+            ],
+            "perspective_shift": {
+                "current_frame": "Present hesitation is being used to forecast stopped movement.",
+                "card_specific_counterweight": "The Chariot frames movement as coordination of tension.",
+                "relocated_attention": "Attention moves from certainty to coordinated follow-through.",
                 "revised_decision_criterion": "Evaluate the next completed movement rather than emotional certainty.",
             },
+            "alternative_hypotheses": [
+                {
+                    "id": "alternative-1",
+                    "decisive_unknown_id": "unknown-1",
+                    "possibility": "Worry may coexist with attendance.",
+                    "supporting_reality_evidence_ids": ["reality-1"],
+                    "missing_evidence": "Whether comparable worry previously stopped action.",
+                },
+                {
+                    "id": "alternative-2",
+                    "decisive_unknown_id": "unknown-1",
+                    "possibility": "Worry may signal a material risk of withdrawal.",
+                    "supporting_reality_evidence_ids": [],
+                    "missing_evidence": "Which conditions precede actual withdrawal.",
+                },
+            ],
             "bounded_direction": {
                 "answer": "Following through is plausible through a bounded next step.",
                 "uncertainty_boundary": "The reading cannot predict the outcome.",
@@ -221,11 +279,15 @@ class ModelWorkflowTests(unittest.TestCase):
             },
             "practical_translation": {
                 "mode": "action",
-                "redefined_success": "Success is attending, not controlling the outcome.",
+                "information_goal": "Learn whether hesitation prevents attendance.",
                 "step_or_practice": "Prepare one question and attend.",
-                "rationale": "This turns preparation into finite movement.",
-                "evidence_pattern_ids": ["pattern-1"],
-                "reality_evidence_ids": ["reality-1"],
+                "rationale": "A bounded action creates evidence about the feared outcome.",
+                "decisive_unknown_id": "unknown-1",
+            },
+            "takeaway": {
+                "decisive_unknown_id": "unknown-1",
+                "alternative_hypothesis_ids": ["alternative-1", "alternative-2"],
+                "question": "What is the smallest completed movement?",
             },
             "epistemic_limits": {
                 "unsupported_inferences": [
@@ -233,7 +295,6 @@ class ModelWorkflowTests(unittest.TestCase):
                 ],
                 "limitations": ["One reading cannot establish future behavior."],
             },
-            "takeaway_question": "What is the smallest completed movement?",
         }
         writing = {
             "schema_version": SCHEMA_VERSION,
@@ -241,7 +302,7 @@ class ModelWorkflowTests(unittest.TestCase):
             "card_id": frozen["payload"]["card_id"],
             "pass1_sha256": frozen["pass1_sha256"],
             "complete_reading": "The frozen process meets the question through bounded movement.",
-            "takeaway_question": integration["takeaway_question"],
+            "takeaway_question": integration["takeaway"]["question"],
         }
         client = SequenceClient([situated, integration, writing])
         run = ModelWorkflow(client).run_pass2(request)

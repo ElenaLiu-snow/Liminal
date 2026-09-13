@@ -38,14 +38,16 @@ INTEGRATION_STAGE_KEYS = {
     "pass1_sha256",
     "question_shift",
     "central_axis",
+    "question_structure",
     "pattern_inheritance",
-    "process_recap",
+    "causal_process_synthesis",
     "reality_evidence",
-    "compensation_bridge",
+    "perspective_shift",
+    "alternative_hypotheses",
     "bounded_direction",
     "practical_translation",
     "epistemic_limits",
-    "takeaway_question",
+    "takeaway",
 }
 WRITING_STAGE_KEYS = {
     "schema_version",
@@ -203,12 +205,68 @@ class Pass2Pipeline:
         self._validate_stage_identity(
             integration_stage, INTEGRATION_STAGE_KEYS, request, "integration stage"
         )
+        question_structure = integration_stage["question_structure"]
+        unknown_questions = {
+            item["id"]: item["question"]
+            for item in question_structure["decisive_unknowns"]
+        }
+        narrative_brief = {
+            "central_axis": integration_stage["central_axis"],
+            "question_structure": {
+                "core_experience": question_structure["core_experience"]["summary"],
+                "lived_stakes": [item["summary"] for item in question_structure["lived_stakes"]],
+                "current_explanatory_frame": (
+                    question_structure["current_explanatory_frame"]["summary"]
+                    if question_structure["current_explanatory_frame"] is not None
+                    else None
+                ),
+                "contemplated_decision": (
+                    question_structure["contemplated_decision"]["summary"]
+                    if question_structure["contemplated_decision"] is not None
+                    else None
+                ),
+                "decisive_unknowns": [
+                    {
+                        "question": item["question"],
+                        "why_decisive": item["why_decisive"],
+                    }
+                    for item in question_structure["decisive_unknowns"]
+                ],
+            },
+            "causal_process_synthesis": {
+                key: integration_stage["causal_process_synthesis"][key]
+                for key in (
+                    "narrative_spine",
+                    "adaptive_value_in_context",
+                    "current_cost_in_context",
+                )
+            },
+            "perspective_shift": integration_stage["perspective_shift"],
+            "alternative_hypotheses": [
+                {
+                    "decisive_unknown": unknown_questions[item["decisive_unknown_id"]],
+                    "possibility": item["possibility"],
+                    "missing_evidence": item["missing_evidence"],
+                }
+                for item in integration_stage["alternative_hypotheses"]
+            ],
+            "bounded_direction": {
+                key: integration_stage["bounded_direction"][key]
+                for key in ("answer", "uncertainty_boundary")
+            },
+            "practical_translation": {
+                key: integration_stage["practical_translation"][key]
+                for key in ("mode", "information_goal", "step_or_practice", "rationale")
+            },
+            "takeaway": {"question": integration_stage["takeaway"]["question"]},
+            "epistemic_limits": integration_stage["epistemic_limits"],
+        }
         writing_input = {
             "schema_version": request["schema_version"],
             "session_id": request["session_id"],
             "card_id": request["frozen_pass1"]["payload"]["card_id"],
             "pass1_sha256": request["frozen_pass1"]["pass1_sha256"],
-            "integration": integration_stage,
+            "narrative_brief": narrative_brief,
         }
         return self._render_template("writing", "{{PASS2_WRITING_INPUT}}", writing_input)
 
@@ -226,7 +284,7 @@ class Pass2Pipeline:
         self._validate_stage_identity(
             writing_stage, WRITING_STAGE_KEYS, request, "writing stage"
         )
-        if writing_stage["takeaway_question"] != integration_stage["takeaway_question"]:
+        if writing_stage["takeaway_question"] != integration_stage["takeaway"]["question"]:
             raise ContractError("writing stage must preserve the integrated takeaway question")
 
         pass1 = request["frozen_pass1"]["payload"]
@@ -240,13 +298,16 @@ class Pass2Pipeline:
             "question_shift": request["question_shift"],
             "question_shift_note": request["question_shift_note"],
             "central_axis": integration_stage["central_axis"],
+            "question_structure": integration_stage["question_structure"],
             "pattern_inheritance": integration_stage["pattern_inheritance"],
-            "process_recap": integration_stage["process_recap"],
+            "causal_process_synthesis": integration_stage["causal_process_synthesis"],
             "reality_evidence": integration_stage["reality_evidence"],
             "situated_traditional_reading": dict(situated_output),
-            "compensation_bridge": integration_stage["compensation_bridge"],
+            "perspective_shift": integration_stage["perspective_shift"],
+            "alternative_hypotheses": integration_stage["alternative_hypotheses"],
             "bounded_direction": integration_stage["bounded_direction"],
             "practical_translation": integration_stage["practical_translation"],
+            "takeaway": integration_stage["takeaway"],
             "epistemic_limits": integration_stage["epistemic_limits"],
             "user_display": {
                 "complete_reading": writing_stage["complete_reading"],

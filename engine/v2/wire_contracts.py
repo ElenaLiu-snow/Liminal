@@ -212,26 +212,28 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
         },
     },
     "traditional_situated": {
+        "cardinality_rules": ["tension_axes must contain at least two distinct strings."],
         "top_level_keys": [
-            "card_id", "orientation", "card_role_in_question", "practical_tension",
-            "bounded_direction", "reflection_point", "source_refs",
+            "card_id", "orientation", "question_relevant_card_structure",
+            "orientation_mechanism", "tension_axes", "scope_boundary", "source_refs",
         ],
         "enums": {"orientation": ["upright", "reversed"]},
         "field_types": {
             "card_id": "string",
             "orientation": "string",
-            "card_role_in_question": "string",
-            "practical_tension": "string",
-            "bounded_direction": "string",
-            "reflection_point": "string",
+            "question_relevant_card_structure": "string",
+            "orientation_mechanism": "string",
+            "tension_axes": "array<string>",
+            "scope_boundary": "string",
             "source_refs": "array<string>"
         },
     },
     "pass2_integration": {
         "cardinality_rules": [
             "bounded_direction must cite at least one id across evidence_pattern_ids and reality_evidence_ids.",
-            "Every integrated pattern must map every distinct frozen sequence step exactly once (and therefore at least two); held patterns map fewer than all frozen steps; not_relevant patterns map none.",
-            "Every process_step_mappings[].reality_evidence_ids array must contain at least one item."
+            "Every integrated pattern must map at least two distinct frozen sequence steps in frozen order; held patterns map fewer than two; not_relevant patterns map none.",
+            "Every process_step_mappings[].reality_evidence_ids array must contain at least one item.",
+            "question_structure.decisive_unknowns must contain at least one item and alternative_hypotheses must contain at least two items."
         ],
         "reference_integrity": [
             "pattern_inheritance must contain every frozen Pass 1 psychological_patterns[].id exactly once, copied without renaming.",
@@ -241,23 +243,30 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "Each reality_evidence[].quote must occur verbatim in the source declared by reality_evidence[].source."
         ],
         "conditional_rules": [
-            "integrated requires match_basis=process_recurrence plus non-empty adaptive_value_in_context and current_cost_in_context.",
-            "held requires match_basis=theme_overlap_only or insufficient_process_evidence, fewer than two process mappings, and null contextual value/cost.",
-            "not_relevant requires match_basis=no_material_match, no process mappings, and null contextual value/cost.",
+            "integrated requires match_basis=process_recurrence and at least two ordered process mappings.",
+            "held requires match_basis=theme_overlap_only or insufficient_process_evidence and fewer than two process mappings.",
+            "not_relevant requires match_basis=no_material_match and no process mappings.",
             "When practical_translation.mode is none, step_or_practice must be null; otherwise step_or_practice must be a non-empty string.",
+            "practical_translation.decisive_unknown_id and takeaway.decisive_unknown_id must reference question_structure.decisive_unknowns[].id.",
             "epistemic_limits.unsupported_inferences must include stable_trait, developmental_origin, and clinical_diagnosis."
         ],
         "top_level_keys": [
             "schema_version", "session_id", "card_id", "orientation", "pass1_sha256",
-            "question_shift", "central_axis", "pattern_inheritance",
-            "process_recap", "reality_evidence", "compensation_bridge",
-            "bounded_direction", "practical_translation",
-            "epistemic_limits", "takeaway_question",
+            "question_shift", "central_axis", "question_structure",
+            "pattern_inheritance", "causal_process_synthesis", "reality_evidence",
+            "perspective_shift", "alternative_hypotheses", "bounded_direction",
+            "practical_translation", "takeaway", "epistemic_limits",
+        ],
+        "question_structure_keys": [
+            "core_experience", "lived_stakes", "current_explanatory_frame",
+            "contemplated_decision", "decisive_unknowns",
+        ],
+        "question_component_keys": ["summary", "reality_evidence_ids"],
+        "decisive_unknown_item_keys": [
+            "id", "question", "why_decisive", "reality_evidence_ids"
         ],
         "pattern_inheritance_item_keys": [
-            "pattern_id", "status", "match_basis", "rationale",
-            "process_step_mappings", "adaptive_value_in_context",
-            "current_cost_in_context",
+            "pattern_id", "status", "match_basis", "rationale", "process_step_mappings",
         ],
         "process_step_mapping_item_keys": [
             "pass1_step", "question_manifestation", "reality_evidence_ids"
@@ -265,40 +274,69 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
         "reality_evidence_item_keys": [
             "id", "source", "quote", "role", "interpretation"
         ],
+        "causal_process_synthesis_keys": [
+            "narrative_spine", "adaptive_value_in_context", "current_cost_in_context",
+            "evidence_pattern_ids", "reality_evidence_ids",
+        ],
+        "perspective_shift_keys": [
+            "current_frame", "card_specific_counterweight", "relocated_attention",
+            "revised_decision_criterion",
+        ],
+        "alternative_hypothesis_item_keys": [
+            "id", "decisive_unknown_id", "possibility",
+            "supporting_reality_evidence_ids", "missing_evidence"
+        ],
         "bounded_direction_keys": [
             "answer", "uncertainty_boundary", "evidence_pattern_ids",
             "reality_evidence_ids",
         ],
         "practical_translation_keys": [
-            "mode", "redefined_success", "step_or_practice", "rationale",
-            "evidence_pattern_ids", "reality_evidence_ids",
+            "mode", "information_goal", "step_or_practice", "rationale",
+            "decisive_unknown_id",
+        ],
+        "takeaway_keys": [
+            "decisive_unknown_id", "alternative_hypothesis_ids", "question"
         ],
         "epistemic_limits_keys": ["unsupported_inferences", "limitations"],
-        "compensation_bridge_keys": [
-            "inherited_process_limit", "card_counterweight",
-            "revised_decision_criterion",
-        ],
         "object_keys": {
+            "question_structure": [
+                "core_experience", "lived_stakes", "current_explanatory_frame",
+                "contemplated_decision", "decisive_unknowns",
+            ],
+            "question_structure.core_experience": ["summary", "reality_evidence_ids"],
+            "question_structure.lived_stakes[]": ["summary", "reality_evidence_ids"],
+            "question_structure.decisive_unknowns[]": [
+                "id", "question", "why_decisive", "reality_evidence_ids"
+            ],
             "pattern_inheritance[]": [
-                "pattern_id", "status", "match_basis", "rationale",
-                "process_step_mappings", "adaptive_value_in_context",
-                "current_cost_in_context",
+                "pattern_id", "status", "match_basis", "rationale", "process_step_mappings",
             ],
             "pattern_inheritance[].process_step_mappings[]": [
                 "pass1_step", "question_manifestation", "reality_evidence_ids"
             ],
             "reality_evidence[]": ["id", "source", "quote", "role", "interpretation"],
-            "compensation_bridge": [
-                "inherited_process_limit", "card_counterweight",
+            "causal_process_synthesis": [
+                "narrative_spine", "adaptive_value_in_context", "current_cost_in_context",
+                "evidence_pattern_ids", "reality_evidence_ids",
+            ],
+            "perspective_shift": [
+                "current_frame", "card_specific_counterweight", "relocated_attention",
                 "revised_decision_criterion",
+            ],
+            "alternative_hypotheses[]": [
+                "id", "decisive_unknown_id", "possibility",
+                "supporting_reality_evidence_ids", "missing_evidence"
             ],
             "bounded_direction": [
                 "answer", "uncertainty_boundary", "evidence_pattern_ids",
                 "reality_evidence_ids",
             ],
             "practical_translation": [
-                "mode", "redefined_success", "step_or_practice", "rationale",
-                "evidence_pattern_ids", "reality_evidence_ids",
+                "mode", "information_goal", "step_or_practice", "rationale",
+                "decisive_unknown_id",
+            ],
+            "takeaway": [
+                "decisive_unknown_id", "alternative_hypothesis_ids", "question"
             ],
             "epistemic_limits": ["unsupported_inferences", "limitations"],
         },
@@ -310,6 +348,20 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "pass1_sha256": "string",
             "question_shift": "string",
             "central_axis": "string",
+            "question_structure": "object",
+            "question_structure.core_experience": "object",
+            "question_structure.core_experience.summary": "string",
+            "question_structure.core_experience.reality_evidence_ids": "array<string>",
+            "question_structure.lived_stakes": "array<object>",
+            "question_structure.lived_stakes[].summary": "string",
+            "question_structure.lived_stakes[].reality_evidence_ids": "array<string>",
+            "question_structure.current_explanatory_frame": "object_or_null",
+            "question_structure.contemplated_decision": "object_or_null",
+            "question_structure.decisive_unknowns": "array<object>",
+            "question_structure.decisive_unknowns[].id": "string",
+            "question_structure.decisive_unknowns[].question": "string",
+            "question_structure.decisive_unknowns[].why_decisive": "string",
+            "question_structure.decisive_unknowns[].reality_evidence_ids": "array<string>",
             "pattern_inheritance": "array<object>",
             "pattern_inheritance[].pattern_id": "string",
             "pattern_inheritance[].status": "string",
@@ -319,19 +371,29 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "pattern_inheritance[].process_step_mappings[].pass1_step": "string",
             "pattern_inheritance[].process_step_mappings[].question_manifestation": "string",
             "pattern_inheritance[].process_step_mappings[].reality_evidence_ids": "array<string>",
-            "pattern_inheritance[].adaptive_value_in_context": "string_or_null",
-            "pattern_inheritance[].current_cost_in_context": "string_or_null",
-            "process_recap": "string",
+            "causal_process_synthesis": "object",
+            "causal_process_synthesis.narrative_spine": "string",
+            "causal_process_synthesis.adaptive_value_in_context": "string",
+            "causal_process_synthesis.current_cost_in_context": "string",
+            "causal_process_synthesis.evidence_pattern_ids": "array<string>",
+            "causal_process_synthesis.reality_evidence_ids": "array<string>",
             "reality_evidence": "array<object>",
             "reality_evidence[].id": "string",
             "reality_evidence[].source": "string",
             "reality_evidence[].quote": "string",
             "reality_evidence[].role": "string",
             "reality_evidence[].interpretation": "string",
-            "compensation_bridge": "object",
-            "compensation_bridge.inherited_process_limit": "string",
-            "compensation_bridge.card_counterweight": "string",
-            "compensation_bridge.revised_decision_criterion": "string",
+            "perspective_shift": "object",
+            "perspective_shift.current_frame": "string",
+            "perspective_shift.card_specific_counterweight": "string",
+            "perspective_shift.relocated_attention": "string",
+            "perspective_shift.revised_decision_criterion": "string",
+            "alternative_hypotheses": "array<object>",
+            "alternative_hypotheses[].id": "string",
+            "alternative_hypotheses[].decisive_unknown_id": "string",
+            "alternative_hypotheses[].possibility": "string",
+            "alternative_hypotheses[].supporting_reality_evidence_ids": "array<string>",
+            "alternative_hypotheses[].missing_evidence": "string",
             "bounded_direction": "object",
             "bounded_direction.answer": "string",
             "bounded_direction.uncertainty_boundary": "string",
@@ -339,15 +401,17 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             "bounded_direction.reality_evidence_ids": "array<string>",
             "practical_translation": "object",
             "practical_translation.mode": "string",
-            "practical_translation.redefined_success": "string",
+            "practical_translation.information_goal": "string",
             "practical_translation.step_or_practice": "string_or_null",
             "practical_translation.rationale": "string",
-            "practical_translation.evidence_pattern_ids": "array<string>",
-            "practical_translation.reality_evidence_ids": "array<string>",
+            "practical_translation.decisive_unknown_id": "string",
+            "takeaway": "object",
+            "takeaway.decisive_unknown_id": "string",
+            "takeaway.alternative_hypothesis_ids": "array<string>",
+            "takeaway.question": "string",
             "epistemic_limits": "object",
             "epistemic_limits.unsupported_inferences": "array<string>",
-            "epistemic_limits.limitations": "array<string>",
-            "takeaway_question": "string"
+            "epistemic_limits.limitations": "array<string>"
         },
         "enums": {
             "orientation": ["upright", "reversed"],
@@ -361,7 +425,9 @@ STAGE_CONTRACTS: dict[str, dict[str, Any]] = {
             ],
             "source": ["user_question", "question_shift_note"],
             "role": [
-                "supporting", "disconfirming", "constraint", "action_already_taken"
+                "supporting", "disconfirming", "constraint", "action_already_taken",
+                "reported_experience", "lived_stake", "current_explanatory_frame",
+                "contemplated_decision"
             ],
             "mode": ["action", "reflection", "none"],
         },
@@ -437,6 +503,8 @@ def _matches_type(value: Any, expected: str) -> bool:
         return isinstance(value, bool)
     if expected == "object":
         return isinstance(value, dict)
+    if expected == "object_or_null":
+        return value is None or isinstance(value, dict)
     if expected == "array<object>":
         return isinstance(value, list) and all(isinstance(item, dict) for item in value)
     if expected == "array<string>":

@@ -194,13 +194,24 @@ class TraditionalLayerTests(unittest.TestCase):
         output = {
             "card_id": canonical["card_id"],
             "orientation": canonical["orientation"],
-            "card_role_in_question": "The card describes a decision tension without predicting its outcome.",
-            "practical_tension": "Avoidance and premature action remain competing possibilities.",
-            "bounded_direction": "Clarify the trade-off before treating uncertainty as an answer.",
-            "reflection_point": "Which information would materially change the choice?",
+            "question_relevant_card_structure": "The card frames a tension between movement and restraint.",
+            "orientation_mechanism": "Reversal may block, delay, or internalize movement.",
+            "tension_axes": [
+                "Movement may be delayed by missing information.",
+                "Movement may be redirected by competing priorities.",
+            ],
+            "scope_boundary": "The card cannot establish which outcome will occur.",
             "source_refs": canonical["source_refs"],
         }
         self.layer.validate_situated_output(output, request)
+
+        duplicate_axes = dict(output, tension_axes=[output["tension_axes"][0]] * 2)
+        with self.assertRaises(ContractError):
+            self.layer.validate_situated_output(duplicate_axes, request)
+
+        attributed = dict(output, scope_boundary="You may be avoiding the choice.")
+        with self.assertRaises(ContractError):
+            self.layer.validate_situated_output(attributed, request)
 
         output["source_refs"] = []
         with self.assertRaises(ContractError):

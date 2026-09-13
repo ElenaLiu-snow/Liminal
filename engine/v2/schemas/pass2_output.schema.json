@@ -5,24 +5,12 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema_version",
-    "session_id",
-    "card_id",
-    "orientation",
-    "pass1_sha256",
-    "user_question",
-    "question_shift",
-    "question_shift_note",
-    "central_axis",
-    "pattern_inheritance",
-    "process_recap",
-    "reality_evidence",
-    "situated_traditional_reading",
-    "compensation_bridge",
-    "bounded_direction",
-    "practical_translation",
-    "epistemic_limits",
-    "user_display"
+    "schema_version", "session_id", "card_id", "orientation", "pass1_sha256",
+    "user_question", "question_shift", "question_shift_note", "central_axis",
+    "question_structure", "pattern_inheritance", "causal_process_synthesis",
+    "reality_evidence", "situated_traditional_reading", "perspective_shift",
+    "alternative_hypotheses", "bounded_direction", "practical_translation",
+    "takeaway", "epistemic_limits", "user_display"
   ],
   "properties": {
     "schema_version": {"const": "2.0-alpha.1"},
@@ -31,187 +19,159 @@
     "orientation": {"enum": ["upright", "reversed"]},
     "pass1_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "user_question": {"type": "string", "minLength": 1},
-    "question_shift": {
-      "enum": ["unchanged", "clarified", "shifted_focus", "different_question"]
-    },
+    "question_shift": {"enum": ["unchanged", "clarified", "shifted_focus", "different_question"]},
     "question_shift_note": {"type": ["string", "null"]},
     "central_axis": {"type": "string", "minLength": 1},
-    "pattern_inheritance": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/patternInheritance"}
-    },
-    "process_recap": {"type": "string", "minLength": 1, "maxLength": 500},
-    "reality_evidence": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/realityEvidence"}
-    },
-    "situated_traditional_reading": {
-      "$ref": "traditional_reading.schema.json#/$defs/situatedOutput"
-    },
-    "compensation_bridge": {"$ref": "#/$defs/compensationBridge"},
+    "question_structure": {"$ref": "#/$defs/questionStructure"},
+    "pattern_inheritance": {"type": "array", "items": {"$ref": "#/$defs/patternInheritance"}},
+    "causal_process_synthesis": {"$ref": "#/$defs/causalProcessSynthesis"},
+    "reality_evidence": {"type": "array", "items": {"$ref": "#/$defs/realityEvidence"}},
+    "situated_traditional_reading": {"$ref": "traditional_reading.schema.json#/$defs/situatedOutput"},
+    "perspective_shift": {"$ref": "#/$defs/perspectiveShift"},
+    "alternative_hypotheses": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/alternativeHypothesis"}},
     "bounded_direction": {"$ref": "#/$defs/boundedDirection"},
     "practical_translation": {"$ref": "#/$defs/practicalTranslation"},
-    "epistemic_limits": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["unsupported_inferences", "limitations"],
-      "properties": {
-        "unsupported_inferences": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "enum": [
-              "stable_trait",
-              "developmental_origin",
-              "childhood_experience",
-              "trauma_source",
-              "clinical_diagnosis"
-            ]
-          }
-        },
-        "limitations": {
-          "type": "array",
-          "items": {"type": "string", "minLength": 1}
-        }
-      }
-    },
-    "user_display": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["complete_reading", "takeaway_question"],
-      "properties": {
-        "complete_reading": {"type": "string", "minLength": 1},
-        "takeaway_question": {"type": "string", "minLength": 1}
-      }
-    }
+    "takeaway": {"$ref": "#/$defs/takeaway"},
+    "epistemic_limits": {"$ref": "#/$defs/epistemicLimits"},
+    "user_display": {"$ref": "#/$defs/userDisplay"}
   },
   "$defs": {
-    "patternInheritance": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "pattern_id",
-        "status",
-        "match_basis",
-        "rationale",
-        "process_step_mappings",
-        "adaptive_value_in_context",
-        "current_cost_in_context"
-      ],
+    "questionComponent": {
+      "type": "object", "additionalProperties": false,
+      "required": ["summary", "reality_evidence_ids"],
       "properties": {
-        "pattern_id": {"type": "string", "minLength": 1},
-        "status": {"enum": ["integrated", "held", "not_relevant"]},
-        "match_basis": {
-          "enum": [
-            "process_recurrence",
-            "theme_overlap_only",
-            "insufficient_process_evidence",
-            "no_material_match"
-          ]
-        },
-        "rationale": {"type": "string", "minLength": 1},
-        "process_step_mappings": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {"$ref": "#/$defs/processStepMapping"}
-        },
-        "adaptive_value_in_context": {"type": ["string", "null"]},
-        "current_cost_in_context": {"type": ["string", "null"]}
+        "summary": {"type": "string", "minLength": 1},
+        "reality_evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "decisiveUnknown": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "question", "why_decisive", "reality_evidence_ids"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "question": {"type": "string", "minLength": 1},
+        "why_decisive": {"type": "string", "minLength": 1},
+        "reality_evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "questionStructure": {
+      "type": "object", "additionalProperties": false,
+      "required": ["core_experience", "lived_stakes", "current_explanatory_frame", "contemplated_decision", "decisive_unknowns"],
+      "properties": {
+        "core_experience": {"$ref": "#/$defs/questionComponent"},
+        "lived_stakes": {"type": "array", "items": {"$ref": "#/$defs/questionComponent"}},
+        "current_explanatory_frame": {"anyOf": [{"$ref": "#/$defs/questionComponent"}, {"type": "null"}]},
+        "contemplated_decision": {"anyOf": [{"$ref": "#/$defs/questionComponent"}, {"type": "null"}]},
+        "decisive_unknowns": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/decisiveUnknown"}}
       }
     },
     "processStepMapping": {
-      "type": "object",
-      "additionalProperties": false,
+      "type": "object", "additionalProperties": false,
       "required": ["pass1_step", "question_manifestation", "reality_evidence_ids"],
       "properties": {
         "pass1_step": {"type": "string", "minLength": 1},
         "question_manifestation": {"type": "string", "minLength": 1},
-        "reality_evidence_ids": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        }
+        "reality_evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "patternInheritance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["pattern_id", "status", "match_basis", "rationale", "process_step_mappings"],
+      "properties": {
+        "pattern_id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["integrated", "held", "not_relevant"]},
+        "match_basis": {"enum": ["process_recurrence", "theme_overlap_only", "insufficient_process_evidence", "no_material_match"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "process_step_mappings": {"type": "array", "items": {"$ref": "#/$defs/processStepMapping"}}
+      }
+    },
+    "causalProcessSynthesis": {
+      "type": "object", "additionalProperties": false,
+      "required": ["narrative_spine", "adaptive_value_in_context", "current_cost_in_context", "evidence_pattern_ids", "reality_evidence_ids"],
+      "properties": {
+        "narrative_spine": {"type": "string", "minLength": 1, "maxLength": 800},
+        "adaptive_value_in_context": {"type": "string", "minLength": 1},
+        "current_cost_in_context": {"type": "string", "minLength": 1},
+        "evidence_pattern_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "reality_evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
       }
     },
     "realityEvidence": {
-      "type": "object",
-      "additionalProperties": false,
+      "type": "object", "additionalProperties": false,
       "required": ["id", "source", "quote", "role", "interpretation"],
       "properties": {
         "id": {"type": "string", "minLength": 1},
         "source": {"enum": ["user_question", "question_shift_note"]},
         "quote": {"type": "string", "minLength": 1},
-        "role": {
-          "enum": ["supporting", "disconfirming", "constraint", "action_already_taken"]
-        },
+        "role": {"enum": ["supporting", "disconfirming", "constraint", "action_already_taken", "reported_experience", "lived_stake", "current_explanatory_frame", "contemplated_decision"]},
         "interpretation": {"type": "string", "minLength": 1}
       }
     },
-    "compensationBridge": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "inherited_process_limit",
-        "card_counterweight",
-        "revised_decision_criterion"
-      ],
+    "perspectiveShift": {
+      "type": "object", "additionalProperties": false,
+      "required": ["current_frame", "card_specific_counterweight", "relocated_attention", "revised_decision_criterion"],
       "properties": {
-        "inherited_process_limit": {"type": "string", "minLength": 1},
-        "card_counterweight": {"type": "string", "minLength": 1},
+        "current_frame": {"type": "string", "minLength": 1},
+        "card_specific_counterweight": {"type": "string", "minLength": 1},
+        "relocated_attention": {"type": "string", "minLength": 1},
         "revised_decision_criterion": {"type": "string", "minLength": 1}
       }
     },
+    "alternativeHypothesis": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "decisive_unknown_id", "possibility", "supporting_reality_evidence_ids", "missing_evidence"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "decisive_unknown_id": {"type": "string", "minLength": 1},
+        "possibility": {"type": "string", "minLength": 1},
+        "supporting_reality_evidence_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "missing_evidence": {"type": "string", "minLength": 1}
+      }
+    },
     "boundedDirection": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "answer",
-        "uncertainty_boundary",
-        "evidence_pattern_ids",
-        "reality_evidence_ids"
-      ],
+      "type": "object", "additionalProperties": false,
+      "required": ["answer", "uncertainty_boundary", "evidence_pattern_ids", "reality_evidence_ids"],
       "properties": {
         "answer": {"type": "string", "minLength": 1},
         "uncertainty_boundary": {"type": "string", "minLength": 1},
-        "evidence_pattern_ids": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        },
-        "reality_evidence_ids": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        }
+        "evidence_pattern_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "reality_evidence_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
       }
     },
     "practicalTranslation": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "mode",
-        "redefined_success",
-        "step_or_practice",
-        "rationale",
-        "evidence_pattern_ids",
-        "reality_evidence_ids"
-      ],
+      "type": "object", "additionalProperties": false,
+      "required": ["mode", "information_goal", "step_or_practice", "rationale", "decisive_unknown_id"],
       "properties": {
         "mode": {"enum": ["action", "reflection", "none"]},
-        "redefined_success": {"type": "string", "minLength": 1},
+        "information_goal": {"type": "string", "minLength": 1},
         "step_or_practice": {"type": ["string", "null"]},
         "rationale": {"type": "string", "minLength": 1},
-        "evidence_pattern_ids": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        },
-        "reality_evidence_ids": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        }
+        "decisive_unknown_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "takeaway": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decisive_unknown_id", "alternative_hypothesis_ids", "question"],
+      "properties": {
+        "decisive_unknown_id": {"type": "string", "minLength": 1},
+        "alternative_hypothesis_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "question": {"type": "string", "minLength": 1}
+      }
+    },
+    "epistemicLimits": {
+      "type": "object", "additionalProperties": false,
+      "required": ["unsupported_inferences", "limitations"],
+      "properties": {
+        "unsupported_inferences": {"type": "array", "uniqueItems": true, "items": {"enum": ["stable_trait", "developmental_origin", "childhood_experience", "trauma_source", "clinical_diagnosis"]}},
+        "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "userDisplay": {
+      "type": "object", "additionalProperties": false,
+      "required": ["complete_reading", "takeaway_question"],
+      "properties": {
+        "complete_reading": {"type": "string", "minLength": 1},
+        "takeaway_question": {"type": "string", "minLength": 1}
       }
     }
   }
