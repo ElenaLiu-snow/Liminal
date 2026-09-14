@@ -1,6 +1,6 @@
 # Liminal v2 testable vertical slice
 
-Status: **model-connected contract-driven alpha; Pass 2 causal-synthesis baseline human-accepted, Phase 5 demo next**.
+Status: **model-connected contract-driven alpha; Pass 2 human-accepted and the first bilingual Phase 5 display demo implemented**.
 
 This directory adds v2 contracts without modifying the frozen v1.1 schema or prompts.
 
@@ -64,6 +64,18 @@ fragmented prose. The causal-synthesis revision now separates backend evidence a
 narrative, has passed participant regression review, and is the accepted Phase 4 baseline.
 
 The automated knowledge-ingestion and method-research passes are complete for this gate. Human field review of card text/images and explicit method activation remain later work. Both layers remain `shadow_read_only` / `shadow_only_not_prompt_input`, so the live model still uses the accepted provisional traditional payload and locked analytical prompts.
+
+## Bilingual display demo
+
+The React/Vite frontend in `frontend/` provides a responsive Chinese/English landing page and
+the complete two-pass interaction. `engine.v2.demo_api` is a small standard-library HTTP bridge:
+it runs the accepted model workflow, holds frozen Pass 1 sessions in memory for at most three
+hours, and returns only the user-facing reading fields. It does not return prompts, evidence
+objects, provider receipts, transcripts, or API credentials to the browser.
+
+Run the API from the repository root with `.venv/bin/python -m engine.v2.demo_api`, then run
+`npm install && npm run dev` from `frontend/`. This is a local display alpha, not a production
+deployment or a substitute for the outstanding GDPR, retention, moderation, and rate-limit work.
 
 ## DeepSeek local configuration and live workflow
 

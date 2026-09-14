@@ -14,6 +14,8 @@ __pycache__/
 
 # Node (for future frontend)
 node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
 .env.local
 local_runs/
 
