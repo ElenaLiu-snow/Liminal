@@ -32,6 +32,8 @@ MAX_TEXT_LENGTH = 12_000
 SESSION_TTL_SECONDS = 3 * 60 * 60
 MAX_SESSIONS = 64
 DEFAULT_ORIGINS = {
+    "http://127.0.0.1:3002",
+    "http://localhost:3002",
     "http://127.0.0.1:5173",
     "http://localhost:5173",
 }

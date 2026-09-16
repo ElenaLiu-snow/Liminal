@@ -76,6 +76,7 @@ class DemoServiceTests(unittest.TestCase):
 
     def test_origin_parser_uses_local_defaults_and_normalizes_custom_values(self):
         self.assertIn("http://127.0.0.1:5173", parse_origins(None))
+        self.assertIn("http://127.0.0.1:3002", parse_origins(None))
         self.assertEqual(
             parse_origins("https://demo.example/, http://localhost:5173"),
             {"https://demo.example", "http://localhost:5173"},
