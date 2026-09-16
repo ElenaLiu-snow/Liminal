@@ -501,6 +501,15 @@ function App() {
 
             {(phase === "question" || phase === "loading-pass2") && (
               <div className="question-panel panel-enter">
+                {phase === "question" && pass1Reading && (
+                  <button
+                    className="text-button review-pass1-button"
+                    onClick={() => setPhase("pass1")}
+                    type="button"
+                  >
+                    <span aria-hidden="true">←</span> {t.reviewPass1}
+                  </button>
+                )}
                 <div className="question-heading">
                   <p className="section-number">04 · {t.stepPass2}</p>
                   <h3>{t.questionTitle}</h3>

@@ -1176,6 +1176,10 @@ html[lang="zh-CN"] .hero-statement {
   margin-bottom: 17px;
 }
 
+.review-pass1-button {
+  margin: 0 0 34px;
+}
+
 .question-input {
   min-height: 138px;
   padding: 20px 0;
