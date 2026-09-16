@@ -14,8 +14,9 @@ the card as prediction or the reading as diagnosis.
 - The contract-driven Pass 1 and Pass 2 engine is connected to DeepSeek and has
   passed the current human regression gate.
 - A responsive Chinese/English display demo now covers the full interaction:
-  landing page, card draw and orientation, typed or browser-supported speech
-  input, Pass 1, question reveal, Pass 2, takeaway question, and contact footer.
+  landing page, shuffle, face-down choice, animated reveal and orientation,
+  typed or browser-supported speech input, Pass 1, question reveal, Pass 2,
+  takeaway question, and contact footer.
 - The demo API keeps the frozen Pass 1 session in memory only and returns only
   user-facing readings to the browser.
 - This remains a local alpha. Production hosting, consent records, rate limits,

@@ -420,6 +420,7 @@ svg {
 }
 
 .reading-shell {
+  scroll-margin-top: 74px;
   max-width: 1320px;
   margin: 0 auto;
   overflow: hidden;
@@ -487,6 +488,12 @@ svg {
   align-items: center;
 }
 
+.draw-panel.draw-stage-shuffling,
+.draw-panel.draw-stage-selecting,
+.draw-panel.draw-stage-revealing {
+  grid-template-columns: 1fr;
+}
+
 .deck-visual {
   position: relative;
   display: grid;
@@ -513,6 +520,7 @@ svg {
   position: absolute;
   width: min(235px, 52%);
   aspect-ratio: .565;
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,.38);
   border-radius: 18px;
   background: #111019;
@@ -539,30 +547,247 @@ svg {
 
 .card-top {
   z-index: 2;
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.card-back-art {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
-  color: #ebe7df;
+  gap: 28px;
+  overflow: hidden;
+  color: #eee9e0;
   background:
-    radial-gradient(circle at 50% 45%, rgba(184,167,255,.26), transparent 26%),
-    repeating-radial-gradient(circle at center, transparent 0 22px, rgba(255,255,255,.055) 23px 24px),
-    #111019;
-  animation: cardFloat 5s ease-in-out infinite;
+    radial-gradient(circle at 52% 41%, rgba(190,172,255,.32), transparent 27%),
+    radial-gradient(circle at 28% 78%, rgba(255,164,134,.12), transparent 24%),
+    linear-gradient(145deg, #17131f, #0d0c13 62%, #17131e);
 }
 
-.card-top svg {
-  width: 48px;
+.card-back-art::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 11px;
+}
+
+.card-back-art::after {
+  content: "";
+  position: absolute;
+  width: 46%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(188,169,255,.16);
+}
+
+.card-back-art svg {
+  z-index: 2;
+  width: 21%;
   fill: none;
   stroke: currentColor;
   stroke-width: .8;
 }
 
-.card-top span {
+.card-back-art small {
+  z-index: 2;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: .32em;
+}
+
+.card-back-orbit {
+  position: absolute;
+  z-index: 1;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 50%;
+}
+
+.orbit-outer {
+  width: 72%;
+}
+
+.orbit-inner {
+  width: 35%;
+  border-color: rgba(255,255,255,.2);
+}
+
+.selection-ritual {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 680px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: clamp(42px, 6vw, 78px) clamp(18px, 4vw, 56px) 42px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 64%, rgba(185,168,255,.32), transparent 30%),
+    radial-gradient(circle at 15% 18%, rgba(255,178,150,.2), transparent 26%),
+    radial-gradient(circle at 86% 22%, rgba(174,224,214,.28), transparent 25%),
+    linear-gradient(145deg, #e7e0e8, #d9e1df 52%, #eadbd1);
+}
+
+.selection-ritual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(36,29,45,.14) .65px, transparent .65px);
+  background-size: 17px 17px;
+  opacity: .22;
+  mask-image: linear-gradient(to bottom, black, transparent 68%);
+}
+
+.ritual-heading {
+  position: relative;
+  z-index: 20;
+  max-width: 720px;
+}
+
+.ritual-heading .section-number {
+  margin-bottom: 18px;
+}
+
+.ritual-heading h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 66px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.ritual-heading > p:last-child {
+  max-width: 520px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.card-fan {
+  --card-width: clamp(112px, 12vw, 168px);
+  position: relative;
+  z-index: 10;
+  width: min(950px, 100%);
+  height: 330px;
+  margin: 0 auto -12px;
+  perspective: 1400px;
+}
+
+.choice-card {
+  --offset: calc(var(--card-index) - 3);
+  position: absolute;
+  bottom: 14px;
+  left: calc(50% - var(--card-width) / 2);
+  width: var(--card-width);
+  aspect-ratio: .565;
+  padding: 0;
+  border: 0;
+  border-radius: 15px;
+  background: transparent;
+  cursor: pointer;
+  transform:
+    translateX(calc(var(--offset) * min(9.6vw, 112px)))
+    translateY(calc(var(--card-distance) * 8px))
+    rotate(calc(var(--offset) * 4.2deg));
+  transform-origin: 50% 145%;
+  transition: transform 650ms cubic-bezier(.2,.82,.2,1), opacity 520ms ease, filter 520ms ease;
+}
+
+.choice-card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 5px;
+}
+
+.choice-card:not(:disabled):hover {
+  z-index: 12;
+  transform:
+    translateX(calc(var(--offset) * min(9.6vw, 112px)))
+    translateY(calc(var(--card-distance) * 8px - 22px))
+    rotate(calc(var(--offset) * 2.5deg));
+}
+
+.choice-card-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 22px 42px rgba(39,31,49,.21);
+  transform-style: preserve-3d;
+  transition: transform 900ms cubic-bezier(.22,.8,.2,1), box-shadow 500ms ease;
+}
+
+.choice-card-face {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: inherit;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.choice-card-front {
+  padding: 5px;
+  background: rgba(249,245,235,.92);
+  transform: rotateY(180deg);
+}
+
+.choice-card-front img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.choice-card-front.is-reversed img {
+  transform: rotate(180deg);
+}
+
+.card-fan.shuffling .choice-card {
+  pointer-events: none;
+  animation: ritualShuffle 1.5s cubic-bezier(.6,0,.25,1) both;
+  animation-delay: calc(var(--card-index) * 38ms);
+}
+
+.card-fan.revealing .choice-card:not(.selected) {
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateX(calc(var(--offset) * min(12vw, 140px))) translateY(60px) scale(.88);
+}
+
+.card-fan.revealing .choice-card.selected {
+  z-index: 30;
+  transform: translateX(0) translateY(-8px) rotate(0) scale(1.12);
+}
+
+.card-fan.revealing .choice-card.selected .choice-card-inner {
+  box-shadow: 0 32px 68px rgba(38,27,50,.3);
+  transform: rotateY(180deg);
+}
+
+.shuffle-again {
+  position: relative;
+  z-index: 20;
+  padding: 7px 10px;
+  border: 0;
+  border-bottom: 1px solid rgba(24,22,28,.25);
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .panel-copy,
@@ -1109,6 +1334,30 @@ svg {
   50% { transform: translateY(-10px) rotate(.8deg); }
 }
 
+@keyframes ritualShuffle {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(52px) rotate(0) scale(.82);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(calc(var(--offset) * 24px)) translateY(24px) rotate(calc(var(--offset) * -7deg)) scale(.92);
+  }
+  48% {
+    transform: translateX(calc(var(--offset) * -15px)) translateY(2px) rotate(calc(var(--offset) * 5deg)) scale(.94);
+  }
+  68% {
+    transform: translateX(0) translateY(30px) rotate(calc(var(--offset) * -2deg)) scale(.9);
+  }
+  100% {
+    opacity: 1;
+    transform:
+      translateX(calc(var(--offset) * min(9.6vw, 112px)))
+      translateY(calc(var(--card-distance) * 8px))
+      rotate(calc(var(--offset) * 4.2deg));
+  }
+}
+
 @keyframes pulse {
   50% { opacity: .35; }
 }
@@ -1234,6 +1483,46 @@ svg {
   .result-panel,
   .question-panel {
     min-height: 620px;
+  }
+
+  .selection-ritual {
+    min-height: 620px;
+    padding: 38px 8px 28px;
+  }
+
+  .ritual-heading {
+    padding: 0 18px;
+  }
+
+  .ritual-heading h3 {
+    font-size: 39px;
+  }
+
+  .ritual-heading > p:last-child {
+    font-size: 11px;
+  }
+
+  .card-fan {
+    --card-width: clamp(92px, 25vw, 112px);
+    height: 280px;
+  }
+
+  .choice-card {
+    transform:
+      translateX(calc(var(--offset) * min(10vw, 46px)))
+      translateY(calc(var(--card-distance) * 6px))
+      rotate(calc(var(--offset) * 4.2deg));
+  }
+
+  .choice-card:not(:disabled):hover {
+    transform:
+      translateX(calc(var(--offset) * min(10vw, 46px)))
+      translateY(calc(var(--card-distance) * 6px - 15px))
+      rotate(calc(var(--offset) * 2.5deg));
+  }
+
+  .card-fan.revealing .choice-card.selected {
+    transform: translateX(0) translateY(-8px) rotate(0) scale(1.08);
   }
 
   .deck-visual,

@@ -17,6 +17,27 @@ type Phase =
   | "loading-pass2"
   | "pass2";
 
+type DrawStage = "ready" | "shuffling" | "selecting" | "revealing";
+
+type DrawOption = {
+  card: TarotCard;
+  orientation: "upright" | "reversed";
+};
+
+const DRAW_CARD_COUNT = 7;
+
+const createDrawOptions = (): DrawOption[] => {
+  const shuffled = [...tarotDeck];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled.slice(0, DRAW_CARD_COUNT).map((nextCard) => ({
+    card: nextCard,
+    orientation: Math.random() > 0.5 ? "upright" : "reversed",
+  }));
+};
+
 const Arrow = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M5 12h14M13 6l6 6-6 6" />
@@ -27,6 +48,15 @@ const Spark = () => (
   <svg viewBox="0 0 32 32" aria-hidden="true">
     <path d="M16 1c.7 9.6 5.4 14.3 15 15-9.6.7-14.3 5.4-15 15C15.3 21.4 10.6 16.7 1 16 10.6 15.3 15.3 10.6 16 1Z" />
   </svg>
+);
+
+const CardBack = () => (
+  <div className="card-back-art" aria-hidden="true">
+    <span className="card-back-orbit orbit-outer" />
+    <span className="card-back-orbit orbit-inner" />
+    <Spark />
+    <small>LIMINAL</small>
+  </div>
 );
 
 const Mic = ({ active }: { active: boolean }) => (
@@ -59,6 +89,9 @@ function App() {
   const [locale, setLocale] = useState<Locale>(getInitialLocale);
   const [heroProgress, setHeroProgress] = useState(0);
   const [phase, setPhase] = useState<Phase>("draw");
+  const [drawStage, setDrawStage] = useState<DrawStage>("ready");
+  const [drawOptions, setDrawOptions] = useState<DrawOption[]>([]);
+  const [selectedDrawIndex, setSelectedDrawIndex] = useState<number | null>(null);
   const [card, setCard] = useState<TarotCard | null>(null);
   const [orientation, setOrientation] = useState<"upright" | "reversed">("upright");
   const [transcript, setTranscript] = useState("");
@@ -74,7 +107,9 @@ function App() {
   const [speechUnavailable, setSpeechUnavailable] = useState(false);
 
   const heroRef = useRef<HTMLElement>(null);
+  const readingShellRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const drawTimerRef = useRef<number | null>(null);
   const speechBaseRef = useRef("");
   const t = copy[locale];
 
@@ -104,6 +139,10 @@ function App() {
     };
   }, []);
 
+  useEffect(() => () => {
+    if (drawTimerRef.current !== null) window.clearTimeout(drawTimerRef.current);
+  }, []);
+
   const steps = useMemo(
     () => [t.stepCard, t.stepReflect, t.stepPass1, t.stepPass2],
     [t],
@@ -121,12 +160,36 @@ function App() {
 
   const selectLocale = (next: Locale) => setLocale(next);
 
-  const drawCard = () => {
-    const next = tarotDeck[Math.floor(Math.random() * tarotDeck.length)];
-    setCard(next);
-    setOrientation(Math.random() > 0.5 ? "upright" : "reversed");
-    setPhase("reflect");
+  const beginShuffle = () => {
+    if (drawTimerRef.current !== null) window.clearTimeout(drawTimerRef.current);
+    setDrawOptions(createDrawOptions());
+    setSelectedDrawIndex(null);
+    setDrawStage("shuffling");
     setError("");
+    window.requestAnimationFrame(() => {
+      readingShellRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    drawTimerRef.current = window.setTimeout(() => {
+      setDrawStage("selecting");
+      drawTimerRef.current = null;
+    }, 1500);
+  };
+
+  const chooseCard = (index: number) => {
+    if (drawStage !== "selecting") return;
+    const choice = drawOptions[index];
+    if (!choice) return;
+    setSelectedDrawIndex(index);
+    setCard(choice.card);
+    setOrientation(choice.orientation);
+    setDrawStage("revealing");
+    drawTimerRef.current = window.setTimeout(() => {
+      setPhase("reflect");
+      drawTimerRef.current = null;
+      window.requestAnimationFrame(() => {
+        readingShellRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }, 1600);
   };
 
   const submitPass1 = async () => {
@@ -200,7 +263,11 @@ function App() {
 
   const restart = () => {
     recognitionRef.current?.stop();
+    if (drawTimerRef.current !== null) window.clearTimeout(drawTimerRef.current);
     setPhase("draw");
+    setDrawStage("ready");
+    setDrawOptions([]);
+    setSelectedDrawIndex(null);
     setCard(null);
     setTranscript("");
     setQuestion("");
@@ -286,7 +353,7 @@ function App() {
           <p>{t.experienceDescription}</p>
         </div>
 
-        <div className="reading-shell">
+        <div className="reading-shell" ref={readingShellRef}>
           <div className="reading-progress" aria-label="Reading progress">
             {steps.map((label, index) => (
               <div
@@ -301,24 +368,62 @@ function App() {
 
           <div className="reading-workspace">
             {phase === "draw" && (
-              <div className="draw-panel panel-enter">
-                <div className="deck-visual" aria-hidden="true">
-                  <div className="deck-card card-one" />
-                  <div className="deck-card card-two" />
-                  <div className="deck-card card-top">
-                    <Spark />
-                    <span>LIMINAL</span>
+              <div className={`draw-panel panel-enter draw-stage-${drawStage}`}>
+                {drawStage === "ready" ? (
+                  <>
+                    <div className="deck-visual" aria-hidden="true">
+                      <div className="deck-card card-one"><CardBack /></div>
+                      <div className="deck-card card-two"><CardBack /></div>
+                      <div className="deck-card card-top"><CardBack /></div>
+                    </div>
+                    <div className="panel-copy">
+                      <p className="section-number">01 · {t.stepCard}</p>
+                      <h3>{t.deckReady}</h3>
+                      <p>{t.deckHint}</p>
+                      <button className="primary-button" onClick={beginShuffle} type="button">
+                        <span>{t.beginShuffle}</span>
+                        <Arrow />
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="selection-ritual" aria-live="polite">
+                    <div className="ritual-heading">
+                      <p className="section-number">01 · {t.stepCard}</p>
+                      <h3>{drawStage === "shuffling" ? t.shufflingTitle : drawStage === "revealing" ? t.revealingTitle : t.chooseTitle}</h3>
+                      <p>{drawStage === "shuffling" ? t.shufflingHint : drawStage === "revealing" ? t.revealingHint : t.chooseHint}</p>
+                    </div>
+                    <div className={`card-fan ${drawStage}`} role="group" aria-label={t.chooseAria}>
+                      {drawOptions.map((option, index) => {
+                        const selected = selectedDrawIndex === index;
+                        return (
+                          <button
+                            className={`choice-card choice-${index + 1} ${selected ? "selected" : ""}`}
+                            disabled={drawStage !== "selecting"}
+                            key={`${option.card.id}-${index}`}
+                            onClick={() => chooseCard(index)}
+                            style={{
+                              "--card-index": index,
+                              "--card-distance": Math.abs(index - 3),
+                            } as React.CSSProperties}
+                            type="button"
+                            aria-label={`${t.chooseCard} ${index + 1}`}
+                          >
+                            <span className="choice-card-inner">
+                              <span className="choice-card-face choice-card-back"><CardBack /></span>
+                              <span className={`choice-card-face choice-card-front ${selected && option.orientation === "reversed" ? "is-reversed" : ""}`}>
+                                <img src={option.card.imageUrl} alt="" />
+                              </span>
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {drawStage === "selecting" && (
+                      <button className="shuffle-again" onClick={beginShuffle} type="button">{t.shuffleAgain}</button>
+                    )}
                   </div>
-                </div>
-                <div className="panel-copy">
-                  <p className="section-number">01 · {t.stepCard}</p>
-                  <h3>{t.deckReady}</h3>
-                  <p>{t.deckHint}</p>
-                  <button className="primary-button" onClick={drawCard} type="button">
-                    <span>{t.draw}</span>
-                    <Arrow />
-                  </button>
-                </div>
+                )}
               </div>
             )}
 
