@@ -87,7 +87,6 @@ const phaseIndex = (phase: Phase) => {
 
 function App() {
   const [locale, setLocale] = useState<Locale>(getInitialLocale);
-  const [heroProgress, setHeroProgress] = useState(0);
   const [phase, setPhase] = useState<Phase>("draw");
   const [drawStage, setDrawStage] = useState<DrawStage>("ready");
   const [drawOptions, setDrawOptions] = useState<DrawOption[]>([]);
@@ -110,6 +109,7 @@ function App() {
   const readingShellRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const drawTimerRef = useRef<number | null>(null);
+  const pointerFrameRef = useRef(0);
   const speechBaseRef = useRef("");
   const t = copy[locale];
 
@@ -125,7 +125,8 @@ function App() {
       if (!hero) return;
       const rect = hero.getBoundingClientRect();
       const distance = Math.max(1, rect.height - window.innerHeight);
-      setHeroProgress(Math.min(1, Math.max(0, -rect.top / distance)));
+      const progress = Math.min(1, Math.max(0, -rect.top / distance));
+      hero.style.setProperty("--hero-progress", progress.toFixed(4));
     };
     const onScroll = () => {
       cancelAnimationFrame(frame);
@@ -135,6 +136,7 @@ function App() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       cancelAnimationFrame(frame);
+      cancelAnimationFrame(pointerFrameRef.current);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
@@ -152,10 +154,16 @@ function App() {
     const rect = event.currentTarget.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width) * 100;
     const y = ((event.clientY - rect.top) / rect.height) * 100;
-    event.currentTarget.style.setProperty("--pointer-x", `${x}%`);
-    event.currentTarget.style.setProperty("--pointer-y", `${y}%`);
-    event.currentTarget.style.setProperty("--lens-x", `${event.clientX}px`);
-    event.currentTarget.style.setProperty("--lens-y", `${event.clientY}px`);
+    const target = event.currentTarget;
+    const clientX = event.clientX;
+    const clientY = event.clientY;
+    cancelAnimationFrame(pointerFrameRef.current);
+    pointerFrameRef.current = requestAnimationFrame(() => {
+      target.style.setProperty("--pointer-x", `${x}%`);
+      target.style.setProperty("--pointer-y", `${y}%`);
+      target.style.setProperty("--lens-x", `${clientX}px`);
+      target.style.setProperty("--lens-y", `${clientY}px`);
+    });
   };
 
   const selectLocale = (next: Locale) => setLocale(next);
@@ -317,7 +325,6 @@ function App() {
         className="hero"
         ref={heroRef}
         onPointerMove={updatePointer}
-        style={{ "--hero-progress": heroProgress } as React.CSSProperties}
       >
         <div className="hero-stage">
           <div className="star-field" />
@@ -329,7 +336,7 @@ function App() {
 
           <div className="hero-copy">
             <p className="eyebrow">{t.heroEyebrow}</p>
-            <h1 aria-label="Liminal">LIMINAL</h1>
+            <h1 aria-label="Liminal">Liminal</h1>
             <div className="hero-statement">
               <span>{t.heroLineA}</span>
               <span>{t.heroLineB}</span>

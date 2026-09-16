@@ -73,8 +73,18 @@ svg {
   align-items: center;
   justify-content: space-between;
   padding: 24px clamp(22px, 4vw, 60px);
-  color: white;
-  mix-blend-mode: difference;
+  color: rgba(244, 239, 247, .9);
+  text-shadow: 0 1px 7px rgba(5, 4, 10, .72);
+  pointer-events: none;
+}
+
+.site-nav::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: 92px;
+  background: linear-gradient(to bottom, rgba(8,8,13,.5), rgba(8,8,13,.1) 68%, transparent);
   pointer-events: none;
 }
 
@@ -153,6 +163,7 @@ svg {
     radial-gradient(circle at 51% 43%, rgba(64, 58, 92, 0.2), transparent 34%),
     linear-gradient(165deg, #09090f 0%, #06060a 68%, #111019 100%);
   isolation: isolate;
+  contain: paint;
 }
 
 .star-field {
@@ -168,6 +179,7 @@ svg {
     radial-gradient(circle at 59% 86%, rgba(255,141,112,.6) 0 .8px, transparent 1.2px);
   background-size: 220px 220px, 310px 310px, 260px 260px, 350px 350px, 190px 190px;
   animation: drift 24s linear infinite;
+  will-change: transform, opacity;
 }
 
 .hero-orb {
@@ -179,10 +191,10 @@ svg {
   aspect-ratio: 1;
   transform: translate(-50%, -50%) scale(calc(1 + var(--hero-progress) * 2.8));
   opacity: calc(1 - var(--hero-progress) * 0.24);
-  transition: transform 60ms linear;
   border-radius: 43% 57% 54% 46% / 48% 42% 58% 52%;
-  filter: drop-shadow(0 40px 90px rgba(5, 4, 12, 0.65));
+  filter: drop-shadow(0 30px 64px rgba(5, 4, 12, 0.55));
   animation: breathe 9s ease-in-out infinite alternate;
+  will-change: transform, opacity;
 }
 
 .orb-core,
@@ -212,7 +224,7 @@ svg {
   inset: -20%;
   border-radius: 42%;
   mix-blend-mode: screen;
-  filter: blur(22px);
+  filter: blur(14px);
   animation: liquid 14s ease-in-out infinite alternate;
 }
 
@@ -264,6 +276,7 @@ svg {
   padding: 5vh clamp(22px, 4vw, 60px) 0;
   opacity: calc(1 - var(--hero-progress) * 1.45);
   transform: translateY(calc(var(--hero-progress) * -7vh));
+  will-change: transform, opacity;
 }
 
 .eyebrow {
@@ -281,11 +294,17 @@ svg {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(76px, 15.2vw, 236px);
-  font-weight: 760;
-  line-height: .73;
-  letter-spacing: -.075em;
-  transform: translateX(-.025em);
+  color: rgba(226, 218, 239, .84);
+  font-family: "Snell Roundhand", "URW Chancery L", "Segoe Script", "Brush Script MT", cursive;
+  font-size: clamp(94px, 17vw, 264px);
+  font-weight: 500;
+  line-height: .72;
+  letter-spacing: .006em;
+  text-shadow:
+    0 0 12px rgba(214, 195, 255, .2),
+    0 0 38px rgba(174, 153, 226, .13),
+    0 16px 46px rgba(5, 4, 12, .36);
+  transform: translateX(-.01em);
 }
 
 .hero-statement {
@@ -294,11 +313,22 @@ svg {
   align-items: flex-end;
   width: min(92vw, 1380px);
   margin: clamp(56px, 9vh, 104px) auto 0;
-  font-family: var(--serif);
+  color: rgba(225, 218, 236, .78);
+  font-family: "Snell Roundhand", "URW Chancery L", "Segoe Script", "Brush Script MT", cursive;
   font-size: clamp(30px, 4.2vw, 66px);
-  font-style: italic;
-  line-height: 1.02;
-  letter-spacing: -.035em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: .005em;
+  text-shadow:
+    0 0 10px rgba(208, 190, 248, .18),
+    0 8px 26px rgba(5, 4, 12, .38);
+}
+
+html[lang="zh-CN"] .hero-statement {
+  font-family: "HanziPen SC", "Hannotate SC", "Kaiti SC", STKaiti, cursive;
+  font-size: clamp(29px, 3.8vw, 58px);
+  letter-spacing: .055em;
 }
 
 .hero-statement span:first-child {
@@ -370,14 +400,10 @@ svg {
 .threshold-wash {
   position: absolute;
   z-index: -2;
-  left: 50%;
-  top: 50%;
-  width: 8vw;
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%) scale(calc(.1 + var(--hero-progress) * 28));
-  border-radius: 50%;
-  background: var(--paper);
+  inset: 0;
+  background: radial-gradient(circle at center, var(--paper) 0 44%, rgba(238,234,227,.92) 58%, rgba(238,234,227,.12) 78%);
   opacity: calc((var(--hero-progress) - .62) * 3.2);
+  will-change: opacity;
 }
 
 .experience-section {
@@ -426,11 +452,10 @@ svg {
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.75);
   border-radius: clamp(28px, 4vw, 52px);
-  background: rgba(248,246,242,.7);
+  background: rgba(248,246,242,.94);
   box-shadow:
     0 40px 120px rgba(49,42,60,.14),
     inset 0 1px rgba(255,255,255,.9);
-  backdrop-filter: blur(24px);
 }
 
 .reading-progress {
@@ -513,7 +538,7 @@ svg {
   aspect-ratio: 1;
   border-radius: 50%;
   background: rgba(255,255,255,.38);
-  filter: blur(38px);
+  filter: blur(22px);
 }
 
 .deck-card {
@@ -1246,7 +1271,7 @@ svg {
     radial-gradient(circle at 30% 28%, rgba(255,255,255,.36), transparent 15%),
     conic-gradient(from 120deg, rgba(184,167,255,.42), rgba(255,141,112,.35), rgba(169,219,232,.4), rgba(184,167,255,.42));
   opacity: .56;
-  filter: blur(26px) saturate(.8);
+  filter: blur(16px) saturate(.8);
   animation: breathe 11s ease-in-out infinite alternate-reverse;
 }
 
