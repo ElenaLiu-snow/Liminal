@@ -282,6 +282,63 @@ class Pass2PipelineTests(unittest.TestCase):
         with self.assertRaises(ContractError):
             self.pipeline.assemble(request, situated, integration, writing)
 
+    def test_integration_normalizer_repairs_only_grounding_and_declared_links(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["reality_evidence"][0]["quote"] = "submitted an applications"
+        integration["question_structure"]["lived_stakes"] = []
+        integration["question_structure"]["current_explanatory_frame"] = {
+            "summary": "Present worry is being used to explain a possible future withdrawal.",
+            "reality_evidence_ids": ["reality-2"],
+        }
+
+        normalized, repairs = self.pipeline.normalize_integration_output(
+            request, integration
+        )
+
+        self.assertEqual(
+            normalized["reality_evidence"][0]["quote"],
+            request["user_question"],
+        )
+        self.assertEqual(
+            normalized["question_structure"]["lived_stakes"][0][
+                "reality_evidence_ids"
+            ],
+            ["reality-3"],
+        )
+        frame_refs = normalized["question_structure"][
+            "current_explanatory_frame"
+        ]["reality_evidence_ids"]
+        frame_roles = {
+            item["id"]: item["role"] for item in normalized["reality_evidence"]
+        }
+        self.assertTrue(
+            any(frame_roles[reference] == "current_explanatory_frame" for reference in frame_refs)
+        )
+        self.assertIn("restored_nonverbatim_reality_quote", repairs)
+        self.assertIn("preserved_identified_lived_stake", repairs)
+        self.assertIn(
+            "linked_declared_component_role:current_explanatory_frame", repairs
+        )
+        output = self.pipeline.assemble(request, situated, normalized, writing)
+        self.assertEqual(
+            output["user_display"]["complete_reading"],
+            writing["complete_reading"],
+        )
+
+    def test_integration_normalizer_does_not_mask_an_unrelated_quote(self):
+        request, situated, integration, writing = self.make_fixture()
+        integration["reality_evidence"][0]["quote"] = "I won an unrelated lottery"
+        normalized, repairs = self.pipeline.normalize_integration_output(
+            request, integration
+        )
+        self.assertEqual(
+            normalized["reality_evidence"][0]["quote"],
+            "I won an unrelated lottery",
+        )
+        self.assertNotIn("restored_nonverbatim_reality_quote", repairs)
+        with self.assertRaises(ContractError):
+            self.pipeline.assemble(request, situated, normalized, writing)
+
     def test_writing_cannot_replace_the_takeaway_question(self):
         request, situated, integration, writing = self.make_fixture()
         writing["takeaway_question"] = "What unrelated advice should I follow?"
@@ -396,6 +453,25 @@ class Pass2PipelineTests(unittest.TestCase):
         writing["complete_reading"] = bridge
         with self.assertRaises(ContractError):
             self.pipeline.assemble(request, situated, integration, writing)
+
+    def test_origin_bridge_allows_a_natural_sentence_beyond_old_limit(self):
+        request, situated, integration, writing = self.make_fixture()
+        bridge = (
+            "This connected movement was already visible in how you interpreted the card: "
+            + "you organized uncertainty through a sequence that preserved forward movement "
+            * 4
+            + "while still leaving room to examine what happens next."
+        )
+        self.assertGreater(len(bridge), 360)
+        self.assertLessEqual(len(bridge), 640)
+        integration["causal_process_synthesis"]["pass1_origin_bridge"] = bridge
+        writing["complete_reading"] = (
+            f"{bridge} You can evaluate the uncertainty through a bounded next movement."
+        )
+        output = self.pipeline.assemble(request, situated, integration, writing)
+        self.assertEqual(
+            output["causal_process_synthesis"]["pass1_origin_bridge"], bridge
+        )
 
     def test_final_writing_cannot_end_with_takeaway_lead_in(self):
         request, situated, integration, writing = self.make_fixture()

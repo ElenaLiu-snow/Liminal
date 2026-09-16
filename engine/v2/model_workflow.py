@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import hashlib
 from collections.abc import Callable
 from typing import Any, Mapping
 
 from .contracts import ContractError, SCHEMA_VERSION
 from .pass2 import Pass2Pipeline
-from .pipeline import Pass1Pipeline
+from .pipeline import Pass1Pipeline, canonical_json
 from .providers import JsonModelClient, JsonModelResponse
 from .wire_contracts import (
     WIRE_CONTRACT_VERSION,
@@ -39,6 +40,10 @@ class ModelWorkflow:
         prompt: str,
         stage: str,
         validator: Callable[[Mapping[str, Any]], None] | None = None,
+        normalizer: Callable[
+            [Mapping[str, Any]], tuple[dict[str, Any], list[str]]
+        ]
+        | None = None,
     ) -> JsonModelResponse:
         if self.on_stage is not None:
             self.on_stage(stage)
@@ -50,8 +55,13 @@ class ModelWorkflow:
             response = self.client.complete_json(attempt_prompt, stage=stage)
             try:
                 validate_wire_payload(response.payload, stage)
+                candidate = response.payload
+                repair_notes: list[str] = []
+                if normalizer is not None:
+                    candidate, repair_notes = normalizer(candidate)
+                    validate_wire_payload(candidate, stage)
                 if validator is not None:
-                    validator(response.payload)
+                    validator(candidate)
             except ContractError as exc:
                 last_error = exc
                 discarded_receipts.append(response.receipt)
@@ -70,6 +80,11 @@ class ModelWorkflow:
 
             receipt = dict(response.receipt)
             receipt["contract_attempts"] = contract_attempt
+            if repair_notes:
+                receipt["mechanical_repairs"] = repair_notes
+                receipt["normalized_output_sha256"] = hashlib.sha256(
+                    canonical_json(candidate).encode("utf-8")
+                ).hexdigest()
             if discarded_receipts:
                 receipt["discarded_contract_attempts"] = [
                     {
@@ -79,7 +94,7 @@ class ModelWorkflow:
                     }
                     for item in discarded_receipts
                 ]
-            return JsonModelResponse(payload=response.payload, receipt=receipt)
+            return JsonModelResponse(payload=candidate, receipt=receipt)
         raise ContractError(f"{stage} failed runtime contract: {last_error}")
 
     def _validate_pass1_partial(
@@ -262,6 +277,9 @@ class ModelWorkflow:
             "pass2_integration",
             lambda payload: self._validate_pass2_integration(
                 request, situated, payload
+            ),
+            lambda payload: self.pass2_pipeline.normalize_integration_output(
+                request, payload
             ),
         )
         integration = integration_response.payload

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import difflib
 import json
 from pathlib import Path
 from typing import Any, Mapping
@@ -134,6 +135,148 @@ class Pass2Pipeline:
             raise ContractError("situated request must reuse the frozen canonical reading")
         if situated_request["user_question"] != question:
             raise ContractError("situated request question mismatch")
+
+    @staticmethod
+    def normalize_integration_output(
+        request: Mapping[str, Any], integration: Mapping[str, Any]
+    ) -> tuple[dict[str, Any], list[str]]:
+        """Repair only mechanical grounding/linkage defects before validation.
+
+        The model remains responsible for every interpretation. This method may
+        restore a quote to its declared verbatim source and make an already
+        declared question component cite evidence carrying the matching role.
+        It never creates a new interpretation, hypothesis, direction, or action.
+        """
+
+        normalized = json.loads(canonical_json(integration))
+        repairs: list[str] = []
+        evidence = normalized.get("reality_evidence")
+        question_structure = normalized.get("question_structure")
+        if not isinstance(evidence, list) or not isinstance(question_structure, dict):
+            return normalized, repairs
+
+        sources = {
+            "user_question": request.get("user_question"),
+            "question_shift_note": request.get("question_shift_note"),
+        }
+        evidence_by_id: dict[str, dict[str, Any]] = {}
+        used_ids: set[str] = set()
+
+        def is_near_verbatim(quote: str, source_text: str) -> bool:
+            compact_quote = "".join(
+                character.casefold() for character in quote if character.isalnum()
+            )
+            compact_source = "".join(
+                character.casefold()
+                for character in source_text
+                if character.isalnum()
+            )
+            if len(compact_quote) < 4 or not compact_source:
+                return False
+            match = difflib.SequenceMatcher(
+                None, compact_quote, compact_source, autojunk=False
+            ).find_longest_match()
+            return match.size / len(compact_quote) >= 0.7
+
+        for item in evidence:
+            if not isinstance(item, dict):
+                continue
+            evidence_id = item.get("id")
+            if isinstance(evidence_id, str) and evidence_id:
+                evidence_by_id[evidence_id] = item
+                used_ids.add(evidence_id)
+            source_text = sources.get(item.get("source"))
+            quote = item.get("quote")
+            if (
+                isinstance(source_text, str)
+                and source_text.strip()
+                and isinstance(quote, str)
+                and quote not in source_text
+                and is_near_verbatim(quote, source_text)
+            ):
+                item["quote"] = source_text
+                repairs.append("restored_nonverbatim_reality_quote")
+
+        def unique_role_id(base_id: str, role: str) -> str:
+            candidate = f"{base_id}-{role}"
+            suffix = 2
+            while candidate in used_ids:
+                candidate = f"{base_id}-{role}-{suffix}"
+                suffix += 1
+            used_ids.add(candidate)
+            return candidate
+
+        def ensure_component_role(component: Any, role: str) -> None:
+            if not isinstance(component, dict):
+                return
+            refs = component.get("reality_evidence_ids")
+            if not isinstance(refs, list) or not refs:
+                return
+            if any(
+                isinstance(ref, str)
+                and isinstance(evidence_by_id.get(ref), dict)
+                and evidence_by_id[ref].get("role") == role
+                for ref in refs
+            ):
+                return
+            base = next(
+                (
+                    evidence_by_id[ref]
+                    for ref in refs
+                    if isinstance(ref, str) and ref in evidence_by_id
+                ),
+                None,
+            )
+            if base is None:
+                return
+            clone = dict(base)
+            clone_id = unique_role_id(str(base["id"]), role)
+            clone["id"] = clone_id
+            clone["role"] = role
+            evidence.append(clone)
+            evidence_by_id[clone_id] = clone
+            refs.append(clone_id)
+            repairs.append(f"linked_declared_component_role:{role}")
+
+        ensure_component_role(
+            question_structure.get("current_explanatory_frame"),
+            "current_explanatory_frame",
+        )
+        ensure_component_role(
+            question_structure.get("contemplated_decision"),
+            "contemplated_decision",
+        )
+
+        lived_stakes = question_structure.get("lived_stakes")
+        if isinstance(lived_stakes, list):
+            for stake in lived_stakes:
+                ensure_component_role(stake, "lived_stake")
+            cited_stake_ids = {
+                ref
+                for stake in lived_stakes
+                if isinstance(stake, dict)
+                for ref in stake.get("reality_evidence_ids", [])
+                if isinstance(ref, str)
+            }
+            for item in list(evidence):
+                if not isinstance(item, dict) or item.get("role") != "lived_stake":
+                    continue
+                evidence_id = item.get("id")
+                if not isinstance(evidence_id, str) or evidence_id in cited_stake_ids:
+                    continue
+                summary = item.get("interpretation")
+                if not isinstance(summary, str) or not summary.strip():
+                    continue
+                lived_stakes.append(
+                    {
+                        "summary": summary,
+                        "reality_evidence_ids": [evidence_id],
+                    }
+                )
+                cited_stake_ids.add(evidence_id)
+                repairs.append("preserved_identified_lived_stake")
+
+        return normalized, repairs
 
     @staticmethod
     def _render_template(stage: str, variable: str, payload: Mapping[str, Any]) -> str:

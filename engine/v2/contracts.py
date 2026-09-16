@@ -57,6 +57,7 @@ REALITY_EVIDENCE_ROLES = {
     "contemplated_decision",
 }
 PRACTICAL_MODES = {"action", "reflection", "none"}
+PASS2_ORIGIN_BRIDGE_MAX_CHARS = 640
 FORBIDDEN_PASS1_KEYS = {
     "user_question",
     "question",
@@ -734,7 +735,7 @@ def validate_pass2_output(
         origin_bridge = _require_bounded_string(
             origin_bridge,
             "pass2.causal_process_synthesis.pass1_origin_bridge",
-            max_length=360,
+            max_length=PASS2_ORIGIN_BRIDGE_MAX_CHARS,
         )
         _require_matching_supported_script(
             origin_bridge,

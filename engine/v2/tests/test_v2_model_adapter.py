@@ -305,6 +305,8 @@ class ModelWorkflowTests(unittest.TestCase):
             "complete_reading": "This movement from checking the situation to anticipating what comes next was already visible in how you interpreted the card. The frozen process meets the question through bounded movement.",
             "takeaway_question": integration["takeaway"]["question"],
         }
+        integration["reality_evidence"][2]["quote"] = "I worry!"
+        integration["question_structure"]["lived_stakes"] = []
         client = SequenceClient([situated, integration, writing])
         run = ModelWorkflow(client).run_pass2(request)
         self.assertEqual(
@@ -312,6 +314,20 @@ class ModelWorkflowTests(unittest.TestCase):
             ["traditional_situated", "pass2_integration", "pass2_writing"],
         )
         self.assertEqual(run["output"]["pass1_sha256"], frozen["pass1_sha256"])
+        self.assertEqual(
+            run["output"]["reality_evidence"][2]["quote"],
+            request["user_question"],
+        )
+        self.assertEqual(
+            run["output"]["question_structure"]["lived_stakes"][0][
+                "reality_evidence_ids"
+            ],
+            ["reality-3"],
+        )
+        receipt = run["provider_receipts"][1]
+        self.assertIn("restored_nonverbatim_reality_quote", receipt["mechanical_repairs"])
+        self.assertIn("preserved_identified_lived_stake", receipt["mechanical_repairs"])
+        self.assertIn("normalized_output_sha256", receipt)
 
     def test_wire_contracts_cover_every_live_model_stage(self):
         self.assertEqual(

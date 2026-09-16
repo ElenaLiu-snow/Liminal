@@ -1,13 +1,13 @@
 {
-  "lock_version": "5",
+  "lock_version": "6",
   "baseline_commit": "05297309cd51cc5c0929cd75d824a73bd0c58b08",
-  "status": "human_accepted_phase4_baseline",
+  "status": "candidate_pending_human_review",
   "files": {
     "pass1_compensation.txt": "5ec2bcaeef0baa309bb223d0c13e1ce0d354c2047a64c3f3053b7678d3ca9a74",
     "pass1_observations.txt": "b0f1703d21228aad495293bee2697437142d775a0212f8073cd05f4f6db1d9e7",
     "pass1_patterns.txt": "2cad443d51297bf49392c416d72bd0c36a8f4b108acc80745bf502b1d068f5ac",
     "pass1_writing.txt": "c56fa1ed0bc38c2e8cb925caaff93d4983e10fb31ed618c5b88427e43ae679e8",
-    "pass2_integration.txt": "cf0562cec26457e2cb20aa1f3a15b8c14e3f2429ad82d027d1af9fbf7efac93d",
+    "pass2_integration.txt": "f298f2787b348a7da1e8aaeb949b7a5508569d489ee5c7dc5329e3ee4dd85617",
     "pass2_writing.txt": "45140bfda1977679cbe82f63f340696e6f4944f08fc95ee653859da99903635f",
     "traditional_situated.txt": "0f338a622999b89923b13f77ed228eff2b11cba79fe562676162dacb7473e9fd"
   }
